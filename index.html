@@ -19,10 +19,14 @@ body{margin:0;font-family:sans-serif;background:#f5f5f5}
 input{width:100%;padding:15px;margin:10px 0;border-radius:12px;border:1px solid #ddd;box-sizing:border-box}
 .btn-main{width:100%;background:#16a34a;color:white;padding:16px;border:none;border-radius:14px;font-size:18px;font-weight:bold}
 .back{color:#16a34a;cursor:pointer;margin-bottom:15px;display:block}
+.sponsor-box{background:#f0fdf4;border:1px dashed #16a34a;padding:12px;border-radius:12px;margin:10px 0}
+.check-label{display:flex;align-items:center;gap:8px;font-size:14px;color:#166534;font-weight:bold;cursor:pointer}
+.note{font-size:12px;color:#666;margin-top:8px;line-height:1.4}
 </style>
 </head>
 <body>
 <div class="header"><span>🛵 Ride Go BD</span><span>🌐 বাংলা | English</span></div>
+
 <div id="page-welcome">
 <div class="hero"><h1>আপনার যাত্রা,<br>আমাদের দায়িত্ব</h1><p>নিরাপদ ও নির্ভরযোগ্য রাইড শেয়ারিং</p></div>
 <div class="card">
@@ -31,14 +35,53 @@ input{width:100%;padding:15px;margin:10px 0;border-radius:12px;border:1px solid 
 <div class="btn btn-white" onclick="showPage('login')"><div class="icon">→</div><div><b>অ্যাকাউন্ট আছে? <span style="color:#16a34a">লগইন করুন</span></b><br><small>ফোন নম্বর দিয়ে ওটিপি লগইন</small></div></div>
 </div>
 </div>
-<div id="page-register" class="hidden"><div class="card" style="margin-top:20px"><span class="back" onclick="showPage('welcome')">← ফিরে যান</span><h2>নতুন অ্যাকাউন্ট</h2><input placeholder="আপনার নাম"><input placeholder="ফোন নম্বর"><input placeholder="পাসওয়ার্ড" type="password"><button class="btn-main" onclick="alert('নিবন্ধন সফল!');showPage('login')">নিবন্ধন করুন</button></div></div>
+
+<div id="page-register" class="hidden">
+<div class="card" style="margin-top:20px">
+<span class="back" onclick="showPage('welcome')">← ফিরে যান</span>
+<h2>নতুন অ্যাকাউন্ট</h2>
+<input id="nameInput" placeholder="আপনার নাম">
+<input id="phoneInput" placeholder="ফোন নম্বর +880 1XXXXXXXXX" oninput="if(selfCheck.checked){sponsorInput.value=this.value}">
+
+<div class="sponsor-box">
+<input id="sponsorInput" placeholder="স্পন্সর নম্বর +880 1XXXXXXXXX" style="margin-top:0">
+<label class="check-label"><input type="checkbox" id="selfCheck" onchange="toggleSelfSponsor()" style="width:auto;margin:0"> আমি নিজেই আমার স্পন্সর - নিজের নম্বর বসান</label>
+<p class="note">💡 প্লে স্টোর থেকে নিজে ডাউনলোড করলে স্পন্সর ঘরে নিজের নম্বর দিয়ে নিজেই বোনাস নিন। অন্য কেউ রেজিস্ট্রেশন করিয়ে দিলে তার নম্বর বসবে, বোনাস সে পাবে।</p>
+</div>
+
+<input placeholder="পাসওয়ার্ড" type="password">
+<button class="btn-main" onclick="doRegister()">নিবন্ধন করুন</button>
+</div>
+</div>
+
 <div id="page-login" class="hidden"><div class="card" style="margin-top:20px"><span class="back" onclick="showPage('welcome')">← ফিরে যান</span><h2>লগইন করুন</h2><input placeholder="ফোন নম্বর"><button class="btn-main" onclick="alert('ওটিপি: 1234')">ওটিপি পাঠান</button><br><br><input placeholder="ওটিপি লিখুন"><button class="btn-main" style="background:#166534" onclick="alert('লগইন সফল!')">লগইন করুন</button></div></div>
+
 <script>
 function showPage(p){
 document.getElementById('page-welcome').classList.add('hidden');
 document.getElementById('page-register').classList.add('hidden');
 document.getElementById('page-login').classList.add('hidden');
 document.getElementById('page-'+p).classList.remove('hidden');
+}
+function toggleSelfSponsor(){
+  const phone = document.getElementById('phoneInput');
+  const sponsor = document.getElementById('sponsorInput');
+  const check = document.getElementById('selfCheck');
+  if(check.checked){
+    sponsor.value = phone.value;
+    sponsor.readOnly = true;
+    sponsor.style.background = '#f0fdf4';
+  } else {
+    sponsor.value = '';
+    sponsor.readOnly = false;
+    sponsor.style.background = 'white';
+  }
+}
+function doRegister(){
+  const sponsor = document.getElementById('sponsorInput').value;
+  if(!sponsor){ alert('স্পন্সর নম্বর দিন অথবা আমি নিজেই আমার স্পন্সর এ টিক দিন'); return; }
+  alert('নিবন্ধন সফল! স্পন্সর: '+sponsor+' বোনাস যোগ হবে।');
+  showPage('login');
 }
 </script>
 </body>
