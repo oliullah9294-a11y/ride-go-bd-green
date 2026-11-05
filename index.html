@@ -5,23 +5,23 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Ride Go BD</title>
 <style>
-  *{margin:0;padding:0;box-sizing:border-box}
-  body{background:#f5f5f5;font-family:sans-serif}
-  .header{background:#16a34a;color:white;padding:70px 20px 80px;position:relative;text-align:center;border-radius:0 0 20px 20px}
-  .logo{position:absolute;top:15px;left:15px;font-weight:bold}
-  .lang-box{position:absolute;top:12px;right:12px}
-  .lang-box select{padding:7px 12px;border-radius:20px;border:none;background:white;color:#16a34a;font-weight:bold}
-  .title{font-size:28px;font-weight:900;line-height:1.3}
-  .card{margin:-50px 15px 0;background:white;border-radius:20px;padding:15px;box-shadow:0 10px 25px rgba(0,0,0,0.1)}
-  .btn{width:100%;padding:16px;border-radius:15px;border:none;font-weight:bold;margin-bottom:12px;cursor:pointer}
-  .btn-green{background:#14532d;color:white}
-  .btn-white{background:white;color:black;border:1px solid #ddd}
+*{margin:0;padding:0;box-sizing:border-box;font-family:sans-serif}
+body{background:#f0f2f5}
+.header{background:#16a34a;color:white;padding:55px 20px 65px 20px;position:relative;text-align:center;border-radius:0 0 25px 25px}
+.logo{position:absolute;top:14px;left:14px;font-weight:bold;font-size:16px}
+.lang{position:absolute;top:12px;right:12px}
+.lang select{padding:6px 14px;border-radius:20px;border:none;background:white;color:#16a34a;font-weight:bold;font-size:14px}
+.title{font-size:27px;font-weight:900;line-height:1.3}
+.card{margin:-35px 16px 0 16px;background:white;border-radius:20px;padding:16px;box-shadow:0 8px 20px rgba(0,0,0,0.12)}
+.btn{width:100%;padding:15px;border-radius:14px;border:none;font-weight:bold;font-size:15px;margin-bottom:12px;cursor:pointer}
+.btn-green{background:#14532d;color:white}
+.btn-white{background:#fff;color:#111;border:1px solid #ddd}
 </style>
 </head>
 <body>
 <div class="header">
   <div class="logo">🛵 Ride Go BD</div>
-  <div class="lang-box">
+  <div class="lang">
     <select id="langSelect" onchange="changeLang(this.value)">
       <option value="bn">🇧🇩 বাংলা</option>
       <option value="en">🇬🇧 English</option>
@@ -33,33 +33,34 @@
       <option value="ms">🇲🇾 Melayu</option>
     </select>
   </div>
-  <div class="title" id="mainTitle">আপনার যাত্রা,<br>আমাদের দায়িত্ব</div>
+  <div class="title" id="t1">আপনার যাত্রা,<br>আমাদের দায়িত্ব</div>
 </div>
+
 <div class="card">
-  <button class="btn btn-green" id="btnReg">👤 + নতুন? নিবন্ধন করুন</button>
-  <button class="btn btn-white" id="btnLogin">→ অ্যাকাউন্ট আছে? লগইন করুন</button>
+  <button class="btn btn-green" id="b1">+ নতুন? নিবন্ধন করুন</button>
+  <button class="btn btn-white" id="b2">→ অ্যাকাউন্ট আছে? লগইন করুন</button>
 </div>
 
 <script>
-const dict = {
-  bn: {title:"আপনার যাত্রা,<br>আমাদের দায়িত্ব", reg:"👤 + নতুন? নিবন্ধন করুন", login:"→ অ্যাকাউন্ট আছে? লগইন করুন"},
-  en: {title:"Your Journey,<br>Our Responsibility", reg:"👤 + New? Register", login:"→ Have account? Login"},
-  ar: {title:"رحلتك،<br>مسؤوليتنا", reg:"👤 + جديد؟ سجل", login:"→ لديك حساب؟ دخول"},
-  hi: {title:"आपकी यात्रा,<br>हमारी जिम्मेदारी", reg:"👤 + नया? रजिस्टर", login:"→ खाता है? लॉगिन"},
-  ur: {title:"آپ کا سفر،<br>ہماری ذمہ داری", reg:"👤 + نیا؟ رجسٹر", login:"→ اکاؤنٹ ہے؟ لاگ ان"},
-  es: {title:"Tu Viaje,<br>Nuestra Responsabilidad", reg:"👤 + Nuevo? Registrarse", login:"→ ¿Tienes cuenta? Entrar"},
-  fr: {title:"Votre Voyage,<br>Notre Responsabilité", reg:"👤 + Nouveau? S'inscrire", login:"→ Vous avez un compte? Connexion"},
-  ms: {title:"Perjalanan Anda,<br>Tanggungjawab Kami", reg:"👤 + Baru? Daftar", login:"→ Ada akaun? Log Masuk"}
+const L={
+bn:{t1:"আপনার যাত্রা,<br>আমাদের দায়িত্ব",b1:"+ নতুন? নিবন্ধন করুন",b2:"→ অ্যাকাউন্ট আছে? লগইন করুন"},
+en:{t1:"Your Journey,<br>Our Responsibility",b1:"+ New? Register",b2:"→ Have account? Login"},
+ar:{t1:"رحلتك،<br>مسؤوليتنا",b1:"+ جديد؟ سجل",b2:"→ لديك حساب؟ دخول"},
+hi:{t1:"आपकी यात्रा,<br>हमारी जिम्मेदारी",b1:"+ नया? रजिस्टर",b2:"→ खाता है? लॉगिन"},
+ur:{t1:"آپ کا سفر،<br>ہماری ذمہ داری",b1:"+ نیا؟ رجسٹر",b2:"→ اکاؤنٹ ہے؟ لاگ ان"},
+es:{t1:"Tu Viaje,<br>Nuestra Responsabilidad",b1:"+ Nuevo? Registrarse",b2:"→ ¿Tienes cuenta? Entrar"},
+fr:{t1:"Votre Voyage,<br>Notre Responsabilité",b1:"+ Nouveau? S'inscrire",b2:"→ Vous avez un compte? Connexion"},
+ms:{t1:"Perjalanan Anda,<br>Tanggungjawab Kami",b1:"+ Baru? Daftar",b2:"→ Ada akaun? Log Masuk"}
 };
-function changeLang(l){localStorage.setItem('rideLang',l);applyLang(l)}
-function applyLang(l){
-  let t=dict[l]||dict.bn;
-  document.getElementById('mainTitle').innerHTML=t.title;
-  document.getElementById('btnReg').innerText=t.reg;
-  document.getElementById('btnLogin').innerText=t.login;
-  document.getElementById('langSelect').value=l;
+function changeLang(v){localStorage.setItem('lg',v);apply(v)}
+function apply(v){
+let d=L[v]||L.bn;
+document.getElementById('t1').innerHTML=d.t1;
+document.getElementById('b1').innerText=d.b1;
+document.getElementById('b2').innerText=d.b2;
+document.getElementById('langSelect').value=v;
 }
-applyLang(localStorage.getItem('rideLang')||'bn');
+apply(localStorage.getItem('lg')||'bn');
 </script>
 </body>
 </html>
