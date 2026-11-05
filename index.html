@@ -27,85 +27,80 @@ input{width:100%;padding:15px;margin:10px 0;border-radius:12px;border:1px solid 
 .balance-item b{font-size:22px}
 .menu-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:15px}
 .menu-item{background:#f9fafb;border-radius:16px;padding:18px;text-align:center;border:1px solid #eee;cursor:pointer}
-.menu-item div{font-size:28px}
 .bottom-nav{position:fixed;bottom:0;left:0;right:0;background:white;display:flex;justify-content:space-around;padding:12px 0;border-top:1px solid #eee}
-.bottom-nav div{text-align:center;font-size:12px;cursor:pointer;color:#888}
+.bottom-nav div{text-align:center;font-size:12px;color:#888}
 .bottom-nav div.active{color:#16a34a;font-weight:bold}
-.ride-box{display:flex;gap:10px;margin-top:15px}
-.ride-box input{flex:1}
 </style>
 </head>
 <body>
-<div class="header"><span>🛵 Ride Go BD</span><span onclick="showPage('welcome')" style="cursor:pointer">🌐 বাংলা | English</span></div>
+<div class="header"><span>🛵 Ride Go BD</span><span onclick="showPage('welcome')" style="cursor:pointer">লগআউট</span></div>
 
-<!-- WELCOME -->
 <div id="page-welcome">
-<div class="hero"><h1>আপনার যাত্রা,<br>আমাদের দায়িত্ব</h1><p>নিরাপদ ও নির্ভরযোগ্য রাইড শেয়ারিং</p></div>
+<div class="hero"><h1>আপনার যাত্রা,<br>আমাদের দায়িত্ব</h1></div>
 <div class="card">
 <h2 style="text-align:center">Ride Go BD তে স্বাগতম</h2>
-<div class="btn btn-green" onclick="showPage('register')"><div class="icon">👤+</div><div><b>নতুন? নিবন্ধন করুন</b><br><small>নতুন অ্যাকাউন্ট তৈরি করুন</small></div></div>
-<div class="btn btn-white" onclick="showPage('login-step1')"><div class="icon">→</div><div><b>অ্যাকাউন্ট আছে? <span style="color:#16a34a">লগইন করুন</span></b><br><small>ফোন নম্বর দিয়ে ওটিপি লগইন</small></div></div>
+<div class="btn btn-green" onclick="showPage('register')"><div class="icon">👤+</div><div><b>নতুন? নিবন্ধন করুন</b></div></div>
+<div class="btn btn-white" onclick="showPage('login-step1')"><div class="icon">→</div><div><b>অ্যাকাউন্ট আছে? <span style="color:#16a34a">লগইন করুন</span></b></div></div>
 </div>
 </div>
 
-<!-- REGISTER -->
 <div id="page-register" class="hidden">
 <div class="card2" style="margin-top:20px">
 <span class="back" onclick="showPage('welcome')">← ফিরে যান</span>
 <h2>নতুন অ্যাকাউন্ট</h2>
-<input placeholder="আপনার নাম">
-<input placeholder="আপনার ফোন নম্বর +880 1XXXXXXXXX">
-<input placeholder="স্পন্সর নম্বর +880 1XXXXXXXXX">
-<div class="note">💡 প্লে-স্টোর থেকে নিজে ইনস্টল করলে স্পন্সর ঘরে নিজের নম্বর দিন, বোনাস আপনি পাবেন। অন্য কেউ করিয়ে দিলে তার নম্বর দিন। যে নম্বর থাকবে, সেই স্পন্সর।</div>
-<input placeholder="পাসওয়ার্ড" type="password">
-<button class="btn-main" onclick="showPage('login-step1')">নিবন্ধন করুন</button>
+<input id="regName" placeholder="আপনার নাম">
+<input id="regPhone" placeholder="আপনার ফোন নম্বর +880 1XXXXXXXXX">
+<input id="regSponsor" placeholder="স্পন্সর নম্বর +880 1XXXXXXXXX">
+<div class="note">💡 যে নম্বর থাকবে সেই স্পন্সর। নিজে করলে নিজের নম্বর দিন।</div>
+<button class="btn-main" onclick="sendRegOtp()">ওটিপি পাঠান</button>
 </div>
 </div>
 
-<!-- LOGIN STEP 1 -->
+<div id="page-register-otp" class="hidden">
+<div class="card2" style="margin-top:20px">
+<span class="back" onclick="showPage('register')">← ফিরে যান</span>
+<h2>রেজিস্ট্রেশন ওটিপি</h2>
+<p class="otp-info" id="regOtpText">ওটিপি পাঠানো হয়েছে</p>
+<input placeholder="৬ সংখ্যার ওটিপি লিখুন (ডেমো: 1234)">
+<button class="btn-main" style="background:#166534" onclick="showPage('home')">যাচাই করে হোমে যান</button>
+</div>
+</div>
+
 <div id="page-login-step1" class="hidden">
 <div class="card2" style="margin-top:20px">
 <span class="back" onclick="showPage('welcome')">← ফিরে যান</span>
 <h2>লগইন করুন</h2>
-<p class="otp-info">আপনার ফোন নম্বর লিখুন</p>
 <input id="loginPhone" placeholder="ফোন নম্বর +880 1XXXXXXXXX">
-<button class="btn-main" onclick="sendOtp()">ওটিপি পাঠান</button>
+<button class="btn-main" onclick="sendLoginOtp()">ওটিপি পাঠান</button>
 </div>
 </div>
 
-<!-- LOGIN STEP 2 -->
 <div id="page-login-step2" class="hidden">
 <div class="card2" style="margin-top:20px">
 <span class="back" onclick="showPage('login-step1')">← ফিরে যান</span>
-<h2>ওটিপি যাচাই করুন</h2>
-<p class="otp-info" id="otpText">আপনার নম্বরে ওটিপি পাঠানো হয়েছে</p>
-<input id="otpInput" placeholder="৬ সংখ্যার ওটিপি লিখুন">
-<button class="btn-main" style="background:#166534" onclick="showPage('home')">লগইন করুন</button>
-<p class="otp-info" style="margin-top:15px">ডেমো ওটিপি: 1234</p>
+<h2>লগইন ওটিপি</h2>
+<p class="otp-info" id="loginOtpText">ওটিপি পাঠানো হয়েছে</p>
+<input placeholder="ওটিপি লিখুন (ডেমো: 1234)">
+<button class="btn-main" style="background:#166534" onclick="showPage('home')">লগইন করে হোমে যান</button>
 </div>
 </div>
 
-<!-- HOME / DASHBOARD -->
 <div id="page-home" class="hidden">
 <div class="card2">
-<h3 style="margin:0">👋 স্বাগতম, রাইডার!</h3>
-<p style="color:#666;font-size:14px;margin:5px 0 15px 0">আজকের ইনকাম দেখুন</p>
+<h3 style="margin:0">👋 স্বাগতম!</h3>
+<p style="color:#666;font-size:14px">আপনি সফলভাবে লগইন করেছেন</p>
 <div class="balance-box">
 <div class="balance-item"><small>মূল ব্যালেন্স</small><b>৳ 1,250</b></div>
 <div class="balance-item"><small>স্পন্সর বোনাস</small><b>৳ 350</b></div>
 </div>
-
 <div style="margin-top:20px">
-<h4>📍 কোথায় যাবেন?</h4>
-<div class="ride-box"><input placeholder="পিকআপ স্থান"><input placeholder="গন্তব্য"></div>
-<button class="btn-main" style="margin-top:10px" onclick="alert('রাইড খোঁজা হচ্ছে... 🛵')">রাইড খুঁজুন</button>
+<button class="btn-main" onclick="alert('রাইড খোঁজা হচ্ছে...')">🛵 রাইড খুঁজুন</button>
 </div>
-
 <div class="menu-grid">
-<div class="menu-item" onclick="alert('রাইড হিস্ট্রি')"><div>📜</div><b>হিস্ট্রি</b></div>
-<div class="menu-item" onclick="alert('আপনার স্পন্সর লিংক কপি হয়েছে')"><div>👥</div><b>স্পন্সর করুন</b></div>
+<div class="menu-item"><div>📜</div><b>হিস্ট্রি</b></div>
+<div class="menu-item"><div>👥</div><b>স্পন্সর</b></div>
 <div class="menu-item"><div>💰</div><b>টাকা তুলুন</b></div>
-<div class="menu-item" onclick="showPage('welcome')"><div>👤</div><b>প্রোফাইল</b></div>
+<div class="menu-item" onclick="showPage('welcome')"><div>👤</div><b>লগআউট</b></div>
 </div>
 <div style="height:80px"></div>
 </div>
@@ -116,17 +111,23 @@ input{width:100%;padding:15px;margin:10px 0;border-radius:12px;border:1px solid 
 
 <script>
 function showPage(p){
-['welcome','register','login-step1','login-step2','home'].forEach(id=>{
+['welcome','register','register-otp','login-step1','login-step2','home'].forEach(id=>{
   const el=document.getElementById('page-'+id);
   if(el) el.classList.add('hidden');
 });
 document.getElementById('page-'+p).classList.remove('hidden');
 window.scrollTo(0,0);
 }
-function sendOtp(){
+function sendRegOtp(){
+  const phone=document.getElementById('regPhone').value;
+  if(!phone){ alert('ফোন নম্বর দিন'); return; }
+  document.getElementById('regOtpText').innerText=phone+' নম্বরে ওটিপি পাঠানো হয়েছে (1234)';
+  showPage('register-otp');
+}
+function sendLoginOtp(){
   const phone=document.getElementById('loginPhone').value;
   if(!phone){ alert('ফোন নম্বর দিন'); return; }
-  document.getElementById('otpText').innerText=phone+' নম্বরে ওটিপি পাঠানো হয়েছে (ডেমো: 1234)';
+  document.getElementById('loginOtpText').innerText=phone+' নম্বরে ওটিপি পাঠানো হয়েছে (1234)';
   showPage('login-step2');
 }
 </script>
