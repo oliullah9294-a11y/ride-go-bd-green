@@ -1,135 +1,18 @@
-<!DOCTYPE html>
-<html lang="bn">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ride Go BD</title>
-<style>
-body{margin:0;font-family:sans-serif;background:#f5f5f5}
-.header{background:#16a34a;color:white;padding:15px 20px;display:flex;justify-content:space-between;position:sticky;top:0;z-index:10}
-.hero{background:#16a34a;color:white;text-align:center;padding:20px 20px 100px 20px}
-.hero h1{font-size:32px;margin:0}
-.card{background:white;margin:-80px 15px 20px 15px;border-radius:25px;padding:25px;box-shadow:0 10px 30px rgba(0,0,0,0.1)}
-.card2{background:white;margin:15px;border-radius:20px;padding:20px;box-shadow:0 4px 15px rgba(0,0,0,0.05)}
-.btn{display:flex;align-items:center;gap:15px;padding:18px;border-radius:18px;cursor:pointer;margin-bottom:15px;border:2px solid #e5e7eb}
-.btn-green{background:#166534;color:white;border-color:#166534}
-.btn-white{background:#f9fafb}
-.icon{width:55px;height:55px;background:white;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:24px}
-.btn-white .icon{background:#dcfce7}
-.hidden{display:none}
-input{width:100%;padding:15px;margin:10px 0;border-radius:12px;border:1px solid #ddd;box-sizing:border-box}
-.btn-main{width:100%;background:#16a34a;color:white;padding:16px;border:none;border-radius:14px;font-size:18px;font-weight:bold;cursor:pointer}
-.back{color:#16a34a;cursor:pointer;margin-bottom:15px;display:block}
-.note{font-size:12px;color:#555;background:#f0fdf4;padding:10px;border-radius:10px;line-height:1.5}
-.otp-info{font-size:14px;text-align:center;color:#666;margin:10px 0}
-.balance-box{background:linear-gradient(135deg,#16a34a,#166534);color:white;border-radius:20px;padding:20px;display:flex;justify-content:space-between}
-.balance-item small{opacity:0.8;display:block}
-.balance-item b{font-size:22px}
-.menu-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:15px}
-.menu-item{background:#f9fafb;border-radius:16px;padding:18px;text-align:center;border:1px solid #eee;cursor:pointer}
-.bottom-nav{position:fixed;bottom:0;left:0;right:0;background:white;display:flex;justify-content:space-around;padding:12px 0;border-top:1px solid #eee}
-.bottom-nav div{text-align:center;font-size:12px;color:#888}
-.bottom-nav div.active{color:#16a34a;font-weight:bold}
-</style>
-</head>
-<body>
-<div class="header"><span>🛵 Ride Go BD</span><span onclick="showPage('welcome')" style="cursor:pointer">লগআউট</span></div>
-
-<div id="page-welcome">
-<div class="hero"><h1>আপনার যাত্রা,<br>আমাদের দায়িত্ব</h1></div>
-<div class="card">
-<h2 style="text-align:center">Ride Go BD তে স্বাগতম</h2>
-<div class="btn btn-green" onclick="showPage('register')"><div class="icon">👤+</div><div><b>নতুন? নিবন্ধন করুন</b></div></div>
-<div class="btn btn-white" onclick="showPage('login-step1')"><div class="icon">→</div><div><b>অ্যাকাউন্ট আছে? <span style="color:#16a34a">লগইন করুন</span></b></div></div>
-</div>
-</div>
-
-<div id="page-register" class="hidden">
-<div class="card2" style="margin-top:20px">
-<span class="back" onclick="showPage('welcome')">← ফিরে যান</span>
-<h2>নতুন অ্যাকাউন্ট</h2>
-<input id="regName" placeholder="আপনার নাম">
-<input id="regPhone" placeholder="আপনার ফোন নম্বর +880 1XXXXXXXXX">
-<input id="regSponsor" placeholder="স্পন্সর নম্বর +880 1XXXXXXXXX">
-<div class="note">💡 যে নম্বর থাকবে সেই স্পন্সর। নিজে করলে নিজের নম্বর দিন।</div>
-<button class="btn-main" onclick="sendRegOtp()">ওটিপি পাঠান</button>
-</div>
-</div>
-
-<div id="page-register-otp" class="hidden">
-<div class="card2" style="margin-top:20px">
-<span class="back" onclick="showPage('register')">← ফিরে যান</span>
-<h2>রেজিস্ট্রেশন ওটিপি</h2>
-<p class="otp-info" id="regOtpText">ওটিপি পাঠানো হয়েছে</p>
-<input placeholder="৬ সংখ্যার ওটিপি লিখুন (ডেমো: 1234)">
-<button class="btn-main" style="background:#166534" onclick="showPage('home')">যাচাই করে হোমে যান</button>
-</div>
-</div>
-
-<div id="page-login-step1" class="hidden">
-<div class="card2" style="margin-top:20px">
-<span class="back" onclick="showPage('welcome')">← ফিরে যান</span>
-<h2>লগইন করুন</h2>
-<input id="loginPhone" placeholder="ফোন নম্বর +880 1XXXXXXXXX">
-<button class="btn-main" onclick="sendLoginOtp()">ওটিপি পাঠান</button>
-</div>
-</div>
-
-<div id="page-login-step2" class="hidden">
-<div class="card2" style="margin-top:20px">
-<span class="back" onclick="showPage('login-step1')">← ফিরে যান</span>
-<h2>লগইন ওটিপি</h2>
-<p class="otp-info" id="loginOtpText">ওটিপি পাঠানো হয়েছে</p>
-<input placeholder="ওটিপি লিখুন (ডেমো: 1234)">
-<button class="btn-main" style="background:#166534" onclick="showPage('home')">লগইন করে হোমে যান</button>
-</div>
-</div>
-
-<div id="page-home" class="hidden">
-<div class="card2">
-<h3 style="margin:0">👋 স্বাগতম!</h3>
-<p style="color:#666;font-size:14px">আপনি সফলভাবে লগইন করেছেন</p>
-<div class="balance-box">
-<div class="balance-item"><small>মূল ব্যালেন্স</small><b>৳ 1,250</b></div>
-<div class="balance-item"><small>স্পন্সর বোনাস</small><b>৳ 350</b></div>
-</div>
-<div style="margin-top:20px">
-<button class="btn-main" onclick="alert('রাইড খোঁজা হচ্ছে...')">🛵 রাইড খুঁজুন</button>
-</div>
-<div class="menu-grid">
-<div class="menu-item"><div>📜</div><b>হিস্ট্রি</b></div>
-<div class="menu-item"><div>👥</div><b>স্পন্সর</b></div>
-<div class="menu-item"><div>💰</div><b>টাকা তুলুন</b></div>
-<div class="menu-item" onclick="showPage('welcome')"><div>👤</div><b>লগআউট</b></div>
-</div>
-<div style="height:80px"></div>
-</div>
-<div class="bottom-nav">
-<div class="active">🏠<br>হোম</div><div>🛵<br>রাইড</div><div>💵<br>ইনকাম</div><div>👤<br>প্রোফাইল</div>
-</div>
-</div>
-
 <script>
 function showPage(p){
-['welcome','register','register-otp','login-step1','login-step2','home'].forEach(id=>{
-  const el=document.getElementById('page-'+id);
-  if(el) el.classList.add('hidden');
-});
-document.getElementById('page-'+p).classList.remove('hidden');
-window.scrollTo(0,0);
+  document.querySelectorAll('[id^="page-"]').forEach(el=>el.classList.add('hidden'));
+  document.getElementById('page-'+p).classList.remove('hidden');
 }
 function sendRegOtp(){
-  const phone=document.getElementById('regPhone').value;
-  if(!phone){ alert('ফোন নম্বর দিন'); return; }
-  document.getElementById('regOtpText').innerText=phone+' নম্বরে ওটিপি পাঠানো হয়েছে (1234)';
+  let phone = document.getElementById('regPhone').value;
+  if(phone.length < 5){ alert('ফোন নম্বর লিখুন'); return; }
+  document.getElementById('regOtpText').innerText = phone + ' নম্বরে OTP: 1234';
   showPage('register-otp');
 }
 function sendLoginOtp(){
-  const phone=document.getElementById('loginPhone').value;
-  if(!phone){ alert('ফোন নম্বর দিন'); return; }
-  document.getElementById('loginOtpText').innerText=phone+' নম্বরে ওটিপি পাঠানো হয়েছে (1234)';
+  let phone = document.getElementById('loginPhone').value;
+  if(phone.length < 5){ alert('ফোন নম্বর লিখুন'); return; }
+  document.getElementById('loginOtpText').innerText = phone + ' নম্বরে OTP: 1234';
   showPage('login-step2');
 }
 </script>
-</body>
-</html>
