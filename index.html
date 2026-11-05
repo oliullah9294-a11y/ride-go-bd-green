@@ -1,18 +1,30 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ride Go BD</title>
+<style>body{margin:0;font-family:sans-serif;background:#f5f5f5}.header{background:#16a34a;color:white;padding:15px 20px;display:flex;justify-content:space-between;position:sticky;top:0}.card2{background:white;margin:15px;border-radius:20px;padding:20px}.hidden{display:none}input{width:100%;padding:15px;margin:10px 0;border-radius:12px;border:1px solid #ddd;box-sizing:border-box} .btn-main{width:100%;background:#16a34a;color:white;padding:16px;border:none;border-radius:14px;font-size:18px;font-weight:bold} .back{color:#16a34a;cursor:pointer;margin-bottom:15px;display:block}.otp-info{text-align:center;color:#666}.balance-box{background:linear-gradient(135deg,#16a34a,#166534);color:white;border-radius:20px;padding:20px;display:flex;justify-content:space-between}</style>
+</head>
+<body>
+<div class="header"><span>🛵 Ride Go BD</span><span onclick="showPage('welcome')">লগআউট</span></div>
+
+<div id="page-welcome"><div style="background:#16a34a;color:white;text-align:center;padding:30px 20px 100px 20px"><h1>আপনার যাত্রা,<br>আমাদের দায়িত্ব</h1></div><div style="background:white;margin:-80px 15px 20px 15px;border-radius:25px;padding:25px"><div style="padding:18px;border-radius:18px;background:#166534;color:white;margin-bottom:15px;cursor:pointer" onclick="showPage('register')">👤+ নতুন? নিবন্ধন করুন</div><div style="padding:18px;border-radius:18px;background:#f9fafb;border:2px solid #e5e7eb;cursor:pointer" onclick="showPage('login-step1')">→ অ্যাকাউন্ট আছে? লগইন করুন</div></div></div>
+
+<div id="page-register" class="hidden"><div class="card2"><span class="back" onclick="showPage('welcome')">← ফিরে যান</span><h2>নতুন অ্যাকাউন্ট</h2><input id="regName" placeholder="আপনার নাম"><input id="regPhone" placeholder="আপনার ফোন নম্বর"><input id="regSponsor" placeholder="স্পন্সর নম্বর"><button class="btn-main" onclick="sendRegOtp()">ওটিপি পাঠান</button></div></div>
+
+<div id="page-register-otp" class="hidden"><div class="card2"><span class="back" onclick="showPage('register')">← ফিরে যান</span><h2>রেজিস্ট্রেশন ওটিপি</h2><p class="otp-info" id="regOtpText"></p><input placeholder="1234 লিখুন"><button class="btn-main" style="background:#166534" onclick="showPage('home')">যাচাই করে হোমে যান</button></div></div>
+
+<div id="page-login-step1" class="hidden"><div class="card2"><span class="back" onclick="showPage('welcome')">← ফিরে যান</span><h2>লগইন করুন</h2><input id="loginPhone" placeholder="ফোন নম্বর"><button class="btn-main" onclick="sendLoginOtp()">ওটিপি পাঠান</button></div></div>
+
+<div id="page-login-step2" class="hidden"><div class="card2"><span class="back" onclick="showPage('login-step1')">← ফিরে যান</span><h2>লগইন ওটিপি</h2><p class="otp-info" id="loginOtpText"></p><input placeholder="1234 লিখুন"><button class="btn-main" style="background:#166534" onclick="showPage('home')">লগইন করে হোমে যান</button></div></div>
+
+<div id="page-home" class="hidden"><div class="card2"><h3>👋 স্বাগতম! লগইন সফল</h3><div class="balance-box"><div><small>মূল ব্যালেন্স</small><br><b>৳ 1,250</b></div><div><small>স্পন্সর বোনাস</small><br><b>৳ 350</b></div></div><button class="btn-main" style="margin-top:20px" onclick="alert('রাইড খোঁজা হচ্ছে')">🛵 রাইড খুঁজুন</button></div></div>
+
 <script>
-function showPage(p){
-  document.querySelectorAll('[id^="page-"]').forEach(el=>el.classList.add('hidden'));
-  document.getElementById('page-'+p).classList.remove('hidden');
-}
-function sendRegOtp(){
-  let phone = document.getElementById('regPhone').value;
-  if(phone.length < 5){ alert('ফোন নম্বর লিখুন'); return; }
-  document.getElementById('regOtpText').innerText = phone + ' নম্বরে OTP: 1234';
-  showPage('register-otp');
-}
-function sendLoginOtp(){
-  let phone = document.getElementById('loginPhone').value;
-  if(phone.length < 5){ alert('ফোন নম্বর লিখুন'); return; }
-  document.getElementById('loginOtpText').innerText = phone + ' নম্বরে OTP: 1234';
-  showPage('login-step2');
-}
+function showPage(p){document.querySelectorAll('[id^="page-"]').forEach(e=>e.classList.add('hidden'));document.getElementById('page-'+p).classList.remove('hidden');}
+function sendRegOtp(){let phone=document.getElementById('regPhone').value;if(phone.length<5){alert('ফোন নম্বর দিন');return;}document.getElementById('regOtpText').innerText=phone+' নম্বরে OTP: 1234';showPage('register-otp');}
+function sendLoginOtp(){let phone=document.getElementById('loginPhone').value;if(phone.length<5){alert('ফোন নম্বর দিন');return;}document.getElementById('loginOtpText').innerText=phone+' নম্বরে OTP: 1234';showPage('login-step2');}
 </script>
+</body>
+</html>
