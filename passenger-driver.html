@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ride Go BD - Passenger & Driver</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>.page.hidden{display:none}</style>
+<script>
+function showPage(id){
+  document.querySelectorAll('.page').forEach(p=>p.classList.add('hidden'));
+  document.getElementById(id).classList.remove('hidden');
+}
+</script>
+</head>
+<body class="bg-gray-100">
+
+<!-- HOME SELECTOR -->
+<div id="homePage" class="page min-h-screen flex items-center justify-center p-4">
+  <div class="bg-white rounded-2xl shadow-lg p-6 w-full max-w-sm text-center">
+    <h1 class="text-2xl font-bold text-green-600 mb-6">Ride Go BD</h1>
+    <button onclick="showPage('passengerPage')" class="w-full bg-green-600 text-white rounded-xl p-4 mb-3 font-bold">আমি যাত্রী - গাড়ি খুঁজবো</button>
+    <button onclick="showPage('driverPage')" class="w-full bg-white border-2 border-green-600 text-green-600 rounded-xl p-4 font-bold">আমি চালক - রাইড নেবো</button>
+    <p class="text-xs text-gray-500 mt-4">Master Plan খ ও গ অনুযায়ী আলাদা</p>
+  </div>
+</div>
+
+<!-- 7. PASSENGER PAGE -->
+<div id="passengerPage" class="page hidden">
+  <div class="min-h-screen bg-gray-50 p-4">
+    <div class="flex justify-between items-center mb-4">
+      <button onclick="showPage('homePage')" class="text-xl">←</button>
+      <h2 class="font-bold">যাত্রী পেজ (খ)</h2>
+      <span>🌐</span>
+    </div>
+    <div class="bg-white rounded-xl p-4 shadow">
+      <input type="text" placeholder="আপনার অবস্থান (GPS)" class="w-full border rounded-lg p-3 mb-2">
+      <input type="text" placeholder="গন্তব্য কোথায়?" class="w-full border rounded-lg p-3 mb-3">
+      <div class="w-full h-40 bg-gray-200 rounded-lg mb-3 flex items-center justify-center">Map</div>
+      <button onclick="document.getElementById('offers').classList.remove('hidden')" class="w-full bg-green-600 text-white rounded-lg p-3 font-bold">গাড়ি খুঁজুন</button>
+      <div id="offers" class="hidden mt-4">
+        <div class="border rounded-lg p-3">
+          <p class="font-bold">চালক: রফিক - ১২০ টাকা <span class="text-xs bg-green-100 px-2 rounded">⭐4.8</span></p>
+          <button class="mt-2 w-full bg-green-600 text-white rounded p-2">গ্রহণ করুন</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 8. DRIVER PAGE -->
+<div id="driverPage" class="page hidden">
+  <div class="min-h-screen bg-gray-50 p-4">
+    <div class="flex justify-between items-center mb-4">
+      <button onclick="showPage('homePage')" class="text-xl">←</button>
+      <h2 class="font-bold">চালক পেজ (গ)</h2>
+      <span>🌐</span>
+    </div>
+    <div class="bg-white rounded-xl p-4 shadow mb-4">
+      <div class="flex justify-between"><p class="font-bold">আমি ফ্রি আছি</p><p class="text-green-600 font-bold">ON ✅</p></div>
+      <div class="w-full h-40 bg-gray-200 rounded-lg mt-3 flex items-center justify-center">আপনার লাইভ লোকেশন</div>
+    </div>
+    <div class="bg-white rounded-xl p-4 shadow">
+      <h3 class="font-bold mb-2">যাত্রীর অনুরোধ</h3>
+      <div class="border rounded-lg p-3">
+        <p>আগ্রাবাদ → জিইসি (৩ কিমি)</p>
+        <div class="flex gap-2 mt-2">
+          <input type="number" placeholder="আপনার ভাড়া" class="border rounded p-2 flex-1">
+          <button class="bg-green-600 text-white px-4 rounded">প্রস্তাব</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
