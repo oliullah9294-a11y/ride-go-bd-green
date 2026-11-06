@@ -34,9 +34,6 @@ input{width:100%;padding:14px;margin:8px 0;border:1px solid #ddd;border-radius:1
         <option value="ar">🇸🇦 العربية</option>
         <option value="hi">🇮🇳 हिंदी</option>
         <option value="ur">🇵🇰 اردو</option>
-        <option value="es">🇪🇸 Español</option>
-        <option value="fr">🇫🇷 Français</option>
-        <option value="ms">🇲🇾 Melayu</option>
       </select>
     </div>
     <div class="title" id="t1">আপনার যাত্রা,<br>আমাদের দায়িত্ব</div>
@@ -50,50 +47,15 @@ input{width:100%;padding:14px;margin:8px 0;border:1px solid #ddd;border-radius:1
 <div id="reg" class="page">
   <h2 id="rTitle" style="color:#14532d;text-align:center;margin:20px 0">নিবন্ধন করুন</h2>
   <input id="namePh" placeholder="আপনার নাম">
-  <input placeholder="ফোন: +880 1XXXXXXXXX">
-  <input placeholder="স্পন্সর কোড (ঐচ্ছিক)">
-  <div class="small">✓ কোনো পাসওয়ার্ড লাগবে না, ফোন নম্বরেই লগইন হবে</div>
+  <input placeholder="ফোন নাম্বার">
+  <input placeholder="স্পন্সর নাম্বার">
+  <div class="small">✓ কোনো পাসওয়ার্ড লাগবে না, ফোন নাম্বারেই লগইন</div>
   <button class="btn btn-green" style="margin-top:10px" id="rb">নিবন্ধন করুন</button>
   <button class="btn btn-white" onclick="go('home')">পিছনে</button>
 </div>
 
 <div id="login" class="page">
   <h2 style="color:#14532d;text-align:center;margin:20px 0">লগইন করুন</h2>
-  <input placeholder="ফোন নম্বর: 01XXXXXXXXX">
-  <div class="small">পাসওয়ার্ড ছাড়াই শুধু ফোন নম্বর দিয়ে লগইন</div>
-  <button class="btn btn-green" style="margin-top:10px">লগইন করুন</button>
-  <button class="btn btn-white" onclick="go('home')">পিছনে</button>
-</div>
-
-<script>
-const L={
-bn:{t1:"আপনার যাত্রা,<br>আমাদের দায়িত্ব",b1:"+ নতুন? নিবন্ধন করুন",b2:"→ অ্যাকাউন্ট আছে? লগইন করুন",r:"নিবন্ধন করুন",rb:"নিবন্ধন করুন",ph:"আপনার নাম"},
-en:{t1:"Your Journey,<br>Our Responsibility",b1:"+ New? Register",b2:"→ Have account? Login",r:"Register",rb:"Register",ph:"Your Name"},
-ar:{t1:"رحلتك،<br>مسؤوليتنا",b1:"+ جديد؟ سجل",b2:"→ لديك حساب؟ دخول",r:"التسجيل",rb:"سجل",ph:"اسمك"},
-hi:{t1:"आपकी यात्रा,<br>हमारी जिम्मेदारी",b1:"+ नया? रजिस्टर",b2:"→ खाता है? लॉगिन",r:"पंजीकरण",rb:"रजिस्टर",ph:"आपका नाम"},
-ur:{t1:"آپ کا سفر،<br>ہماری ذمہ داری",b1:"+ نیا؟ رجسٹر",b2:"→ اکاؤنٹ ہے؟ لاگ ان",r:"رجسٹریشن",rb:"رجسٹر",ph:"آپ کا نام"},
-es:{t1:"Tu Viaje,<br>Nuestra Responsabilidad",b1:"+ Nuevo? Registrarse",b2:"→ ¿Tienes cuenta? Entrar",r:"Registrarse",rb:"Registrarse",ph:"Tu Nombre"},
-fr:{t1:"Votre Voyage,<br>Notre Responsabilité",b1:"+ Nouveau? S'inscrire",b2:"→ Vous avez un compte? Connexion",r:"S'inscrire",rb:"S'inscrire",ph:"Votre Nom"},
-ms:{t1:"Perjalanan Anda,<br>Tanggungjawab Kami",b1:"+ Baru? Daftar",b2:"→ Ada akaun? Log Masuk",r:"Daftar",rb:"Daftar",ph:"Nama Anda"}
-};
-function go(id){
-document.getElementById('home').classList.remove('active');
-document.getElementById('reg').classList.remove('active');
-document.getElementById('login').classList.remove('active');
-document.getElementById(id).classList.add('active');
-}
-function changeLang(v){localStorage.setItem('lg',v);apply(v)}
-function apply(v){
-let d=L[v]||L.bn;
-document.getElementById('t1').innerHTML=d.t1;
-document.getElementById('b1').innerText=d.b1;
-document.getElementById('b2').innerText=d.b2;
-document.getElementById('rTitle').innerText=d.r;
-document.getElementById('rb').innerText=d.rb;
-document.getElementById('namePh').placeholder=d.ph;
-document.getElementById('langSelect').value=v;
-}
-apply(localStorage.getItem('lg')||'bn');
-</script>
-</body>
-</html>
+  <input placeholder="ফোন নাম্বার">
+  <div class="small">শুধু ফোন নাম্বার দিয়ে লগইন - পাসওয়ার্ড লাগবে না</div>
+  <button class="btn
