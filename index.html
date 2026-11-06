@@ -5,116 +5,121 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Ride Go BD</title>
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family: 'Noto Sans Bengali', sans-serif}
-body{background:#f7f7f7}
-.header{background:#0a9e40;color:white;padding:12px 16px;display:flex;justify-content:space-between;align-items:center;font-weight:bold}
-.lang{font-size:14px;cursor:pointer}
-.lang select{background:transparent;border:none;color:white;font-weight:bold;font-size:14px}
-.main{display:flex;justify-content:center;padding:25px 16px}
-.card{background:white;width:100%;max-width:360px;border-radius:28px;padding:22px 18px 24px;box-shadow:0 10px 25px rgba(0,0,0,0.08);text-align:center}
-.badge{display:flex;align-items:center;justify-content:center;gap:10px;margin-bottom:6px}
-.line{height:4px;width:90px;background:linear-gradient(to right,#0a9e40,#b3e5c3);border-radius:5px}
-.shield{background:#0a9e40;color:white;width:56px;height:56px;border-radius:14px 14px 14px 4px;display:flex;align-items:center;justify-content:center;font-size:28px;transform:rotate(0deg);clip-path: path('M28 2 L52 12 L52 28 C52 42 28 54 28 54 C28 54 4 42 4 28 L4 12 Z');}
-.title{font-size:36px;font-weight:900;color:#0a5c28;margin:10px 0 18px;line-height:1.1}
-.title::after{content:'';display:block;width:180px;height:6px;background:#0a9e40;border-radius:10px;margin:8px auto 0;transform: rotate(-2deg);}
-.btn{width:100%;background:linear-gradient(#0cb14a,#0a9e40);color:white;border:none;border-radius:20px;padding:16px 18px;display:flex;align-items:center;gap:16px;margin-bottom:16px;cursor:pointer;box-shadow:0 6px 12px rgba(10,158,64,0.3)}
-.btn:active{transform:scale(0.98)}
-.icon{width:90px;display:flex;justify-content:center}
-.divider{width:2px;height:56px;background:rgba(255,255,255,0.7)}
-.label{font-size:30px;font-weight:800;flex:1;text-align:left;padding-left:10px}
-.page{display:none;padding:20px}
-.active{display:block}
-input{width:100%;padding:14px;margin:8px 0;border:1px solid #ddd;border-radius:12px}
-.btn2{width:100%;padding:15px;border-radius:14px;border:none;font-weight:bold;margin-top:10px}
-.green{background:#14532d;color:white} .white{background:#fff;border:1px solid #ddd}
-.help{text-align:center;font-size:13px;color:#666;margin-top:18px}
+*{margin:0;padding:0;box-sizing:border-box;font-family:sans-serif}
+body{background:#f5f5f5}
+.header{background:#0a9e40;color:white;padding:12px 14px;display:flex;justify-content:space-between;align-items:center;font-weight:900;position:sticky;top:0;z-index:10}
+.lang select{background:rgba(255,255,255,0.2);border:none;color:white;padding:5px 10px;border-radius:20px;font-weight:bold}
+.main{padding:20px 16px;display:flex;justify-content:center}
+.card{background:white;width:100%;max-width:380px;border-radius:28px;padding:22px 16px;box-shadow:0 10px 25px rgba(0,0,0,0.08);text-align:center}
+.badge{display:flex;align-items:center;justify-content:center;gap:10px}
+.line{height:4px;width:85px;background:linear-gradient(to right,#0a9e40,#c8f0d4);border-radius:5px}
+.shield{background:#0a9e40;width:48px;height:48px;border-radius:50% 50% 50% 50% / 10% 10% 90% 90%;display:flex;align-items:center;justify-content:center;color:white;font-size:26px;font-weight:bold}
+.title{font-size:34px;font-weight:900;color:#0a5c28;margin:12px 0 8px}
+.underline{width:200px;height:5px;background:#0a9e40;margin:0 auto 20px;border-radius:10px;transform:rotate(-1deg)}
+.btn{width:100%;background:linear-gradient(180deg,#10b64d,#0a9e40);color:white;border:none;border-radius:18px;padding:14px 16px;display:flex;align-items:center;gap:12px;margin-bottom:14px;cursor:pointer;box-shadow:0 6px 14px rgba(10,158,64,0.35)}
+.icon{width:80px;font-size:44px}
+.divider{width:2px;height:48px;background:rgba(255,255,255,0.6)}
+.label{font-size:28px;font-weight:800;flex:1;text-align:left}
+.help{font-size:12px;color:#666;margin-top:14px}
+.page{display:none;min-height:100vh;background:#f5f5f5}
+.page.active{display:block}
+.form{max-width:380px;margin:0 auto;padding:24px 16px}
+.form h2{color:#0a5c28;text-align:center;margin-bottom:20px;font-size:24px}
+input{width:100%;padding:15px;border:1px solid #ddd;border-radius:14px;margin-bottom:12px;font-size:16px;background:white}
+.btn2{width:100%;padding:15px;border-radius:14px;border:none;font-weight:bold;font-size:16px;cursor:pointer}
+.green{background:#0a5c28;color:white} .white{background:white;border:1px solid #ddd;margin-top:10px}
 </style>
 </head>
 <body>
 
-<div id="home" class="active">
+<!-- 1. হোম পেজ - আপনার ছবির মতো -->
+<div id="home" class="page active">
   <div class="header">
     <div>🛵 Ride Go BD</div>
     <div class="lang">
       <select id="langSelect" onchange="changeLang(this.value)">
-        <option value="bn">🌐 বাংলা | English</option>
-        <option value="en">🌐 English | বাংলা</option>
-        <option value="ar">🇸🇦 العربية</option>
-        <option value="hi">🇮🇳 हिंदी</option>
-        <option value="ur">🇵🇰 اردو</option>
-        <option value="es">🇪🇸 Español</option>
-        <option value="fr">🇫🇷 Français</option>
-        <option value="ms">🇲🇾 Melayu</option>
+        <option value="bn">বাংলা | English</option>
+        <option value="en">English | বাংলা</option>
+        <option value="ar">العربية</option>
+        <option value="hi">हिंदी</option>
+        <option value="ur">اردو</option>
+        <option value="es">Español</option>
+        <option value="fr">Français</option>
+        <option value="ms">Melayu</option>
       </select>
     </div>
   </div>
   <div class="main">
     <div class="card">
-      <div class="badge"><div class="line"></div><div class="shield">✓</div><div class="line" style="background:linear-gradient(to left,#0a9e40,#b3e5c3)"></div></div>
+      <div class="badge"><div class="line"></div><div class="shield">✓</div><div class="line" style="background:linear-gradient(to left,#0a9e40,#c8f0d4)"></div></div>
       <div class="title" id="t1">নিরাপদ যাত্রায়</div>
-      
-      <button class="btn" onclick="go('passenger')">
-        <div class="icon"><svg width="70" height="58" viewBox="0 0 70 58" fill="white"><path d="M35 0 C42 0 48 6 48 13 C48 20 42 26 35 26 C28 26 22 20 22 13 C22 6 28 0 35 0 Z M35 5 C31 5 27 9 27 13 C27 17 31 21 35 21 C39 21 43 17 43 13 C43 9 39 5 35 5 Z M15 30 C25 24 45 24 55 30 C62 33 65 40 65 48 L60 48 C60 41 57 36 52 33 C44 28 26 28 18 33 C13 36 10 41 10 48 L5 48 C5 40 8 33 15 30 Z M20 38 L20 50 L25 50 L25 42 L28 42 C28 48 32 52 38 52 L38 50 C34 50 32 47 32 42 L38 42 L38 50 L43 50 L43 42 L47 42 L47 50 L50 50 L50 38 C36 36 32 36 20 38 Z M35 46 A10 7 0 0 0 45 46 L45 48 A8 5 0 0 1 35 48 A8 5 0 0 1 25 48 L25 46 A10 7 0 0 0 35 46 Z"/></svg></div>
-        <div class="divider"></div>
-        <div class="label" id="b1">যাত্রী</div>
-      </button>
-
-      <button class="btn" onclick="go('driver')">
-        <div class="icon"><svg width="80" height="48" viewBox="0 0 80 48" fill="white"><path d="M15 8 L20 8 L25 2 L55 2 L60 8 L65 8 C70 8 75 13 75 18 L75 32 C75 36 71 38 68 38 L65 38 C64 42 60 45 55 45 C50 45 46 42 45 38 L25 38 C24 42 20 45 15 45 C10 45 6 42 5 38 L2 38 C0 38 0 32 0 28 L0 18 C0 13 5 8 10 8 L15 8 Z M22 10 L12 10 C8 10 5 13 5 18 L5 28 L5 33 L15 33 C17 30 20 28 25 28 C30 28 33 30 35 33 L45 33 C47 30 50 28 55 28 C60 28 63 30 65 33 L70 33 L70 18 C70 14 68 10 64 10 L58 10 L54 5 L26 5 L22 10 Z M15 30 C19 30 22 33 22 37 C22 41 19 44 15 44 C11 44 8 41 8 37 C8 33 11 30 15 30 Z M15 34 C13 34 12 35 12 37 C12 39 13 40 15 40 C17 40 18 39 18 37 C18 35 17 34 15 34 Z M55 30 C59 30 62 33 62 37 C62 41 59 44 55 44 C51 44 48 41 48 37 C48 33 51 30 55 30 Z M55 34 C53 34 52 35 52 37 C52 39 53 40 55 40 C57 40 58 39 58 37 C58 35 57 34 55 34 Z M10 14 L60 14 L60 17 L10 17 Z"/></svg></div>
-        <div class="divider"></div>
-        <div class="label" id="b2">চালক</div>
-      </button>
-      <div class="help" id="help">সাহায্য লাগবে? হটলাইন: 09638-XXXXXX</div>
+      <div class="underline"></div>
+      <button class="btn" onclick="go('passenger')"><div class="icon">👨‍✈️</div><div class="divider"></div><div class="label" id="b1">যাত্রী</div></button>
+      <button class="btn" onclick="go('driver')"><div class="icon">🚗</div><div class="divider"></div><div class="label" id="b2">চালক</div></button>
+      <div class="help">সাহায্য লাগবে? হটলাইন: 09638-XXXXXX</div>
     </div>
   </div>
 </div>
 
+<!-- 2. যাত্রী লগইন - পাসওয়ার্ড ছাড়া -->
 <div id="passenger" class="page">
-  <h2 style="color:#0a5c28;text-align:center;margin:20px 0" id="pt">যাত্রী লগইন</h2>
-  <input id="pp" placeholder="ফোন নম্বর">
-  <button class="btn2 green" id="plb">লগইন করুন</button>
-  <button class="btn2 white" onclick="go('home')">পিছনে</button>
+  <div class="form">
+    <h2 id="pt">যাত্রী লগইন</h2>
+    <input id="pp" placeholder="ফোন নম্বর">
+    <button class="btn2 green" onclick="go('dashboard')" id="plb">লগইন করুন</button>
+    <button class="btn2 white" onclick="go('home')">পিছনে</button>
+  </div>
 </div>
 
+<!-- 3. চালক লগইন - পাসওয়ার্ড ছাড়া -->
 <div id="driver" class="page">
-  <h2 style="color:#0a5c28;text-align:center;margin:20px 0" id="dt">চালক লগইন</h2>
-  <input placeholder="ফোন নম্বর">
-  <button class="btn2 green" id="dlb">লগইন করুন</button>
-  <button class="btn2 white" onclick="go('home')">পিছনে</button>
+  <div class="form">
+    <h2 id="dt">চালক লগইন</h2>
+    <input placeholder="ফোন নম্বর">
+    <button class="btn2 green" onclick="go('dashboard')" id="dlb">লগইন করুন</button>
+    <button class="btn2 white" onclick="go('home')">পিছনে</button>
+  </div>
+</div>
+
+<!-- 4. ড্যাশবোর্ড -->
+<div id="dashboard" class="page">
+  <div class="form">
+    <h2>স্বাগতম! 🎉</h2>
+    <p style="text-align:center;margin:20px 0">আপনি সফলভাবে লগইন করেছেন</p>
+    <button class="btn2 green">রাইড খুঁজুন</button>
+    <button class="btn2 white" onclick="go('home')">হোমে ফিরুন</button>
+  </div>
 </div>
 
 <script>
-const L={
-bn:{t1:"নিরাপদ যাত্রায়",b1:"যাত্রী",b2:"চালক",pt:"যাত্রী লগইন",dt:"চালক লগইন",lb:"লগইন করুন",ph:"ফোন নম্বর",help:"সাহায্য লাগবে? হটলাইন: 09638-XXXXXX"},
-en:{t1:"Safe Journey",b1:"Passenger",b2:"Driver",pt:"Passenger Login",dt:"Driver Login",lb:"Login",ph:"Phone Number",help:"Need help? Hotline: 09638-XXXXXX"},
-ar:{t1:"رحلة آمنة",b1:"راكب",b2:"سائق",pt:"دخول الراكب",dt:"دخول السائق",lb:"دخول",ph:"رقم الهاتف",help:"تحتاج مساعدة؟"},
-hi:{t1:"सुरक्षित यात्रा",b1:"यात्री",b2:"चालक",pt:"यात्री लॉगिन",dt:"चालक लॉगिन",lb:"लॉगिन",ph:"फोन नंबर",help:"मदद चाहिए?"},
-ur:{t1:"محفوظ سفر",b1:"مسافر",b2:"ڈرائیور",pt:"مسافر لاگ ان",dt:"ڈرائیور لاگ ان",lb:"لاگ ان",ph:"فون نمبر",help:"مدد چاہیے؟"},
-es:{t1:"Viaje Seguro",b1:"Pasajero",b2:"Conductor",pt:"Login Pasajero",dt:"Login Conductor",lb:"Entrar",ph:"Teléfono",help:"¿Ayuda?"},
-fr:{t1:"Voyage Sûr",b1:"Passager",b2:"Chauffeur",pt:"Connexion Passager",dt:"Connexion Chauffeur",lb:"Connexion",ph:"Téléphone",help:"Besoin d'aide?"},
-ms:{t1:"Perjalanan Selamat",b1:"Penumpang",b2:"Pemandu",pt:"Log Masuk Penumpang",dt:"Log Masuk Pemandu",lb:"Log Masuk",ph:"Telefon",help:"Perlu bantuan?"}
-};
 function go(id){
-document.getElementById('home').classList.remove('active');
-document.getElementById('passenger').classList.remove('active');
-document.getElementById('driver').classList.remove('active');
-document.getElementById(id).classList.add('active');
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  window.scrollTo(0,0);
 }
-function changeLang(v){localStorage.setItem('lg',v);apply(v)}
-function apply(v){
-let d=L[v]||L.bn;
-document.getElementById('t1').innerText=d.t1;
-document.getElementById('b1').innerText=d.b1;
-document.getElementById('b2').innerText=d.b2;
-document.getElementById('pt').innerText=d.pt;
-document.getElementById('dt').innerText=d.dt;
-document.getElementById('plb').innerText=d.lb;
-document.getElementById('dlb').innerText=d.lb;
-document.getElementById('pp').placeholder=d.ph;
-document.getElementById('help').innerText=d.help;
-document.getElementById('langSelect').value=v;
+const L={
+bn:{t1:"নিরাপদ যাত্রায়",b1:"যাত্রী",b2:"চালক",pt:"যাত্রী লগইন",dt:"চালক লগইন",lb:"লগইন করুন",ph:"ফোন নম্বর"},
+en:{t1:"Safe Journey",b1:"Passenger",b2:"Driver",pt:"Passenger Login",dt:"Driver Login",lb:"Login",ph:"Phone Number"},
+ar:{t1:"رحلة آمنة",b1:"راكب",b2:"سائق",pt:"دخول الراكب",dt:"دخول السائق",lb:"دخول",ph:"رقم الهاتف"},
+hi:{t1:"सुरक्षित यात्रा",b1:"यात्री",b2:"चालक",pt:"यात्री लॉगिन",dt:"चालक लॉगिन",lb:"लॉगिन",ph:"फोन नंबर"},
+ur:{t1:"محفوظ سفر",b1:"مسافر",b2:"ڈرائیور",pt:"مسافر لاگ ان",dt:"ڈرائیور لاگ ان",lb:"لاگ ان",ph:"فون نمبر"},
+es:{t1:"Viaje Seguro",b1:"Pasajero",b2:"Conductor",pt:"Login Pasajero",dt:"Login Conductor",lb:"Entrar",ph:"Teléfono"},
+fr:{t1:"Voyage Sûr",b1:"Passager",b2:"Chauffeur",pt:"Passager",dt:"Chauffeur",lb:"Connexion",ph:"Téléphone"},
+ms:{t1:"Perjalanan Selamat",b1:"Penumpang",b2:"Pemandu",pt:"Penumpang",dt:"Pemandu",lb:"Log Masuk",ph:"Telefon"}
+};
+function changeLang(v){
+  localStorage.setItem('lg',v); let d=L[v]||L.bn;
+  document.getElementById('t1').innerText=d.t1;
+  document.getElementById('b1').innerText=d.b1;
+  document.getElementById('b2').innerText=d.b2;
+  document.getElementById('pt').innerText=d.pt;
+  document.getElementById('dt').innerText=d.dt;
+  document.getElementById('plb').innerText=d.lb;
+  document.getElementById('dlb').innerText=d.lb;
+  document.getElementById('pp').placeholder=d.ph;
+  document.getElementById('langSelect').value=v;
 }
-apply(localStorage.getItem('lg')||'bn');
+changeLang(localStorage.getItem('lg')||'bn');
 </script>
 </body>
 </html>
