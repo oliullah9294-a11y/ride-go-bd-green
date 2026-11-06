@@ -5,119 +5,74 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Ride Go BD</title>
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:Inter, sans-serif}
-body{background:#f5f5f5;min-height:100vh}
-.header{background:#16a34a;color:white;padding:60px 20px 115px;position:relative;text-align:center;border-radius:0 0 32px 32px}
-.logo{position:absolute;top:14px;left:14px;font-weight:bold;font-size:15px}
-.lang{position:absolute;top:12px;right:12px}
-.lang select{padding:6px 14px;border-radius:20px;border:none;background:white;color:#16a34a;font-weight:bold}
-.title{font-size:28px;font-weight:900;margin-top:18px;line-height:1.3}
-.card{margin:70px 16px 20px;background:white;border-radius:22px;padding:28px 18px 22px;box-shadow:0 10px 25px rgba(0,0,0,0.12)}
-.btn{width:100%;padding:16px;border-radius:14px;border:none;font-weight:bold;font-size:16px;margin-bottom:12px;cursor:pointer}
-.btn-green{background:#14532d;color:white}
-.btn-white{background:#fff;color:#111;border:1px solid #ddd}
-.page{display:none;min-height:100vh;background:#f5f5f5}
+*{margin:0;padding:0;box-sizing:border-box;font-family:sans-serif}
+body{background:#f5f5f5}
+.header{background:#14532d;color:white;padding:14px 16px;display:flex;justify-content:space-between;align-items:center;border-radius:0 0 18px 18px}
+.page{display:none;min-height:100vh}
 .page.active{display:block}
-.box{padding:24px 18px}
-input{width:100%;padding:15px;margin:8px 0;border:1px solid #e5e7eb;border-radius:12px;background:white;font-size:14px;outline:none}
-.small{font-size:12px;color:#666;text-align:center;margin:10px 0}
-.h2{color:#14532d;text-align:center;margin:22px 0;font-size:22px;font-weight:800}
-.otp-wrap{display:flex;gap:10px;justify-content:center;margin:20px 0}
-.otp-wrap input{width:54px;height:54px;text-align:center;font-size:20px;font-weight:bold;letter-spacing:1px}
+.box{padding:20px 16px}
+.btn{width:100%;padding:14px;border-radius:12px;border:none;font-weight:bold;cursor:pointer}
+.btn-green{background:#14532d;color:white}
+.btn-white{background:white;border:1px solid #ddd}
+input{width:100%;padding:14px;margin:8px 0;border:1px solid #ddd;border-radius:12px}
+.cardBig{padding:24px 10px;border-radius:16px;text-align:center;font-weight:bold;cursor:pointer}
+.lang select{padding:5px 10px;border-radius:20px;border:none;font-weight:bold;font-size:12px}
 </style>
 </head>
 <body>
 
-<!-- 1. প্রথম ল্যান্ডিং পেজ (বাটন নিচে) -->
+<!-- Landing Page -->
 <div id="landing" class="page active">
-  <div class="header">
-    <div class="logo">🛵 Ride Go BD</div>
-    <div class="lang">
-      <select><option>🇧🇩 বাংলা</option><option>🇬🇧 English</option></select>
-    </div>
-    <div class="title">আপনার যাত্রা,<br>আমাদের দায়িত্ব</div>
+  <div style="background:#16a34a;color:white;padding:60px 20px 115px;text-align:center;border-radius:0 0 32px 32px;position:relative">
+    <div style="position:absolute;top:14px;left:14px;font-weight:bold">🛵 Ride Go BD</div>
+    <div style="position:absolute;top:12px;right:12px" class="lang"><select><option>🇧🇩 বাংলা</option><option>🇬🇧 English</option></select></div>
+    <div style="font-size:28px;font-weight:900;margin-top:18px">আপনার যাত্রা,<br>আমাদের দায়িত্ব</div>
   </div>
-  <div class="card">
-    <div style="height:20px"></div>
-    <button class="btn btn-green" onclick="go('reg')">+ নতুন? নিবন্ধন করুন</button>
+  <div style="margin:70px 16px;background:white;border-radius:22px;padding:28px 18px;box-shadow:0 10px 25px rgba(0,0,0,0.12)">
+    <button class="btn btn-green" onclick="go('reg')" style="margin-bottom:12px">+ নতুন? নিবন্ধন করুন</button>
     <button class="btn btn-white" onclick="go('login')">→ অ্যাকাউন্ট আছে? লগইন করুন</button>
-    <div style="height:24px"></div>
   </div>
 </div>
 
-<!-- 2. নিবন্ধন পেজ - আপনার ছবির মতো -->
-<div id="reg" class="page">
-  <div class="box">
-    <div class="h2">নিবন্ধন করুন</div>
-    <input id="regName" placeholder="আপনার নাম">
-    <input id="regPhone" placeholder="ফোন নাম্বার">
-    <input id="regSponsor" placeholder="স্পন্সর নাম্বার">
-    <div class="small">✓ কোনো পাসওয়ার্ড লাগবে না</div>
-    <button class="btn btn-green" onclick="goOTP()">নিবন্ধন করুন</button>
-    <button class="btn btn-white" onclick="go('landing')">পিছনে</button>
-  </div>
-</div>
+<div id="reg" class="page"><div class="box"><h2 style="text-align:center;color:#14532d;margin:20px 0">নিবন্ধন করুন</h2><input placeholder="আপনার নাম"><input placeholder="ফোন নাম্বার"><input placeholder="স্পন্সর নাম্বার"><button class="btn btn-green" style="margin-top:10px" onclick="go('otp')">নিবন্ধন করুন</button><button class="btn btn-white" style="margin-top:8px" onclick="go('landing')">পিছনে</button></div></div>
+<div id="login" class="page"><div class="box"><h2 style="text-align:center;color:#14532d;margin:20px 0">লগইন করুন</h2><input placeholder="ফোন নাম্বার"><button class="btn btn-green" style="margin-top:10px" onclick="go('otp')">লগইন করুন</button><button class="btn btn-white" style="margin-top:8px" onclick="go('landing')">পিছনে</button></div></div>
+<div id="otp" class="page"><div class="box"><h2 style="text-align:center;color:#14532d;margin:20px 0">ওটিপি যাচাই করুন</h2><input placeholder="4 সংখ্যার কোড" style="text-align:center;letter-spacing:6px;font-weight:bold"><button class="btn btn-green" style="margin-top:10px" onclick="go('home')">যাচাই করুন</button></div></div>
 
-<!-- 3. লগইন পেজ - আপনার ছবির মতো -->
-<div id="login" class="page">
-  <div class="box">
-    <div class="h2">লগইন করুন</div>
-    <input id="loginPhone" placeholder="ফোন নাম্বার">
-    <div class="small">শুধু ফোন নাম্বার দিয়ে লগইন - পাসওয়ার্ড লাগবে না</div>
-    <button class="btn btn-green" onclick="goOTP()">লগইন করুন</button>
-    <button class="btn btn-white" onclick="go('landing')">পিছনে</button>
-  </div>
-</div>
-
-<!-- 4. ওটিপি পেজ - এই দুই পেজের পরেই আসবে -->
-<div id="otp" class="page">
-  <div class="box">
-    <div class="h2">ওটিপি যাচাই করুন</div>
-    <p class="small">আপনার ফোনে 4 সংখ্যার কোড পাঠানো হয়েছে<br><span id="showPhone" style="font-weight:bold;color:#14532d"></span></p>
-    <div class="otp-wrap">
-      <input maxlength="1"><input maxlength="1"><input maxlength="1"><input maxlength="1">
-    </div>
-    <div class="small">কোড পাননি? <b style="color:#14532d">আবার পাঠান (৩০s)</b></div>
-    <button class="btn btn-green" style="margin-top:18px" onclick="go('home')">যাচাই করুন ও হোমে যান</button>
-    <button class="btn btn-white" onclick="go('landing')">পিছনে</button>
-  </div>
-</div>
-
-<!-- 5. মূল হোম পেজ / ড্যাশবোর্ড - ওটিপির পরে -->
+<!-- আপনার চাওয়া ফাইনাল হোম পেজ -->
 <div id="home" class="page">
-  <div style="background:#14532d;color:white;padding:18px;border-radius:0 0 20px 20px;display:flex;justify-content:space-between;align-items:center">
-    <b>🛵 Ride Go BD</b><span style="background:white;color:#14532d;padding:5px 12px;border-radius:20px;font-size:12px">ব্যালেন্স: ৳0</span>
+  <div class="header">
+    <b>🛵 Ride Go BD</b>
+    <div style="display:flex;gap:8px;align-items:center">
+      <span style="background:white;color:#14532d;padding:5px 12px;border-radius:20px;font-size:11px;font-weight:bold">ব্যালেন্স: ৳0</span>
+      <div class="lang"><select><option>বাংলা</option><option>EN</option></select></div>
+    </div>
   </div>
   <div class="box">
-    <h3 style="margin-bottom:12px">স্বাগতম! 🎉</h3>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
-      <div style="background:white;padding:16px;border-radius:14px;text-align:center;box-shadow:0 2px 8px rgba(0,0,0,0.06)">🚴<br>রাইড নিন</div>
-      <div style="background:white;padding:16px;border-radius:14px;text-align:center;box-shadow:0 2px 8px rgba(0,0,0,0.06)">💰<br>আয় করুন</div>
-      <div style="background:white;padding:16px;border-radius:14px;text-align:center;box-shadow:0 2px 8px rgba(0,0,0,0.06)">👥<br>রেফার</div>
-      <div style="background:white;padding:16px;border-radius:14px;text-align:center;box-shadow:0 2px 8px rgba(0,0,0,0.06)">📜<br>ইতিহাস</div>
+    <h3>স্বাগতম! 🎉</h3>
+    <p style="font-size:12px;color:#666;margin:6px 0 16px">আপনি কি হিসেবে যাত্রা করবেন?</p>
+    
+    <!-- যাত্রী ও চালক - বড় বাটন বটম বড -->
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px">
+      <div class="cardBig" style="background:#14532d;color:white"><div style="font-size:30px">🧍</div><div style="margin-top:8px">যাত্রী</div><div style="font-size:11px;opacity:.8;font-weight:normal">রাইড খুঁজুন</div></div>
+      <div class="cardBig" style="background:white;border:1px solid #ddd"><div style="font-size:30px">🏍️</div><div style="margin-top:8px">চালক</div><div style="font-size:11px;color:#666;font-weight:normal">আয় করুন</div></div>
     </div>
-    <button class="btn btn-white" style="margin-top:24px" onclick="go('landing')">লগআউট</button>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:12px">
+      <div style="background:white;padding:14px;border-radius:12px;text-align:center;font-size:13px;border:1px solid #eee">👥 রেফার</div>
+      <div style="background:white;padding:14px;border-radius:12px;text-align:center;font-size:13px;border:1px solid #eee">📜 ইতিহাস</div>
+    </div>
+
+    <!-- Owner - ছোট বাটন, সাধারণ মানুষ যাতে না যায় -->
+    <div style="text-align:center;margin-top:26px">
+      <span style="font-size:10px;color:#aaa;border:1px dashed #ccc;padding:5px 12px;border-radius:20px">Owner</span>
+    </div>
+
+    <button class="btn btn-white" style="margin-top:22px" onclick="go('landing')">লগআউট</button>
   </div>
 </div>
 
 <script>
-function go(id){
-  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
-  document.getElementById(id).classList.add('active');
-  window.scrollTo(0,0);
-}
-function goOTP(){
-  // ফোন নাম্বার দেখানো
-  let ph = document.getElementById('regPhone').value || document.getElementById('loginPhone').value || '';
-  document.getElementById('showPhone').innerText = ph ? ph : '';
-  go('otp');
-}
-// OTP auto focus
-document.querySelectorAll('.otp-wrap input').forEach((inp,i,arr)=>{
-  inp.addEventListener('input',()=>{
-    if(inp.value && i < 3) arr[i+1].focus();
-  })
-})
+function go(id){document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));document.getElementById(id).classList.add('active');window.scrollTo(0,0)}
 </script>
 </body>
 </html>
