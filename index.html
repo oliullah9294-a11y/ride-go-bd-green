@@ -3,122 +3,101 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ride Go BD</title>
+<title>Ride Go BD - নিরাপদ যাত্রায়</title>
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:sans-serif}
-body{background:#f5f5f5}
-.header{background:#0a9e40;color:white;padding:12px 14px;display:flex;justify-content:space-between;align-items:center;font-weight:900;position:sticky;top:0;z-index:10}
-.lang select{background:rgba(255,255,255,0.2);border:none;color:white;padding:5px 10px;border-radius:20px;font-weight:bold}
+*{margin:0;padding:0;box-sizing:border-box;font-family:Hind Siliguri,sans-serif}
+body{background:#f1f5f1}
+.header{background:#0a9e40;color:white;padding:12px 14px;display:flex;justify-content:space-between;align-items:center;font-weight:900;position:sticky;top:0;z-index:20}
+.lang select{background:rgba(255,255,255,0.2);border:none;color:white;padding:6px 12px;border-radius:20px;font-weight:bold}
+.page{display:none;min-height:100vh}.page.active{display:block}
 .main{padding:20px 16px;display:flex;justify-content:center}
 .card{background:white;width:100%;max-width:380px;border-radius:28px;padding:22px 16px;box-shadow:0 10px 25px rgba(0,0,0,0.08);text-align:center}
 .badge{display:flex;align-items:center;justify-content:center;gap:10px}
 .line{height:4px;width:85px;background:linear-gradient(to right,#0a9e40,#c8f0d4);border-radius:5px}
-.shield{background:#0a9e40;width:48px;height:48px;border-radius:50% 50% 50% 50% / 10% 10% 90% 90%;display:flex;align-items:center;justify-content:center;color:white;font-size:26px;font-weight:bold}
-.title{font-size:34px;font-weight:900;color:#0a5c28;margin:12px 0 8px}
+.shield{background:#0a9e40;width:48px;height:48px;border-radius:50% 50% 50% 50% / 10% 10% 90% 90%;display:flex;align-items:center;justify-content:center;color:white;font-size:26px}
+.title{font-size:32px;font-weight:900;color:#0a5c28;margin:12px 0 8px}
 .underline{width:200px;height:5px;background:#0a9e40;margin:0 auto 20px;border-radius:10px;transform:rotate(-1deg)}
 .btn{width:100%;background:linear-gradient(180deg,#10b64d,#0a9e40);color:white;border:none;border-radius:18px;padding:14px 16px;display:flex;align-items:center;gap:12px;margin-bottom:14px;cursor:pointer;box-shadow:0 6px 14px rgba(10,158,64,0.35)}
-.icon{width:80px;font-size:44px}
+.icon{width:80px;font-size:40px}
 .divider{width:2px;height:48px;background:rgba(255,255,255,0.6)}
-.label{font-size:28px;font-weight:800;flex:1;text-align:left}
+.label{font-size:26px;font-weight:800;flex:1;text-align:left}
 .help{font-size:12px;color:#666;margin-top:14px}
-.page{display:none;min-height:100vh;background:#f5f5f5}
-.page.active{display:block}
-.form{max-width:380px;margin:0 auto;padding:24px 16px}
-.form h2{color:#0a5c28;text-align:center;margin-bottom:20px;font-size:24px}
-input{width:100%;padding:15px;border:1px solid #ddd;border-radius:14px;margin-bottom:12px;font-size:16px;background:white}
+.form{max-width:400px;margin:0 auto;padding:24px 16px;background:white;min-height:100vh}
+.form h2{color:#0a5c28;text-align:center;margin-bottom:6px;font-size:24px}
+.form p.sub{color:#666;text-align:center;margin-bottom:18px;font-size:13px}
+input,select{width:100%;padding:15px;border:1px solid #ddd;border-radius:14px;margin-bottom:12px;font-size:16px;background:#fafafa}
 .btn2{width:100%;padding:15px;border-radius:14px;border:none;font-weight:bold;font-size:16px;cursor:pointer}
-.green{background:#0a5c28;color:white} .white{background:white;border:1px solid #ddd;margin-top:10px}
+.green{background:#0a9e40;color:white} .white{background:white;border:1px solid #ddd;margin-top:10px}
+.box{background:#f8fff8;border:1px solid #d4edda;border-radius:14px;padding:14px;margin:12px 0;text-align:left}
 </style>
 </head>
 <body>
 
-<!-- 1. হোম পেজ - আপনার ছবির মতো -->
+<!-- 1. HOME - আপনার ছবির মতো -->
 <div id="home" class="page active">
-  <div class="header">
-    <div>🛵 Ride Go BD</div>
-    <div class="lang">
-      <select id="langSelect" onchange="changeLang(this.value)">
-        <option value="bn">বাংলা | English</option>
-        <option value="en">English | বাংলা</option>
-        <option value="ar">العربية</option>
-        <option value="hi">हिंदी</option>
-        <option value="ur">اردو</option>
-        <option value="es">Español</option>
-        <option value="fr">Français</option>
-        <option value="ms">Melayu</option>
-      </select>
-    </div>
-  </div>
-  <div class="main">
-    <div class="card">
-      <div class="badge"><div class="line"></div><div class="shield">✓</div><div class="line" style="background:linear-gradient(to left,#0a9e40,#c8f0d4)"></div></div>
-      <div class="title" id="t1">নিরাপদ যাত্রায়</div>
-      <div class="underline"></div>
-      <button class="btn" onclick="go('passenger')"><div class="icon">👨‍✈️</div><div class="divider"></div><div class="label" id="b1">যাত্রী</div></button>
-      <button class="btn" onclick="go('driver')"><div class="icon">🚗</div><div class="divider"></div><div class="label" id="b2">চালক</div></button>
-      <div class="help">সাহায্য লাগবে? হটলাইন: 09638-XXXXXX</div>
-    </div>
-  </div>
+  <div class="header"><div>🛵 Ride Go BD</div><div class="lang"><select id="langSelect" onchange="changeLang(this.value)"><option value="bn">বাংলা | English</option><option value="en">English</option><option value="ar">العربية</option><option value="hi">हिंदी</option><option value="ur">اردو</option></select></div></div>
+  <div class="main"><div class="card">
+    <div class="badge"><div class="line"></div><div class="shield">✓</div><div class="line" style="background:linear-gradient(to left,#0a9e40,#c8f0d4)"></div></div>
+    <div class="title" id="t1">নিরাপদ যাত্রায়</div><div class="underline"></div>
+    <button class="btn" onclick="go('passenger-reg')"><div class="icon">👨‍✈️</div><div class="divider"></div><div class="label" id="b1">যাত্রী</div></button>
+    <button class="btn" onclick="go('driver-reg')"><div class="icon">🚗</div><div class="divider"></div><div class="label" id="b2">চালক</div></button>
+    <div class="help">সাহায্য লাগবে? হটলাইন: 09638-XXXXXX<br><span style="color:#0a9e40;cursor:pointer" onclick="go('passenger-login')">আগে থেকেই একাউন্ট আছে? লগইন করুন</span></div>
+  </div></div>
 </div>
 
-<!-- 2. যাত্রী লগইন - পাসওয়ার্ড ছাড়া -->
-<div id="passenger" class="page">
-  <div class="form">
-    <h2 id="pt">যাত্রী লগইন</h2>
-    <input id="pp" placeholder="ফোন নম্বর">
-    <button class="btn2 green" onclick="go('dashboard')" id="plb">লগইন করুন</button>
-    <button class="btn2 white" onclick="go('home')">পিছনে</button>
-  </div>
-</div>
+<!-- 2. যাত্রী রেজিস্ট্রেশন - আগের কাজ -->
+<div id="passenger-reg" class="page"><div class="form">
+  <h2>যাত্রী রেজিস্ট্রেশন</h2><p class="sub">নতুন একাউন্ট তৈরি করুন</p>
+  <input placeholder="আপনার নাম">
+  <input placeholder="ফোন নম্বর - 01XXXXXXXXX">
+  <input placeholder="স্পন্সর কোড (যদি থাকে)">
+  <div class="box">✓ পাসওয়ার্ড লাগবে না, ফোন নম্বরেই লগইন হবে</div>
+  <button class="btn2 green" onclick="go('dashboard')">রেজিস্ট্রেশন করুন</button>
+  <button class="btn2 white" onclick="go('passenger-login')">লগইন পেজে যান</button>
+  <button class="btn2 white" onclick="go('home')">হোমে ফিরুন</button>
+</div></div>
 
-<!-- 3. চালক লগইন - পাসওয়ার্ড ছাড়া -->
-<div id="driver" class="page">
-  <div class="form">
-    <h2 id="dt">চালক লগইন</h2>
-    <input placeholder="ফোন নম্বর">
-    <button class="btn2 green" onclick="go('dashboard')" id="dlb">লগইন করুন</button>
-    <button class="btn2 white" onclick="go('home')">পিছনে</button>
-  </div>
-</div>
+<!-- 3. যাত্রী লগইন -->
+<div id="passenger-login" class="page"><div class="form">
+  <h2>যাত্রী লগইন</h2><p class="sub">ফোন নম্বর দিয়ে লগইন</p>
+  <input placeholder="ফোন নম্বর">
+  <button class="btn2 green" onclick="go('dashboard')">লগইন করুন</button>
+  <button class="btn2 white" onclick="go('passenger-reg')">নতুন একাউন্ট খুলুন</button>
+  <button class="btn2 white" onclick="go('home')">হোম</button>
+</div></div>
 
-<!-- 4. ড্যাশবোর্ড -->
-<div id="dashboard" class="page">
-  <div class="form">
-    <h2>স্বাগতম! 🎉</h2>
-    <p style="text-align:center;margin:20px 0">আপনি সফলভাবে লগইন করেছেন</p>
-    <button class="btn2 green">রাইড খুঁজুন</button>
-    <button class="btn2 white" onclick="go('home')">হোমে ফিরুন</button>
-  </div>
-</div>
+<!-- 4. চালক রেজিস্ট্রেশন - আগের কাজ -->
+<div id="driver-reg" class="page"><div class="form">
+  <h2>চালক রেজিস্ট্রেশন</h2><p class="sub">চালক হিসাবে যোগ দিন</p>
+  <input placeholder="চালকের নাম">
+  <input placeholder="ফোন নম্বর">
+  <input placeholder="NID নম্বর">
+  <select><option>গাড়ির ধরন নির্বাচন করুন</option><option>বাইক</option><option>অটো</option><option>কার</option></select>
+  <input placeholder="গাড়ির নম্বর">
+  <button class="btn2 green" onclick="go('dashboard')">রেজিস্ট্রেশন করুন</button>
+  <button class="btn2 white" onclick="go('driver-login')">লগইন করুন</button>
+  <button class="btn2 white" onclick="go('home')">হোম</button>
+</div></div>
+
+<!-- 5. চালক লগইন -->
+<div id="driver-login" class="page"><div class="form">
+  <h2>চালক লগইন</h2>
+  <input placeholder="ফোন নম্বর">
+  <button class="btn2 green" onclick="go('dashboard')">লগইন করুন</button>
+  <button class="btn2 white" onclick="go('home')">হোম</button>
+</div></div>
+
+<!-- 6. ড্যাশবোর্ড - আগের কাজ -->
+<div id="dashboard" class="page"><div class="form">
+  <h2>স্বাগতম! 🎉</h2><p class="sub">আপনি সফলভাবে লগইন করেছেন</p>
+  <div class="box"><b>📍 কোথা থেকে যাবেন?</b><br><br><input placeholder="উঠার স্থান - যেমন: মুরাদপুর"><input placeholder="নামার স্থান - যেমন: জিইসি"><button class="btn2 green">রাইড খুঁজুন</button></div>
+  <button class="btn2 white" onclick="go('home')">হোমে ফিরুন</button>
+</div></div>
 
 <script>
-function go(id){
-  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
-  document.getElementById(id).classList.add('active');
-  window.scrollTo(0,0);
-}
-const L={
-bn:{t1:"নিরাপদ যাত্রায়",b1:"যাত্রী",b2:"চালক",pt:"যাত্রী লগইন",dt:"চালক লগইন",lb:"লগইন করুন",ph:"ফোন নম্বর"},
-en:{t1:"Safe Journey",b1:"Passenger",b2:"Driver",pt:"Passenger Login",dt:"Driver Login",lb:"Login",ph:"Phone Number"},
-ar:{t1:"رحلة آمنة",b1:"راكب",b2:"سائق",pt:"دخول الراكب",dt:"دخول السائق",lb:"دخول",ph:"رقم الهاتف"},
-hi:{t1:"सुरक्षित यात्रा",b1:"यात्री",b2:"चालक",pt:"यात्री लॉगिन",dt:"चालक लॉगिन",lb:"लॉगिन",ph:"फोन नंबर"},
-ur:{t1:"محفوظ سفر",b1:"مسافر",b2:"ڈرائیور",pt:"مسافر لاگ ان",dt:"ڈرائیور لاگ ان",lb:"لاگ ان",ph:"فون نمبر"},
-es:{t1:"Viaje Seguro",b1:"Pasajero",b2:"Conductor",pt:"Login Pasajero",dt:"Login Conductor",lb:"Entrar",ph:"Teléfono"},
-fr:{t1:"Voyage Sûr",b1:"Passager",b2:"Chauffeur",pt:"Passager",dt:"Chauffeur",lb:"Connexion",ph:"Téléphone"},
-ms:{t1:"Perjalanan Selamat",b1:"Penumpang",b2:"Pemandu",pt:"Penumpang",dt:"Pemandu",lb:"Log Masuk",ph:"Telefon"}
-};
-function changeLang(v){
-  localStorage.setItem('lg',v); let d=L[v]||L.bn;
-  document.getElementById('t1').innerText=d.t1;
-  document.getElementById('b1').innerText=d.b1;
-  document.getElementById('b2').innerText=d.b2;
-  document.getElementById('pt').innerText=d.pt;
-  document.getElementById('dt').innerText=d.dt;
-  document.getElementById('plb').innerText=d.lb;
-  document.getElementById('dlb').innerText=d.lb;
-  document.getElementById('pp').placeholder=d.ph;
-  document.getElementById('langSelect').value=v;
-}
+function go(id){document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));document.getElementById(id).classList.add('active');window.scrollTo(0,0);}
+const L={bn:{t1:"নিরাপদ যাত্রায়",b1:"যাত্রী",b2:"চালক"},en:{t1:"Safe Journey",b1:"Passenger",b2:"Driver"},ar:{t1:"رحلة آمنة",b1:"راكب",b2:"سائق"},hi:{t1:"सुरक्षित यात्रा",b1:"यात्री",b2:"चालक"},ur:{t1:"محفوظ سفر",b1:"مسافر",b2:"ڈرائیور"}};
+function changeLang(v){let d=L[v]||L.bn;document.getElementById('t1').innerText=d.t1;document.getElementById('b1').innerText=d.b1;document.getElementById('b2').innerText=d.b2;localStorage.setItem('lg',v);}
 changeLang(localStorage.getItem('lg')||'bn');
 </script>
 </body>
