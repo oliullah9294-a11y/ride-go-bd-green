@@ -1,78 +1,63 @@
-<!DOCTYPE html>
-<html lang="bn">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ride Go BD</title>
-<style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:sans-serif}
-body{background:#f5f5f5}
-.header{background:#14532d;color:white;padding:14px 16px;display:flex;justify-content:space-between;align-items:center;border-radius:0 0 18px 18px}
-.page{display:none;min-height:100vh}
-.page.active{display:block}
-.box{padding:20px 16px}
-.btn{width:100%;padding:14px;border-radius:12px;border:none;font-weight:bold;cursor:pointer}
-.btn-green{background:#14532d;color:white}
-.btn-white{background:white;border:1px solid #ddd}
-input{width:100%;padding:14px;margin:8px 0;border:1px solid #ddd;border-radius:12px}
-.cardBig{padding:24px 10px;border-radius:16px;text-align:center;font-weight:bold;cursor:pointer}
-.lang select{padding:5px 10px;border-radius:20px;border:none;font-weight:bold;font-size:12px}
-</style>
-</head>
-<body>
-
-<!-- Landing Page -->
-<div id="landing" class="page active">
-  <div style="background:#16a34a;color:white;padding:60px 20px 115px;text-align:center;border-radius:0 0 32px 32px;position:relative">
-    <div style="position:absolute;top:14px;left:14px;font-weight:bold">🛵 Ride Go BD</div>
-    <div style="position:absolute;top:12px;right:12px" class="lang"><select><option>🇧🇩 বাংলা</option><option>🇬🇧 English</option></select></div>
-    <div style="font-size:28px;font-weight:900;margin-top:18px">আপনার যাত্রা,<br>আমাদের দায়িত্ব</div>
-  </div>
-  <div style="margin:70px 16px;background:white;border-radius:22px;padding:28px 18px;box-shadow:0 10px 25px rgba(0,0,0,0.12)">
-    <button class="btn btn-green" onclick="go('reg')" style="margin-bottom:12px">+ নতুন? নিবন্ধন করুন</button>
-    <button class="btn btn-white" onclick="go('login')">→ অ্যাকাউন্ট আছে? লগইন করুন</button>
-  </div>
-</div>
-
-<div id="reg" class="page"><div class="box"><h2 style="text-align:center;color:#14532d;margin:20px 0">নিবন্ধন করুন</h2><input placeholder="আপনার নাম"><input placeholder="ফোন নাম্বার"><input placeholder="স্পন্সর নাম্বার"><button class="btn btn-green" style="margin-top:10px" onclick="go('otp')">নিবন্ধন করুন</button><button class="btn btn-white" style="margin-top:8px" onclick="go('landing')">পিছনে</button></div></div>
-<div id="login" class="page"><div class="box"><h2 style="text-align:center;color:#14532d;margin:20px 0">লগইন করুন</h2><input placeholder="ফোন নাম্বার"><button class="btn btn-green" style="margin-top:10px" onclick="go('otp')">লগইন করুন</button><button class="btn btn-white" style="margin-top:8px" onclick="go('landing')">পিছনে</button></div></div>
-<div id="otp" class="page"><div class="box"><h2 style="text-align:center;color:#14532d;margin:20px 0">ওটিপি যাচাই করুন</h2><input placeholder="4 সংখ্যার কোড" style="text-align:center;letter-spacing:6px;font-weight:bold"><button class="btn btn-green" style="margin-top:10px" onclick="go('home')">যাচাই করুন</button></div></div>
-
-<!-- আপনার চাওয়া ফাইনাল হোম পেজ -->
-<div id="home" class="page">
-  <div class="header">
+<!-- ফাইনাল হোম পেজ - লাল দাগ কাটা -->
+<div id="home" class="page active">
+  <div style="background:#14532d;color:white;padding:14px 16px;display:flex;justify-content:space-between;align-items:center;border-radius:0 0 18px 18px">
     <b>🛵 Ride Go BD</b>
-    <div style="display:flex;gap:8px;align-items:center">
-      <span style="background:white;color:#14532d;padding:5px 12px;border-radius:20px;font-size:11px;font-weight:bold">ব্যালেন্স: ৳0</span>
-      <div class="lang"><select><option>বাংলা</option><option>EN</option></select></div>
+    <div style="display:flex;align-items:center;gap:8px">
+      <!-- ভাষা পরিবর্তন আইকন সহ সব ভাষা -->
+      <div style="background:white;border-radius:20px;padding:4px 10px;display:flex;align-items:center;gap:4px">
+        <span style="font-size:14px">🌐</span>
+        <select id="langSelect" style="border:none;background:transparent;font-weight:bold;font-size:12px;outline:none;color:#14532d">
+          <option value="bn">বাংলা</option>
+          <option value="en">English</option>
+          <option value="hi">हिन्दी</option>
+          <option value="ar">العربية</option>
+          <option value="ur">اردو</option>
+          <option value="es">Español</option>
+          <option value="fr">Français</option>
+          <option value="de">Deutsch</option>
+          <option value="zh">中文</option>
+          <option value="ja">日本語</option>
+          <option value="ko">한국어</option>
+          <option value="tr">Türkçe</option>
+          <option value="ms">Melayu</option>
+          <option value="id">Indonesia</option>
+        </select>
+      </div>
     </div>
   </div>
-  <div class="box">
-    <h3>স্বাগতম! 🎉</h3>
-    <p style="font-size:12px;color:#666;margin:6px 0 16px">আপনি কি হিসেবে যাত্রা করবেন?</p>
+  
+  <div style="padding:20px 16px">
+    <h3 style="font-size:18px">স্বাগতম! 🎉</h3>
+    <p style="font-size:13px;color:#666;margin:6px 0 18px">আপনি কি হিসেবে যাত্রা করবেন?</p>
     
-    <!-- যাত্রী ও চালক - বড় বাটন বটম বড -->
+    <!-- শুধু যাত্রী ও চালক - বড় বাটন -->
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px">
-      <div class="cardBig" style="background:#14532d;color:white"><div style="font-size:30px">🧍</div><div style="margin-top:8px">যাত্রী</div><div style="font-size:11px;opacity:.8;font-weight:normal">রাইড খুঁজুন</div></div>
-      <div class="cardBig" style="background:white;border:1px solid #ddd"><div style="font-size:30px">🏍️</div><div style="margin-top:8px">চালক</div><div style="font-size:11px;color:#666;font-weight:normal">আয় করুন</div></div>
+      <div style="background:#14532d;color:white;padding:32px 10px;border-radius:18px;text-align:center;font-weight:bold;box-shadow:0 4px 12px rgba(20,83,45,0.3)">
+        <div style="font-size:32px">🧍</div>
+        <div style="margin-top:10px;font-size:16px">যাত্রী</div>
+        <div style="font-size:11px;opacity:.8;font-weight:normal;margin-top:2px">রাইড খুঁজুন</div>
+      </div>
+      <div style="background:white;padding:32px 10px;border-radius:18px;text-align:center;font-weight:bold;border:1px solid #e5e7eb">
+        <div style="font-size:32px">🏍️</div>
+        <div style="margin-top:10px;font-size:16px">চালক</div>
+        <div style="font-size:11px;color:#666;font-weight:normal;margin-top:2px">আয় করুন</div>
+      </div>
     </div>
 
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:12px">
-      <div style="background:white;padding:14px;border-radius:12px;text-align:center;font-size:13px;border:1px solid #eee">👥 রেফার</div>
-      <div style="background:white;padding:14px;border-radius:12px;text-align:center;font-size:13px;border:1px solid #eee">📜 ইতিহাস</div>
+    <!-- Owner - ছোট -->
+    <div style="text-align:center;margin-top:28px">
+      <span style="font-size:10px;color:#aaa;border:1px dashed #ccc;padding:6px 14px;border-radius:20px">Owner</span>
     </div>
 
-    <!-- Owner - ছোট বাটন, সাধারণ মানুষ যাতে না যায় -->
-    <div style="text-align:center;margin-top:26px">
-      <span style="font-size:10px;color:#aaa;border:1px dashed #ccc;padding:5px 12px;border-radius:20px">Owner</span>
-    </div>
-
-    <button class="btn btn-white" style="margin-top:22px" onclick="go('landing')">লগআউট</button>
+    <!-- লগআউট -->
+    <button onclick="go('landing')" style="width:100%;padding:15px;border-radius:14px;border:1px solid #ddd;background:white;font-weight:bold;margin-top:26px;font-size:14px">লগআউট</button>
   </div>
 </div>
 
 <script>
-function go(id){document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));document.getElementById(id).classList.add('active');window.scrollTo(0,0)}
+function go(id){document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));document.getElementById(id).classList.add('active')}
+document.getElementById('langSelect').addEventListener('change', function(){
+  // ভাষা পরিবর্তনের লজিক পরে যোগ হবে
+  console.log('Language:', this.value);
+});
 </script>
-</body>
-</html>
