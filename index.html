@@ -16,24 +16,22 @@ body{background:#f0f2f5}
 .btn{width:100%;padding:15px;border-radius:14px;border:none;font-weight:bold;font-size:15px;margin-bottom:12px;cursor:pointer;display:block;text-align:center}
 .btn-green{background:#14532d;color:white;margin-top:4px}
 .btn-white{background:#fff;color:#111;border:1px solid #ddd}
-.page{display:none;padding:20px}
-.active{display:block}
+.page{display:none}
+.page.active{display:block}
+.inputBox{padding:20px}
 input{width:100%;padding:14px;margin:8px 0;border:1px solid #ddd;border-radius:12px}
 .small{font-size:12px;color:#666;text-align:center;margin-top:10px}
 </style>
 </head>
 <body>
 
-<div id="home" class="active">
+<div id="home" class="page active">
   <div class="header">
     <div class="logo">🛵 Ride Go BD</div>
     <div class="lang">
       <select id="langSelect" onchange="changeLang(this.value)">
         <option value="bn">🇧🇩 বাংলা</option>
         <option value="en">🇬🇧 English</option>
-        <option value="ar">🇸🇦 العربية</option>
-        <option value="hi">🇮🇳 हिंदी</option>
-        <option value="ur">🇵🇰 اردو</option>
       </select>
     </div>
     <div class="title" id="t1">আপনার যাত্রা,<br>আমাদের দায়িত্ব</div>
@@ -45,17 +43,39 @@ input{width:100%;padding:14px;margin:8px 0;border:1px solid #ddd;border-radius:1
 </div>
 
 <div id="reg" class="page">
-  <h2 id="rTitle" style="color:#14532d;text-align:center;margin:20px 0">নিবন্ধন করুন</h2>
-  <input id="namePh" placeholder="আপনার নাম">
-  <input placeholder="ফোন নাম্বার">
-  <input placeholder="স্পন্সর নাম্বার">
-  <div class="small">✓ কোনো পাসওয়ার্ড লাগবে না, ফোন নাম্বারেই লগইন</div>
-  <button class="btn btn-green" style="margin-top:10px" id="rb">নিবন্ধন করুন</button>
-  <button class="btn btn-white" onclick="go('home')">পিছনে</button>
+  <div class="inputBox">
+    <h2 id="rTitle" style="color:#14532d;text-align:center;margin:20px 0">নিবন্ধন করুন</h2>
+    <input placeholder="আপনার নাম">
+    <input placeholder="ফোন নাম্বার">
+    <input placeholder="স্পন্সর নাম্বার">
+    <div class="small">✓ কোনো পাসওয়ার্ড লাগবে না</div>
+    <button class="btn btn-green" style="margin-top:10px">নিবন্ধন করুন</button>
+    <button class="btn btn-white" onclick="go('home')">পিছনে</button>
+  </div>
 </div>
 
 <div id="login" class="page">
-  <h2 style="color:#14532d;text-align:center;margin:20px 0">লগইন করুন</h2>
-  <input placeholder="ফোন নাম্বার">
-  <div class="small">শুধু ফোন নাম্বার দিয়ে লগইন - পাসওয়ার্ড লাগবে না</div>
-  <button class="btn
+  <div class="inputBox">
+    <h2 style="color:#14532d;text-align:center;margin:20px 0">লগইন করুন</h2>
+    <input placeholder="ফোন নাম্বার">
+    <div class="small">শুধু ফোন নাম্বার দিয়ে লগইন</div>
+    <button class="btn btn-green" style="margin-top:10px">লগইন করুন</button>
+    <button class="btn btn-white" onclick="go('home')">পিছনে</button>
+  </div>
+</div>
+
+<script>
+function go(id){
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  window.scrollTo(0,0);
+}
+function changeLang(v){
+  localStorage.setItem('lg',v);
+  let t=document.getElementById('t1');
+  if(v=='en'){t.innerHTML="Your Journey,<br>Our Responsibility";document.getElementById('b1').innerText="+ New? Register";document.getElementById('b2').innerText="→ Have account? Login";}
+  else{t.innerHTML="আপনার যাত্রা,<br>আমাদের দায়িত্ব";document.getElementById('b1').innerText="+ নতুন? নিবন্ধন করুন";document.getElementById('b2').innerText="→ অ্যাকাউন্ট আছে? লগইন করুন";}
+}
+</script>
+</body>
+</html>
