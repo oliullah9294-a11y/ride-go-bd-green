@@ -1,2 +1,49 @@
-passenger.html
-<!DOCTYPE html><html lang="bn"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>যাত্রী</title><script src="https://cdn.tailwindcss.com"></script></head><body class="bg-white"><div style="max-width:400px;margin:auto"><div style="background:#16a34a;color:white;padding:16px"><a href="index.html" style="background:rgba(255,255,255,0.2);padding:6px 10px;border-radius:50%">←</a><b> আমি যাত্রী</b></div><div style="padding:16px"><p>📍 আপনার অবস্থান</p><input id="loc" style="width:70%;border:1px solid #ccc;padding:10px;border-radius:8px" placeholder="GPS"><button onclick="navigator.geolocation.getCurrentPosition(p=>{document.getElementById('loc').value=p.coords.latitude.toFixed(5)+','+p.coords.longitude.toFixed(5)})" style="background:#16a34a;color:white;padding:10px;border-radius:8px">GPS</button><p style="margin-top:16px">🏁 গন্তব্য</p><input style="width:100%;border:1px solid #ccc;padding:10px;border-radius:8px" placeholder="জিইসি মোড়"><button style="width:100%;background:#16a34a;color:white;padding:14px;border-radius:12px;margin-top:16px;font-weight:bold">গাড়ি খুঁজুন 🔍</button></div></div></body></html>
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ride Go BD</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>body{font-family:'Hind Siliguri',sans-serif}</style>
+</head>
+<body class="bg-[#f1f5f1]">
+<div class="max-w-[420px] mx-auto bg-white min-h-screen shadow-xl flex flex-col">
+
+<div class="bg-[#0e8a3b] text-white px-4 py-3 flex items-center justify-between rounded-b-[18px]">
+<div class="flex items-center gap-3"><span class="text-2xl">☰</span><div><h1 class="font-bold text-[22px] leading-none">Ride Go BD</h1><p class="text-[11px]">Safe Ride, Happy Journey</p></div></div><div class="relative"><span class="text-2xl">🔔</span><span class="absolute -top-1 -right-1 bg-red-600 text-white text-[10px] w-5 h-5 rounded-full flex items-center justify-center">3</span></div>
+</div>
+
+<div class="p-3 space-y-3">
+<div class="bg-white border rounded-full px-4 py-3 flex justify-between shadow-sm"><div class="flex gap-3 items-center"><div class="bg-green-100 w-8 h-8 rounded-full flex items-center justify-center">📍</div><div><p class="font-bold text-[14px]">বর্তমান অবস্থান</p><p class="text-[12px] text-gray-500">ঢাকা, বাংলাদেশ</p></div></div><span>⌄</span></div>
+
+<div class="bg-white border rounded-full px-4 py-2.5 flex gap-3 items-center shadow-sm"><span>🔍</span><input class="flex-1 outline-none text-[14px]" placeholder="কোথায় যাবেন?"><div class="w-9 h-9 border rounded-full flex items-center justify-center text-green-700">◎</div></div>
+
+<div class="bg-gradient-to-r from-[#e8f5e9] to-white border rounded-2xl p-4 flex justify-between items-center"><div><h2 class="font-bold text-[#0e5a2b] text-[20px]">আপনার যাত্রা,<br>আমাদের দায়িত্ব</h2></div><div class="text-[60px]">🚘</div></div>
+
+<div class="grid grid-cols-2 gap-3">
+<div class="bg-white rounded-2xl border p-3 shadow-sm"><div class="flex justify-between"><div class="text-[40px]">🚗</div><span class="bg-[#0e8a3b] text-white text-xs w-6 h-6 rounded-full flex items-center justify-center font-bold">12</span></div><div class="bg-[#0e8a3b] text-white text-xs px-3 py-1 rounded-full inline-block mt-1">🚗 কার</div><p class="text-[11px] font-semibold mt-2 flex justify-between">৪ চাকায় গাড়ি বুকিং করুন <span>›</span></p></div>
+
+<div class="bg-white rounded-2xl border p-3 shadow-sm"><div class="flex justify-between"><div class="text-[40px]">🛺</div><span class="bg-[#0e8a3b] text-white text-xs w-6 h-6 rounded-full flex items-center justify-center font-bold">8</span></div><div class="bg-[#0e8a3b] text-white text-xs px-3 py-1 rounded-full inline-block mt-1">🛺 সি.এনজি</div><p class="text-[11px] font-semibold mt-2 flex justify-between">সি এনজি বুকিং করুন <span>›</span></p></div>
+
+<div class="bg-white rounded-2xl border p-3 shadow-sm"><div class="flex justify-between"><div class="text-[40px]">🏍️</div><span class="bg-[#0e8a3b] text-white text-xs w-6 h-6 rounded-full flex items-center justify-center font-bold">5</span></div><div class="bg-[#0e8a3b] text-white text-xs px-3 py-1 rounded-full inline-block mt-1">🏍️ মোটরসাইকেল</div><p class="text-[11px] font-semibold mt-2 flex justify-between">মোটরসাইকেল বুকিং করুন <span>›</span></p></div>
+
+<div class="bg-white rounded-2xl border p-3 shadow-sm"><div class="flex justify-between"><div class="text-[40px]">🛞</div><span class="bg-[#0e8a3b] text-white text-xs w-6 h-6 rounded-full flex items-center justify-center font-bold">3</span></div><div class="bg-[#0e8a3b] text-white text-xs px-3 py-1 rounded-full inline-block mt-1">🛺 রিকশা</div><p class="text-[11px] font-semibold mt-2 flex justify-between">রিকশা বুকিং করুন <span>›</span></p></div>
+
+<div class="bg-white rounded-2xl border p-3 shadow-sm"><div class="flex justify-between"><div class="text-[40px]">🚐</div><span class="bg-[#0e8a3b] text-white text-xs w-6 h-6 rounded-full flex items-center justify-center font-bold">4</span></div><div class="bg-[#0e8a3b] text-white text-xs px-3 py-1 rounded-full inline-block mt-1">🚐 মাইক্রোবাস</div><p class="text-[11px] font-semibold mt-2 flex justify-between">মাইক্রোবাস বুকিং করুন <span>›</span></p></div>
+
+<div class="bg-white rounded-2xl border p-3 shadow-sm"><div class="flex justify-between"><div class="text-[40px]">🚙</div><span class="bg-[#0e8a3b] text-white text-xs w-6 h-6 rounded-full flex items-center justify-center font-bold">2</span></div><div class="bg-[#0e8a3b] text-white text-xs px-3 py-1 rounded-full inline-block mt-1">🚙 প্রাইভেট</div><p class="text-[11px] font-semibold mt-2 flex justify-between">প্রাইভেট কার বুকিং করুন <span>›</span></p></div>
+</div>
+
+<div class="bg-[#e8f5e9] rounded-full px-4 py-3 flex justify-between items-center border"><div class="flex gap-3 items-center"><div class="bg-[#0e8a3b] w-10 h-10 rounded-full flex items-center justify-center text-white">•••</div><div><p class="font-bold text-[14px]">More</p><p class="text-[11px] text-gray-600">আরও অনেক ধরনের গাড়ি দেখুন</p></div></div><span>›</span></div>
+</div>
+
+<div class="mt-auto bg-white border-t rounded-t-2xl px-2 py-2 flex justify-around">
+<div class="text-center text-[#0e8a3b]"><div>🏠</div><p class="text-[12px] font-bold">হোম</p></div>
+<div class="text-center text-gray-400"><div>🕒</div><p class="text-[12px]">ইতিহাস</p></div>
+<div class="text-center text-gray-400"><div>💳</div><p class="text-[12px]">ওয়ালেট</p></div>
+<div class="text-center text-gray-400"><div>👤</div><p class="text-[12px]">প্রোফাইল</p></div>
+</div>
+</div>
+</body>
+</html>
