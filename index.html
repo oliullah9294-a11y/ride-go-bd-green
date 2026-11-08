@@ -2,142 +2,21 @@
 <html lang="bn">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ride Go BD - Passenger 8 Pages</title>
+<title>Ride Go BD - Final One File</title>
 <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@500;700&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:'Hind Siliguri',sans-serif}
-body{background:#f0f0f0;display:flex;justify-content:center}
-.app{width:100%;max-width:420px}
-.page{display:none;min-height:100vh;background:#fff;border:4px solid #b50000;border-radius:28px;overflow:hidden;flex-direction:column;position:relative}
+body{background:#eee;display:flex;justify-content:center}
+.app{width:100%;max-width:420px;background:white;min-height:100vh;box-shadow:0 0 20px rgba(0,0,0,.1)}
+.page{display:none;min-height:100vh;background:#fff;flex-direction:column;position:relative;border:3px solid #b50000;border-radius:28px;overflow:hidden}
 .page.active{display:flex}
-.hdr{display:flex;align-items:center;gap:8px;padding:10px 12px;font-weight:900;font-size:15px}
-.hdr .g{color:#0a7a2e}.hdr .r{color:#c00000}
-.lang{margin-left:auto;background:#fff;border:1px solid #ddd;border-radius:16px;padding:2px 8px;font-size:11px}
-.green-bar{background:#0a7a2e;color:white;border-radius:20px;padding:10px 14px;text-align:center;font-weight:700;font-size:14px;margin:8px 12px;display:flex;align-items:center;justify-content:center;gap:6px}
-.box{padding:10px 12px;flex:1}
-.grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px}
-.v-card{background:white;border:1px solid #e5e5e5;border-radius:14px;padding:8px;text-align:center;font-size:12px;box-shadow:0 2px 6px rgba(0,0,0,.05)}
-.v-card b{display:block;margin-top:4px}
-.map{height:160px;background:#e8f0e8;border-radius:14px;position:relative;overflow:hidden;border:1px solid #ddd}
-.btn-green{width:100%;background:#0a7a2e;color:white;border:none;border-radius:22px;padding:12px;font-weight:700;margin-top:10px}
-.btn-white{width:100%;background:white;border:1px solid #0a7a2e;color:#0a7a2e;border-radius:22px;padding:10px;font-weight:700;margin-top:8px}
-.driver-row{display:flex;align-items:center;gap:10px;border:1px solid #eee;border-radius:14px;padding:10px;margin-bottom:8px}
-.driver-row img{width:40px;height:40px;border-radius:50%}
-.price{margin-left:auto;text-align:right}
-.price b{color:#c00000}
-.fare-box{background:#e6ffe9;border-radius:16px;padding:12px;text-align:center;margin:10px 0}
-.counter{display:flex;align-items:center;justify-content:center;gap:20px;background:white;border-radius:12px;padding:8px;margin:8px 0}
-.pay-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
-.pay-card{border:1px solid #ddd;border-radius:12px;padding:10px;text-align:center;font-weight:700}
-</style>
-</head>
-<body>
-<div class="app">
-
-<!-- P1: গাড়ি নির্বাচন - আপনার ছবির ১ম টা -->
-<div id="P1" class="page active"><div class="hdr"><span>🚗</span><span class="g">Ride Go</span><span class="r">&nbsp;BD</span><span class="lang">🌐 বাংলা</span></div>
-<div style="margin:0 12px;border-radius:14px;overflow:hidden"><img src="https://images.unsplash.com/photo-1549399542-7e3f8b79c341?w=600" style="width:100%;height:140px;object-fit:cover"></div>
-<div class="box">
-<div class="grid3">
-<div class="v-card">🚗<b>কার</b></div><div class="v-card">🏍️<b>বাইক</b></div><div class="v-card">🛺<b>অটো</b></div>
-<div class="v-card">🚐<b>মাইক্রোবাস</b></div><div class="v-card">🚌<b>বাস</b></div><div class="v-card">🚚<b>ট্রাক</b></div>
-</div>
-<button class="btn-green" onclick="go('P2')">More ▾</button>
-<button class="btn-green" onclick="go('P2')" style="background:#0a7a2e">→ P2 লোকেশন নির্বাচন</button>
-<button class="btn-white" onclick="go('H5')">← পিছনে</button>
-</div></div>
-
-<!-- P2: কোথায় থেকে কোথায় -->
-<div id="P2" class="page"><div class="hdr"><span>🚗</span><span class="g">Ride Go</span><span class="r">&nbsp;BD</span></div>
-<div class="green-bar">📍 কোথায় থেকে কোথায়</div>
-<div class="box">
-<div class="map"><div style="position:absolute;left:20px;top:60px">📍</div><div style="position:absolute;right:30px;top:20px;color:red">📍</div><div style="position:absolute;left:50%;top:50%;width:14px;height:14px;background:#0a7a2e;border-radius:50%;border:3px solid white"></div></div>
-<div style="margin-top:10px">
-<div class="v-card" style="text-align:left;display:flex;justify-content:space-between" onclick="go('P3')"><span>📍 কোথায় থেকে যাবেন?<br><small>আপনার অবস্থান নির্বাচন করুন</small></span>›</div>
-<div class="v-card" style="text-align:left;display:flex;justify-content:space-between;margin-top:8px" onclick="go('P3')"><span>📍 কোথায় যাবেন?<br><small>গন্তব্য নির্বাচন করুন</small></span>›</div>
-</div>
-<button class="btn-green" onclick="go('P3')">🔍 খুঁজুন</button>
-<button class="btn-white" onclick="go('P1')">← পিছনে</button>
-</div></div>
-
-<!-- P3: চালকদের ভাড়ার প্রস্তাব -->
-<div id="P3" class="page"><div class="hdr"><span>🚗</span><span class="g">Ride Go</span><span class="r">&nbsp;BD</span></div>
-<div class="green-bar">🚗 চালকদের ভাড়ার প্রস্তাব</div>
-<div class="box">
-<div class="driver-row"><img src="https://i.pravatar.cc/100?img=11"><div><b>রিফাত ইসলাম</b><br>⭐ 4.8 (120 রাইড)<br>🚗 সেডান কার</div><div class="price"><b>৳ 120</b><br><button class="btn-green" style="padding:4px 10px;font-size:12px" onclick="go('P4')">নির্বাচন</button></div></div>
-<div class="driver-row"><img src="https://i.pravatar.cc/100?img=12"><div><b>মোঃ হাসান</b><br>⭐ 4.7 (98 রাইড)<br>🚗 সেডান কার</div><div class="price"><b>৳ 130</b><br><button class="btn-green" style="padding:4px 10px;font-size:12px" onclick="go('P4')">নির্বাচন</button></div></div>
-<div class="driver-row"><img src="https://i.pravatar.cc/100?img=13"><div><b>কামরুল ইসলাম</b><br>⭐ 4.6 (76 রাইড)<br>🛵 বাইক</div><div class="price"><b>৳ 140</b><br><button class="btn-green" style="padding:4px 10px;font-size:12px" onclick="go('P4')">নির্বাচন</button></div></div>
-<button class="btn-white" onclick="go('P2')">← পিছনে</button>
-</div></div>
-
-<!-- P4: ভাড়া আলোচনা -->
-<div id="P4" class="page"><div class="hdr"><span>🚗</span><span class="g">Ride Go</span><span class="r">&nbsp;BD</span></div>
-<div class="green-bar">🤝 ভাড়া আলোচনা ও নিশ্চিতকরণ</div>
-<div class="box" style="text-align:center">
-<div class="driver-row" style="justify-content:center"><img src="https://i.pravatar.cc/100?img=11"><div style="text-align:left"><b>রিফাত ইসলাম</b><br>⭐ 4.8 (120 রাইড)</div>🚗</div>
-<div class="fare-box"><small>চালকের প্রস্তাবিত ভাড়া</small><div style="font-size:28px;font-weight:900">৳ 120</div></div>
-<div>আপনার প্রস্তাবিত ভাড়া</div>
-<div class="counter"><button style="width:36px;height:36px;border-radius:50%;border:1px solid #aaa">−</button><b style="font-size:22px">130</b><button style="width:36px;height:36px;border-radius:50%;background:#0a7a2e;color:white;border:none">+</button></div>
-<button class="btn-green" onclick="go('P5')">✓ চালকের সাথে সম্মত হোন</button>
-<button class="btn-white" onclick="go('P3')">← পিছনে</button>
-</div></div>
-
-<!-- P5: পেমেন্ট -->
-<div id="P5" class="page"><div class="hdr"><span>🚗</span><span class="g">Ride Go</span><span class="r">&nbsp;BD</span></div>
-<div class="green-bar">💳 পেমেন্ট</div>
-<div class="box">
-<div style="text-align:center;background:#f0fff0;border-radius:12px;padding:10px">যাত্রীর সার্ভিস ফি<br><b style="font-size:24px">৳ 5</b><br><small>(প্রতি যাত্রায়)</small><br><small>পেমেন্ট মাধ্যম নির্বাচন করুন</small></div>
-<div class="pay-grid" style="margin-top:10px">
-<div class="pay-card" style="color:#e6007a">bKash</div><div class="pay-card" style="color:#e60000">নগদ</div>
-<div class="pay-card">🚀 রকেট</div><div class="pay-card">💳 ব্যাংক কার্ড</div>
-</div>
-<button class="btn-green" onclick="go('P6')">✓ পেমেন্ট করুন</button>
-<button class="btn-white" onclick="go('P4')">← পিছনে</button>
-</div></div>
-
-<!-- P6: লাইভ রাইড -->
-<div id="P6" class="page"><div class="hdr"><span>🚗</span><span class="g">Ride Go</span><span class="r">&nbsp;BD</span></div>
-<div class="green-bar">📍 লাইভ রাইড</div>
-<div class="box">
-<div style="display:flex;justify-content:space-between;font-size:12px"><span>🚗 ঢাকা মেট্রো-১২-৩৪৫৬<br>রিফাত ইসলাম</span><span>⭐ 4.8</span></div>
-<div style="background:#eaffea;border-radius:12px;padding:6px 12px;display:inline-block;margin:8px 0;font-weight:700">8 মিনিট</div>
-<div class="map"><div style="position:absolute;left:20px;bottom:20px">📍</div><div style="position:absolute;right:30px;top:20px">📍</div><div style="position:absolute;left:40%;top:40%">🚗</div></div>
-<div style="display:flex;justify-content:space-between;margin-top:8px;font-size:12px"><span>📍 2.5 কিমি</span><span>⏱️ 8 মিনিট</span></div>
-<button class="btn-green" style="background:#c00000" onclick="go('P7')">রাইড চলছে...</button>
-<button class="btn-white" onclick="go('P5')">← পিছনে</button>
-</div></div>
-
-<!-- P7: রাইড হিস্ট্রি -->
-<div id="P7" class="page"><div class="hdr"><span>🚗</span><span class="g">Ride Go</span><span class="r">&nbsp;BD</span></div>
-<div class="green-bar">🕒 রাইড হিস্ট্রি</div>
-<div class="box">
-<div class="driver-row"><span>🚗</span><div>ধানমন্ডি → মিরপুর<br><small>10-10-2026, 05:20 PM</small></div><div class="price"><b>৳ 120 ›</b></div></div>
-<div class="driver-row"><span>🚗</span><div>বনানী → গুলশান<br><small>08-10-2026, 03:15 PM</small></div><div class="price"><b>৳ 150 ›</b></div></div>
-<div class="driver-row"><span>🚗</span><div>মিরপুর → উত্তরা<br><small>05-10-2026, 07:30 PM</small></div><div class="price"><b>৳ 140 ›</b></div></div>
-<button class="btn-white" onclick="go('P6')">← পিছনে</button>
-<button class="btn-green" onclick="go('P8')">Next → P8 প্রোফাইল</button>
-</div></div>
-
-<!-- P8: প্রোফাইল ও সেটিংস -->
-<div id="P8" class="page"><div class="hdr"><span>🚗</span><span class="g">Ride Go</span><span class="r">&nbsp;BD</span></div>
-<div class="green-bar">👤 প্রোফাইল ও সেটিংস</div>
-<div class="box">
-<div class="driver-row"><img src="https://i.pravatar.cc/100?img=15"><div><b>মোঃ রফিকুল ইসলাম</b><br>01712-345678<br><button class="btn-green" style="padding:4px 10px;font-size:11px">প্রোফাইল দেখুন</button></div></div>
-<div style="margin-top:10px">
-<div class="driver-row"><span>⚙️</span><span>ভাষা পরিবর্তন</span><span style="margin-left:auto">বাংলা ›</span></div>
-<div class="driver-row"><span>🎧</span><span>সাহায্য ও সাপোর্ট</span><span style="margin-left:auto">›</span></div>
-<div class="driver-row"><span>ℹ️</span><span>অ্যাপ সম্পর্কে</span><span style="margin-left:auto">›</span></div>
-<div class="driver-row"><span>🔒</span><span>গোপনীয়তা নীতি</span><span style="margin-left:auto">›</span></div>
-</div>
-<button class="btn-white" onclick="go('P7')">← পিছনে</button>
-<button class="btn-green" onclick="go('H5')">Finish → Home</button>
-</div></div>
-
-<!-- H Pages ফিরে যাওয়ার জন্য -->
-<div id="H5" class="page"><div class="hdr"><span>🚗 Ride Go BD</span></div><div class="box"><button class="btn-green" onclick="go('P1')">যাত্রী P1-P8 দেখুন</button><button class="btn-white" onclick="go('P1')">Back to P1</button></div></div>
-
-</div>
-<script>function go(id){document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));document.getElementById(id).classList.add('active');window.scrollTo(0,0)}</script>
-</div>
-</body>
-</html>
+/* লোগো যাতে ঢাকা না পড়ে */
+.hdr{position:relative;z-index:10;background:white;display:flex;align-items:center;gap:6px;padding:12px 14px;font-weight:900;font-size:16px;border-bottom:1px solid #f0f0f0}
+.hdr .g{color:#0a7a2e} .hdr .r{color:#c00000}
+.lang{margin-left:auto;font-size:11px;background:#f5f5f5;border:1px solid #ddd;border-radius:14px;padding:2px 8px}
+/* ডেকোরেশন - পেছনে */
+.bg-red{position:absolute;left:-30px;top:60px;width:120px;height:120px;background:#c00000;border-radius:50%;z-index:1}
+.bg-pink{position:absolute;right:-20px;bottom:100px;width:140px;height:140px;background:#ffe5e5;border-radius:50%;z-index:1}
+.box{position:relative;z-index:2;padding:12px;flex:1;display:flex;flex-direction:column}
+.green-bar{background:#0a7a2e;color:white;border-radius:20px;padding:10px;text-align:center;font-weight:700;margin:8px 12px;position:relative;z-index:2}
+.btn-g{width:100%;background:#0
