@@ -3,86 +3,80 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ride Go BD - Final 27 Pages</title>
+<title>Ride Go BD - Official</title>
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:sans-serif}
-body{background:#f5f5f5}
-.page{display:none;min-height:100vh;background:#f8faf9;max-width:420px;margin:0 auto;box-shadow:0 0 20px rgba(0,0,0,.06);flex-direction:column}
-.page.active{display:flex}
-.box{padding:20px 16px;flex:1;display:flex;flex-direction:column}
-.btn{width:100%;padding:15px;border-radius:14px;border:none;font-weight:bold;cursor:pointer;margin-top:8px}
-.btn-green{background:#0f3d26;color:white}
-.btn-white{background:white;border:1px solid #ddd}
-input{width:100%;padding:14px;margin:8px 0;border:1px solid #ddd;border-radius:12px}
-.step{background:#e8f5e9;color:#0f3d26;padding:5px 10px;border-radius:20px;font-size:11px;display:inline-block;margin-bottom:10px;font-weight:bold}
-.hdr{background:#0f3d26;color:white;padding:14px 16px;display:flex;justify-content:space-between;align-items:center;font-weight:bold}
+body{margin:0;font-family:Arial;background:#f5f5f5}
+.header{background:#16a34a;color:white;padding:15px;text-align:center;font-size:22px;font-weight:bold}
+.page{display:none;padding:20px} .active{display:block}
+.card{background:white;padding:20px;border-radius:12px;box-shadow:0 2px 8px rgba(0,0,0,0.1);margin-top:15px}
+.btn{background:#16a34a;color:white;padding:12px 20px;border:none;border-radius:8px;width:100%;font-size:16px;margin-top:10px}
+input{width:100%;padding:12px;margin:8px 0;border:1px solid #ddd;border-radius:8px}
 </style>
 </head>
 <body>
+<div class="header">Ride Go BD</div>
 
-<!-- H1 Landing - আপনার সুন্দর ডিজাইন -->
-<div id="H1" class="page active">
-  <div style="background:#16a34a;color:white;padding:60px 20px 115px;text-align:center;border-radius:0 0 32px 32px;position:relative">
-    <div style="position:absolute;top:14px;left:14px;font-weight:bold">🛵 Ride Go BD</div>
-    <div style="font-size:28px;font-weight:900;margin-top:18px">আপনার যাত্রা,<br>আমাদের দায়িত্ব</div>
-    <div style="margin-top:10px;font-size:12px;opacity:.9">H1 / 5 - Landing</div>
-  </div>
-  <div style="margin:70px 16px;background:white;border-radius:22px;padding:28px 18px;box-shadow:0 10px 25px rgba(0,0,0,0.12)">
-    <button class="btn btn-green" style="margin-bottom:12px" onclick="go('H2')">+ নতুন? নিবন্ধন করুন (H2)</button>
-    <button class="btn btn-white" onclick="go('H3')">→ লগইন করুন (H3)</button>
-  </div>
+<div id="landing" class="page active">
+<div class="card">
+<h2>Ride Go BD তে স্বাগতম</h2>
+<p>বাংলাদেশের জন্য আধুনিক রাইড-ম্যাচিং অ্যাপ</p>
+<button class="btn" onclick="show('register')">নতুন নিবন্ধন</button>
+<button class="btn" onclick="show('login')">লগইন</button>
+</div>
 </div>
 
-<!-- H2 Reg - আপনার সুন্দর ডিজাইন -->
-<div id="H2" class="page"><div class="box"><h2 style="text-align:center;color:#0f3d26;margin:24px 0">H2 - নিবন্ধন করুন</h2><span class="step">H2 / 5</span><input placeholder="আপনার নাম"><input placeholder="ফোন নাম্বার"><input placeholder="স্পন্সর নাম্বার"><button class="btn btn-green" style="margin-top:12px" onclick="go('H4')">Next → H4 OTP</button><button class="btn btn-white" onclick="go('H1')">Back H1</button></div></div>
-
-<!-- H3 Login - আপনার সুন্দর ডিজাইন -->
-<div id="H3" class="page"><div class="box"><h2 style="text-align:center;color:#0f3d26;margin:24px 0">H3 - লগইন করুন</h2><span class="step">H3 / 5</span><input placeholder="ফোন নাম্বার"><button class="btn btn-green" style="margin-top:12px" onclick="go('H4')">Next → H4 OTP</button><button class="btn btn-white" onclick="go('H1')">Back H1</button></div></div>
-
-<!-- H4 OTP - আপনার সুন্দর ডিজাইন -->
-<div id="H4" class="page"><div class="box"><h2 style="text-align:center;color:#0f3d26;margin:24px 0">H4 - OTP যাচাই</h2><span class="step">H4 / 5</span><input placeholder="4 সংখ্যার কোড" style="text-align:center;letter-spacing:8px;font-weight:bold"><button class="btn btn-green" style="margin-top:12px" onclick="go('H5')">Next → H5 Main Home</button><button class="btn btn-white" onclick="go('H2')">Back</button></div></div>
-
-<!-- H5 Main Home - আপনার সুন্দর ডিজাইন -->
-<div id="H5" class="page">
-  <div class="hdr"><div>📍 Ride Go BD</div><div style="font-size:11px;font-weight:400">H5 / 5 - Main Door</div></div>
-  <div style="flex:1;padding:22px 16px;display:flex;flex-direction:column">
-    <h2 style="font-size:22px">স্বাগতম! আপনি কি হিসেবে<br>যাত্রা করবেন?</h2>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:26px">
-      <div style="background:#0f3d26;color:white;border-radius:22px;padding:20px 12px;display:flex;flex-direction:column;align-items:center;cursor:pointer" onclick="go('P1')"><div style="font-size:42px">🧍</div><div style="margin-top:10px;font-weight:900">যাত্রী</div><small>P1→P8</small><div style="margin-top:8px;background:white;color:#0f3d26;padding:4px 10px;border-radius:20px;font-size:11px">Next → P1</div></div>
-      <div style="background:white;border-radius:22px;padding:20px 12px;display:flex;flex-direction:column;align-items:center;border:1px solid #e5e7eb;cursor:pointer" onclick="go('D1')"><div style="font-size:42px">🏍️</div><div style="margin-top:10px;font-weight:900">চালক</div><small>D1→D8</small><div style="margin-top:8px;background:#0f3d26;color:white;padding:4px 10px;border-radius:20px;font-size:11px">Next → D1</div></div>
-    </div>
-    <div style="margin-top:auto;padding-top:28px"><div style="text-align:center"><button onclick="go('W1')" style="background:#e9eceb;color:#0f3d26;padding:10px 22px;border-radius:24px;font-size:13px;border:1px solid #ddd">🏠 Owner W1→W6</button></div><button onclick="go('H1')" style="width:100%;margin-top:22px;padding:16px;border-radius:14px;border:1.5px solid #333;background:white;font-weight:bold">↪ Logout → H1</button></div>
-  </div>
+<div id="register" class="page">
+<div class="card">
+<h3>নিবন্ধন</h3>
+<input placeholder="আপনার নাম">
+<input placeholder="মোবাইল নম্বর">
+<input placeholder="স্পন্সর নম্বর (ঐচ্ছিক)">
+<button class="btn" onclick="show('otp')">নিবন্ধন করুন</button>
+<button class="btn" onclick="show('landing')">পিছনে</button>
+</div>
 </div>
 
-<!-- P1-P8 Next সিস্টেম - H এর মতো -->
-<div id="P1" class="page"><div class="hdr"><span>P1 - যাত্রীর হোম</span><small>P1/8</small></div><div class="box"><span class="step">P1 / 8</span><h3>যাত্রীর হোম পৃষ্ঠা</h3><button class="btn btn-green" onclick="go('P2')">Next → P2 লোকেশন</button><button class="btn btn-white" onclick="go('H5')">Back H5</button></div></div>
-<div id="P2" class="page"><div class="hdr"><span>P2 - লোকেশন</span><small>P2/8</small></div><div class="box"><span class="step">P2 / 8</span><input placeholder="কোথা থেকে"><input placeholder="কোথায়"><button class="btn btn-green" onclick="go('P3')">Next → P3 গাড়ি খোঁজা</button><button class="btn btn-white" onclick="go('P1')">Back P1</button></div></div>
-<div id="P3" class="page"><div class="hdr"><span>P3 - গাড়ি খোঁজা</span><small>P3/8</small></div><div class="box"><span class="step">P3 / 8</span><div style="border:1px solid #ddd;padding:10px;border-radius:10px">🚗 কার / 🛺 CNG / 🏍️ বাইক</div><button class="btn btn-green" onclick="go('P4')">Next → P4 ভাড়ার প্রস্তাব</button><button class="btn btn-white" onclick="go('P2')">Back P2</button></div></div>
-<div id="P4" class="page"><div class="hdr"><span>P4 - ভাড়ার প্রস্তাব</span><small>P4/8</small></div><div class="box"><span class="step">P4 / 8</span><button class="btn btn-green" onclick="go('P5')">Next → P5 আলোচনা</button><button class="btn btn-white" onclick="go('P3')">Back P3</button></div></div>
-<div id="P5" class="page"><div class="hdr"><span>P5 - আলোচনা</span><small>P5/8</small></div><div class="box"><span class="step">P5 / 8</span><input placeholder="ভাড়া"><button class="btn btn-green" onclick="go('P6')">Next → P6 পেমেন্ট</button><button class="btn btn-white" onclick="go('P4')">Back P4</button></div></div>
-<div id="P6" class="page"><div class="hdr"><span>P6 - পেমেন্ট</span><small>P6/8</small></div><div class="box"><span class="step">P6 / 8</span><button class="btn btn-green" onclick="go('P7')">Next → P7 লাইভ</button><button class="btn btn-white" onclick="go('P5')">Back P5</button></div></div>
-<div id="P7" class="page"><div class="hdr"><span>P7 - লাইভ রাইড</span><small>P7/8</small></div><div class="box"><span class="step">P7 / 8</span><div style="background:#dcfce7;padding:20px;border-radius:12px;text-align:center">📍 Live Tracking</div><button class="btn btn-green" onclick="go('P8')">Next → P8 হিস্ট্রি</button><button class="btn btn-white" onclick="go('P6')">Back P6</button></div></div>
-<div id="P8" class="page"><div class="hdr"><span>P8 - হিস্ট্রি</span><small>P8/8</small></div><div class="box"><span class="step">P8 / 8 শেষ</span><button class="btn btn-green" onclick="go('H5')">Finish → H5</button><button class="btn btn-white" onclick="go('P7')">Back P7</button></div></div>
+<div id="login" class="page">
+<div class="card">
+<h3>লগইন</h3>
+<input placeholder="মোবাইল নম্বর">
+<button class="btn" onclick="show('otp')">OTP পাঠান</button>
+<button class="btn" onclick="show('landing')">পিছনে</button>
+</div>
+</div>
 
-<!-- D1-D8 Next সিস্টেম - H এর মতো -->
-<div id="D1" class="page"><div class="hdr"><span>D1 - চালকের হোম</span><small>D1/8</small></div><div class="box"><span class="step">D1 / 8</span><button class="btn btn-green" onclick="go('D2')">Next → D2 প্রোফাইল</button><button class="btn btn-white" onclick="go('H5')">Back H5</button></div></div>
-<div id="D2" class="page"><div class="hdr"><span>D2 - প্রোফাইল</span><small>D2/8</small></div><div class="box"><span class="step">D2 / 8</span><button class="btn btn-green" onclick="go('D3')">Next → D3 Online</button><button class="btn btn-white" onclick="go('D1')">Back D1</button></div></div>
-<div id="D3" class="page"><div class="hdr"><span>D3 - Online</span><small>D3/8</small></div><div class="box"><span class="step">D3 / 8</span><button class="btn btn-green" onclick="go('D4')">Next → D4 রাইড অনুরোধ</button><button class="btn btn-white" onclick="go('D2')">Back D2</button></div></div>
-<div id="D4" class="page"><div class="hdr"><span>D4 - রাইড অনুরোধ</span><small>D4/8</small></div><div class="box"><span class="step">D4 / 8</span><button class="btn btn-green" onclick="go('D5')">Next → D5 ভাড়া</button><button class="btn btn-white" onclick="go('D3')">Back D3</button></div></div>
-<div id="D5" class="page"><div class="hdr"><span>D5 - ভাড়া</span><small>D5/8</small></div><div class="box"><span class="step">D5 / 8</span><button class="btn btn-green" onclick="go('D6')">Next → D6 পেমেন্ট</button><button class="btn btn-white" onclick="go('D4')">Back D4</button></div></div>
-<div id="D6" class="page"><div class="hdr"><span>D6 - পেমেন্ট</span><small>D6/8</small></div><div class="box"><span class="step">D6 / 8</span><button class="btn btn-green" onclick="go('D7')">Next → D7 লাইভ</button><button class="btn btn-white" onclick="go('D5')">Back D5</button></div></div>
-<div id="D7" class="page"><div class="hdr"><span>D7 - লাইভ</span><small>D7/8</small></div><div class="box"><span class="step">D7 / 8</span><button class="btn btn-green" onclick="go('D8')">Next → D8 হিস্ট্রি</button><button class="btn btn-white" onclick="go('D6')">Back D6</button></div></div>
-<div id="D8" class="page"><div class="hdr"><span>D8 - হিস্ট্রি</span><small>D8/8</small></div><div class="box"><span class="step">D8 / 8 শেষ</span><button class="btn btn-green" onclick="go('H5')">Finish → H5</button><button class="btn btn-white" onclick="go('D7')">Back D7</button></div></div>
+<div id="otp" class="page">
+<div class="card">
+<h3>OTP যাচাই</h3>
+<input placeholder="৪ সংখ্যার OTP">
+<button class="btn" onclick="show('home')">যাচাই করুন</button>
+</div>
+</div>
 
-<!-- W1-W6 -->
-<div id="W1" class="page"><div class="hdr"><span>W1 - Owner</span><small>W1/6</small></div><div class="box"><span class="step">W1 / 6</span><button class="btn btn-green" onclick="go('W2')">Next → W2</button><button class="btn btn-white" onclick="go('H5')">Back H5</button></div></div>
-<div id="W2" class="page"><div class="hdr"><span>W2</span><small>W2/6</small></div><div class="box"><span class="step">W2 / 6</span><button class="btn btn-green" onclick="go('W3')">Next → W3</button><button class="btn btn-white" onclick="go('W1')">Back</button></div></div>
-<div id="W3" class="page"><div class="hdr"><span>W3</span><small>W3/6</small></div><div class="box"><span class="step">W3 / 6</span><button class="btn btn-green" onclick="go('W4')">Next → W4</button><button class="btn btn-white" onclick="go('W2')">Back</button></div></div>
-<div id="W4" class="page"><div class="hdr"><span>W4</span><small>W4/6</small></div><div class="box"><span class="step">W4 / 6</span><button class="btn btn-green" onclick="go('W5')">Next → W5</button><button class="btn btn-white" onclick="go('W3')">Back</button></div></div>
-<div id="W5" class="page"><div class="hdr"><span>W5</span><small>W5/6</small></div><div class="box"><span class="step">W5 / 6</span><button class="btn btn-green" onclick="go('W6')">Next → W6</button><button class="btn btn-white" onclick="go('W4')">Back</button></div></div>
-<div id="W6" class="page"><div class="hdr"><span>W6</span><small>W6/6</small></div><div class="box"><span class="step">W6 / 6 শেষ</span><button class="btn btn-green" onclick="go('H5')">Finish → H5</button><button class="btn btn-white" onclick="go('W5')">Back</button></div></div>
+<div id="home" class="page">
+<div class="card">
+<h3>Main Home</h3>
+<p>যাত্রী ও চালক - একই অ্যাকাউন্ট</p>
+<button class="btn" onclick="alert('যাত্রী: বর্তমান অবস্থান + গন্তব্য - পরবর্তী ধাপে বানাবো')">আমি যাত্রী</button>
+<button class="btn" onclick="alert('চালক: রিকোয়েস্ট দেখা - পরবর্তী ধাপে বানাবো')">আমি চালক</button>
+<button class="btn" onclick="show('owner')">Owner Panel</button>
+<button class="btn" onclick="show('landing')">Logout</button>
+</div>
+</div>
 
-<script>function go(id){document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));let el=document.getElementById(id);el.classList.add('active');window.scrollTo(0,0)} go('H1');</script>
+<div id="owner" class="page">
+<div class="card">
+<h3>Owner Panel</h3>
+<p>মোট রাইড, আয়, সার্ভিস ফি ১০ টাকা</p>
+<button class="btn" onclick="show('home')">পিছনে যান</button>
+</div>
+</div>
+
+<script>
+function show(id){
+document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+document.getElementById(id).classList.add('active');
+}
+</script>
 </body>
 </html>
