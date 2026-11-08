@@ -2,114 +2,91 @@
 <html lang="bn">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ride Go BD - 6 Page Design</title>
+<title>Ride Go BD - Fixed</title>
 <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@500;700&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:'Hind Siliguri',sans-serif}
 body{background:#eee;display:flex;justify-content:center}
-.app{width:100%;max-width:420px;background:#f5f5f5;min-height:100vh;position:relative}
+.app{width:100%;max-width:420px;background:white;min-height:100vh}
 .page{display:none;min-height:100vh;background:#fff;flex-direction:column;border:4px solid #c00000;border-radius:28px;overflow:hidden;position:relative}
 .page.active{display:flex}
-.page::before{content:'';position:absolute;left:-20px;top:-20px;width:160px;height:160px;background:radial-gradient(circle,#ff2a2a 0%, #b00000 100%);border-radius:50%;z-index:0}
-.page::after{content:'';position:absolute;right:-30px;bottom:-30px;width:200px;height:200px;background:radial-gradient(circle,#ff2a2a 0%, #8a0000 100%);border-radius:50%;z-index:0}
-.inner{position:relative;z-index:1;background:rgba(255,255,255,.92);flex:1;display:flex;flex-direction:column;padding:14px}
-.header{display:flex;align-items:center;gap:8px;font-weight:900;font-size:18px;margin-bottom:10px}
-.header span.g{color:#0f7a2e} .header span.r{color:#c00000}
-.logo-car{font-size:22px}
-.card-input{display:flex;align-items:center;gap:10px;background:white;border:1px solid #ddd;border-radius:22px;padding:12px 14px;margin:7px 0;box-shadow:0 2px 6px rgba(0,0,0,.05)}
-.card-input input{border:none;outline:none;width:100%;font-size:14px}
-.btn-green{width:100%;background:#0f7a2e;color:white;border:none;border-radius:22px;padding:13px;font-weight:700;font-size:15px;margin-top:10px;cursor:pointer;box-shadow:0 6px 12px rgba(15,122,46,.3)}
-.btn-white{width:100%;background:white;border:1px solid #0f7a2e;color:#0f7a2e;border-radius:22px;padding:11px;font-weight:700;margin-top:8px;cursor:pointer}
+.page::before{content:'';position:absolute;left:-30px;top:-30px;width:180px;height:180px;background:#c00000;border-radius:50%;z-index:0;opacity:.9}
+.page::after{content:'';position:absolute;right:-40px;bottom:100px;width:180px;height:180px;background:#ffeaea;border-radius:50%;z-index:0}
+.inner{position:relative;z-index:1;flex:1;display:flex;flex-direction:column;padding:14px}
+.header{display:flex;align-items:center;gap:8px;font-weight:900;font-size:18px}
+.header .g{color:#0f7a2e} .header .r{color:#c00000}
 .lang{margin-left:auto;background:white;border:1px solid #ddd;border-radius:20px;padding:3px 8px;font-size:11px}
-.hero{border-radius:18px;overflow:hidden;position:relative;height:220px;background:url('https://images.unsplash.com/photo-1494976388531-d1058494cdd8?w=600') center/cover}
-.hero-overlay{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(transparent,rgba(255,255,255,.9));height:80px}
-.otp-box{display:flex;gap:10px;justify-content:center;margin:16px 0}
-.otp-box input{width:52px;height:52px;border-radius:10px;border:1.5px solid #bbb;text-align:center;font-size:22px;font-weight:700}
-.select-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:12px}
-.select-card{border-radius:18px;padding:18px;text-align:center;font-weight:800;cursor:pointer}
-.select-card.green{background:#0f7a2e;color:white;box-shadow:0 10px 18px rgba(15,122,46,.3)}
-.select-card.white{background:white;border:1px solid #ddd}
+.hero{width:100%;height:52vh;min-height:320px;border-radius:18px;overflow:hidden;background:#000;position:relative;margin-top:10px}
+.hero img{width:100%;height:100%;object-fit:cover}
+.hero-pin{position:absolute;left:12px;top:50%;background:white;width:38px;height:38px;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 10px rgba(0,0,0,.3)}
+.btn-green{width:100%;background:#0f7a2e;color:white;border:none;border-radius:24px;padding:14px;font-weight:700;font-size:15px;cursor:pointer}
+.btn-white{width:100%;background:white;border:1.5px solid #0f7a2e;color:#0f7a2e;border-radius:24px;padding:12px;font-weight:700;margin-top:10px;cursor:pointer}
+.card-input{display:flex;align-items:center;gap:10px;background:white;border:1px solid #ddd;border-radius:22px;padding:12px 14px;margin:7px 0}
+.card-input input{border:none;outline:none;width:100%}
 </style>
 </head>
 <body>
 <div class="app">
 
-<!-- H1 Landing - ছবির ১ম টা -->
+<!-- H1 FIXED - আর ফাঁকা থাকবে না -->
 <div id="H1" class="page active"><div class="inner">
-<div class="header"><span class="logo-car">🚗</span><span class="g">Ride Go</span><span class="r">&nbsp;BD</span><span class="lang">🌐 বাংলা ▾</span></div>
-<div class="hero" style="background-image:url('https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?w=800');"><div style="position:absolute;left:10px;bottom:20px;background:white;padding:6px 10px;border-radius:12px;font-size:12px;box-shadow:0 4px 10px rgba(0,0,0,.2)">📍</div></div>
-<div style="margin-top:auto">
+<div class="header"><span>🚗</span><span class="g">Ride Go</span><span class="r">&nbsp;BD</span><span class="lang">🌐 বাংলা ▾</span></div>
+<div class="hero"><img src="https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?w=800" alt="driver"><div class="hero-pin">📍</div></div>
+<div style="margin-top:16px">
 <button class="btn-green" onclick="go('H2')">👤+ নতুন? নিবন্ধন করুন</button>
 <button class="btn-white" onclick="go('H3')">→ অ্যাকাউন্ট আছে? লগইন করুন</button>
-<div style="text-align:center;font-size:10px;color:#888;margin-top:8px">H1 - Landing</div>
+<div style="text-align:center;font-size:11px;color:#888;margin-top:8px">H1 - Landing</div>
 </div>
 </div></div>
 
-<!-- H2 Registration - ছবির ২য় টা -->
+<!-- H2 -->
 <div id="H2" class="page"><div class="inner">
-<div class="header"><span class="logo-car">🚗</span><span class="g">Ride Go</span><span class="r">&nbsp;BD</span></div>
-<div style="text-align:center;margin:10px 0"><div style="width:80px;height:80px;background:#c00000;border-radius:50%;margin:0 auto;display:flex;align-items:center;justify-content:center;color:white;font-size:40px">👤+</div></div>
+<div class="header"><span>🚗</span><span class="g">Ride Go</span><span class="r">&nbsp;BD</span></div>
+<div style="text-align:center"><div style="width:80px;height:80px;background:#c00000;border-radius:50%;margin:12px auto;display:flex;align-items:center;justify-content:center;color:white;font-size:36px">👤+</div></div>
 <div class="card-input"><span>👤</span><input placeholder="আপনার নাম"></div>
 <div class="card-input"><span>📞</span><input placeholder="ফোন নাম্বার"></div>
 <div class="card-input"><span>👥</span><input placeholder="স্পন্সর নাম্বার"></div>
 <button class="btn-green" onclick="go('H4')">✓ নিবন্ধন করুন</button>
 <button class="btn-white" onclick="go('H1')">← পিছনে</button>
-<div style="text-align:center;font-size:10px;color:#888;margin-top:8px">H2 / P2 / D2 একই ডিজাইন</div>
 </div></div>
 
-<!-- H3 Login - ছবির ৩য় টা -->
+<!-- H3 -->
 <div id="H3" class="page"><div class="inner">
-<div class="header"><span class="logo-car">🚗</span><span class="g">Ride Go</span><span class="r">&nbsp;BD</span></div>
-<div style="text-align:center;margin:20px 0"><div style="width:90px;height:90px;background:#c00000;border-radius:50%;margin:0 auto;display:flex;align-items:center;justify-content:center;color:white;font-size:46px">🔒</div></div>
+<div class="header"><span>🚗</span><span class="g">Ride Go</span><span class="r">&nbsp;BD</span></div>
+<div style="text-align:center"><div style="width:80px;height:80px;background:#c00000;border-radius:50%;margin:20px auto;display:flex;align-items:center;justify-content:center;color:white;font-size:36px">🔒</div></div>
 <div class="card-input"><span>📱</span><input placeholder="ফোন নাম্বার"></div>
 <button class="btn-green" onclick="go('H4')">→ লগইন করুন</button>
 <button class="btn-white" onclick="go('H1')">← পিছনে</button>
 </div></div>
 
-<!-- H4 OTP - ছবির ৪র্থ টা -->
+<!-- H4 -->
 <div id="H4" class="page"><div class="inner">
-<div class="header"><span class="logo-car">🚗</span><span class="g">Ride Go</span><span class="r">&nbsp;BD</span></div>
-<div style="text-align:center;margin:10px 0"><div style="width:90px;height:90px;background:#c00000;border-radius:50%;margin:0 auto;display:flex;align-items:center;justify-content:center;color:white;font-size:40px;border:4px solid #ffaaaa">🛡️</div></div>
-<div class="otp-box"><input maxlength="1"><input maxlength="1"><input maxlength="1"><input maxlength="1"></div>
-<button class="btn-green" onclick="go('H5')">✓ যাচাই করুন ও হোমে যান</button>
+<div class="header"><span>🚗</span><span class="g">Ride Go</span><span class="r">&nbsp;BD</span></div>
+<div style="text-align:center"><div style="width:80px;height:80px;background:#c00000;border-radius:50%;margin:20px auto;display:flex;align-items:center;justify-content:center;color:white;font-size:36px">🛡️</div></div>
+<div style="display:flex;gap:10px;justify-content:center"><input style="width:50px;height:50px;text-align:center;border-radius:10px;border:1.5px solid #bbb"><input style="width:50px;height:50px;text-align:center;border-radius:10px;border:1.5px solid #bbb"><input style="width:50px;height:50px;text-align:center;border-radius:10px;border:1.5px solid #bbb"><input style="width:50px;height:50px;text-align:center;border-radius:10px;border:1.5px solid #bbb"></div>
+<button class="btn-green" style="margin-top:20px" onclick="go('H5')">✓ যাচাই করুন ও হোমে যান</button>
 </div></div>
 
-<!-- H5 Main Home - ছবির ৫ম টা -->
+<!-- H5 -->
 <div id="H5" class="page"><div class="inner">
-<div class="header"><span class="logo-car">🚗</span><span class="g">Ride Go</span><span class="r">&nbsp;BD</span></div>
-<div class="select-grid">
-<div class="select-card green" onclick="go('P1')"><div style="font-size:40px">👤</div>যাত্রী<br><small style="font-weight:400">Passenger</small></div>
-<div class="select-card white" onclick="go('D1')"><div style="font-size:40px">🚗</div>চালক<br><small style="font-weight:400">Driver</small></div>
+<div class="header"><span>🚗</span><span class="g">Ride Go</span><span class="r">&nbsp;BD</span></div>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:20px">
+<div style="background:#0f7a2e;color:white;border-radius:18px;padding:20px;text-align:center" onclick="go('P1')"><div style="font-size:36px">👤</div><b>যাত্রী</b></div>
+<div style="background:white;border:1px solid #ddd;border-radius:18px;padding:20px;text-align:center" onclick="go('D1')"><div style="font-size:36px">🚗</div><b>চালক</b></div>
 </div>
-<div style="margin-top:14px;display:flex;justify-content:center"><button style="background:#e9eceb;border:none;padding:8px 18px;border-radius:20px;font-weight:700" onclick="go('W1')">🏠 Owner</button></div>
-<button class="btn-white" style="margin-top:auto" onclick="go('H1')">→ Logout</button>
+<button class="btn-white" onclick="go('W1')" style="margin-top:20px">🏠 Owner</button>
+<button class="btn-white" onclick="go('H1')">→ Logout</button>
 </div></div>
 
-<!-- W1 Owner - ছবির ৬ষ্ঠ টা -->
-<div id="W1" class="page"><div class="inner">
-<div class="header"><span class="logo-car">🚗</span><span class="g">Ride Go</span><span class="r">&nbsp;BD</span></div>
-<div style="text-align:center;margin:20px 0"><div style="width:110px;height:110px;background:linear-gradient(#c00000,#8a0000);border-radius:50% 50% 50% 50% / 20% 20% 80% 80%;margin:0 auto;display:flex;align-items:center;justify-content:center;color:white;font-size:50px;border:4px solid gold">👤</div><div style="font-size:12px;color:#c00000;margin-top:6px">🏆 Owner Panel 🏆</div></div>
-<button class="btn-green" onclick="go('H5')">← পিছনে</button>
-<div style="margin-top:10px;display:grid;gap:8px">
-<button class="btn-white" onclick="go('W2')">W2 - চালক ও যাত্রী ব্যবস্থাপনা</button>
-<button class="btn-white" onclick="go('W3')">W3 - রাইড ব্যবস্থাপনা</button>
-<button class="btn-white" onclick="go('W4')">W4 - আয় হিসাব</button>
-<button class="btn-white" onclick="go('W5')">W5 - সার্ভিস ফি</button>
-<button class="btn-white" onclick="go('W6')">W6 - সেটিংস</button>
+<div id="W1" class="page"><div class="inner"><div class="header"><span>Owner</span></div><button class="btn-green" onclick="go('H5')">← Back</button></div></div>
+<div id="P1" class="page"><div class="inner"><div class="header"><span>P1</span></div><button class="btn-green" onclick="go('P2')">Next → P2</button><button class="btn-white" onclick="go('H5')">Back</button></div></div>
+<div id="P2" class="page"><div class="inner"><div class="header"><span>P2</span></div><button class="btn-green" onclick="go('P3')">Next → P3</button><button class="btn-white" onclick="go('P1')">Back</button></div></div>
+<div id="P3" class="page"><div class="inner"><div class="header"><span>P3</span></div><button class="btn-green" onclick="go('H5')">Finish</button><button class="btn-white" onclick="go('P2')">Back</button></div></div>
+<div id="D1" class="page"><div class="inner"><div class="header"><span>D1</span></div><button class="btn-green" onclick="go('D2')">Next → D2</button><button class="btn-white" onclick="go('H5')">Back</button></div></div>
+<div id="D2" class="page"><div class="inner"><div class="header"><span>D2</span></div><button class="btn-green" onclick="go('H5')">Finish</button><button class="btn-white" onclick="go('D1')">Back</button></div></div>
+
 </div>
-</div></div>
-
-<!-- বাকি P1-P8, D1-D8, W2-W6 একই লাল ডিজাইনে Next সিস্টেম -->
-<div id="P1" class="page"><div class="inner"><div class="header"><span>P1 - যাত্রীর হোম</span></div><button class="btn-green" onclick="go('P2')">Next → P2 লোকেশন</button><button class="btn-white" onclick="go('H5')">Back H5</button></div></div>
-<div id="P2" class="page"><div class="inner"><div class="header"><span>P2 - লোকেশন</span></div><div class="card-input"><input placeholder="কোথা থেকে"><input placeholder="গন্তব্য"></div><button class="btn-green" onclick="go('P3')">Next → P3</button><button class="btn-white" onclick="go('P1')">Back</button></div></div>
-<div id="P3" class="page"><div class="inner"><div class="header"><span>P3 - গাড়ি খোঁজা</span></div><button class="btn-green" onclick="go('P4')">Next → P4</button><button class="btn-white" onclick="go('P2')">Back</button></div></div>
-<div id="P4" class="page"><div class="inner"><div class="header"><span>P4 - ভাড়া প্রস্তাব</span></div><button class="btn-green" onclick="go('P5')">Next → P5</button><button class="btn-white" onclick="go('P3')">Back</button></div></div>
-<div id="P5" class="page"><div class="inner"><div class="header"><span>P5 - আলোচনা</span></div><button class="btn-green" onclick="go('P6')">Next → P6</button><button class="btn-white" onclick="go('P4')">Back</button></div></div>
-<div id="P6" class="page"><div class="inner"><div class="header"><span>P6 - পেমেন্ট</span></div><button class="btn-green" onclick="go('P7')">Next → P7</button><button class="btn-white" onclick="go('P5')">Back</button></div></div>
-<div id="P7" class="page"><div class="inner"><div class="header"><span>P7 - লাইভ</span></div><button class="btn-green" onclick="go('P8')">Next → P8</button><button class="btn-white" onclick="go('P6')">Back</button></div></div>
-<div id="P8" class="page"><div class="inner"><div class="header"><span>P8 - হিস্ট্রি</span></div><button class="btn-green" onclick="go('H5')">Finish → H5</button><button class="btn-white" onclick="go('P7')">Back</button></div></div>
-
-<div id="D1" class="page"><div class="inner"><div class="header"><span>D1 - চালকের হোম</span></div><button class="btn-green" onclick="go('D2')">Next → D2</button><button class="btn-white" onclick="go('H5')">Back</button></div></div>
-<div id="D2" class="page"><div class="inner"><div class="header"><span>D2</span></div><button class="btn-green" onclick="go('D3')">Next → D3</button><button class="btn-white" onclick="go('D1')">Back</button></div></div>
-<div id="D3" class="page"><div class="inner"><div class="header"><span>D3</span></div><button class="btn-green" onclick="go('D4')">Next → D4</button><button class="btn-white" onclick="go('D2')">Back</button></div></div>
-<div id="D4" class="page"><div class="inner"><div class="header"><span>D4</span></div><button class="btn-green" onclick="go('
+<script>function go(id){document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));document.getElementById(id).classList.add('active');window.scrollTo(0,0)}</script>
+</div>
+</body>
+</html>
