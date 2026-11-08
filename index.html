@@ -1,124 +1,33 @@
-<!DOCTYPE html>
-<html lang="bn">
-<head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ride Go BD - H 6 Page Full Design</title>
-<link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@500;700&display=swap" rel="stylesheet">
-<style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:'Hind Siliguri',sans-serif}
-body{background:#eee;display:flex;justify-content:center}
-.app{width:100%;max-width:420px}
-.page{display:none;min-height:100vh;background:#fff;border:4px solid #b50000;border-radius:28px;overflow:hidden;flex-direction:column;position:relative}
-.page.active{display:flex}
-.hdr{position:relative;z-index:20;background:white;display:flex;align-items:center;gap:6px;padding:12px 14px;font-weight:900;border-bottom:1px solid #f0f0f0}
-.hdr .g{color:#0a7a2e}.hdr .r{color:#c00000}
-.lang{margin-left:auto;font-size:11px;background:#f5f5f5;border:1px solid #ddd;border-radius:14px;padding:2px 8px}
-.bg-red{position:absolute;left:-20px;top:50px;width:110px;height:110px;background:#c00000;border-radius:50%;z-index:1}
-.bg-pink{position:absolute;right:-20px;bottom:100px;width:130px;height:130px;background:#ffe5e5;border-radius:50%;z-index:1}
-.box{position:relative;z-index:5;padding:12px;flex:1;display:flex;flex-direction:column}
-.btn-g{width:100%;background:#0a7a2e;color:white;border:none;border-radius:24px;padding:13px;font-weight:700;margin-top:10px;cursor:pointer;z-index:5;position:relative}
-.btn-w{width:100%;background:white;border:1.5px solid #0a7a2e;color:#0a7a2e;border-radius:24px;padding:11px;font-weight:700;margin-top:8px;cursor:pointer;z-index:5;position:relative}
-.inp{display:flex;align-items:center;gap:8px;background:white;border:1px solid #ddd;border-radius:22px;padding:12px 14px;margin:6px 0;z-index:5;position:relative}
-.inp input{border:none;outline:none;width:100%}
-.green-bar{background:#0a7a2e;color:white;border-radius:20px;padding:10px;text-align:center;font-weight:700;margin:8px 12px;z-index:5;position:relative}
-</style>
-</head>
-<body>
-<div class="app">
+<!DOCTYPE html><html lang="bn"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Ride Go BD - H6 + P8 Full</title><link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@500;700&display=swap" rel="stylesheet"><style>*{margin:0;padding:0;box-sizing:border-box;font-family:'Hind Siliguri',sans-serif}body{background:#eee;display:flex;justify-content:center}.app{width:100%;max-width:420px}.page{display:none;min-height:100vh;background:#fff;border:4px solid #b50000;border-radius:28px;overflow:hidden;flex-direction:column;position:relative}.page.active{display:flex}.hdr{position:relative;z-index:20;background:white;display:flex;align-items:center;gap:6px;padding:12px 14px;font-weight:900;border-bottom:1px solid #f0f0f0}.hdr .g{color:#0a7a2e}.hdr .r{color:#c00000}.lang{margin-left:auto;font-size:11px;background:#f5f5f5;border:1px solid #ddd;border-radius:14px;padding:2px 8px}.bg-red{position:absolute;left:-20px;top:60px;width:110px;height:110px;background:#c00000;border-radius:50%;z-index:1}.bg-pink{position:absolute;right:-20px;bottom:100px;width:130px;height:130px;background:#ffe5e5;border-radius:50%;z-index:1}.box{position:relative;z-index:5;padding:12px;flex:1;display:flex;flex-direction:column}.green-bar{background:#0a7a2e;color:white;border-radius:20px;padding:10px;text-align:center;font-weight:700;margin:8px 12px;z-index:5;position:relative}.btn-g{width:100%;background:#0a7a2e;color:white;border:none;border-radius:24px;padding:13px;font-weight:700;margin-top:10px;cursor:pointer;z-index:5;position:relative}.btn-w{width:100%;background:white;border:1.5px solid #0a7a2e;color:#0a7a2e;border-radius:24px;padding:11px;font-weight:700;margin-top:8px;cursor:pointer;z-index:5;position:relative}.inp{display:flex;align-items:center;gap:8px;background:white;border:1px solid #ddd;border-radius:22px;padding:12px 14px;margin:6px 0;z-index:5;position:relative}.inp input{border:none;outline:none;width:100%}.grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px}.v-card{border:1px solid #eee;border-radius:14px;padding:8px;text-align:center;font-size:12px;background:white;z-index:5;position:relative}.driver-row{display:flex;align-items:center;gap:10px;border:1px solid #eee;border-radius:14px;padding:8px;margin-bottom:6px;background:white;z-index:5;position:relative}.driver-row img{width:38px;height:38px;border-radius:50%}</style></head><body><div class="app">
 
-<!-- H1 - ছবির ১ম: Landing with car -->
-<div id="H1" class="page active">
-<div class="hdr"><span>🚗</span><span class="g">Ride Go</span><span class="r"> BD</span><span class="lang">🌐 বাংলা ▾</span></div>
-<div class="bg-red"></div><div class="bg-pink"></div>
-<div class="box">
-<div style="height:48vh;border-radius:18px;overflow:hidden;z-index:5;position:relative"><img src="https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?w=800" style="width:100%;height:100%;object-fit:cover"><div style="position:absolute;left:10px;top:50%;background:white;width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center">📍</div></div>
-<button class="btn-g" onclick="go('H2')">👤+ নতুন? নিবন্ধন করুন</button>
-<button class="btn-w" onclick="go('H3')">→ অ্যাকাউন্ট আছে? লগইন করুন</button>
-<div style="text-align:center;font-size:10px;color:#888;margin-top:6px;z-index:5">H1 / 6 - Landing</div>
-</div></div>
+<!-- H1-H6 FULL -->
+<div id="H1" class="page active"><div class="hdr"><span>🚗</span><span class="g">Ride Go</span><span class="r"> BD</span><span class="lang">🌐 বাংলা ▾</span></div><div class="bg-red"></div><div class="box"><div style="height:48vh;border-radius:18px;overflow:hidden"><img src="https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?w=800" style="width:100%;height:100%;object-fit:cover"></div><button class="btn-g" onclick="go('H2')">👤+ নতুন? নিবন্ধন করুন - H2</button><button class="btn-w" onclick="go('H3')">→ লগইন - H3</button></div></div>
+<div id="H2" class="page"><div class="hdr"><span>🚗</span><span class="g">Ride Go</span><span class="r"> BD</span></div><div class="bg-red"></div><div class="box"><div style="text-align:center"><div style="width:80px;height:80px;background:#c00000;border-radius:50%;margin:10px auto;display:flex;align-items:center;justify-content:center;color:white;font-size:32px">👤+</div></div><div class="inp">👤<input placeholder="আপনার নাম"></div><div class="inp">📞<input placeholder="ফোন"></div><div class="inp">👥<input placeholder="স্পন্সর"></div><button class="btn-g" onclick="go('H4')">Next → H4 OTP</button><button class="btn-w" onclick="go('H1')">Back H1</button></div></div>
+<div id="H3" class="page"><div class="hdr"><span>🚗</span><span class="g">Ride Go</span><span class="r"> BD</span></div><div class="bg-red"></div><div class="box"><div style="text-align:center"><div style="width:80px;height:80px;background:#c00000;border-radius:50%;margin:20px auto;display:flex;align-items:center;justify-content:center;color:white;font-size:32px">🔒</div></div><div class="inp">📱<input placeholder="ফোন"></div><button class="btn-g" onclick="go('H4')">Next → H4</button><button class="btn-w" onclick="go('H1')">Back</button></div></div>
+<div id="H4" class="page"><div class="hdr"><span>🚗</span><span class="g">Ride Go</span><span class="r"> BD</span></div><div class="bg-red"></div><div class="box"><div style="text-align:center"><div style="width:80px;height:80px;background:#c00000;border-radius:50%;margin:16px auto;display:flex;align-items:center;justify-content:center;color:white">🛡️</div></div><div style="display:flex;gap:8px;justify-content:center"><input style="width:44px;height:44px;text-align:center;border-radius:8px;border:1px solid #bbb"><input style="width:44px;height:44px;text-align:center;border-radius:8px;border:1px solid #bbb"><input style="width:44px;height:44px;text-align:center;border-radius:8px;border:1px solid #bbb"><input style="width:44px;height:44px;text-align:center;border-radius:8px;border:1px solid #bbb"></div><button class="btn-g" onclick="go('H5')">Next → H5 Home</button></div></div>
+<div id="H5" class="page"><div class="hdr"><span>🚗</span><span class="g">Ride Go</span><span class="r"> BD - H5</span></div><div class="bg-red"></div><div class="box"><div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:20px"><div style="background:#0a7a2e;color:white;border-radius:18px;padding:20px;text-align:center" onclick="go('P1')"><div style="font-size:32px">🧍</div><b>যাত্রী</b><br><small>P1-P8</small></div><div style="background:white;border:1px solid #ddd;border-radius:18px;padding:20px;text-align:center" onclick="go('D1')"><div style="font-size:32px">🏍️</div><b>চালক</b></div></div><button class="btn-w" onclick="go('H6')">Next → H6 Owner</button><button class="btn-w" onclick="go('H1')">Logout → H1</button></div></div>
+<div id="H6" class="page"><div class="hdr"><span>🚗</span><span class="g">Ride Go</span><span class="r"> BD - H6 Owner</span></div><div class="box"><div style="text-align:center"><div style="width:90px;height:90px;background:#c00000;border-radius:50%;margin:16px auto;display:flex;align-items:center;justify-content:center;color:white;font-size:36px">👤</div></div><button class="btn-g" onclick="go('W1')">Next → W1 Dashboard</button><button class="btn-w" onclick="go('H5')">Back H5</button></div></div>
 
-<!-- H2 - ছবির ২য়: Registration -->
-<div id="H2" class="page">
-<div class="hdr"><span>🚗</span><span class="g">Ride Go</span><span class="r"> BD</span><span class="lang">🌐 বাংলা ▾</span></div>
-<div class="bg-red"></div><div class="bg-pink"></div>
-<div class="box">
-<div style="text-align:center;z-index:5;position:relative"><div style="width:84px;height:84px;background:#c00000;border-radius:50%;margin:12px auto;display:flex;align-items:center;justify-content:center;color:white;font-size:36px;border:3px solid #ffaaaa">👤+</div></div>
-<div class="inp">👤<input placeholder="আপনার নাম"></div>
-<div class="inp">📞<input placeholder="ফোন নাম্বার"></div>
-<div class="inp">👥<input placeholder="স্পন্সর নাম্বার"></div>
-<button class="btn-g" onclick="go('H4')">✓ নিবন্ধন করুন</button>
-<button class="btn-w" onclick="go('H1')">← পিছনে</button>
-<div style="text-align:center;font-size:10px;color:#888;margin-top:6px">H2 / 6 - Registration</div>
-</div></div>
+<!-- P1-P8 FULL DESIGN - আপনার শেষ ছবির ৮টা -->
+<div id="P1" class="page"><div class="hdr"><span class="g">Ride Go</span><span class="r"> BD</span><span class="lang">🌐 বাংলা</span></div><div class="green-bar">🚗 P1 - গাড়ি নির্বাচন</div><div class="box"><div class="grid3"><div class="v-card">🚗<br><b>কার</b></div><div class="v-card">🏍️<br><b>বাইক</b></div><div class="v-card">🛺<br><b>অটো</b></div><div class="v-card">🚐<br><b>মাইক্রো</b></div><div class="v-card">🚌<br><b>বাস</b></div><div class="v-card">🚚<br><b>ট্রাক</b></div></div><button class="btn-g" onclick="go('P2')">Next → P2 লোকেশন</button><button class="btn-w" onclick="go('H5')">Back H5</button></div></div>
 
-<!-- H3 - ছবির ৩য়: Login -->
-<div id="H3" class="page">
-<div class="hdr"><span>🚗</span><span class="g">Ride Go</span><span class="r"> BD</span></div>
-<div class="bg-red"></div><div class="bg-pink"></div>
-<div class="box">
-<div style="text-align:center;z-index:5;position:relative"><div style="width:84px;height:84px;background:#c00000;border-radius:50%;margin:20px auto;display:flex;align-items:center;justify-content:center;color:white;font-size:36px">🔒</div></div>
-<div class="inp">📱<input placeholder="ফোন নাম্বার"></div>
-<button class="btn-g" onclick="go('H4')">→ লগইন করুন</button>
-<button class="btn-w" onclick="go('H1')">← পিছনে</button>
-<div style="text-align:center;font-size:10px;color:#888;margin-top:6px">H3 / 6 - Login</div>
-</div></div>
+<div id="P2" class="page"><div class="hdr"><span class="g">Ride Go</span><span class="r"> BD</span></div><div class="green-bar">📍 P2 - কোথায় থেকে কোথায়</div><div class="box"><div style="height:140px;background:#e8f5e8;border-radius:14px;display:flex;align-items:center;justify-content:center">🗺️ Map - 📍 → 📍</div><div class="v-card" style="text-align:left;margin-top:8px">📍 কোথায় থেকে যাবেন?<br><small>অবস্থান নির্বাচন</small></div><div class="v-card" style="text-align:left;margin-top:6px">📍 কোথায় যাবেন?<br><small>গন্তব্য নির্বাচন</small></div><button class="btn-g" onclick="go('P3')">🔍 খুঁজুন - Next P3</button><button class="btn-w" onclick="go('P1')">Back P1</button></div></div>
 
-<!-- H4 - ছবির ৪র্থ: OTP -->
-<div id="H4" class="page">
-<div class="hdr"><span>🚗</span><span class="g">Ride Go</span><span class="r"> BD</span></div>
-<div class="bg-red"></div><div class="bg-pink"></div>
-<div class="box">
-<div style="text-align:center;z-index:5;position:relative"><div style="width:84px;height:84px;background:#c00000;border-radius:50%;margin:16px auto;display:flex;align-items:center;justify-content:center;color:white;font-size:36px">🛡️</div><div style="font-size:12px">✓</div></div>
-<div style="display:flex;gap:8px;justify-content:center;z-index:5;position:relative;margin:12px 0"><input style="width:48px;height:48px;text-align:center;border-radius:10px;border:1.5px solid #bbb"><input style="width:48px;height:48px;text-align:center;border-radius:10px;border:1.5px solid #bbb"><input style="width:48px;height:48px;text-align:center;border-radius:10px;border:1.5px solid #bbb"><input style="width:48px;height:48px;text-align:center;border-radius:10px;border:1.5px solid #bbb"></div>
-<button class="btn-g" onclick="go('H5')">✓ যাচাই করুন ও হোমে যান</button>
-<div style="text-align:center;font-size:10px;color:#888;margin-top:6px">H4 / 6 - OTP</div>
-</div></div>
+<div id="P3" class="page"><div class="hdr"><span class="g">Ride Go</span><span class="r"> BD</span></div><div class="green-bar">🚗 P3 - চালকদের ভাড়ার প্রস্তাব</div><div class="box"><div class="driver-row"><img src="https://i.pravatar.cc/100?img=11"><div><b>রিফাত ইসলাম</b><br>⭐ 4.8 (120)<br>🚗 সেডান</div><div style="margin-left:auto;text-align:right"><b>৳120</b><br><button class="btn-g" style="padding:4px 8px;font-size:11px" onclick="go('P4')">নির্বাচন</button></div></div><div class="driver-row"><img src="https://i.pravatar.cc/100?img=12"><div><b>হাসান</b><br>⭐ 4.7<br>🚗 সেডান</div><div style="margin-left:auto"><b>৳130</b><br><button class="btn-g" style="padding:4px 8px;font-size:11px" onclick="go('P4')">নির্বাচন</button></div></div><button class="btn-w" onclick="go('P2')">Back P2</button></div></div>
 
-<!-- H5 - ছবির ৫ম: যাত্রী/চালক নির্বাচন -->
-<div id="H5" class="page">
-<div class="hdr"><span>🚗</span><span class="g">Ride Go</span><span class="r"> BD</span><span class="lang">🌐 বাংলা ▾</span></div>
-<div class="bg-red"></div><div class="bg-pink"></div>
-<div class="box">
-<div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:20px;z-index:5;position:relative">
-<div style="background:#0a7a2e;color:white;border-radius:18px;padding:22px;text-align:center;cursor:pointer" onclick="go('P1')"><div style="font-size:40px">🧍</div><b style="font-size:18px">যাত্রী</b></div>
-<div style="background:white;border:1px solid #ddd;border-radius:18px;padding:22px;text-align:center;cursor:pointer" onclick="go('D1')"><div style="font-size:40px">🏍️</div><b style="font-size:18px">চালক</b></div>
-</div>
-<div style="text-align:center;margin-top:14px;z-index:5;position:relative"><button style="background:#e9eceb;border:none;padding:8px 18px;border-radius:20px;font-weight:700" onclick="go('H6')">🏠 Owner</button></div>
-<button class="btn-w" style="margin-top:auto" onclick="go('H1')">→ Logout</button>
-<div style="text-align:center;font-size:10px;color:#888;margin-top:6px">H5 / 6 - যাত্রী/চালক নির্বাচন</div>
-</div></div>
+<div id="P4" class="page"><div class="hdr"><span class="g">Ride Go</span><span class="r"> BD</span></div><div class="green-bar">🤝 P4 - ভাড়া আলোচনা ও নিশ্চিতকরণ</div><div class="box" style="text-align:center"><div class="driver-row" style="justify-content:center"><img src="https://i.pravatar.cc/100?img=11"><div><b>রিফাত</b><br>⭐ 4.8</div></div><div style="background:#e6ffe9;border-radius:16px;padding:12px;margin:8px 0"><small>চালকের ভাড়া</small><div style="font-size:26px;font-weight:900">৳120</div></div><div>আপনার প্রস্তাব</div><div style="display:flex;gap:16px;justify-content:center;align-items:center;margin:8px 0"><button style="width:32px;height:32px;border-radius:50%">−</button><b>130</b><button style="width:32px;height:32px;border-radius:50%;background:#0a7a2e;color:white;border:none">+</button></div><button class="btn-g" onclick="go('P5')">✓ সম্মত - Next P5</button><button class="btn-w" onclick="go('P3')">Back P3</button></div></div>
 
-<!-- H6 - ছবির ৬ষ্ঠ: Owner Panel -->
-<div id="H6" class="page">
-<div class="hdr"><span>🚗</span><span class="g">Ride Go</span><span class="r"> BD</span></div>
-<div class="bg-red"></div><div class="bg-pink"></div>
-<div class="box">
-<div style="text-align:center;z-index:5;position:relative"><div style="width:100px;height:100px;background:linear-gradient(#c00000,#8a0000);border-radius:50% 50% 50% 50% / 20% 20% 80% 80%;margin:16px auto;display:flex;align-items:center;justify-content:center;color:white;font-size:44px;border:3px solid gold">👤</div><div style="font-size:12px;color:#c00000">🏆 Owner Panel 🏆</div></div>
-<button class="btn-w" onclick="go('W1')">W1 Dashboard</button>
-<button class="btn-w" onclick="go('H5')">← পিছনে H5</button>
-<div style="text-align:center;font-size:10px;color:#888;margin-top:6px">H6 / 6 - Owner</div>
-</div></div>
+<div id="P5" class="page"><div class="hdr"><span class="g">Ride Go</span><span class="r"> BD</span></div><div class="green-bar">💳 P5 - পেমেন্ট</div><div class="box"><div style="text-align:center;background:#f0fff0;border-radius:12px;padding:10px">সার্ভিস ফি<br><b style="font-size:22px">৳5</b><br><small>প্রতি যাত্রায়</small></div><div class="grid3" style="margin-top:8px"><div class="v-card">bKash</div><div class="v-card">নগদ</div><div class="v-card">রকেট</div></div><button class="btn-g" onclick="go('P6')">✓ পেমেন্ট - Next P6</button><button class="btn-w" onclick="go('P4')">Back P4</button></div></div>
 
-<!-- W1-W6 -->
-<div id="W1" class="page"><div class="hdr"><span>W1 Owner Dashboard</span></div><div class="box"><button class="btn-g" onclick="go('W2')">Next W2</button><button class="btn-w" onclick="go('H6')">Back H6</button></div></div>
-<div id="W2" class="page"><div class="hdr"><span>W2</span></div><div class="box"><button class="btn-g" onclick="go('H5')">Finish Home</button></div></div>
+<div id="P6" class="page"><div class="hdr"><span class="g">Ride Go</span><span class="r"> BD</span></div><div class="green-bar">📍 P6 - লাইভ রাইড</div><div class="box"><div style="display:flex;justify-content:space-between;font-size:12px"><span>🚗 ঢাকা মেট্রো<br>রিফাত</span><span>⭐4.8</span></div><div style="background:#eaffea;border-radius:12px;padding:6px 12px;display:inline-block;margin:6px 0">8 মিনিট</div><div style="height:120px;background:#e8f5e8;border-radius:14px;display:flex;align-items:center;justify-content:center">🗺️ Live Map 🚗</div><button class="btn-g" style="background:#c00000" onclick="go('P7')">রাইড চলছে... Next P7</button><button class="btn-w" onclick="go('P5')">Back P5</button></div></div>
 
-<!-- P1-P8 (আগের ৮ পৃষ্ঠা) -->
-<div id="P1" class="page"><div class="hdr"><span class="g">Ride Go</span><span class="r"> BD - P1</span></div><div class="green-bar">P1 - গাড়ি নির্বাচন</div><div class="box"><button class="btn-g" onclick="go('P2')">Next P2</button><button class="btn-w" onclick="go('H5')">Back H5</button></div></div>
-<div id="P2" class="page"><div class="hdr"><span>P2</span></div><div class="box"><button class="btn-g" onclick="go('P3')">Next P3</button><button class="btn-w" onclick="go('P1')">Back</button></div></div>
-<div id="P3" class="page"><div class="hdr"><span>P3</span></div><div class="box"><button class="btn-g" onclick="go('P4')">Next P4</button><button class="btn-w" onclick="go('P2')">Back</button></div></div>
-<div id="P4" class="page"><div class="hdr"><span>P4</span></div><div class="box"><button class="btn-g" onclick="go('P5')">Next P5</button><button class="btn-w" onclick="go('P3')">Back</button></div></div>
-<div id="P5" class="page"><div class="hdr"><span>P5</span></div><div class="box"><button class="btn-g" onclick="go('P6')">Next P6</button><button class="btn-w" onclick="go('P4')">Back</button></div></div>
-<div id="P6" class="page"><div class="hdr"><span>P6</span></div><div class="box"><button class="btn-g" onclick="go('P7')">Next P7</button><button class="btn-w" onclick="go('P5')">Back</button></div></div>
-<div id="P7" class="page"><div class="hdr"><span>P7</span></div><div class="box"><button class="btn-g" onclick="go('P8')">Next P8</button><button class="btn-w" onclick="go('P6')">Back</button></div></div>
-<div id="P8" class="page"><div class="hdr"><span>P8</span></div><div class="box"><button class="btn-g" onclick="go('H5')">Finish H5</button><button class="btn-w" onclick="go('P7')">Back</button></div></div>
+<div id="P7" class="page"><div class="hdr"><span class="g">Ride Go</span><span class="r"> BD</span></div><div class="green-bar">🕒 P7 - রাইড হিস্ট্রি</div><div class="box"><div class="driver-row"><span>🚗</span><div>ধানমন্ডি → মিরপুর<br><small>10-10-2026</small></div><div style="margin-left:auto">৳120 ›</div></div><div class="driver-row"><span>🚗</span><div>বনানী → গুলশান<br><small>08-10-2026</small></div><div style="margin-left:auto">৳150 ›</div></div><button class="btn-g" onclick="go('P8')">Next → P8 প্রোফাইল</button><button class="btn-w" onclick="go('P6')">Back P6</button></div></div>
 
-<!-- D1-D8 -->
-<div id="D1" class="page"><div class="hdr"><span>D1</span></div><div class="box"><button class="btn-g" onclick="go('D2')">Next D2</button><button class="btn-w" onclick="go('H5')">Back H5</button></div></div>
-<div id="D2" class="page"><div class="hdr"><span>D2</span></div><div class="box"><button class="btn-g" onclick="go('H5')">Finish</button></div></div>
+<div id="P8" class="page"><div class="hdr"><span class="g">Ride Go</span><span class="r"> BD</span></div><div class="green-bar">👤 P8 - প্রোফাইল ও সেটিংস</div><div class="box"><div class="driver-row"><img src="https://i.pravatar.cc/100?img=15"><div><b>মোঃ রফিকুল</b><br>01712-345678</div></div><div class="driver-row">⚙️ ভাষা পরিবর্তন <span style="margin-left:auto">বাংলা ›</span></div><div class="driver-row">🎧 সাহায্য <span style="margin-left:auto">›</span></div><button class="btn-g" onclick="go('H5')">Finish → H5 Home</button><button class="btn-w" onclick="go('P7')">Back P7</button></div></div>
 
-</div>
-<script>function go(id){document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));document.getElementById(id).classList.add('active');window.scrollTo(0,0)} go('H1');</script>
-</div>
-</body>
-</html>
+<!-- D & W -->
+<div id="D1" class="page"><div class="hdr">D1 চালক</div><div class="box"><button class="btn-g" onclick="go('D2')">Next D2</button><button class="btn-w" onclick="go('H5')">Back H5</button></div></div>
+<div id="D2" class="page"><div class="hdr">D2</div><div class="box"><button class="btn-g" onclick="go('H5')">Finish</button></div></div>
+<div id="W1" class="page"><div class="hdr">W1 Owner</div><div class="box"><button class="btn-g" onclick="go('H5')">Finish H5</button></div></div>
+
+</div><script>function go(id){document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));document.getElementById(id).classList.add('active');window.scrollTo(0,0)} go('H1');</script></div></body></html>
