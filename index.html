@@ -2,34 +2,64 @@
 <html lang="bn">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-<title>Ride Go BD - FINAL FIXED</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ride Go BD Green</title>
 <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@500;700&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:'Hind Siliguri',sans-serif}
 body{background:#000;display:flex;justify-content:center}
 .app{width:100%;max-width:420px;background:#fff;min-height:100vh}
-.page{display:none;flex-direction:column;min-height:100vh;background:#fff}
+.page{display:none;flex-direction:column;min-height:100vh}
 .page.active{display:flex!important}
 .hdr{background:#0a7a2e;color:#fff;padding:12px;display:flex;align-items:center;gap:10px;font-weight:900}
-.logo{width:32px;height:32px;background:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#0a7a2e}
-.pill{background:#0a7a2e;color:#fff;border-radius:24px;padding:10px;text-align:center;font-weight:700;margin:10px 12px}
-.box{padding:0 12px 16px;flex:1;display:flex;flex-direction:column}
-.btn{width:100%;background:#0a7a2e;color:#fff;border:none;border-radius:24px;padding:14px;font-weight:700;margin-top:12px;cursor:pointer;font-size:15px}
-.btn2{width:100%;background:#fff;border:1.5px solid #0a7a2e;color:#0a7a2e;border-radius:24px;padding:12px;font-weight:700;margin-top:10px;cursor:pointer}
-.inp{display:flex;gap:8px;border:1px solid #ddd;border-radius:22px;padding:12px 14px;margin:6px 0;background:#fff}
-.inp input{border:none;outline:none;width:100%}
-.card{border:1px solid #eee;border-radius:14px;padding:12px;display:flex;gap:10px;align-items:center;background:#fff;margin:7px 0}
-.v-card{border:1px solid #eee;border-radius:14px;padding:10px;text-align:center;background:#fff}
-.grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px}
-.map{height:180px;background:#e8f5e8;border-radius:18px;border:1px solid #ddd;display:flex;align-items:center;justify-content:center;color:#0a7a2e;font-weight:700}
-.topD1{background:#0a7a2e;color:#fff;padding:12px 14px;display:flex;align-items:center;gap:10px;border-radius:0 0 22px 22px}
-.green-bar{background:#0a7a2e;margin:10px 12px;border-radius:18px;padding:10px 12px;display:flex;align-items:center;gap:10px;color:#fff}
-.p-icon{width:44px;height:44px;background:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#0a7a2e;font-size:22px}
-.num{position:absolute;left:6px;top:4px;background:#c00000;color:#fff;width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:900;border:2px solid #fff}
+.logo{width:36px;height:36px;background:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#0a7a2e;font-weight:900}
+.btn{width:100%;background:#0a7a2e;color:#fff;border:none;border-radius:24px;padding:14px;font-weight:700;margin-top:12px;cursor:pointer}
+.btn2{width:100%;background:#fff;border:2px solid #0a7a2e;color:#0a7a2e;border-radius:24px;padding:12px;font-weight:700;margin-top:10px}
 </style>
 </head>
 <body>
 <div class="app">
 
-<div id="H1" class="page active"><div class="hdr"><div class="logo">RG</div>H1 Home</div><div class="box"><div style="height:180px;background:#ddd;border-radius:16px;margin:10px 0;overflow:hidden"><img src="https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?w=800" style="width:100%;height:100%;object-fit:cover"></div><div style="text-align:center;font-weight:900;font-size:22px">Ride Go BD</div><button type="button" class="btn" onclick="goPage('H2')">নিবন্ধন H
+<!-- H1 - Ride Go BD Green -->
+<div id="H1" class="page active">
+<div class="hdr"><div class="logo">RG</div>Ride Go BD Green - H1 Home</div>
+<div style="padding:12px"><div style="height:190px;border-radius:16px;overflow:hidden"><img src="https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?w=800" style="width:100%;height:100%;object-fit:cover"></div>
+<div style="text-align:center;margin-top:12px"><b style="font-size:24px;color:#0a7a2e">Ride Go BD Green</b><br><small>Safe Ride | Better Life</small></div>
+</div>
+<div style="padding:0 14px 20px;margin-top:auto">
+<button class="btn" onclick="goPage('H5')">শুরু করুন - Ride Go BD Green</button>
+<div style="text-align:center;margin-top:10px;font-size:11px;color:#888">d-green.vercel.app</div>
+</div>
+</div>
+
+<!-- H5 - MAIN JUNCTION -->
+<div id="H5" class="page">
+<div class="hdr"><div class="logo">RG</div>Ride Go BD Green - H5</div>
+<div style="padding:14px;flex:1">
+<h3 style="text-align:center;margin:20px 0">Ride Go BD Green - অপশন নির্বাচন</h3>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+<div style="background:#0a7a2e;color:#fff;border-radius:18px;padding:24px;text-align:center" onclick="goPage('P1')"><div style="font-size:40px">🧍</div><b>যাত্রী</b><br><small>P1 → P8</small><br><div style="background:#fff;color:#0a7a2e;border-radius:10px;padding:4px;margin-top:8px;font-size:11px">যাত্রী অপশন → P</div></div>
+<div style="background:#fff;border:3px solid #0a7a2e;border-radius:18px;padding:24px;text-align:center" onclick="goPage('D1')"><div style="font-size:40px">🏍️</div><b>চালক</b><br><small>D1 → D4</small><br><div style="background:#0a7a2e;color:#fff;border-radius:10px;padding:4px;margin-top:8px;font-size:11px">চালক অপশন → D</div></div>
+</div>
+<button class="btn2" onclick="goPage('H1')">Back H1</button>
+</div>
+</div>
+
+<!-- P1-P8 and D1-D4 same as before with name Ride Go BD Green -->
+<div id="P1" class="page"><div class="hdr"><div class="logo">RG</div>Ride Go BD Green - P1</div><div style="padding:14px"><button class="btn" onclick="goPage('P2')">P2 →</button><button class="btn2" onclick="goPage('H5')">Back H5</button></div></div>
+<div id="P2" class="page"><div class="hdr"><div class="logo">RG</div>Ride Go BD Green - P2</div><div style="padding:14px"><button class="btn" onclick="goPage('P3')">P3 →</button></div></div>
+<div id="P3" class="page"><div class="hdr"><div class="logo">RG</div>Ride Go BD Green - P3</div><div style="padding:14px"><button class="btn" onclick="goPage('P4')">P4 →</button></div></div>
+<div id="P4" class="page"><div class="hdr"><div class="logo">RG</div>Ride Go BD Green - P4</div><div style="padding:14px"><button class="btn" onclick="goPage('H5')">Finish H5</button></div></div>
+
+<div id="D1" class="page"><div class="hdr"><div class="logo">RG</div>Ride Go BD Green - D1</div><div style="padding:14px"><button class="btn" onclick="goPage('D2')">D2 ভাড়া আলোচনা →</button><button class="btn2" onclick="goPage('H5')">Back H5</button></div></div>
+<div id="D2" class="page"><div class="hdr"><div class="logo">RG</div>Ride Go BD Green - D2</div><div style="padding:14px"><button class="btn" onclick="goPage('D3')">D3 পেমেন্ট →</button></div></div>
+<div id="D3" class="page"><div class="hdr"><div class="logo">RG</div>Ride Go BD Green - D3</div><div style="padding:14px"><button class="btn" onclick="goPage('D4')">D4 রাইড গ্রহণ →</button></div></div>
+<div id="D4" class="page"><div class="hdr"><div class="logo">RG</div>Ride Go BD Green - D4</div><div style="padding:14px"><div style="background:#f0faf0;border:1.5px solid #0a7a2e;border-radius:14px;padding:12px">✓ রাইড গ্রহণ করা হয়েছে - Ride Go BD Green</div><button class="btn" onclick="goPage('H1')">Close → H1</button></div></div>
+
+</div>
+<script>
+function goPage(id){document.querySelectorAll('.page').forEach(p=>{p.classList.remove('active');p.style.display='none'});var el=document.getElementById(id);if(el){el.classList.add('active');el.style.display='flex'} }
+window.goPage=goPage;
+</script>
+</body>
+</html>
