@@ -1,74 +1,38 @@
-<!DOCTYPE html>
-<html lang="bn">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ride Go BD - Official</title>
-<link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@500;700&display=swap" rel="stylesheet">
-<style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:'Hind Siliguri',sans-serif}
-body{background:#f1f1f1;display:flex;justify-content:center}
-.app{width:100%;max-width:420px}
-.page{display:none;min-height:100vh;background:#fff;border:4px solid #0a7a2e;border-radius:28px;flex-direction:column;overflow:hidden}
-.page.active{display:flex}
-.hdr{display:flex;align-items:center;gap:8px;padding:12px 14px;font-weight:900;background:#0a7a2e;color:#fff;position:sticky;top:0;z-index:20}
-.hdr .logo{width:28px;height:28px;background:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#0a7a2e}
-.pill{background:#0a7a2e;color:#fff;border-radius:24px;padding:10px;text-align:center;font-weight:700;margin:10px 12px;border:2px solid #fff;box-shadow:0 0 0 2px #0a7a2e}
-.box{padding:0 12px 16px;flex:1;display:flex;flex-direction:column}
-.btn{width:100%;background:#0a7a2e;color:#fff;border:none;border-radius:24px;padding:12px;font-weight:700;margin-top:10px;cursor:pointer}
-.btn2{width:100%;background:#fff;border:1.5px solid #0a7a2e;color:#0a7a2e;border-radius:24px;padding:10px;font-weight:700;margin-top:8px;cursor:pointer}
-.inp{display:flex;gap:8px;border:1px solid #ddd;border-radius:22px;padding:12px 14px;margin:6px 0;background:#fff}
-.inp input{border:none;outline:none;width:100%}
-.grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px}
-.card{border:1px solid #eee;border-radius:14px;padding:10px;margin:6px 0;display:flex;gap:10px;align-items:center;background:#fff}
-.card img{width:42px;height:42px;border-radius:50%}
-.map{height:280px;background:#e8f5e8;border-radius:18px;position:relative;overflow:hidden;border:1px solid #ddd;display:flex;align-items:center;justify-content:center;color:#0a7a2e;font-weight:700}
-.car{position:absolute;left:20%;font-size:28px;animation:moveCar 4s linear infinite}
-@keyframes moveCar{0%{top:5%}100%{top:75%}}
-.dot{position:absolute;width:36px;height:36px;background:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 6px rgba(0,0,0,.3)}
-</style>
-</head>
-<body>
-<div class="app">
+<!DOCTYPE html><html lang="bn"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Ride Go BD - 27 Pages</title><style>*{margin:0;padding:0;box-sizing:border-box;font-family:Hind Siliguri,sans-serif}body{background:#f1f5f1}.page{display:none;min-height:100vh;background:white;max-width:420px;margin:auto;box-shadow:0 0 20px rgba(0,0,0,.08);flex-direction:column}.page.active{display:flex}.hdr{background:#0f3d26;color:white;padding:12px 14px;display:flex;align-items:center;gap:10px;position:sticky;top:0;z-index:9}.hdr b{flex:1}.box{padding:16px;flex:1}.btn{width:100%;padding:14px;border-radius:14px;border:none;font-weight:700;cursor:pointer}.g{background:#0f3d26;color:white}.w{background:white;border:1px solid #ddd}.inp{width:100%;padding:13px;margin:7px 0;border:1px solid #ddd;border-radius:12px}.card{border:1px solid #e5e7eb;border-radius:16px;padding:14px;display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;cursor:pointer}.tag{background:#0f3d26;color:white;font-size:11px;padding:3px 8px;border-radius:20px}</style></head><body>
 
-<div id="H1" class="page active">
-<div class="hdr"><div class="logo">RG</div>Ride Go BD - Official</div>
-<div class="box">
-<div style="height:200px;border-radius:16px;overflow:hidden;margin:10px 0"><img src="https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?w=800" style="width:100%;height:100%;object-fit:cover"></div>
-<div style="text-align:center;font-weight:900;font-size:24px"><span style="color:#0a7a2e">Ride Go</span> <span style="color:#c00000">BD</span><br><small style="font-size:11px;color:#666">Official Ride Sharing</small></div>
-<button class="btn" onclick="go('H2')">👤 নিবন্ধন → H2</button>
-<button class="btn2" onclick="go('H3')">লগইন → H3</button>
-<button class="btn2" onclick="go('P1')">🧍 যাত্রী P1 →</button>
-<button class="btn2" onclick="go('P6')">📍 LIVE P6 →</button>
-</div>
-</div>
+<!-- H1 -->
+<div id="H1" class="page active"><div style="background:#0f3d26;color:white;padding:70px 20px 100px;text-align:center;border-radius:0 0 30px 30px">🛵 Ride Go BD<br><b style="font-size:28px">আপনার যাত্রা,<br>আমাদের দায়িত্ব</b></div><div class="box"><button class="btn g" onclick="go('H2')">+ নতুন? নিবন্ধন করুন</button><button class="btn w" style="margin-top:10px" onclick="go('H3')">→ লগইন করুন</button><div style="text-align:center;margin-top:20px;font-size:12px;color:#666">H1 - Landing Page</div></div></div>
+<!-- H2 --><div id="H2" class="page"><div class="hdr"><span onclick="go('H1')">←</span><b>H2 - Registration</b></div><div class="box"><input class="inp" placeholder="নাম"><input class="inp" placeholder="ফোন"><input class="inp" placeholder="স্পন্সর নাম্বার"><button class="btn g" onclick="go('H4')">নিবন্ধন</button></div></div>
+<!-- H3 --><div id="H3" class="page"><div class="hdr"><span onclick="go('H1')">←</span><b>H3 - Login</b></div><div class="box"><input class="inp" placeholder="ফোন নাম্বার"><button class="btn g" onclick="go('H4')">লগইন</button></div></div>
+<!-- H4 --><div id="H4" class="page"><div class="hdr"><span onclick="go('H1')">←</span><b>H4 - OTP Verification</b></div><div class="box"><input class="inp" placeholder="4 Digit OTP" style="text-align:center;letter-spacing:8px"><button class="btn g" onclick="go('H5')">যাচাই করুন</button></div></div>
+<!-- H5 --><div id="H5" class="page"><div class="hdr"><b>🛵 Ride Go BD</b></div><div class="box"><h2>স্বাগতম! আপনি কি হিসেবে যাবেন?</h2><div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:18px"><div class="card" style="background:#0f3d26;color:white;flex-direction:column" onclick="go('P1')"><span style="font-size:40px">🧍</span><b>যাত্রী</b><small>Passenger P1-P8</small></div><div class="card" style="flex-direction:column" onclick="go('D1')"><span style="font-size:40px">🏍️</span><b>চালক</b><small>Driver D1-D8</small></div></div><button class="btn w" style="margin-top:20px" onclick="go('W1')">🏠 Owner W1-W6</button><button class="btn w" style="margin-top:10px" onclick="go('H1')">Logout</button><div style="font-size:11px;color:#888;margin-top:10px">H5 - Main Home (যাত্রী/চালক নির্বাচন)</div></div></div>
 
-<div id="H2" class="page"><div class="hdr">H2 নিবন্ধন</div><div class="box"><div class="inp">👤<input placeholder="আপনার নাম"></div><div class="inp">📞<input placeholder="ফোন নাম্বার"></div><button class="btn" onclick="go('H4')">✓ নিবন্ধন → H4</button><button class="btn2" onclick="go('H1')">← H1</button></div></div>
-<div id="H3" class="page"><div class="hdr">H3 লগইন</div><div class="box"><div class="inp">📱<input placeholder="ফোন নাম্বার"></div><button class="btn" onclick="go('H4')">লগইন → H4</button><button class="btn2" onclick="go('H1')">← H1</button></div></div>
-<div id="H4" class="page"><div class="hdr">H4 OTP</div><div class="box"><div style="display:flex;gap:8px;justify-content:center;margin:20px 0"><input style="width:44px;height:44px;text-align:center;border-radius:8px;border:1px solid #bbb" placeholder="*"><input style="width:44px;height:44px;text-align:center;border-radius:8px;border:1px solid #bbb" placeholder="*"><input style="width:44px;height:44px;text-align:center;border-radius:8px;border:1px solid #bbb" placeholder="*"><input style="width:44px;height:44px;text-align:center;border-radius:8px;border:1px solid #bbb" placeholder="*"></div><button class="btn" onclick="go('H5')">✓ যাচাই → H5</button></div></div>
-<div id="H5" class="page"><div class="hdr">H5 যাত্রী/চালক</div><div class="box"><div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:20px"><div style="background:#0a7a2e;color:#fff;border-radius:18px;padding:22px;text-align:center" onclick="go('P1')"><div style="font-size:32px">🧍</div><b>যাত্রী</b></div><div style="background:#fff;border:1px solid #ddd;border-radius:18px;padding:22px;text-align:center" onclick="go('D1')"><div style="font-size:32px">🏍️</div><b>চালক</b></div></div><button class="btn2" onclick="go('H1')">Logout</button></div></div>
+<!-- P1-P8 -->
+<div id="P1" class="page"><div class="hdr"><span onclick="go('H5')">←</span><b>P1 - যাত্রীর হোম</b></div><div class="box"><div class="card" onclick="go('P2')"><span>📍 P2 - লোকেশন ও গন্তব্য</span>›</div><div class="card" onclick="go('P3')"><span>🚗 P3 - গাড়ি খোঁজা</span>›</div><div class="card" onclick="go('P8')"><span>🕒 P8 - রাইড হিস্ট্রি</span>›</div></div></div>
+<div id="P2" class="page"><div class="hdr"><span onclick="go('P1')">←</span><b>P2 - লোকেশন ও গন্তব্য</b></div><div class="box"><input class="inp" placeholder="📍 বর্তমান অবস্থান"><input class="inp" placeholder="🏁 গন্তব্য"><button class="btn g" onclick="go('P3')">পরবর্তী</button></div></div>
+<div id="P3" class="page"><div class="hdr"><span onclick="go('P2')">←</span><b>P3 - গাড়ি খোঁজার পৃষ্ঠা</b></div><div class="box"><div class="card">🚗 কার - 12 টি <span class="tag">৳80</span></div><div class="card">🛺 সিএনজি - 8 টি <span class="tag">৳60</span></div><div class="card">🏍️ বাইক - 5 টি <span class="tag">৳40</span></div><button class="btn g" onclick="go('P4')">গাড়ি সিলেক্ট করুন</button></div></div>
+<div id="P4" class="page"><div class="hdr"><span onclick="go('P3')">←</span><b>P4 - চালকদের ভাড়ার প্রস্তাব</b></div><div class="box"><div class="card">চালক রহিম - 1.2km - ৳120 <button style="background:#0f3d26;color:white;padding:6px 10px;border-radius:8px;border:none">দেখুন</button></div><button class="btn g" onclick="go('P5')">পরবর্তী</button></div></div>
+<div id="P5" class="page"><div class="hdr"><span onclick="go('P4')">←</span><b>P5 - ভাড়া আলোচনা ও নিশ্চিতকরণ</b></div><div class="box"><input class="inp" placeholder="আপনার প্রস্তাবিত ভাড়া"><button class="btn g" onclick="go('P6')">নিশ্চিত করুন</button></div></div>
+<div id="P6" class="page"><div class="hdr"><span onclick="go('P5')">←</span><b>P6 - পেমেন্ট পৃষ্ঠা</b></div><div class="box"><div class="card">💳 নগদ</div><div class="card">💳 বিকাশ</div><button class="btn g" onclick="go('P7')">পেমেন্ট করুন</button></div></div>
+<div id="P7" class="page"><div class="hdr"><span onclick="go('P6')">←</span><b>P7 - লাইভ রাইড পৃষ্ঠা</b></div><div class="box"><div style="background:#dcfce7;padding:20px;border-radius:14px;text-align:center">📍 লাইভ ট্র্যাকিং চলছে...<br>চালক 2 মিনিট দূরে</div><button class="btn g" style="margin-top:20px" onclick="go('P8')">রাইড শেষ করুন</button></div></div>
+<div id="P8" class="page"><div class="hdr"><span onclick="go('P1')">←</span><b>P8 - রাইড হিস্ট্রি</b></div><div class="box"><div class="card">12/05 - বহদ্দারহাট → জিইসি - ৳120 ✅</div><div class="card">11/05 - মুরাদপুর → আগ্রাবাদ - ৳90 ✅</div><button class="btn w" onclick="go('P1')">পিছনে</button></div></div>
 
-<div id="P1" class="page"><div class="hdr"><div class="logo">RG</div>P1 গাড়ি</div><div class="pill">🚗 P1 - গাড়ি নির্বাচন</div><div class="box"><div class="grid3"><div class="card" style="justify-content:center">🚗 কার</div><div class="card" style="justify-content:center">🏍️ বাইক</div><div class="card" style="justify-content:center">🛺 অটো</div><div class="card" style="justify-content:center">🚐 মাইক্রো</div><div class="card" style="justify-content:center">🚌 বাস</div><div class="card" style="justify-content:center">🚚 ট্রাক</div></div><button class="btn" onclick="go('P2')">Next → P2</button><button class="btn2" onclick="go('H5')">Back H5</button></div></div>
-<div id="P2" class="page"><div class="hdr">P2 লোকেশন</div><div class="pill">📍 কোথায় থেকে কোথায়</div><div class="box"><div class="inp">🟢<input value="ধানমন্ডি"></div><div class="inp">🔴<input value="মিরপুর"></div><div class="map">🗺️ ধানমন্ডি → মিরপুর 2.5km</div><button class="btn" onclick="go('P3')">Next → P3</button><button class="btn2" onclick="go('P1')">Back P1</button></div></div>
-<div id="P3" class="page"><div class="hdr">P3 চালক</div><div class="pill">🚗 চালকদের প্রস্তাব</div><div class="box"><div class="card"><img src="https://i.pravatar.cc/100?img=32"><div><b>রিফাত</b><br>⭐ 4.8</div><div style="margin-left:auto"><b>৳120</b><br><button class="btn" style="padding:4px 10px;font-size:11px" onclick="go('P4')">নির্বাচন</button></div></div><div class="card"><img src="https://i.pravatar.cc/100?img=33"><div><b>হাসান</b><br>⭐ 4.7</div><div style="margin-left:auto"><b>৳110</b><br><button class="btn" style="padding:4px 10px;font-size:11px" onclick="go('P4')">নির্বাচন</button></div></div><button class="btn" onclick="go('P4')">Next → P4</button><button class="btn2" onclick="go('P2')">Back P2</button></div></div>
-<div id="P4" class="page"><div class="hdr">P4 ভাড়া</div><div class="pill">🤝 ভাড়া আলোচনা</div><div class="box"><div style="background:#e6ffe9;border-radius:16px;padding:16px;text-align:center"><small>চালকের ভাড়া</small><div style="font-size:32px;font-weight:900">৳120</div></div><button class="btn" onclick="go('P5')">Next → P5</button><button class="btn2" onclick="go('P3')">Back P3</button></div></div>
-<div id="P5" class="page"><div class="hdr">P5 পেমেন্ট</div><div class="pill">💳 পেমেন্ট</div><div class="box"><div style="text-align:center">সার্ভিস ফি <b style="font-size:22px;display:block">৳5</b></div><div class="grid3"><div class="card" style="justify-content:center">bKash</div><div class="card" style="justify-content:center">নগদ</div><div class="card" style="justify-content:center">রকেট</div></div><button class="btn" onclick="go('P6')">✓ পেমেন্ট → P6 LIVE</button><button class="btn2" onclick="go('P4')">Back P4</button></div></div>
+<!-- D1-D8 -->
+<div id="D1" class="page"><div class="hdr"><span onclick="go('H5')">←</span><b>D1 - চালকের হোম</b></div><div class="box"><div class="card" onclick="go('D2')"><span>👤 D2 - প্রোফাইল</span>›</div><div class="card" onclick="go('D3')"><span>🟢 D3 - Online/Offline</span>›</div><div class="card" onclick="go('D4')"><span>🔔 D4 - কাছাকাছি রাইড</span>›</div><div class="card" onclick="go('D8')"><span>🕒 D8 - রাইড হিস্ট্রি</span>›</div></div></div>
+<div id="D2" class="page"><div class="hdr"><span onclick="go('D1')">←</span><b>D2 - প্রোফাইল ও তথ্য</b></div><div class="box"><input class="inp" value="নাম: ওলিউল্লাহ"><input class="inp" value="গাড়ি: বাইক - CTG 123"><button class="btn g" onclick="go('D1')">সেভ</button></div></div>
+<div id="D3" class="page"><div class="hdr"><span onclick="go('D1')">←</span><b>D3 - Online/Offline</b></div><div class="box"><div style="text-align:center;padding:30px"><div style="font-size:50px">🟢</div><h3>আপনি Online</h3></div><button class="btn g">Offline করুন</button><button class="btn w" style="margin-top:8px" onclick="go('D1')">পিছনে</button></div></div>
+<div id="D4" class="page"><div class="hdr"><span onclick="go('D1')">←</span><b>D4 - কাছাকাছি রাইডের অনুরোধ</b></div><div class="box"><div class="card"><div>যাত্রী: 1.2km<br>৳120 - বহদ্দারহাট → জিইসি</div><button style="background:#16a34a;color:white;padding:8px;border-radius:8px;border:none" onclick="go('D5')">গ্রহণ</button></div></div></div>
+<div id="D5" class="page"><div class="hdr"><span onclick="go('D4')">←</span><b>D5 - ভাড়ার প্রস্তাব ও আলোচনা</b></div><div class="box"><input class="inp" placeholder="৳ ভাড়া প্রস্তাব দিন"><button class="btn g" onclick="go('D6')">পাঠান</button></div></div>
+<div id="D6" class="page"><div class="hdr"><span onclick="go('D5')">←</span><b>D6 - পেমেন্ট পৃষ্ঠা</b></div><div class="box"><div class="card">যাত্রী পেমেন্ট করেছে ✅ ৳120</div><button class="btn g" onclick="go('D7')">যাত্রা শুরু করুন</button></div></div>
+<div id="D7" class="page"><div class="hdr"><span onclick="go('D6')">←</span><b>D7 - লাইভ রাইড</b></div><div class="box"><div style="background:#e0f2fe;padding:20px;border-radius:14px;text-align:center">🗺️ লাইভ শেয়ার চলছে...<br>গন্তব্য 2.5km</div><button class="btn g" style="margin-top:20px" onclick="go('D8')">রাইড সম্পন্ন</button></div></div>
+<div id="D8" class="page"><div class="hdr"><span onclick="go('D1')">←</span><b>D8 - রাইড হিস্ট্রি</b></div><div class="box"><div class="card">আজ ৮টি রাইড - ৳1250</div><button class="btn w" onclick="go('D1')">পিছনে</button></div></div>
 
-<div id="P6" class="page"><div class="hdr"><div class="logo">RG</div>P6 LIVE - FIXED</div><div class="pill">📍 লাইভ রাইড - গাড়ি চলছে</div><div class="box"><div class="card"><img src="https://i.pravatar.cc/100?img=32"><div><b>রিফাত - Ride Go BD</b><br><small>🚗 ঢাকা মেট্রো-গ ১২-৩৪৫৬</small></div><div style="margin-left:auto;background:#eaffea;border-radius:20px;padding:4px 10px;font-weight:700;color:#0a7a2e">8 মিনিট</div></div><div class="map"><div style="position:absolute;left:22%;top:0;width:6px;height:100%;background:#fff;border-left:2px dashed #aaa"></div><div class="car">🚗</div><div class="dot" style="left:12px;bottom:18px">📍</div><div class="dot" style="right:18px;top:18px;background:#ffe5e5">🏁</div><div style="position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);background:#fff;padding:6px 12px;border-radius:12px;font-size:11px;font-weight:700;box-shadow:0 2px 8px rgba(0,0,0,.2)">চালক আসছে...</div></div><div style="display:flex;justify-content:space-between;font-size:13px;margin:10px 0;font-weight:700"><span>📍 2.5km</span><span>⏱️ 8 মিনিট</span><span>💰 ৳120</span></div><button class="btn" style="background:#c00000" onclick="go('P7')">🛑 রাইড শেষ → P7</button><button class="btn2" onclick="go('P5')">Back P5</button></div></div>
+<!-- W1-W6 -->
+<div id="W1" class="page"><div class="hdr"><span onclick="go('H5')">←</span><b>W1 - Owner Dashboard</b></div><div class="box"><div class="card" onclick="go('W2')">👥 W2 - চালক ও যাত্রী ব্যবস্থাপনা ›</div><div class="card" onclick="go('W3')">🚗 W3 - রাইড ব্যবস্থাপনা ›</div><div class="card" onclick="go('W4')">💰 W4 - আয় ও পেমেন্ট ›</div><div class="card" onclick="go('W5')">⚙️ W5 - সার্ভিস ফি ›</div><div class="card" onclick="go('W6')">📢 W6 - অভিযোগ ও সেটিংস ›</div></div></div>
+<div id="W2" class="page"><div class="hdr"><span onclick="go('W1')">←</span><b>W2 - চালক ও যাত্রী ব্যবস্থাপনা</b></div><div class="box"><div class="card">মোট যাত্রী: 1250</div><div class="card">মোট চালক: 340</div></div></div>
+<div id="W3" class="page"><div class="hdr"><span onclick="go('W1')">←</span><b>W3 - রাইড ব্যবস্থাপনা</b></div><div class="box"><div class="card">আজকের রাইড: 89 টি</div></div></div>
+<div id="W4" class="page"><div class="hdr"><span onclick="go('W1')">←</span><b>W4 - আয় ও পেমেন্ট হিসাব</b></div><div class="box"><div class="card">আজকের আয়: ৳15,400</div></div></div>
+<div id="W5" class="page"><div class="hdr"><span onclick="go('W1')">←</span><b>W5 - সার্ভিস ফি নিয়ন্ত্রণ</b></div><div class="box"><input class="inp" value="সার্ভিস ফি: 15%"><button class="btn g">আপডেট করুন</button></div></div>
+<div id="W6" class="page"><div class="hdr"><span onclick="go('W1')">←</span><b>W6 - অভিযোগ ও সেটিংস</b></div><div class="box"><div class="card">অভিযোগ: 3 টি নতুন</div><button class="btn w" onclick="go('W1')">পিছনে</button></div></div>
 
-<div id="P7" class="page"><div class="hdr">P7 হিস্ট্রি</div><div class="pill">🕒 হিস্ট্রি</div><div class="box"><div class="card">ধানমন্ডি → মিরপুর <span style="margin-left:auto">৳120</span></div><button class="btn" onclick="go('P8')">Next → P8</button><button class="btn2" onclick="go('P6')">Back P6</button></div></div>
-<div id="P8" class="page"><div class="hdr"><div class="logo">RG</div>P8 প্রোফাইল</div><div class="pill">👤 প্রোফাইল</div><div class="box"><div class="card"><img src="https://i.pravatar.cc/100?img=15"><div><b>Ride Go BD Official</b><br>01712-345678</div></div><button class="btn" onclick="go('H1')">Finish → Home</button></div></div>
-<div id="D1" class="page"><div class="hdr">D1 চালক ড্যাশবোর্ড</div><div class="box"><button class="btn2" onclick="go('H5')">Back H5</button></div></div>
-
-</div>
-<script>
-function go(id){
-document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
-var e=document.getElementById(id);
-if(e){e.classList.add('active');window.scrollTo(0,0)}
-}
-go('H1');
-</script>
-</div>
-</body>
-</html>
+<script>function go(id){document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));document.getElementById(id).classList.add('active');window.scrollTo(0,0)}</script></body></html>
