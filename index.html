@@ -11,119 +11,68 @@ body{background:#000;display:flex;justify-content:center}
 .app{width:100%;max-width:420px;background:#fff;min-height:100vh}
 .page{display:none;flex-direction:column;min-height:100vh}
 .page.active{display:flex!important}
-.hdr{background:#0a7a2e;color:#fff;padding:12px;display:flex;gap:10px;align-items:center;font-weight:900}
-.logo{width:32px;height:32px;background:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#0a7a2e;font-weight:900}
 .btn{width:100%;background:#0a7a2e;color:#fff;border:none;border-radius:24px;padding:14px;font-weight:700;margin-top:12px;cursor:pointer}
 .btn2{width:100%;background:#fff;border:2px solid #0a7a2e;color:#0a7a2e;border-radius:24px;padding:12px;font-weight:700;margin-top:10px}
 .card{border:1px solid #eee;border-radius:14px;padding:12px;margin:8px 0;background:#fff;display:flex;gap:10px;align-items:center}
 .topD1{background:#0a7a2e;color:#fff;padding:12px 14px;display:flex;align-items:center;gap:10px;border-radius:0 0 22px 22px}
 .green-bar{background:#0a7a2e;margin:10px 12px;border-radius:18px;padding:10px 12px;display:flex;align-items:center;gap:10px;color:#fff}
-.num{position:absolute;left:6px;top:6px;background:#c00000;color:#fff;width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:900;border:2px solid #fff}
 </style>
 </head>
 <body>
 <div class="app">
 
-<!-- D1 - আপনার ডিজাইন -->
+<!-- D1 -->
 <div id="D1" class="page active">
-<div class="topD1">
-<div onclick="goPage('H5')" style="cursor:pointer;font-size:22px">←</div>
-<div style="width:42px;height:42px;background:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#0a7a2e;font-weight:900">RG</div>
-<div><b>Ride Go BD Green</b><br><small>Safe Ride Better Life</small></div>
-<div style="margin-left:auto;font-size:18px">🔔<span style="background:#ff0000;border-radius:50%;padding:2px 6px;font-size:10px;margin-left:-8px">8</span></div>
-</div>
-<div class="green-bar">
-<div style="width:44px;height:44px;background:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#0a7a2e;font-size:22px">👤</div>
-<div><b>CNG চালক</b><br><small>রাইড নোটিফিকেশন</small></div>
-<div style="margin-left:auto;display:flex;align-items:center;gap:6px"><span style="width:8px;height:8px;background:#00ff00;border-radius:50%;display:inline-block"></span>অনলাইন</div>
-</div>
+<div class="topD1"><div style="width:42px;height:42px;background:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#0a7a2e;font-weight:900">RG</div><div><b>Ride Go BD Green</b><br><small>Safe Ride Better Life</small></div><div style="margin-left:auto">🔔8</div></div>
+<div class="green-bar"><div style="width:44px;height:44px;background:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center">👤</div><div><b>CNG চালক</b><br><small>রাইড নোটিফিকেশন</small></div><div style="margin-left:auto">● অনলাইন</div></div>
 <div style="padding:0 10px;flex:1">
-<div class="card" style="position:relative">
-<div class="num">3</div>
-<img src="https://images.unsplash.com/photo-1587563871167-1ee9c731aefb?w=200" style="width:70px;height:56px;border-radius:10px;object-fit:cover;margin-left:18px">
+<div class="card">
+<div style="width:70px;height:56px;background:#e6ffe9;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:30px">🛺</div>
 <div style="flex:1"><b>সিএনজি রাইড অনুরোধ</b><br><small>5.8 কিমি • মির্জারহাট → ফটিকছড়ি</small><br><button class="btn" style="width:auto;padding:7px 14px;font-size:12px;margin-top:6px" onclick="goPage('D2')">দেখুন ও গ্রহণ করুন ›</button></div>
 </div>
-<div class="card" style="position:relative">
-<div class="num">1</div>
-<img src="https://images.unsplash.com/photo-1587563871167-1ee9c731aefb?w=200" style="width:70px;height:56px;border-radius:10px;object-fit:cover;margin-left:18px">
+<div class="card">
+<div style="width:70px;height:56px;background:#e6ffe9;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:30px">🛺</div>
 <div style="flex:1"><b>রাইড অনুরোধ</b><br><small>7.4 কিমি • নাজিরহাট</small><br><button class="btn" style="width:auto;padding:7px 14px;font-size:12px;margin-top:6px" onclick="goPage('D2')">দেখুন ও গ্রহণ করুন ›</button></div>
 </div>
 </div>
-<div style="padding:10px"><button class="btn2" onclick="alert('Ride Go BD Green - D1')">Ride Go BD Green - D1 Active</button></div>
 </div>
 
-<!-- D2 - ভাড়া আলোচনা -->
+<!-- D2 -->
 <div id="D2" class="page">
-<div style="background:#d5005a;color:#fff;padding:14px;display:flex;align-items:center;gap:12px">
-<div onclick="goPage('D1')" style="font-size:22px;cursor:pointer">←</div>
-<b style="flex:1;text-align:center">Ride Go BD Green - D2 ভাড়া আলোচনা</b>
-</div>
-<div style="flex:1;padding:12px;display:flex;flex-direction:column;gap:10px">
-<div style="background:#fff;border:1px solid #eee;border-radius:14px;padding:12px"><b>যাত্রীর প্রস্তাব</b><br><div class="card" style="margin:8px 0">Passenger 500৳ <span style="margin-left:auto;background:#0a7a2e;color:#fff;padding:4px 10px;border-radius:12px">✔ কনফার্ম</span></div></div>
-<div style="background:#f0faf0;border:1px solid #0a7a2e;border-radius:14px;padding:12px;align-self:flex-end;width:80%"><b>আপনার প্রস্তাব</b><br>Driver 450৳</div>
-<div style="margin-top:auto">
-<button class="btn" onclick="goPage('D3')">D3 পেমেন্ট মেথড →</button>
-<button class="btn2" onclick="goPage('D1')">← Back D1</button>
-</div>
+<div style="background:#d5005a;color:#fff;padding:14px;text-align:center"><b>Ride Go BD Green - D2 ভাড়া আলোচনা</b></div>
+<div style="flex:1;padding:12px">
+<div class="card">যাত্রী 500৳ <span style="margin-left:auto;background:#0a7a2e;color:#fff;padding:4px 10px;border-radius:12px">✔ কনফার্ম</span></div>
+<div class="card">চালক 450৳</div>
+<button class="btn" onclick="goPage('D3')">D3 পেমেন্ট →</button>
+<button class="btn2" onclick="goPage('D1')">Back D1</button>
 </div>
 </div>
 
-<!-- D3 - পেমেন্ট মেথড -->
+<!-- D3 -->
 <div id="D3" class="page">
-<div class="hdr"><div class="logo">RG</div>Ride Go BD Green - D3 পেমেন্ট</div>
-<div style="flex:1;padding:14px;display:flex;flex-direction:column">
-<div style="background:#e6ffe9;border-radius:18px;padding:18px;text-align:center;border:1px solid #0a7a2e">
-<div style="font-size:12px;color:#555">মোট ভাড়া</div>
-<div style="font-size:36px;font-weight:900;color:#0a7a2e">৳ 450</div>
-<div style="font-size:12px;color:#0a7a2e">আপনি পাবেন ৳445 (ফি ৳5)</div>
-</div>
-<div style="margin-top:16px">
-<div class="card">💵 ক্যাশ পেমেন্ট</div>
-<div class="card">📱 bKash</div>
-<div class="card">📱 Nagad</div>
-</div>
-<div style="margin-top:auto">
-<button class="btn" onclick="goPage('D4')">D4 রাইড গ্রহণ করুন →</button>
-<button class="btn2" onclick="goPage('D2')">← Back D2</button>
-</div>
+<div style="background:#0a7a2e;color:#fff;padding:14px;text-align:center"><b>Ride Go BD Green - D3 পেমেন্ট</b></div>
+<div style="flex:1;padding:14px">
+<div style="background:#e6ffe9;border-radius:18px;padding:18px;text-align:center;border:1px solid #0a7a2e"><div style="font-size:36px;font-weight:900;color:#0a7a2e">৳ 450</div><small>আপনি পাবেন ৳445</small></div>
+<button class="btn" onclick="goPage('D4')">D4 রাইড গ্রহণ →</button>
+<button class="btn2" onclick="goPage('D2')">Back D2</button>
 </div>
 </div>
 
-<!-- D4 - রাইড গ্রহণ -->
+<!-- D4 -->
 <div id="D4" class="page" style="background:#121212;align-items:center;justify-content:center;padding:12px">
 <div style="background:#fff;border-radius:22px;width:100%;max-width:380px;padding:14px">
-<div style="display:flex;align-items:center;gap:8px;border-bottom:1px solid #eee;padding-bottom:10px">
-<b style="color:#0a7a2e">🚗 Ride Go BD Green</b>
-<b style="margin-left:auto;color:#0a7a2e;font-size:13px">✓ রাইড গ্রহণ করা হয়েছে</b>
-</div>
-<div style="margin-top:12px">
-<div style="background:#f0faf0;border:1.5px solid #0a7a2e;border-radius:14px;padding:12px">
-<div>👤 যাত্রী: মোঃ রাহিম হোসেন</div>
-<div>📞 01XXXXXXXXX</div>
-<div>📍 মির্জারহাট → ফটিকছড়ি (5.8km)</div>
-<div>💵 ভাড়া: ৳450</div>
-<div style="color:#0a7a2e;font-weight:700;margin-top:6px">✓ যাত্রা চলমান</div>
-</div>
-<div style="margin-top:12px;height:130px;background:#e9e9e9;border-radius:14px;display:flex;align-items:center;justify-content:center;flex-direction:column">
-<div style="font-size:24px">🗺️</div><b>লাইভ লোকেশন</b><small>Ride Go BD Green Map</small><div style="margin-top:6px">📍</div>
-</div>
-<div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:12px">
-<button class="btn2" style="margin:0">📞 কল করুন</button>
-<button class="btn" style="margin:0">💬 মেসেজ</button>
-</div>
-</div>
-<button class="btn2" style="margin-top:14px" onclick="goPage('D1')">Close → D1</button>
+<div style="display:flex;gap:8px;border-bottom:1px solid #eee;padding-bottom:10px"><b style="color:#0a7a2e">Ride Go BD Green</b><b style="margin-left:auto;color:#0a7a2e;font-size:12px">✓ রাইড গ্রহণ</b></div>
+<div style="background:#f0faf0;border:1.5px solid #0a7a2e;border-radius:14px;padding:12px;margin-top:10px">👤 মোঃ রাহিম<br>📍 মির্জারহাট → ফটিকছড়ি<br>💵 ৳450<br>✓ যাত্রা চলমান<br>🗺️ লাইভ 📍</div>
+<button class="btn" onclick="goPage('D1')">Close → D1</button>
 </div>
 </div>
 
 </div>
 <script>
 function goPage(id){
-  document.querySelectorAll('.page').forEach(p=>{p.classList.remove('active');p.style.display='none'});
-  var el=document.getElementById(id);
-  if(el){el.classList.add('active');el.style.display='flex';window.scrollTo(0,0);}
+document.querySelectorAll('.page').forEach(p=>{p.style.display='none';p.classList.remove('active')});
+var el=document.getElementById(id);el.style.display='flex';el.classList.add('active');
 }
-window.goPage=goPage;
 </script>
 </body>
 </html>
