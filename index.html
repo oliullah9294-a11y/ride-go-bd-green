@@ -2,7 +2,7 @@
 <html lang="bn">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Ride Go BD Green - Final</title>
+<title>Ride Go BD Green - Final V2</title>
 <style>
 *{box-sizing:border-box;margin:0;padding:0;font-family:sans-serif}
 body{background:#f5f7f5}
@@ -13,9 +13,10 @@ body{background:#f5f7f5}
 .page.active{display:block}
 .btn{background:#0a7a2e;color:#fff;border:0;padding:14px;border-radius:14px;width:100%;font-weight:800;margin-top:10px;cursor:pointer}
 .btn2{background:#eef7ee;color:#0a7a2e;border:1px solid #cfe9cf;padding:12px;border-radius:14px;width:100%;font-weight:700;margin-top:8px;cursor:pointer}
-.card{background:#f8fff8;border:1px solid #d9f0d9;padding:12px;border-radius:14px;margin:10px 0;display:flex;justify-content:space-between}
+.card{background:#f8fff8;border:1px solid #d9f0d9;padding:12px;border-radius:14px;margin:10px 0;display:flex;justify-content:space-between;align-items:center}
 input{width:100%;padding:12px;border-radius:12px;border:1px solid #ccc;margin:6px 0}
 .hint{font-size:11px;color:#0a7a2e;background:#eef7ee;padding:8px;border-radius:8px;margin-top:6px}
+.badge{background:#0a7a2e;color:#fff;padding:4px 8px;border-radius:20px;font-size:11px}
 </style>
 </head>
 <body>
@@ -30,7 +31,7 @@ input{width:100%;padding:12px;border-radius:12px;border:1px solid #ccc;margin:6p
 <input placeholder="আপনার মোবাইল নাম্বার" id="reg-phone">
 <input placeholder="স্পন্সর নাম্বার" id="sponsor-no">
 <div class="hint">💡 একবারই লাগবে। স্পন্সর না থাকলে 01700000000 লিখুন</div>
-<button class="btn" onclick="if(!document.getElementById('reg-phone').value){alert('মোবাইল নাম্বার দিন');return} localStorage.setItem('userPhone',document.getElementById('reg-phone').value); localStorage.setItem('sponsorNo',document.getElementById('sponsor-no').value); go('H4')">রেজিস্ট্রেশন →</button>
+<button class="btn" onclick="reg()">রেজিস্ট্রেশন →</button>
 <button class="btn2" onclick="go('H1')">Back</button>
 </div></div>
 
@@ -68,37 +69,106 @@ input{width:100%;padding:12px;border-radius:12px;border:1px solid #ccc;margin:6p
 <div id="D3" class="page"><div class="hdr"><div class="logo">RG</div>D3 রাইড চলছে</div><div class="box"><button class="btn" onclick="go('D4')">Complete →</button></div></div>
 <div id="D4" class="page"><div class="hdr"><div class="logo">RG</div>D4 ইনকাম 120৳</div><div class="box"><div class="card"><b>ইনকাম</b><b>120৳</b></div><button class="btn" onclick="go('H5')">Home →</button></div></div>
 
-<div id="W1" class="page"><div class="hdr"><div class="logo">RG</div>W1 LIVE Income</div><div class="box"><div class="card">Balance: ৳<span id="bal">0</span></div><button class="btn" onclick="verify()">Verify 1</button><button class="btn" onclick="verify()">Verify 2</button><button class="btn" style="background:#111" onclick="unlock()">🔓 Unlock 10৳</button><button class="btn2" onclick="go('W2')">Next W2 →</button><button class="btn2" onclick="go('H5')">Back H5</button></div></div>
-<div id="W2" class="page"><div class="hdr"><div class="logo">RG</div>W2 Referral</div><div class="box"><div class="card">My Sponsor: <span id="showSponsor">-</span></div><button class="btn" onclick="go('W3')">Next →</button></div></div>
-<div id="W3" class="page"><div class="hdr"><div class="logo">RG</div>W3</div><div class="box"><button class="btn" onclick="go('W4')">Next →</button></div></div>
-<div id="W4" class="page"><div class="hdr"><div class="logo">RG</div>W4</div><div class="box"><button class="btn" onclick="go('W5')">Next →</button></div></div>
-<div id="W5" class="page"><div class="hdr"><div class="logo">RG</div>W5</div><div class="box"><button class="btn" onclick="go('W6')">Next →</button></div></div>
-<div id="W6" class="page"><div class="hdr"><div class="logo">RG</div>W6</div><div class="box"><button class="btn" onclick="go('W7')">Next →</button></div></div>
+<div id="W1" class="page"><div class="hdr"><div class="logo">RG</div>W1 LIVE Income</div><div class="box"><div class="card">Balance: ৳<span id="bal">0</span> <span class="badge">LIVE</span></div><button class="btn" onclick="verify()">Verify 1</button><button class="btn" onclick="verify()">Verify 2</button><button class="btn" style="background:#111" onclick="unlock()">🔓 Unlock 10৳</button><button class="btn2" onclick="go('W2')">Next W2 →</button><button class="btn2" onclick="go('H5')">Back H5</button></div></div>
+
+<div id="W2" class="page"><div class="hdr"><div class="logo">RG</div>W2 Referral</div><div class="box">
+<div class="card"><b>My Sponsor</b><b id="showSponsor">-</b></div>
+<div class="card"><b>My Number</b><b id="showMy">-</b></div>
+<div style="background:#eef7ee;padding:12px;border-radius:12px;margin-top:10px;font-size:13px">📤 আপনার রেফার লিংক:<br><b>ride-go-bd-green.vercel.app?ref=<span id="myRef">-</span></b></div>
+<button class="btn" onclick="go('W3')">Next W3 →</button>
+</div></div>
+
+<div id="W3" class="page"><div class="hdr"><div class="logo">RG</div>W3 My Team</div><div class="box">
+<h3 style="color:#0a7a2e;text-align:center">👥 আমার টিম</h3>
+<div class="card">🧍 01712-345678 <span class="badge">Level 1</span></div>
+<div class="card">🧍 01812-345678 <span class="badge">Level 1</span></div>
+<div class="card">🧍 01912-345678 <span class="badge">Level 2</span></div>
+<div style="text-align:center;margin-top:10px;font-size:13px;color:#666">মোট টিম: ৩ জন (Demo)</div>
+<button class="btn" onclick="go('W4')">Next W4 →</button>
+</div></div>
+
+<div id="W4" class="page"><div class="hdr"><div class="logo">RG</div>W4 Level Income</div><div class="box">
+<h3 style="color:#0a7a2e;text-align:center">💰 লেভেল ইনকাম</h3>
+<div class="card"><span>Level 1 (10৳ x 2)</span><b>20৳</b></div>
+<div class="card"><span>Level 2 (5৳ x 1)</span><b>5৳</b></div>
+<div class="card"><span>Level 3 (2৳ x 0)</span><b>0৳</b></div>
+<div class="card" style="background:#0a7a2e;color:#fff"><b>মোট</b><b>25৳</b></div>
+<button class="btn" onclick="go('W5')">Next W5 →</button>
+</div></div>
+
+<div id="W5" class="page"><div class="hdr"><div class="logo">RG</div>W5 Daily Task</div><div class="box">
+<h3 style="color:#0a7a2e;text-align:center">✅ আজকের কাজ</h3>
+<div class="card"><span>📤 ২ জনকে শেয়ার করুন</span><span>✅</span></div>
+<div class="card"><span>🎥 ভিডিও দেখুন 30s</span><span>✅</span></div>
+<div class="card"><span>🔓 Unlock করুন</span><span id="taskUnlock">❌</span></div>
+<button class="btn" onclick="go('W6')">Next W6 →</button>
+</div></div>
+
+<div id="W6" class="page"><div class="hdr"><div class="logo">RG</div>W6 Commission</div><div class="box">
+<h3 style="color:#0a7a2e;text-align:center">📊 কমিশন রিপোর্ট</h3>
+<div class="card"><span>আজকের ইনকাম</span><b>৳<span class="bal2">0</span></b></div>
+<div class="card"><span>মোট ইনকাম</span><b>৳<span class="bal3">0</span></b></div>
+<div class="card"><span>পেন্ডিং</span><b>0৳</b></div>
+<button class="btn" onclick="go('W7')">Next W7 →</button>
+</div></div>
+
 <div id="W7" class="page"><div class="hdr"><div class="logo">RG</div>W7 bKash</div><div class="box"><input placeholder="bKash Number"><button class="btn" onclick="go('W8')">Next →</button></div></div>
 <div id="W8" class="page"><div class="hdr"><div class="logo">RG</div>W8 Wallet</div><div class="box"><div class="card">Total: ৳<span class="bal2">0</span></div><button class="btn" onclick="go('W9')">Withdraw →</button></div></div>
-<div id="W9" class="page"><div class="hdr"><div class="logo">RG</div>W9 History</div><div class="box"><div class="card">10৳ LIVE Income</div><button class="btn" onclick="go('W10')">Next →</button></div></div>
-<div id="W10" class="page"><div class="hdr"><div class="logo">RG</div>W10 Support</div><div class="box"><button class="btn" onclick="go('W11')">Next →</button></div></div>
-<div id="W11" class="page"><div class="hdr"><div class="logo">RG</div>W11 Final</div><div class="box"><p style="text-align:center">🎉 Owner Complete</p><button class="btn" onclick="go('H5')">Home H5</button></div></div>
+<div id="W9" class="page"><div class="hdr"><div class="logo">RG</div>W9 History</div><div class="box"><div class="card">10৳ LIVE Income - <span id="histTime">Just now</span></div><button class="btn" onclick="go('W10')">Next →</button></div></div>
+<div id="W10" class="page"><div class="hdr"><div class="logo">RG</div>W10 Support</div><div class="box"><div class="card">📞 01700-000000</div><button class="btn" onclick="go('W11')">Next →</button></div></div>
+<div id="W11" class="page"><div class="hdr"><div class="logo">RG</div>W11 Final</div><div class="box"><p style="text-align:center">🎉 Owner Complete<br><small>Balance: ৳<span class="bal3">0</span></small></p><button class="btn" onclick="go('H5')">Home H5</button></div></div>
 
-<div id="AZ" class="page"><div class="hdr"><div class="logo">RG</div>AZ - A to Z</div><div class="box">
-<h3 style="text-align:center;color:#0a7a2e;margin-bottom:10px">A to Z বর্ণনা</h3>
-<div style="font-size:14px;line-height:1.8;background:#f8fff8;padding:12px;border-radius:12px;border:1px solid #d9f0d9">
-<b>H2:</b> নাম + মোবাইল + স্পন্সর (একবার)<br><b>H3:</b> শুধু মোবাইল (পাসওয়ার্ড নেই)<br><b>H5:</b> ৩ শাখা যাত্রী/চালক/Owner<br><b>Unlock:</b> 10৳ LIVE Income<br><b>LIVE:</b> ride-go-bd-green.vercel.app
+<div id="AZ" class="page"><div class="hdr"><div class="logo">RG</div>AZ - চূড়ান্ত বর্ণনা</div><div class="box">
+<h3 style="text-align:center;color:#0a7a2e;margin-bottom:10px">A to Z চূড়ান্ত বর্ণনা</h3>
+<div style="font-size:13px;line-height:1.8;background:#f8fff8;padding:12px;border-radius:12px;border:1px solid #d9f0d9">
+<b>H1:</b> Welcome - শুরু<br><b>H2:</b> নিবন্ধন = নাম + নিজ নাম্বার + স্পন্সর নাম্বার (একবার, পাসওয়ার্ড নেই)<br><b>H3:</b> লগইন = শুধু নিজ নাম্বার (স্পন্সর নেই, পাসওয়ার্ড নেই)<br><b>H4:</b> OTP 1234<br><b>H5:</b> ৩ শাখা - যাত্রী/চালক/Owner<br>
+<b>P1:</b> গাড়ি বাছাই 500৳<br><b>P2:</b> মানচিত্র<br><b>P3:</b> Pickup/Drop<br><b>P4:</b> ভাড়া Confirm<br><b>P5:</b> চালক খোঁজা<br><b>P6:</b> চালক পাওয়া<br><b>P7:</b> রাইড চলছে<br><b>P8:</b> রেটিং<br>
+<b>D1:</b> নতুন রাইড<br><b>D2:</b> Map<br><b>D3:</b> রাইড চলছে<br><b>D4:</b> ইনকাম 120৳<br>
+<b>W1:</b> Balance + Verify 2x + Unlock 10৳ (Local Save)<br><b>W2:</b> My Sponsor + My Number + Ref Link<br><b>W3:</b> My Team List<br><b>W4:</b> Level Income L1=10৳ L2=5৳ L3=2৳<br><b>W5:</b> Daily Task শেয়ার+ভিডিও<br><b>W6:</b> Commission আজকের+মোট<br><b>W7:</b> bKash<br><b>W8:</b> Wallet<br><b>W9:</b> History<br><b>W10:</b> Support<br><b>W11:</b> Final Complete<br>
+<b>LIVE:</b> ride-go-bd-green.vercel.app
 </div>
 <button class="btn" onclick="go('H1')">🏠 Home H1</button>
 <button class="btn2" onclick="go('H5')">← H5 শাখা</button>
 </div></div>
 
 <script>
-let bal=0, v=0;
+let bal=parseInt(localStorage.getItem('rg_bal')||'0'), v=0;
 function go(id){
 document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
 document.getElementById(id).classList.add('active');
 window.scrollTo(0,0);
-if(id==='W2'){document.getElementById('showSponsor').innerText=localStorage.getItem('sponsorNo')||'-'}
+document.getElementById('bal').innerText=bal;
+document.querySelectorAll('.bal2').forEach(e=>e.innerText=bal);
+document.querySelectorAll('.bal3').forEach(e=>e.innerText=bal);
+if(id==='W2'){
+document.getElementById('showSponsor').innerText=localStorage.getItem('sponsorNo')||'-';
+document.getElementById('showMy').innerText=localStorage.getItem('userPhone')||'-';
+document.getElementById('myRef').innerText=localStorage.getItem('userPhone')||'-';
+}
+if(id==='W5' && bal>0){document.getElementById('taskUnlock').innerText='✅';}
+}
+function reg(){
+let ph=document.getElementById('reg-phone').value;
+let sp=document.getElementById('sponsor-no').value;
+if(!ph){alert('মোবাইল নাম্বার দিন');return}
+if(!sp){sp='01700000000'}
+localStorage.setItem('userPhone',ph);
+localStorage.setItem('sponsorNo',sp);
+go('H4');
 }
 function verify(){v++;alert('Verify '+v+' Done!'); if(v>=2) alert('এখন Unlock চাপুন!');}
-function unlock(){if(v<2){alert('আগে 2 বার Verify চাপুন');return;} bal+=10; document.getElementById('bal').innerText=bal; document.querySelectorAll('.bal2').forEach(e=>e.innerText=bal); alert('🎉 10৳ Added! Balance: '+bal+'৳'); v=0;}
+function unlock(){
+if(v<2){alert('আগে 2 বার Verify চাপুন');return;}
+bal+=10;
+localStorage.setItem('rg_bal',bal);
+document.getElementById('bal').innerText=bal;
+document.querySelectorAll('.bal2').forEach(e=>e.innerText=bal);
+document.querySelectorAll('.bal3').forEach(e=>e.innerText=bal);
+document.getElementById('histTime').innerText=new Date().toLocaleTimeString();
+alert('🎉 10৳ Added! Balance: '+bal+'৳ (Save হয়ে গেছে)');
+v=0;
+}
+go('H1'); document.getElementById('bal').innerText=bal;
 </script>
 </body>
 </html>
