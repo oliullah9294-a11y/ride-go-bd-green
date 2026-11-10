@@ -1,109 +1,123 @@
 <!DOCTYPE html>
 <html lang="bn">
 <head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
-<title>Ride Go BD Green - V6.2 Owner Master</title>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ride Go BD Green - V5.2 Full + Owner Master 12</title>
 <style>
 *{box-sizing:border-box;margin:0;padding:0;font-family:sans-serif}
-body{background:#f2f4f2}
+body{background:#fff}
 .hdr{background:#0a7a2e;color:#fff;padding:14px;display:flex;gap:10px;align-items:center;font-weight:900;position:sticky;top:0;z-index:99}
-.logo{background:#fff;color:#0a7a2e;width:40px;height:40px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-weight:900;cursor:pointer;user-select:none}
-.page{display:none!important;min-height:100vh;background:#fff;max-width:480px;margin:0 auto;width:100%}
+.logo{background:#fff;color:#0a7a2e;width:40px;height:40px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-weight:900;cursor:pointer}
+.page{display:none!important;min-height:100vh;background:#fff;max-width:480px;margin:auto}
 .page.active{display:block!important}
 .box{padding:20px}
-.btn{background:#0a7a2e;color:#fff;border:0;padding:16px;border-radius:14px;width:100%;font-weight:800;margin-top:12px;cursor:pointer;font-size:16px}
-.btn2{background:#eef7ee;color:#0a7a2e;border:1px solid #cfe9cf;padding:14px;border-radius:14px;width:100%;font-weight:700;margin-top:10px;cursor:pointer}
+.btn{background:#0a7a2e;color:#fff;border:0;padding:18px;border-radius:14px;width:100%;font-weight:800;margin-top:12px;cursor:pointer;font-size:16px}
+.btn2{background:#eef7ee;color:#0a7a2e;border:1px solid #cfe9cf;padding:15px;border-radius:14px;width:100%;font-weight:700;margin-top:10px;cursor:pointer}
 .card{background:#f8fff8;border:1px solid #d9f0d9;padding:14px;border-radius:14px;margin:10px 0;display:flex;justify-content:space-between;align-items:center}
 input{width:100%;padding:14px;border-radius:12px;border:1px solid #ccc;margin:8px 0;font-size:16px}
 .badge{background:#0a7a2e;color:#fff;padding:4px 10px;border-radius:20px;font-size:11px}
-.stat{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px}
-.statBox{background:#f8fff8;border:1px solid #d9f0d9;padding:12px;border-radius:14px;text-align:center}
+.langIcon{background:#fff;color:#0a7a2e;width:38px;height:38px;border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:20px}
+#langMenu{display:none;position:fixed;top:60px;right:10px;background:#fff;border-radius:14px;box-shadow:0 10px 30px #0004;z-index:9999;width:210px;overflow:hidden}
+.langItem{padding:14px;border-bottom:1px solid #eee;cursor:pointer}
 .hdrBlack{background:#111!important}
 .btnBlack{background:#111!important}
+.stat{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.statBox{background:#f8fff8;border:1px solid #d9f0d9;padding:12px;border-radius:14px;text-align:center}
 </style>
 </head>
 <body>
-
-<!-- H1 - শুধু ভাষা, Owner গোপন -->
-<div id="H1" class="page active">
-<div class="hdr"><div class="logo" onclick="tapLogo()">RG</div><div style="flex:1">Ride Go BD Green</div><div style="background:#fff;color:#0a7a2e;width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center">🌐</div></div>
-<div class="box" style="text-align:center">
-<div style="width:90px;height:90px;background:#0a7a2e;color:#fff;border-radius:24px;display:flex;align-items:center;justify-content:center;font-size:42px;font-weight:900;margin:30px auto" onclick="tapLogo()">RG</div>
-<h2 style="color:#0a7a2e">Ride Go BD Green</h2><p style="margin:8px 0">Safe Ride • Better Life</p>
-<button class="btn" onclick="goPage('H2')">শুরু করুন →</button>
-<p style="font-size:10px;opacity:.4;margin-top:16px" id="tapInfo">Logo 7x Tap = Owner Secret (গোপন)</p>
-</div>
+<div id="langMenu">
+<div style="padding:12px;font-weight:900;text-align:center;border-bottom:1px solid #eee">🌐 ভাষা</div>
+<div class="langItem" onclick="setLang('bn')">🇧🇩 বাংলা</div>
+<div class="langItem" onclick="setLang('en')">🇺🇸 English</div>
+<div class="langItem" onclick="setLang('hi')">🇮🇳 हिंदी</div>
+<div class="langItem" onclick="setLang('ur')">🇵🇰 اردو</div>
+<div class="langItem" onclick="setLang('ar')">🇸🇦 العربية</div>
 </div>
 
-<div id="H2" class="page"><div class="hdr"><div class="logo">RG</div>H2 নিবন্ধন</div><div class="box"><input id="reg-name" placeholder="নাম"><input id="reg-phone" placeholder="মোবাইল 01xxxxxxxxx"><input id="sponsor-no" placeholder="স্পন্সর (না থাকলে 01700000000)"><button class="btn" onclick="doReg()">রেজিস্ট্রেশন →</button><button class="btn2" onclick="goPage('H1')">Back H1</button></div></div>
-<div id="H3" class="page"><div class="hdr"><div class="logo">RG</div>H3 Login</div><div class="box"><input placeholder="মোবাইল"><button class="btn" onclick="goPage('H4')">Login →</button></div></div>
+<div id="H1" class="page active"><div class="hdr"><div class="logo">RG</div><div style="flex:1">Ride Go BD Green</div><div class="langIcon" onclick="openLang()">🌐</div></div><div class="box" style="text-align:center"><div style="width:90px;height:90px;background:#0a7a2e;color:#fff;border-radius:24px;display:flex;align-items:center;justify-content:center;font-size:42px;font-weight:900;margin:30px auto">RG</div><h2 style="color:#0a7a2e">Ride Go BD Green</h2><p>Safe Ride • Better Life</p><button class="btn" onclick="goPage('H2')">শুরু করুন →</button><button class="btn2" onclick="goPage('AZ')">📖 A-Z বর্ণনা</button></div></div>
+
+<div id="H2" class="page"><div class="hdr"><div class="logo">RG</div>H2 নিবন্ধন</div><div class="box"><input id="reg-name" placeholder="নাম"><input id="reg-phone" placeholder="মোবাইল"><input id="sponsor-no" placeholder="স্পন্সর"><button class="btn" onclick="doReg()">রেজিস্ট্রেশন →</button><button class="btn2" onclick="goPage('H1')">Back H1</button></div></div>
+<div id="H3" class="page"><div class="hdr"><div class="logo">RG</div>H3</div><div class="box"><input placeholder="মোবাইল"><button class="btn" onclick="goPage('H4')">Login →</button></div></div>
 <div id="H4" class="page"><div class="hdr"><div class="logo">RG</div>H4 OTP</div><div class="box"><p style="text-align:center">OTP: 1234</p><input placeholder="OTP"><button class="btn" onclick="goPage('H5')">Verify →</button></div></div>
-<div id="H5" class="page"><div class="hdr"><div class="logo">RG</div>H5 শাখা বাছাই</div><div class="box"><div style="background:#0a7a2e;color:#fff;padding:18px;border-radius:18px;cursor:pointer" onclick="goPage('P1')">🧍 যাত্রী P1-P8 →</div><div style="background:#fff;border:2px solid #0a7a2e;padding:18px;border-radius:18px;margin-top:12px;cursor:pointer" onclick="goPage('D1')">🏍️ চালক D1-D4 →</div><p style="font-size:11px;opacity:.4;margin-top:12px">Owner গোপন: H1 Logo 7x Tap</p></div></div>
 
-<!-- P1-P8 -->
-<div id="P1" class="page"><div class="hdr"><div class="logo">RG</div>P1 গাড়ি</div><div class="box"><div class="card" onclick="goPage('P2')">🚕 CNG 500৳ <b>→</b></div><button class="btn2" onclick="goPage('H5')">Back H5</button></div></div>
+<div id="H5" class="page"><div class="hdr"><div class="logo" onclick="tapLogo()">RG</div><div style="flex:1">H5 শাখা</div><div class="langIcon" onclick="openLang()">🌐</div></div><div class="box"><div style="text-align:center;font-weight:900">ভূমিকা বেছে নিন</div><div style="background:#0a7a2e;color:#fff;border-radius:18px;padding:18px;margin-top:12px;cursor:pointer" onclick="goPage('P1')">🧍 যাত্রী P1-P8 →</div><div style="background:#fff;border:2px solid #0a7a2e;border-radius:18px;padding:18px;margin-top:12px;cursor:pointer" onclick="goPage('D1')">🏍️ চালক D1-D4 →</div><div id="ownerSecret" style="display:none;background:#111;color:#fff;border-radius:18px;padding:18px;margin-top:12px;cursor:pointer;border:2px solid gold" onclick="goPage('W1')">🏢 Owner W1-W12 Master →</div><div style="background:#fffbe6;padding:10px;border-radius:10px;margin-top:12px;font-size:11px">Logo 3x Tap = Owner | <span id="tapCount">Tap: 0/3</span></div></div></div>
+
+<!-- P1 to P8 FULL - আপনার কোড ঠিক আছে -->
+<div id="P1" class="page"><div class="hdr"><div class="logo">RG</div>P1 গাড়ি</div><div class="box"><div class="card" onclick="goPage('P2')">🚕 CNG - 500৳ <b>→</b></div><div class="card" onclick="goPage('P2')">🏍️ Bike - 300৳ <b>→</b></div><button class="btn2" onclick="goPage('H5')">Back H5</button></div></div>
 <div id="P2" class="page"><div class="hdr"><div class="logo">RG</div>P2 Map</div><div class="box"><div style="height:200px;background:#e6ffe9;border-radius:14px;display:flex;align-items:center;justify-content:center">🗺️ Map</div><button class="btn" onclick="goPage('P3')">Next P3 →</button><button class="btn2" onclick="goPage('P1')">Back</button></div></div>
-<div id="P3" class="page"><div class="hdr"><div class="logo">RG</div>P3 Location</div><div class="box"><input placeholder="Pickup"><input placeholder="Drop"><button class="btn" onclick="goPage('P4')">Next P4 →</button></div></div>
-<div id="P4" class="page"><div class="hdr"><div class="logo">RG</div>P4 Fare</div><div class="box"><div class="card"><b>Fare</b><b>500৳</b></div><button class="btn" onclick="goPage('P5')">Confirm P5 →</button></div></div>
-<div id="P5" class="page"><div class="hdr"><div class="logo">RG</div>P5 Searching</div><div class="box"><p style="text-align:center;padding:40px">🔍 Driver খুঁজছি...</p><button class="btn" onclick="goPage('P6')">Found P6 →</button></div></div>
-<div id="P6" class="page"><div class="hdr"><div class="logo">RG</div>P6 Found</div><div class="box"><div class="card">Rahim ⭐4.9 1 min away</div><button class="btn" onclick="goPage('P7')">Ride P7 →</button></div></div>
-<div id="P7" class="page"><div class="hdr"><div class="logo">RG</div>P7 Riding</div><div class="box"><p style="text-align:center;padding:40px">🚕 Riding...</p><button class="btn" onclick="goPage('P8')">Complete P8 →</button></div></div>
-<div id="P8" class="page"><div class="hdr"><div class="logo">RG</div>P8 Rating</div><div class="box"><p style="text-align:center;font-size:30px">⭐⭐⭐⭐⭐</p><button class="btn" onclick="goPage('H5')">Home H5 →</button></div></div>
+<div id="P3" class="page"><div class="hdr"><div class="logo">RG</div>P3 Location</div><div class="box"><input placeholder="Pickup - Nazirhat"><input placeholder="Drop - Muradpur"><button class="btn" onclick="goPage('P4')">Next P4 →</button><button class="btn2" onclick="goPage('P2')">Back</button></div></div>
+<div id="P4" class="page"><div class="hdr"><div class="logo">RG</div>P4 Fare</div><div class="box"><div class="card"><b>Total Fare</b><b>500৳</b></div><button class="btn" onclick="goPage('P5')">Confirm P5 →</button><button class="btn2" onclick="goPage('P3')">Back</button></div></div>
+<div id="P5" class="page"><div class="hdr"><div class="logo">RG</div>P5 Searching</div><div class="box"><p style="text-align:center;padding:40px">🔍 ড্রাইভার খুঁজছি...</p><button class="btn" onclick="goPage('P6')">Found P6 →</button></div></div>
+<div id="P6" class="page"><div class="hdr"><div class="logo">RG</div>P6 Found</div><div class="box"><div class="card">👨‍✈️ Rahim - 017xx ⭐4.9<br>1 min away</div><button class="btn" onclick="goPage('P7')">Call & Ride P7 →</button></div></div>
+<div id="P7" class="page"><div class="hdr"><div class="logo">RG</div>P7 Riding</div><div class="box"><p style="text-align:center;padding:40px">🚕 Riding...<br>Nazirhat to Muradpur</p><button class="btn" onclick="goPage('P8')">Complete P8 →</button></div></div>
+<div id="P8" class="page"><div class="hdr"><div class="logo">RG</div>P8 Rating</div><div class="box"><p style="text-align:center;font-size:30px">⭐⭐⭐⭐⭐</p><p style="text-align:center">ধন্যবাদ!</p><button class="btn" onclick="goPage('H5')">Home H5 →</button></div></div>
 
-<!-- D1-D4 -->
-<div id="D1" class="page"><div class="hdr"><div class="logo">RG</div>D1 New Ride</div><div class="box"><div class="card">Nazirhat → Muradpur 500৳</div><button class="btn" onclick="goPage('D2')">Accept D2 →</button><button class="btn2" onclick="goPage('H5')">Back H5</button></div></div>
-<div id="D2" class="page"><div class="hdr"><div class="logo">RG</div>D2</div><div class="box"><button class="btn" onclick="goPage('D3')">Start D3 →</button></div></div>
-<div id="D3" class="page"><div class="hdr"><div class="logo">RG</div>D3</div><div class="box"><button class="btn" onclick="goPage('D4')">Complete D4 →</button></div></div>
-<div id="D4" class="page"><div class="hdr"><div class="logo">RG</div>D4 Income</div><div class="box"><div class="card"><b>Today</b><b>1200৳</b></div><button class="btn" onclick="goPage('H5')">Home H5 →</button></div></div>
+<!-- D1 to D4 FULL - আপনার কোড ঠিক আছে -->
+<div id="D1" class="page"><div class="hdr"><div class="logo">RG</div>D1 New Ride</div><div class="box"><div class="card">📍 Nazirhat → Muradpur<br>💰 500৳ <b style="margin-left:auto">→ Accept</b></div><button class="btn" onclick="goPage('D2')">Accept D2 →</button><button class="btn2" onclick="goPage('H5')">Back H5</button></div></div>
+<div id="D2" class="page"><div class="hdr"><div class="logo">RG</div>D2 Map</div><div class="box"><div style="height:200px;background:#e6ffe9;border-radius:14px;display:flex;align-items:center;justify-content:center">🗺️ Go to Passenger</div><button class="btn" onclick="goPage('D3')">Start Ride D3 →</button><button class="btn2" onclick="goPage('D1')">Back</button></div></div>
+<div id="D3" class="page"><div class="hdr"><div class="logo">RG</div>D3 Riding</div><div class="box"><p style="text-align:center;padding:40px">🏍️ Riding to Drop...</p><button class="btn" onclick="goPage('D4')">Complete D4 →</button></div></div>
+<div id="D4" class="page"><div class="hdr"><div class="logo">RG</div>D4 Income</div><div class="box"><div class="card"><b>Today Income</b><b>120৳</b></div><div class="card"><b>Total</b><b>1200৳</b></div><button class="btn" onclick="goPage('H5')">Home H5 →</button></div></div>
 
-<!-- W1 to W12 - OWNER MASTER 12 PAGES -->
-<div id="W1" class="page"><div class="hdr hdrBlack"><div class="logo">RG</div>W1 Owner Login</div><div class="box"><div style="background:#111;color:#fff;padding:14px;border-radius:14px;text-align:center"><b>🔐 OWNER MASTER LOGIN</b><br><small>ID: RG-OWNER-9294-BD (স্থায়ী)</small></div><input id="masterPass" type="password" placeholder="Master Password"><input id="ownerIdInput" placeholder="Owner ID: RG-OWNER-9294-BD"><button class="btn btnBlack" onclick="ownerLogin()">Login → W2</button><button class="btn2" onclick="goPage('H1')">Back H1</button><div style="background:#fffbe6;padding:10px;border-radius:10px;margin-top:12px;font-size:11px">Master: 12345678<br>ID: RG-OWNER-9294-BD</div></div></div>
+<!-- ===== OWNER MASTER 12 PAGES - W1 থেকে W12 - H5 Owner বাটন থেকে শুরু ===== -->
+<div id="W1" class="page"><div class="hdr hdrBlack"><div class="logo">RG</div>W1 Owner Login</div><div class="box"><div style="background:#111;color:#fff;padding:14px;border-radius:14px;text-align:center"><b>🔐 OWNER MASTER LOGIN</b><br><small>Owner ID: RG-OWNER-9294-BD (স্থায়ী)</small></div><input id="masterPass" type="password" placeholder="Master Password"><input id="ownerIdInput" placeholder="Owner ID: RG-OWNER-9294-BD"><button class="btn btnBlack" onclick="ownerLogin()">Login → W2</button><button class="btn2" onclick="goPage('H5')">Back H5</button><div style="background:#fffbe6;padding:10px;border-radius:10px;margin-top:12px;font-size:11px">Master: 12345678<br>ID: RG-OWNER-9294-BD</div></div></div>
 <div id="W2" class="page"><div class="hdr hdrBlack"><div class="logo">RG</div>W2 OTP Verification</div><div class="box"><div style="text-align:center;padding:20px;background:#f8fff8;border-radius:14px">Trusted Device: OTP লাগবে না<br>New Device: OTP লাগবে<br><br>OTP: <b>123456</b></div><input placeholder="OTP লিখুন"><button class="btn btnBlack" onclick="goPage('W3')">Verify → W3 Dashboard</button><button class="btn2" onclick="goPage('W1')">Back W1</button></div></div>
-<div id="W3" class="page"><div class="hdr hdrBlack"><div class="logo">RG</div>W3 Owner Dashboard</div><div class="box"><h3 style="text-align:center">📊 Dashboard</h3><div class="stat"><div class="statBox"><b>1,240</b><br><small>Total User</small></div><div class="statBox"><b>420</b><br><small>Driver</small></div><div class="statBox"><b>820</b><br><small>Passenger</small></div><div class="statBox"><b>350</b><br><small>Vehicle</small></div><div class="statBox"><b>5,200</b><br><small>Total Trip</small></div><div class="statBox"><b>12</b><br><small>Running</small></div><div class="statBox" style="background:#111;color:#fff"><b>৳1,20,000</b><br><small>Total Income</small></div><div class="statBox"><b>৳15,000</b><br><small>Today</small></div></div><button class="btn btnBlack" onclick="goPage('W4')">Next W4 User →</button></div></div>
+<div id="W3" class="page"><div class="hdr hdrBlack"><div class="logo">RG</div>W3 Dashboard</div><div class="box"><h3 style="text-align:center">📊 Owner Dashboard</h3><div class="stat"><div class="statBox"><b>1,240</b><br><small>Total User</small></div><div class="statBox"><b>420</b><br><small>Driver</small></div><div class="statBox"><b>820</b><br><small>Passenger</small></div><div class="statBox"><b>350</b><br><small>Vehicle</small></div><div class="statBox"><b>5,200</b><br><small>Total Trip</small></div><div class="statBox"><b>12</b><br><small>Running</small></div><div class="statBox" style="background:#111;color:#fff"><b>৳1,20,000</b><br><small>Total Income</small></div><div class="statBox"><b>৳15,000</b><br><small>Today</small></div></div><button class="btn btnBlack" onclick="goPage('W4')">W4 User Management →</button><button class="btn2" onclick="goPage('W5')">W5 Driver →</button><button class="btn2" onclick="goPage('W9')">W9 Payment →</button><button class="btn2" onclick="goPage('W11')">W11 Security →</button></div></div>
 <div id="W4" class="page"><div class="hdr hdrBlack"><div class="logo">RG</div>W4 User Management</div><div class="box"><div class="card">017xx Active <span class="badge">OK</span></div><div class="card">018xx Suspend <span class="badge" style="background:red">Block</span></div><button class="btn btnBlack" onclick="goPage('W5')">Next W5 Driver →</button><button class="btn2" onclick="goPage('W3')">Back Dashboard</button></div></div>
-<div id="W5" class="page"><div class="hdr hdrBlack"><div class="logo">RG</div>W5 Driver Management</div><div class="box"><div class="card">License Check ✅</div><button class="btn btnBlack" onclick="goPage('W6')">Next W6 Passenger →</button><button class="btn2" onclick="goPage('W4')">Back</button></div></div>
+<div id="W5" class="page"><div class="hdr hdrBlack"><div class="logo">RG</div>W5 Driver Management</div><div class="box"><div class="card">Rahim License ✅ Approved</div><button class="btn btnBlack" onclick="goPage('W6')">Next W6 Passenger →</button><button class="btn2" onclick="goPage('W4')">Back</button></div></div>
 <div id="W6" class="page"><div class="hdr hdrBlack"><div class="logo">RG</div>W6 Passenger Management</div><div class="box"><div class="card">Trip History</div><button class="btn btnBlack" onclick="goPage('W7')">Next W7 Vehicle →</button><button class="btn2" onclick="goPage('W5')">Back</button></div></div>
-<div id="W7" class="page"><div class="hdr hdrBlack"><div class="logo">RG</div>W7 Vehicle Management</div><div class="box"><div class="card">CNG - 1234</div><button class="btn btnBlack" onclick="goPage('W8')">Next W8 Trip →</button><button class="btn2" onclick="goPage('W6')">Back</button></div></div>
+<div id="W7" class="page"><div class="hdr hdrBlack"><div class="logo">RG</div>W7 Vehicle Management</div><div class="box"><div class="card">CNG - Dhaka Metro - 1234</div><button class="btn btnBlack" onclick="goPage('W8')">Next W8 Trip →</button><button class="btn2" onclick="goPage('W6')">Back</button></div></div>
 <div id="W8" class="page"><div class="hdr hdrBlack"><div class="logo">RG</div>W8 Trip Management</div><div class="box"><div class="card">Running 12 | Done 5188</div><button class="btn btnBlack" onclick="goPage('W9')">Next W9 Payment →</button><button class="btn2" onclick="goPage('W7')">Back</button></div></div>
 <div id="W9" class="page"><div class="hdr hdrBlack"><div class="logo">RG</div>W9 Payment & Transactions</div><div class="box"><h3 style="text-align:center">💰 Payment</h3><div class="card"><b>Total</b><b>৳1,20,000</b></div><div class="card"><b>bKash</b><b style="color:green">Success</b></div><input type="password" placeholder="Secret Password (গুরুত্বপূর্ণ কাজে)"><button class="btn btnBlack" onclick="goPage('W10')">Next W10 Reports →</button><button class="btn2" onclick="goPage('W8')">Back</button></div></div>
 <div id="W10" class="page"><div class="hdr hdrBlack"><div class="logo">RG</div>W10 Reports & Analytics</div><div class="box"><div class="card">Daily Report</div><div class="card">Weekly Report</div><div class="card">Monthly Report</div><button class="btn btnBlack" onclick="goPage('W11')">Next W11 Security →</button><button class="btn2" onclick="goPage('W9')">Back</button></div></div>
 <div id="W11" class="page"><div class="hdr hdrBlack"><div class="logo">RG</div>W11 Security Settings</div><div class="box"><h3>🔐 Security</h3><input type="password" placeholder="Change Master Password"><input type="password" placeholder="Change Secret Password"><div class="card">Trusted Device: My Phone <span class="badge">Trusted</span></div><button class="btn" style="background:red">Logout All Devices</button><button class="btn btnBlack" onclick="goPage('W12')">Next W12 Recovery →</button><button class="btn2" onclick="goPage('W3')">Back Dashboard</button></div></div>
-<div id="W12" class="page"><div class="hdr hdrBlack"><div class="logo">RG</div>W12 Account Recovery</div><div class="box"><h3>🔑 Recovery</h3><p style="font-size:12px;background:#fffbe6;padding:10px;border-radius:10px">মোবাইল হারালেও Owner ID দিয়ে Recovery। শুধু OTP তে হবে না।</p><input placeholder="Recovery Credential"><button class="btn btnBlack" onclick="goPage('W3')">Recover → Dashboard</button><button class="btn2" onclick="goPage('H1')">Back to Public H1</button></div></div>
+<div id="W12" class="page"><div class="hdr hdrBlack"><div class="logo">RG</div>W12 Account Recovery</div><div class="box"><h3>🔑 Recovery</h3><p style="font-size:12px;background:#fffbe6;padding:10px;border-radius:10px">মোবাইল হারালেও Owner ID দিয়ে Recovery। শুধু OTP তে হবে না।</p><input placeholder="Recovery Credential"><button class="btn btnBlack" onclick="goPage('W3')">Recover → Dashboard</button><button class="btn2" onclick="goPage('H5')">Back to H5 Public</button></div></div>
+
+<div id="AZ" class="page"><div class="hdr"><div class="logo">RG</div>AZ A-Z<div style="margin-left:auto" class="langIcon" onclick="openLang()">🌐</div></div><div class="box"><h3 style="text-align:center;color:#0a7a2e">V5.2 Full A-Z + Owner 12</h3><div style="font-size:12px;line-height:1.8;background:#f8fff8;padding:12px;border-radius:12px;margin-top:10px"><b>H1:</b> শুধু ভাষা 🌐<br><b>H5:</b> Logo 3x Tap = Owner Secret → W1<br><b>P1-P8:</b> যাত্রী সব আছে<br><b>D1-D4:</b> চালক সব আছে<br><b>W1-W12:</b> Owner Master 12 পৃষ্ঠা (আপনার প্ল্যান অনুযায়ী)</div><button class="btn" onclick="goPage('H1')">Home H1</button></div></div>
 
 <script>
-var tap=0;
+var bal=parseInt(localStorage.getItem('rg_bal')||'0');
+var v=0,tap=0,curLang=localStorage.getItem('rg_lang')||'bn';
 function goPage(id){
-var pages=document.querySelectorAll('.page');
-pages.forEach(function(p){
-p.classList.remove('active');
-p.style.display='none';
-});
+document.querySelectorAll('.page').forEach(function(p){p.classList.remove('active');p.style.display='none';});
 var el=document.getElementById(id);
-if(el){
-el.classList.add('active');
-el.style.display='block';
+if(el){el.classList.add('active');el.style.display='block';}
+var b=document.getElementById('bal'); if(b) b.innerText=bal;
+document.querySelectorAll('.bal2').forEach(function(e){e.innerText=bal;});
+document.querySelectorAll('.bal3').forEach(function(e){e.innerText=bal;});
+if(id==='W2'){
+var sEl=document.getElementById('showS'); if(sEl) sEl.innerText=localStorage.getItem('sponsorNo')||'-';
+var mEl=document.getElementById('showMy'); if(mEl) mEl.innerText=localStorage.getItem('userPhone')||'-';
+var rEl=document.getElementById('myRef'); if(rEl) rEl.innerText=localStorage.getItem('userPhone')||'-';
 }
+if(id==='W5' && bal>0){ var tU=document.getElementById('taskU'); if(tU) tU.innerText='✅';}
 window.scrollTo(0,0);
 }
+function openLang(){var m=document.getElementById('langMenu');m.style.display=(m.style.display==='block'?'none':'block');}
+function setLang(l){curLang=l;localStorage.setItem('rg_lang',l);document.getElementById('langMenu').style.display='none';}
 function tapLogo(){
 tap++;
-var info=document.getElementById('tapInfo');
-if(info) info.innerText='Tap: '+tap+'/7 Secret';
-if(tap>=7){
-tap=0;
-goPage('W1');
-alert('🔐 Owner Master Login Open! (7x Secret)');
-if(info) info.innerText='Owner Opened!';
+var c=document.getElementById('tapCount'); if(c) c.innerText='Tap: '+tap+'/3';
+var isH5=document.getElementById('H5').classList.contains('active');
+if(isH5 && tap>=3){
+var o=document.getElementById('ownerSecret');
+if(o){o.style.display='flex'; o.style.justifyContent='space-between'; o.style.alignItems='center'; alert('🔓 Owner Unlocked! W1-W12 Open');}
+tap=0; if(c) c.innerText='Tap: 0/3';
+}else if(!isH5 && tap>=3){
+alert('Owner Secret H5 এ — H5 এ গিয়ে Logo 3x Tap করুন'); tap=0; if(c) c.innerText='Tap: 0/3';
 }
-setTimeout(function(){tap=0; if(info) info.innerText='Logo 7x Tap = Owner Secret (গোপন)';},3000);
+setTimeout(function(){tap=0; var cc=document.getElementById('tapCount'); if(cc) cc.innerText='Tap: 0/3';},3000);
 }
 function doReg(){
 var ph=document.getElementById('reg-phone').value.trim();
+var sp=document.getElementById('sponsor-no').value.trim()||'01700000000';
 if(!ph){alert('মোবাইল দিন');return;}
 localStorage.setItem('userPhone',ph);
-localStorage.setItem('sponsorNo',document.getElementById('sponsor-no').value||'01700000000');
+localStorage.setItem('sponsorNo',sp);
 goPage('H4');
 }
+function verify(){v++;alert('Verify '+v+' Done'); if(v>=2) alert('এখন Unlock চাপুন');}
+function unlock(){if(v<2){alert('আগে 2 বার Verify');return;} bal+=10; localStorage.setItem('rg_bal',bal); alert('10৳ Added!'); v=0; goPage('W1');}
 function ownerLogin(){
 var mp=document.getElementById('masterPass').value;
 var oid=document.getElementById('ownerIdInput').value;
@@ -113,7 +127,7 @@ localStorage.setItem('ownerId','RG-OWNER-9294-BD');
 goPage('W2');
 }else{alert('Master বা Owner ID ভুল! Master: 12345678 ID: RG-OWNER-9294-BD');}
 }
-window.goPage=goPage; window.tapLogo=tapLogo; window.doReg=doReg; window.ownerLogin=ownerLogin;
+window.goPage=goPage; window.openLang=openLang; window.setLang=setLang; window.tapLogo=tapLogo; window.doReg=doReg; window.verify=verify; window.unlock=unlock; window.ownerLogin=ownerLogin;
 goPage('H1');
 </script>
 </body>
