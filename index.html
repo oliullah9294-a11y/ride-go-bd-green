@@ -2,7 +2,7 @@
 <html lang="bn">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ride Go BD Green - W Owner Only</title>
+<title>Ride Go BD Green - Full A to Z</title>
 <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@500;700&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:'Hind Siliguri',sans-serif}
@@ -10,71 +10,38 @@ body{background:#f1f1f1;display:flex;justify-content:center}
 .app{width:100%;max-width:420px}
 .page{display:none;min-height:100vh;background:#fff;border:4px solid #0a7a2e;border-radius:28px;flex-direction:column;overflow:hidden}
 .page.active{display:flex}
-.hdr{display:flex;align-items:center;gap:8px;padding:12px 14px;font-weight:900;background:#0a7a2e;color:#fff;position:sticky;top:0}
+.hdr{display:flex;align-items:center;gap:8px;padding:12px 14px;font-weight:900;background:#0a7a2e;color:#fff;position:sticky;top:0;z-index:20}
 .hdr .logo{width:28px;height:28px;background:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#0a7a2e;font-weight:900}
 .pill{background:#0a7a2e;color:#fff;border-radius:24px;padding:10px;text-align:center;font-weight:700;margin:10px 12px;border:2px solid #fff;box-shadow:0 0 0 2px #0a7a2e}
 .box{padding:0 12px 16px;flex:1;display:flex;flex-direction:column}
 .btn{width:100%;background:#0a7a2e;color:#fff;border:none;border-radius:24px;padding:12px;font-weight:700;margin-top:10px;cursor:pointer}
-.btn2{width:100%;background:#fff;border:1.5px solid #0a7a2e;color:#0a7a2e;border-radius:24px;padding:10px;font-weight:700;margin-top:8px}
+.btn2{width:100%;background:#fff;border:1.5px solid #0a7a2e;color:#0a7a2e;border-radius:24px;padding:10px;font-weight:700;margin-top:8px;cursor:pointer}
 .btn-dark{background:#111;color:#fff;border-color:#111}
-.card{border:1px solid #eee;border-radius:14px;padding:12px;margin:6px 0;background:#fff}
 .inp{display:flex;gap:8px;border:1px solid #ddd;border-radius:22px;padding:12px 14px;margin:6px 0;background:#fff}
 .inp input{border:none;outline:none;width:100%}
-.badge{padding:4px 10px;border-radius:12px;font-size:11px} .ok{background:#d4edda;color:#0a7a2e} .wait{background:#fff3cd;color:#8a6d00}
+.card{border:1px solid #eee;border-radius:14px;padding:12px;margin:6px 0;background:#fff;display:flex;gap:10px;align-items:center}
+.pay-box{background:#f0faf0;border:1.5px dashed #0a7a2e;border-radius:14px;padding:12px;margin:6px 0}
+.badge{padding:3px 8px;border-radius:12px;font-size:11px} .ok{background:#d4edda;color:#0a7a2e} .wait{background:#fff3cd;color:#8a6d00}
+.topD1{background:#0a7a2e;color:#fff;padding:12px 14px;display:flex;align-items:center;gap:10px;border-radius:0 0 22px 22px}
+.green-bar{background:#0a7a2e;margin:10px 12px;border-radius:18px;padding:10px 12px;display:flex;align-items:center;gap:10px;color:#fff}
+.map{height:260px;background:#e8f5e8;border-radius:18px;display:flex;align-items:center;justify-content:center;color:#0a7a2e;font-weight:700;border:1px solid #ddd}
 </style>
 </head>
 <body>
 <div class="app">
 
-<!-- W1 Dashboard - MAIN -->
-<div id="W1" class="page active">
-<div class="hdr"><div class="logo">RG</div>W1 Owner Dashboard</div>
-<div class="pill">🏢 LIVE Income: <span id="inc">0</span>৳ | Ride: <span id="rc">0</span></div>
-<div class="box">
-<div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
-<div class="card" style="flex-direction:column;text-align:center"><b>🧍 যাত্রী 5৳</b><span id="pv" style="font-size:12px">---</span><span id="pb" class="badge wait">Pending</span><button class="btn" style="padding:8px;margin-top:8px" onclick="ver('p')">Verify</button></div>
-<div class="card" style="flex-direction:column;text-align:center"><b>🛺 চালক 5৳</b><span id="dv" style="font-size:12px">---</span><span id="db" class="badge wait">Pending</span><button class="btn btn-dark" style="padding:8px;margin-top:8px" onclick="ver('d')">Verify</button></div>
-</div>
-<p id="os" style="text-align:center;font-weight:700;color:#c00;margin:12px 0">LIVE অপেক্ষা...</p>
-<button id="ub" style="display:none" class="btn">🔓 Unlock করুন (10৳ Income)</button>
-<button class="btn2" onclick="go('W2')">W2 Security →</button>
-<button class="btn2" onclick="go('W3')">W3 Sponsor Bonus →</button>
-<button class="btn2" onclick="go('W4')">W4 App Control →</button>
-<button class="btn2" onclick="go('W5')">W5 Accounting →</button>
-</div>
-</div>
+<!-- H1-H6 -->
+<div id="H1" class="page active"><div class="hdr"><div class="logo">RG</div>Ride Go BD Green - H1</div><div class="box"><div style="height:180px;border-radius:16px;overflow:hidden;margin:10px 0"><img src="https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?w=800" style="width:100%;height:100%;object-fit:cover"></div><div style="text-align:center;font-weight:900;font-size:20px"><span style="color:#0a7a2e">Ride Go BD Green</span><br><small style="font-size:11px;color:#666">Official Ride Sharing</small></div><button class="btn" onclick="go('H2')">👤 নিবন্ধন → H2</button><button class="btn2" onclick="go('H3')">লগইন → H3</button></div></div>
 
-<div id="W2" class="page"><div class="hdr"><div class="logo">RG</div>W2 Security</div><div class="box"><div class="card"><b>🔐 Security</b><br>Owner OTP Log, Login History, 2FA<br>IP: 103.XX.XX.XX<br>Last Login: আজ</div><button class="btn" onclick="go('W3')">W3 →</button><button class="btn2" onclick="go('W1')">← W1 Dashboard</button></div></div>
+<div id="H2" class="page"><div class="hdr"><div class="logo">RG</div>H2 নিবন্ধন</div><div class="box"><div class="inp">👤<input placeholder="আপনার নাম"></div><div class="inp">📞<input placeholder="ফোন নাম্বার"></div><div class="inp">👥<input placeholder="স্পন্সর নাম্বার"></div><button class="btn" onclick="go('H4')">✓ নিবন্ধন → H4</button><button class="btn2" onclick="go('H1')">← H1</button></div></div>
 
-<div id="W3" class="page"><div class="hdr"><div class="logo">RG</div>W3 Sponsor Bonus</div><div class="box"><div class="card"><b>👥 Sponsor Bonus</b><br>রেফার Active হলে 2৳ করে বোনাস<br>আজ: 5 জন x 2৳ = 10৳</div><button class="btn" onclick="go('W4')">W4 →</button><button class="btn2" onclick="go('W1')">← W1</button></div></div>
+<div id="H3" class="page"><div class="hdr"><div class="logo">RG</div>H3 লগইন</div><div class="box"><div class="inp">📱<input placeholder="ফোন নাম্বার"></div><button class="btn" onclick="go('H4')">লগইন → H4</button><button class="btn2" onclick="go('H1')">← H1</button></div></div>
 
-<div id="W4" class="page"><div class="hdr"><div class="logo">RG</div>W4 App Control / Update</div><div class="box"><div class="inp">💰<input placeholder="বেস ভাড়া আপডেট - 400"></div><div class="inp">📢<input placeholder="নোটিশ - আজ ছাড়"></div><button class="btn">Update করুন</button><button class="btn2" onclick="go('W5')">W5 Accounting →</button></div></div>
+<div id="H4" class="page"><div class="hdr"><div class="logo">RG</div>H4 OTP</div><div class="box"><div style="display:flex;gap:8px;justify-content:center;margin:20px 0"><input style="width:44px;height:44px;text-align:center;border-radius:8px;border:1px solid #bbb"><input style="width:44px;height:44px;text-align:center;border-radius:8px;border:1px solid #bbb"><input style="width:44px;height:44px;text-align:center;border-radius:8px;border:1px solid #bbb"><input style="width:44px;height:44px;text-align:center;border-radius:8px;border:1px solid #bbb"></div><button class="btn" onclick="go('H5')">✓ যাচাই → H5</button><button class="btn2" onclick="go('H2')">← H2</button></div></div>
 
-<div id="W5" class="page"><div class="hdr"><div class="logo">RG</div>W5 Owner Accounting</div><div class="box"><div class="card" style="background:#f0faf0;border:1.5px solid #0a7a2e"><b>💰 আজকের হিসাব</b><br>Total Ride: <span id="rc2">0</span><br>Income: <span id="inc2">0</span>৳ (5+5)<br>bKash Balance: 1250৳</div><button class="btn" onclick="go('W6')">W6 Sponsor হিসাব →</button></div></div>
-
-<div id="W6" class="page"><div class="hdr"><div class="logo">RG</div>W6 Sponsor হিসাব</div><div class="box"><div class="card">কাকে কত Sponsor Bonus দিলেন - লিস্ট</div><button class="btn" onclick="go('W7')">W7 User Bonus →</button></div></div>
-
-<div id="W7" class="page"><div class="hdr"><div class="logo">RG</div>W7 User Bonus</div><div class="box"><div class="card">যাত্রী/চালক বোনাস হিসাব</div><button class="btn" onclick="go('W8')">W8 History →</button></div></div>
-
-<div id="W8" class="page"><div class="hdr"><div class="logo">RG</div>W8 History Log</div><div class="box"><div id="log" class="card">এখনো কোনো রাইড Unlock হয়নি - LIVE</div><button class="btn" onclick="go('W9')">W9 Driver Approve →</button></div></div>
-
-<div id="W9" class="page"><div class="hdr"><div class="logo">RG</div>W9 Driver Approve</div><div class="box"><div class="card">🛺 রহিম - NID: 1234 - <button style="background:#0a7a2e;color:#fff;border:0;padding:4px 8px;border-radius:8px">Approve</button> <button style="background:#c00;color:#fff;border:0;padding:4px 8px;border-radius:8px">Block</button></div><button class="btn" onclick="go('W10')">W10 Complain →</button></div></div>
-
-<div id="W10" class="page"><div class="hdr"><div class="logo">RG</div>W10 Complain</div><div class="box"><div class="card">⚠️ রিপোর্ট: যাত্রী বেশি ভাড়া চাচ্ছে</div><button class="btn" onclick="go('W11')">W11 Withdraw →</button></div></div>
-
-<div id="W11" class="page"><div class="hdr"><div class="logo">RG</div>W11 Withdraw Control</div><div class="box"><div class="card"><b>💸 Withdraw Request</b><br>চালক 500৳ তুলতে চায়<br><button class="btn" style="width:auto;padding:6px 12px">Approve</button></div><button class="btn btn-dark" onclick="go('W1')">Finish → W1 Dashboard</button></div></div>
-
-</div>
-<script>
-let S={p:localStorage.getItem('pTrx')||'9G2H...K8',d:localStorage.getItem('dTrx')||'8F1B...L2',pv:false,dv:false,inc:parseInt(localStorage.getItem('inc')||0),rc:parseInt(localStorage.getItem('rc')||0)};
-function go(id){document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));document.getElementById(id).classList.add('active');window.scrollTo(0,0);load();}
-function load(){
- document.getElementById('pv').innerText=S.p;document.getElementById('dv').innerText=S.d;
- document.getElementById('inc').innerText=S.inc;document.getElementById('inc2').innerText=S.inc;document.getElementById('rc').innerText=S.rc;document.getElementById('rc2').innerText=S.rc;
-}
-function ver(t){if(t=='p'){S.pv=true;document.getElementById('pb').innerText='Verified ✅';document.getElementById('pb').className='badge ok';} if(t=='d'){S.dv=true;document.getElementById('db').innerText='Verified ✅';document.getElementById('db').className='badge ok';} if(S.pv&&S.dv){document.getElementById('os').innerText='✅ দুজনেই Verified - Unlock রেডি';let b=document.getElementById('ub');b.style.display='block';b.onclick=unlock;}}
-function unlock(){S.inc+=10;S.rc+=1;localStorage.setItem('inc',S.inc);localStorage.setItem('rc',S.rc);document.getElementById('inc').innerText=S.inc;document.getElementById('inc2').innerText=S.inc;document.getElementById('rc').innerText=S.rc;document.getElementById('rc2').innerText=S.rc;document.getElementById('log').innerText='Ride '+S.rc+' - 10৳ - '+new Date().toLocaleString()+' - Unlock Done';alert('✅ Unlock Done! 10৳ LIVE Income জমা হলো');document.getElementById('os').innerText='✅ Unlock Done - পরের রাইডের অপেক্ষা';document.getElementById('ub').style.display='none';S.pv=false;S.dv=false;}
-load();
-</script>
-</body>
-</html>
+<!-- H5 = 3 OPTION MAIN MENU -->
+<div id="H5" class="page"><div class="hdr"><div class="logo">RG</div>H5 - মেনু (3 Option)</div><div class="box">
+<p style="text-align:center;font-weight:700;margin:12px 0">আপনি কে হিসেবে ঢুকবেন?</p>
+<div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px">
+<div style="background:#0a7a2e;color:#fff;border-radius:18px;padding:20px;text-align:center;cursor:pointer" onclick="go('P1')"><div style="font-size:30px">🧍</div><b>যাত্রী</b><br><small>P1-P8</small></div>
+<div style="background:#fff;border:
