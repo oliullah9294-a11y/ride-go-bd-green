@@ -1,26 +1,82 @@
-<div id="H6" class="page"><div class="hdr"><div class="logo">RG</div>H6 শাখা বাছাই</div><div class="box">
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ride Go BD Green</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0;font-family:sans-serif}
+body{background:#f5f7f5}
+.hdr{background:#0a7a2e;color:#fff;padding:14px;display:flex;gap:10px;align-items:center;font-weight:900;position:sticky;top:0;z-index:9}
+.logo{background:#fff;color:#0a7a2e;width:34px;height:34px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-weight:900}
+.box{padding:16px;max-width:480px;margin:auto}
+.page{display:none;min-height:100vh;background:#fff;max-width:480px;margin:auto;box-shadow:0 0 20px #0001}
+.page.active{display:block}
+.btn{background:#0a7a2e;color:#fff;border:0;padding:14px;border-radius:14px;width:100%;font-weight:800;margin-top:10px;cursor:pointer}
+.btn2{background:#eef7ee;color:#0a7a2e;border:1px solid #cfe9cf;padding:12px;border-radius:14px;width:100%;font-weight:700;margin-top:8px;cursor:pointer}
+.card{background:#f8fff8;border:1px solid #d9f0d9;padding:12px;border-radius:14px;margin:10px 0;display:flex;justify-content:space-between}
+input{width:100%;padding:12px;border-radius:12px;border:1px solid #ccc;margin:6px 0}
+</style>
+</head>
+<body>
+<div id="H1" class="page active"><div class="hdr"><div class="logo">RG</div>H1 Welcome</div><div class="box">
+<div style="text-align:center;padding:20px"><div style="width:80px;height:80px;background:#0a7a2e;color:#fff;border-radius:24px;display:flex;align-items:center;justify-content:center;font-size:36px;font-weight:900;margin:auto">RG</div><h2 style="margin:12px 0;color:#0a7a2e">Ride Go BD Green</h2><p>Safe Ride • Better Life</p></div>
+<button class="btn" onclick="go('H2')">শুরু করুন →</button>
+<button class="btn2" onclick="go('AZ')">📖 A-Z বর্ণনা</button>
+</div></div>
+<div id="H2" class="page"><div class="hdr"><div class="logo">RG</div>H2 নিবন্ধন</div><div class="box"><input placeholder="নাম"><input placeholder="ফোন"><button class="btn" onclick="go('H3')">Next →</button><button class="btn2" onclick="go('H1')">Back</button></div></div>
+<div id="H3" class="page"><div class="hdr"><div class="logo">RG</div>H3 লগইন</div><div class="box"><input placeholder="ফোন"><input placeholder="পাসওয়ার্ড" type="password"><button class="btn" onclick="go('H4')">Login →</button><button class="btn2" onclick="go('H2')">Back</button></div></div>
+<div id="H4" class="page"><div class="hdr"><div class="logo">RG</div>H4 OTP</div><div class="box"><p style="text-align:center">OTP: 1234</p><input placeholder="OTP লিখুন"><button class="btn" onclick="go('H5')">Verify →</button><button class="btn2" onclick="go('H3')">Back</button></div></div>
+<div id="H5" class="page"><div class="hdr"><div class="logo">RG</div>H5 শাখা বাছাই</div><div class="box">
 <div style="text-align:center;font-weight:900;margin:12px 0">আপনার ভূমিকা বেছে নিন</div>
 <div style="display:flex;flex-direction:column;gap:12px">
-
-<div style="background:#0a7a2e;color:#fff;border-radius:18px;padding:16px;display:flex;align-items:center;gap:12px;cursor:pointer" onclick="go('P1')">
-<div style="width:48px;height:48px;background:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:24px">🧍</div>
-<div><b>১. যাত্রী</b><br><small>P1-P8 • রাইড নিন</small></div>
-<div style="margin-left:auto">→</div>
+<div style="background:#0a7a2e;color:#fff;border-radius:18px;padding:16px;display:flex;align-items:center;gap:12px;cursor:pointer" onclick="go('P1')"><div style="width:48px;height:48px;background:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center">🧍</div><div><b>১. যাত্রী</b><br><small>P1-P8 • রাইড নিন</small></div><div style="margin-left:auto">→</div></div>
+<div style="background:#fff;border:2px solid #0a7a2e;border-radius:18px;padding:16px;display:flex;align-items:center;gap:12px;cursor:pointer" onclick="go('D1')"><div style="width:48px;height:48px;background:#e6ffe9;border-radius:50%;display:flex;align-items:center;justify-content:center">🏍️</div><div><b>২. চালক</b><br><small>D1-D4 • রাইড দিন</small></div><div style="margin-left:auto">→</div></div>
+<div style="background:#111;color:#fff;border-radius:18px;padding:16px;display:flex;align-items:center;gap:12px;cursor:pointer" onclick="go('W1')"><div style="width:48px;height:48px;background:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center">🏢</div><div><b>৩. Owner</b><br><small>W1-W11 • LIVE Income 10৳</small></div><div style="margin-left:auto">→</div></div>
 </div>
-
-<div style="background:#fff;border:2px solid #0a7a2e;border-radius:18px;padding:16px;display:flex;align-items:center;gap:12px;cursor:pointer" onclick="go('D1')">
-<div style="width:48px;height:48px;background:#e6ffe9;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:24px">🏍️</div>
-<div><b>২. চালক</b><br><small>D1-D4 • রাইড দিন</small></div>
-<div style="margin-left:auto">→</div>
-</div>
-
-<div style="background:#111;color:#fff;border-radius:18px;padding:16px;display:flex;align-items:center;gap:12px;cursor:pointer" onclick="go('W1')">
-<div style="width:48px;height:48px;background:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:24px">🏢</div>
-<div><b>৩. Owner</b><br><small>W1-W11 • LIVE Income 10৳</small></div>
-<div style="margin-left:auto">→</div>
-</div>
-
-</div>
-<div class="card" style="justify-content:center;margin-top:14px">📊 আজকের ইনকাম: ৳<span id="inc-h6">0</span></div>
-<button class="btn2" onclick="go('H5')">← Back H5</button>
+<button class="btn2" onclick="go('AZ')" style="border:1px dashed #0a7a2e;margin-top:12px">📖 A-Z বর্ণনা দেখুন</button>
+<button class="btn2" onclick="go('H4')">← Back H4</button>
 </div></div>
+
+<div id="P1" class="page"><div class="hdr"><div class="logo">RG</div>P1 গাড়ি বাছাই</div><div class="box"><div class="card" onclick="go('P2')">🚕 CNG - 500৳ <span>→</span></div><button class="btn2" onclick="go('H5')">Back H5</button></div></div>
+<div id="P2" class="page"><div class="hdr"><div class="logo">RG</div>P2 মানচিত্র</div><div class="box"><div style="height:200px;background:#e6ffe9;border-radius:14px;display:flex;align-items:center;justify-content:center">🗺️ Map Demo</div><button class="btn" onclick="go('P3')">Next →</button></div></div>
+<div id="P3" class="page"><div class="hdr"><div class="logo">RG</div>P3 লোকেশন</div><div class="box"><input placeholder="Pickup"><input placeholder="Drop"><button class="btn" onclick="go('P4')">Next →</button></div></div>
+<div id="P4" class="page"><div class="hdr"><div class="logo">RG</div>P4 ভাড়া 500৳</div><div class="box"><div class="card"><b>মোট ভাড়া</b><b>500৳</b></div><button class="btn" onclick="go('P5')">Confirm →</button></div></div>
+<div id="P5" class="page"><div class="hdr"><div class="logo">RG</div>P5 চালক খোঁজা</div><div class="box"><p style="text-align:center">🔍 চালক খোঁজা...</p><button class="btn" onclick="go('P6')">Next →</button></div></div>
+<div id="P6" class="page"><div class="hdr"><div class="logo">RG</div>P6 চালক পাওয়া</div><div class="box"><div class="card">👨‍✈️ রহিম - 017xx <span>⭐4.9</span></div><button class="btn" onclick="go('P7')">Call →</button></div></div>
+<div id="P7" class="page"><div class="hdr"><div class="logo">RG</div>P7 রাইড চলছে</div><div class="box"><p style="text-align:center">🚕 চলছে...</p><button class="btn" onclick="go('P8')">Complete →</button></div></div>
+<div id="P8" class="page"><div class="hdr"><div class="logo">RG</div>P8 রেটিং</div><div class="box"><p style="text-align:center">⭐⭐⭐⭐⭐</p><button class="btn" onclick="go('H5')">Home H5 →</button></div></div>
+
+<div id="D1" class="page"><div class="hdr"><div class="logo">RG</div>D1 নতুন রাইড</div><div class="box"><div class="card">🧍 নাজিরহাট → মুরাদপুর<br>500৳</div><button class="btn" onclick="go('D2')">Accept →</button><button class="btn2" onclick="go('H5')">Back H5</button></div></div>
+<div id="D2" class="page"><div class="hdr"><div class="logo">RG</div>D2 মানচিত্র</div><div class="box"><div style="height:200px;background:#e6ffe9;border-radius:14px;display:flex;align-items:center;justify-content:center">🗺️ Driver Map</div><button class="btn" onclick="go('D3')">Start →</button></div></div>
+<div id="D3" class="page"><div class="hdr"><div class="logo">RG</div>D3 রাইড চলছে</div><div class="box"><button class="btn" onclick="go('D4')">Complete →</button></div></div>
+<div id="D4" class="page"><div class="hdr"><div class="logo">RG</div>D4 ইনকাম 120৳</div><div class="box"><div class="card"><b>ইনকাম</b><b>120৳</b></div><button class="btn" onclick="go('H5')">Home →</button></div></div>
+
+<div id="W1" class="page"><div class="hdr"><div class="logo">RG</div>W1 LIVE Income</div><div class="box"><div class="card">Balance: ৳<span id="bal">0</span></div><button class="btn" onclick="verify()">Verify 1</button><button class="btn" onclick="verify()">Verify 2</button><button class="btn" style="background:#111" onclick="unlock()">🔓 Unlock 10৳</button><button class="btn2" onclick="go('W2')">Next W2 →</button><button class="btn2" onclick="go('H5')">Back H5</button></div></div>
+<div id="W2" class="page"><div class="hdr"><div class="logo">RG</div>W2</div><div class="box"><button class="btn" onclick="go('W3')">Next →</button></div></div>
+<div id="W3" class="page"><div class="hdr"><div class="logo">RG</div>W3</div><div class="box"><button class="btn" onclick="go('W4')">Next →</button></div></div>
+<div id="W4" class="page"><div class="hdr"><div class="logo">RG</div>W4</div><div class="box"><button class="btn" onclick="go('W5')">Next →</button></div></div>
+<div id="W5" class="page"><div class="hdr"><div class="logo">RG</div>W5</div><div class="box"><button class="btn" onclick="go('W6')">Next →</button></div></div>
+<div id="W6" class="page"><div class="hdr"><div class="logo">RG</div>W6</div><div class="box"><button class="btn" onclick="go('W7')">Next →</button></div></div>
+<div id="W7" class="page"><div class="hdr"><div class="logo">RG</div>W7 bKash</div><div class="box"><input placeholder="bKash Number"><button class="btn" onclick="go('W8')">Next →</button></div></div>
+<div id="W8" class="page"><div class="hdr"><div class="logo">RG</div>W8 Wallet</div><div class="box"><div class="card">Total: ৳<span class="bal2">0</span></div><button class="btn" onclick="go('W9')">Withdraw →</button></div></div>
+<div id="W9" class="page"><div class="hdr"><div class="logo">RG</div>W9 History</div><div class="box"><div class="card">10৳ LIVE Income</div><button class="btn" onclick="go('W10')">Next →</button></div></div>
+<div id="W10" class="page"><div class="hdr"><div class="logo">RG</div>W10 Support</div><div class="box"><button class="btn" onclick="go('W11')">Next →</button></div></div>
+<div id="W11" class="page"><div class="hdr"><div class="logo">RG</div>W11 Final</div><div class="box"><p style="text-align:center">🎉 Owner Complete</p><button class="btn" onclick="go('H5')">Home H5</button></div></div>
+
+<div id="AZ" class="page"><div class="hdr"><div class="logo">RG</div>AZ - A to Z</div><div class="box">
+<h3 style="text-align:center;color:#0a7a2e;margin-bottom:10px">A to Z বর্ণনা</h3>
+<div style="font-size:14px;line-height:1.8;background:#f8fff8;padding:12px;border-radius:12px;border:1px solid #d9f0d9">
+<b>A-App:</b> Ride Go BD Green<br><b>B-Branch:</b> যাত্রী/চালক/Owner<br><b>C-Color:</b> #0a7a2e<br><b>D-Driver:</b> D1-D4<br><b>E-Earning:</b> 10৳ LIVE<br><b>F-Fare:</b> 500৳<br><b>G-Green:</b> RG Logo<br><b>H-H Pages:</b> H1-H5=5 টা<br><b>I-ID:</b> 1 File 30 Page<br><b>J-Journey:</b> H1→H5→P/D/W<br><b>K-Key:</b> go() <br><b>L-LIVE:</b> d-green.vercel.app<br><b>M-Map:</b> P2,D2<br><b>N-Navigation:</b> Back/Next<br><b>O-Owner:</b> W1-W11<br><b>P-Passenger:</b> P1-P8<br><b>Q-Quick:</b> 2s OTP<br><b>R-Ride:</b> CNG/Bike/Car<br><b>S-Safe:</b> Safe Ride Better Life<br><b>T-Total:</b> 30 Pages<br><b>U-Unlock:</b> Unlock 10৳<br><b>V-Vercel:</b> Deploy<br><b>W-Wallet:</b> Wallet<br><b>X-Xtra:</b> Admin<br><b>Y-You:</b> You are Owner<br><b>Z-Zero:</b> Zero Cost Start
+</div>
+<button class="btn" onclick="go('H1')">🏠 Home H1</button>
+<button class="btn2" onclick="go('H5')">← H5 শাখা</button>
+</div></div>
+
+<script>
+let bal=0, v=0;
+function go(id){document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));document.getElementById(id).classList.add('active');window.scrollTo(0,0);}
+function verify(){v++;alert('Verify '+v+' Done!'); if(v>=2) alert('এখন Unlock চাপুন!');}
+function unlock(){if(v<2){alert('আগে 2 বার Verify চাপুন');return;} bal+=10; document.getElementById('bal').innerText=bal; document.querySelectorAll('.bal2').forEach(e=>e.innerText=bal); alert('🎉 10৳ Added! Balance: '+bal+'৳'); v=0;}
+</script>
+</body>
+</html>
