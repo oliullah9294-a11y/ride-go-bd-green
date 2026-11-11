@@ -134,5 +134,10 @@ goPage('W2');
 window.goPage=goPage; window.openLang=openLang; window.setLang=setLang; window.tapLogo=tapLogo; window.doReg=doReg; window.verify=verify; window.unlock=unlock; window.ownerLogin=ownerLogin;
 goPage('H1');
 </script>
+  <script>
+if('serviceWorker' in navigator){
+  navigator.serviceWorker.register('sw.js');
+}
+  </script>
 </body>
 </html>
