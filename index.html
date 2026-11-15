@@ -1,67 +1,167 @@
 <!DOCTYPE html>
-<html lang="bn"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Ride Go BD V7 FINAL</title>
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-<link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@500;700&display=swap" rel="stylesheet">
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Ride Go BD - RG Free Service</title>
+<link rel="icon" href="icon.png">
+<link rel="apple-touch-icon" href="icon.png">
+<meta name="theme-color" content="#0ea5e9">
 <style>
-*{margin:0;padding:0;box-sizing:border-box}body{font-family:'Hind Siliguri',system-ui;background:#f5f8f5;color:#111}
-.page{display:none;min-height:100vh}.page.active{display:block}
-.hdr{background:#0a7a2e;color:#fff;padding:16px 20px;display:flex;gap:12px;align-items:center;position:sticky;top:0;z-index:10;box-shadow:0 2px 10px rgba(0,0,0,.1)}.hdrB{background:#111}
-.logo{width:36px;height:36px;background:#fff;color:#0a7a2e;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:900}
-.box{max-width:480px;margin:0 auto;padding:20px}
-.card{background:#fff;border-radius:16px;padding:16px;margin-bottom:12px;box-shadow:0 2px 12px rgba(0,0,0,.06);border:1px solid #eef3ee;display:flex;justify-content:space-between;align-items:center}
-.cardBlock{display:block}.cardA{border:2px solid #0a7a2e;background:#f0faf2}
-.btn{width:100%;padding:16px;border:none;border-radius:14px;background:#0a7a2e;color:#fff;font-weight:700;font-size:16px;margin-top:12px;box-shadow:0 4px 12px rgba(10,122,46,.3)}.btnP{background:#e2136e;box-shadow:0 4px 12px rgba(226,19,110,.3)}.btnB{background:#111}.btn2{width:100%;padding:14px;border:1px solid #ddd;border-radius:14px;background:#fff;margin-top:10px;font-weight:600}
-.mapBox{height:80px;background:linear-gradient(135deg,#e8f5e9,#c8e6c9);border-radius:12px;margin:10px 0;display:flex;align-items:center;justify-content:center}
-.pill{background:#e8f5e9;color:#0a7a2e;padding:4px 10px;border-radius:20px;font-size:12px;font-weight:700}.badgeB{background:#e2136e;color:#fff;padding:5px 10px;border-radius:20px;font-size:12px}
-.stat{display:grid;grid-template-columns:1fr 1fr;gap:12px}.statBox{background:#fff;padding:16px;border-radius:16px;text-align:center;box-shadow:0 2px 8px rgba(0,0,0,.05)}
-input{width:100%;padding:14px;border:1px solid #e0e0e0;border-radius:12px;margin-top:10px;font-family:inherit}
-@keyframes spin{0%{transform:rotate(0)}100%{transform:rotate(360deg)}}
-</style></head><body>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Hind Siliguri,sans-serif}
+body{background:#f0f9ff}
+.header{background:linear-gradient(135deg,#0ea5e9,#0284c7);color:white;padding:12px 15px;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:99}
+.logo{font-size:22px;font-weight:900}
+.logo span{background:black;border:2px solid white;padding:0 7px;border-radius:7px}
+#langSelect{padding:7px 10px;border-radius:20px;border:none;font-weight:bold;color:#0284c7}
+.card{background:white;margin:12px;padding:16px;border-radius:14px;box-shadow:0 3px 10px rgba(0,0,0,.07)}
+.input{width:100%;padding:13px;border:2px solid #e0f2fe;border-radius:10px;margin:7px 0;font-size:15px}
+.btn{width:100%;padding:14px;background:#0ea5e9;color:white;border:none;border-radius:11px;font-size:16px;font-weight:bold;cursor:pointer}
+.btn:active{opacity:0.9}
+.tabs{display:flex;background:white;margin:12px 12px 0;border-radius:10px;overflow:hidden;flex-wrap:wrap}
+.tab{flex:1;padding:10px;text-align:center;cursor:pointer;font-weight:bold;font-size:13px;min-width:60px}
+.tab.active{background:#0ea5e9;color:white}
+.page{display:none}.page.active{display:block}
+.free-box{background:#f0fdf4;border:2px dashed #22c55e;padding:10px;border-radius:10px;margin:10px 0;text-align:center}
+.pay-opt{border:1px solid #e5e7eb;padding:12px;border-radius:10px;margin:6px 0}
+.pay-opt.disabled{opacity:0.5}
+.small-badge{font-size:10px;background:#fef08a;padding:2px 6px;border-radius:10px}
+</style>
+</head>
+<body>
 
-<div id="H1" class="page active"><div class="hdr"><div class="logo">RG</div>Ride Go BD V7 FINAL</div><div class="box" style="text-align:center"><div class="card cardBlock" style="padding:30px"><h2 style="color:#0a7a2e">🚕 Ride Go BD</h2><p>Pathao Style Premium</p><span class="pill">🟢 LIVE + bKash Hide</span><button class="btn" onclick="goPage('H5')" style="margin-top:20px">শুরু করুন →</button></div></div></div>
+<div class="header">
+  <div class="logo"><span>RG</span> Ride Go</div>
+  <select id="langSelect" onchange="setLang(this.value)">
+    <option value="bn">🇧🇩 বাংলা</option>
+    <option value="en">🇺🇸 English</option>
+    <option value="hi">🇮🇳 हिंदी</option>
+    <option value="ur">🇵🇰 اردو</option>
+    <option value="ar">🇸🇦 العربية</option>
+    <option value="zh">🇨🇳 中文</option>
+    <option value="es">🇪🇸 Español</option>
+    <option value="fr">🇫🇷 Français</option>
+  </select>
+</div>
 
-<div id="H5" class="page"><div class="hdr"><div class="logo">RG</div>H5 শাখা</div><div class="box">
-<div class="card cardBlock" onclick="goPage('P1')"><b>🧍 আমি যাত্রী</b><br><small>P1 Premium Booking</small></div>
-<div class="card cardBlock" style="background:#111;color:#fff" onclick="goPage('D1')"><b>🏍️ আমি চালক</b><br><small>D1 LIVE Rides</small></div>
-<div class="card cardBlock" onclick="goPage('W3')"><b>🏢 Owner Panel</b><br><small>W3 Dashboard + bKash Verify</small></div>
-<div style="text-align:center;margin-top:20px" onclick="tapLogo()"><div class="logo" style="margin:0 auto;background:#0a7a2e;color:#fff">RG</div><small>3x Tap = Owner Login</small></div>
-</div></div>
+<div class="tabs">
+  <div class="tab active" onclick="showPage('home',this)" id="tabHome">হোম</div>
+  <div class="tab" onclick="showPage('reg',this)" id="tabReg">রেজিস্ট্রেশন</div>
+  <div class="tab" onclick="showPage('payment',this)" id="tabPay">পেমেন্ট</div>
+  <div class="tab" onclick="showPage('h5',this)" id="tabH5">H5</div>
+</div>
 
-<div id="P1" class="page"><div class="hdr"><div class="logo">←</div><b>রাইড বুক করুন</b></div><div class="box">
-<div class="card cardBlock"><div style="display:flex;gap:10px"><span>📍</span><div><small>পিকআপ</small><br><b id="pickupText">নাজিরহাট - LIVE GPS</b></div></div><div style="border-top:1px dashed #ddd;margin:12px 0"></div><div style="display:flex;gap:10px"><span>🎯</span><div><small>গন্তব্য</small><br><b>মুরাদপুর</b></div></div><div class="mapBox">🗺️ LIVE Route - নাজিরহাট → মুরাদপুর</div></div>
-<button class="btn2" style="border-color:#0a7a2e;color:#0a7a2e" onclick="getLiveLocation()">📍 LIVE লোকেশন নিন</button>
-<p style="margin:14px 0 6px;font-weight:700">যানবাহন বেছে নিন</p>
-<div class="card cardA" onclick="selectV('Bike',120,this)"><div>🏍️ <b>বাইক</b> - ১২-১৫ মিনিট • ৳১২০</div><span class="pill">120৳</span></div>
-<div class="card" onclick="selectV('CNG',180,this)"><div>CNG <b>সিএনজি</b> - ৳১৮০</div><span>180৳</span></div>
-<div class="card" onclick="selectV('Car',250,this)"><div>🚗 <b>কার</b> - ৳২৫০</div><span>250৳</span></div>
-<div class="card cardBlock" style="border:2px solid #e2136e"><b>পেমেন্ট</b><div style="display:flex;gap:8px;margin-top:10px"><div class="card cardA" style="flex:1;padding:10px;justify-content:center"><span class="badgeB">bKash</span><small> **** Hide</small></div><div class="card" style="flex:1;padding:10px;justify-content:center">💵 নগদ</div></div><div style="background:#fff;padding:12px;border-radius:12px;margin-top:10px;text-align:center;border:1px dashed #e2136e"><small>মোট ভাড়া</small><br><b style="font-size:26px;color:#0a7a2e" id="fare">৳১৩০</b><br><small>🔒 নিরাপদ পেমেন্ট - নাম্বার লুকানো</small></div><button class="btn btnP" onclick="payBkash()">bKash দিয়ে এখন পেমেন্ট করুন</button><button class="btn2" onclick="payCash()">নগদে পেমেন্ট করুন</button><small style="display:block;text-align:center;margin-top:8px">🛡️ পেমেন্ট নিরাপদ ও সুরক্ষিত</small></div>
-</div></div>
+<!-- HOME -->
+<div id="home" class="page active">
+  <div class="card">
+    <h3 id="homeTitle">📍 কোথায় যাবেন?</h3>
+    <input class="input" id="fromInput" placeholder="📍 আপনার লোকেশন">
+    <input class="input" id="toInput" placeholder="🏁 গন্তব্য">
+    <select class="input" id="carSelect"></select>
+    <button class="btn" id="bookBtn" onclick="showPage('payment',document.getElementById('tabPay'))">🚀 এখনই বুক করুন</button>
+    <img src="icon.png" style="width:100%;border-radius:12px;margin-top:10px">
+  </div>
+</div>
 
-<div id="P5" class="page"><div class="hdr"><div class="logo">←</div><b>রাইড নিশ্চিত</b></div><div class="box" style="text-align:center"><div class="card cardBlock"><h3>🔍 LIVE খোঁজা হচ্ছে...</h3><div style="margin:12px auto;width:50px;height:50px;border:4px solid #e8f5e9;border-top:4px solid #0a7a2e;border-radius:50%;animation:spin 1s linear infinite"></div><p id="p5S">চালক খোঁজা হচ্ছে</p></div><button class="btn" onclick="checkMyRide()">চালক পেয়েছেন? Check</button></div></div>
-<div id="P6" class="page"><div class="hdr"><div class="logo">✓</div><b>পেমেন্ট সম্পন্ন</b></div><div class="box" style="text-align:center"><div class="card cardBlock"><div style="width:60px;height:60px;background:#0a7a2e;border-radius:50%;margin:0 auto;display:flex;align-items:center;justify-content:center;color:#fff;font-size:30px">✓</div><h3 style="color:#0a7a2e;margin-top:10px">পেমেন্ট সম্পন্ন</h3><p id="drv"></p><button class="btn" onclick="goPage('H5')">Home</button></div></div></div>
-<div id="D1" class="page"><div class="hdr hdrB"><div class="logo">RG</div><b>D1 LIVE রাইড</b></div><div class="box" id="D1B">Loading...</div></div>
-<div id="D2" class="page"><div class="hdr hdrB"><div class="logo">✓</div><b>Accept Done</b></div><div class="box" style="text-align:center"><div class="card cardBlock"><h3>✅ Accept DONE</h3><button class="btn btnB" onclick="goPage('H5')">Home</button></div></div></div>
-<div id="W1" class="page"><div class="hdr hdrB"><div class="logo">RG</div><b>W1 Owner Login</b></div><div class="box"><input id="mp" type="password" placeholder="Master: 12345678"><input id="oid" placeholder="RG-OWNER-9294-BD"><button class="btn btnB" onclick="ownerLogin()">Login →</button></div></div>
-<div id="W3" class="page"><div class="hdr hdrB"><div class="logo">RG</div><b>W3 Dashboard FINAL</b></div><div class="box"><div class="stat"><div class="statBox">Users<br><b id="lu">0</b></div><div class="statBox">Rides<br><b id="lr">0</b></div><div class="statBox">Income<br><b id="li">0৳</b></div><div class="statBox">bKash<br><b id="bi" style="color:#e2136e">0৳</b></div></div><div id="bpBox" style="margin-top:14px"></div><button class="btn btnB" onclick="goPage('H5')">Home</button></div></div>
+<!-- REGISTRATION -->
+<div id="reg" class="page">
+  <div class="card">
+    <h3 id="regTitle">📝 রেজিস্ট্রেশন করুন</h3>
+    <input class="input" id="nameInput" placeholder="👤 আপনার নাম">
+    <input class="input" id="phoneInput" placeholder="📞 মোবাইল নাম্বার">
+    <input class="input" id="passInput" type="password" placeholder="🔑 পাসওয়ার্ড">
+    <button class="btn" id="regBtn">✅ রেজিস্ট্রেশন করুন</button>
+  </div>
+</div>
+
+<!-- PAYMENT - FREE SMALL -->
+<div id="payment" class="page">
+  <div class="card">
+    <h3 id="payTitle">💳 পেমেন্ট করুন</h3>
+    
+    <!-- FREE OPTION SMALL -->
+    <div class="free-box">
+      <p style="font-size:11px;color:#16a34a;margin:0" id="freeTop">🎉 প্রথম 100 রাইড</p>
+      <p style="font-weight:bold;color:#16a34a;font-size:15px;margin:3px 0" id="freeMain">✅ FREE - ফ্রি সার্ভিস</p>
+      <button class="btn" style="background:#22c55e;padding:8px 18px;font-size:13px;width:auto" id="freeBtn" onclick="alert('✅ ফ্রি রাইড বুক হয়েছে!')">ফ্রি তে বুক করুন</button>
+    </div>
+
+    <p style="text-align:center;font-size:11px;color:gray;margin:8px 0" id="orText">--- অথবা পেইড অপশন ---</p>
+
+    <div class="pay-opt"><label><input type="radio" name="pay" checked> <span id="cashText">💵 ক্যাশ অন ডেলিভারি (গাড়িতে)</span></label></div>
+    <div class="pay-opt disabled"><label><input type="radio" disabled> 📱 bKash <span class="small-badge" id="soon1">শীঘ্রই আসছে</span></label></div>
+    <div class="pay-opt disabled"><label><input type="radio" disabled> 📱 নগদ <span class="small-badge" id="soon2">শীঘ্রই আসছে</span></label></div>
+
+    <button class="btn" style="margin-top:12px" id="confirmBtn" onclick="alert('✅ ক্যাশ সিলেক্ট - রাইড বুক!')">✅ কনফার্ম করুন</button>
+    <p style="font-size:10px;color:gray;text-align:center;margin-top:8px" id="noteText">* এখন ফ্রি সার্ভিস চলছে, পরে bKash চালু হবে</p>
+  </div>
+</div>
+
+<!-- H5 -->
+<div id="h5" class="page">
+  <div class="card">
+    <h3 id="h5Title">📱 H5 পেজ</h3>
+    <p id="h5Desc">🌐 ভাষা নির্বাচন করুন</p>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px">
+      <button class="btn" onclick="setLang('bn')">🇧🇩 বাংলা</button>
+      <button class="btn" onclick="setLang('en')">🇺🇸 English</button>
+      <button class="btn" onclick="setLang('hi')">🇮🇳 हिंदी</button>
+      <button class="btn" onclick="setLang('ar')">🇸🇦 العربية</button>
+    </div>
+    <p id="h5Footer" style="margin-top:12px;background:#e0f2fe;padding:10px;border-radius:8px">✅ Ride Go BD H5 লোড হয়েছে।</p>
+  </div>
+</div>
 
 <script>
-const SUPABASE_URL='https://nnzaadwpuhrwmmqzouhd.supabase.co';
-const SUPABASE_KEY='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im5uemFhZHdwdWhyd21tcXpvdWhkIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjMwMTA0MzMsImV4cCI6MjA3ODU4NjQzM30.csdQk03iZH1D1Yste0T64cKo0gK31yY6qeKAbt2V1vU';
-const supabaseClient=supabase.createClient(SUPABASE_URL,SUPABASE_KEY);
-const MY_BKASH_HIDDEN="01823965999"; // 🔒 আপনার HIDE নাম্বার
-let logoTap=0;function tapLogo(){logoTap++;if(logoTap>=3){logoTap=0;goPage('W1');}}
-let selFare=120,selV='Bike';
-function selectV(v,f,el){selV=v;selFare=f;document.querySelectorAll('#P1 .card').forEach(c=>c.classList.remove('cardA'));el.classList.add('cardA');document.getElementById('fare').innerText='৳'+(f+10);}
-function goPage(id){document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));let e=document.getElementById(id);if(e)e.classList.add('active');if(id==='D1')loadLive();if(id==='W3'){loadDash();loadPending();}window.scrollTo(0,0);}
-function ownerLogin(){if(document.getElementById('mp').value==='12345678'&&document.getElementById('oid').value==='RG-OWNER-9294-BD')goPage('W3');else alert('ভুল');}
-let curLat=22.3569,curLng=91.7832;
-async function getLiveLocation(){navigator.geolocation.getCurrentPosition(p=>{curLat=p.coords.latitude;curLng=p.coords.longitude;document.getElementById('pickupText').innerHTML=`নাজিরহাট LIVE ${curLat.toFixed(3)}`;});}
-async function payBkash(){let fare=selFare+10;let phone=localStorage.getItem('userPhone')||'01700000000';if(!confirm(`🔒 bKash পেমেন্ট\n${selV} ভাড়া: ${fare}৳\nOK → TrxID দিন`))return;let trx=prompt(`TrxID দিন (bKash SMS):\n\n🔒 নাম্বার লুকানো - ${MY_BKASH_HIDDEN} এ চেক হবে`);if(!trx)return;let {data}=await supabaseClient.from('rides').insert([{pickup_address:document.getElementById('pickupText').innerText,drop_address:'Muradpur',vehicle_type:selV,fare:fare,status:'searching',passenger_phone:phone,payment_method:'bKash Hidden',payment_trx:trx,payment_status:'pending',pickup_lat:curLat,pickup_lng:curLng}]).select();localStorage.setItem('lastRideId',data[0].id);alert(`✅ Trx ${trx} সেভ! Owner Verify করবে`);goPage('P5');}
-async function payCash(){let fare=selFare+10;let phone=localStorage.getItem('userPhone')||'01700000000';let {data}=await supabaseClient.from('rides').insert([{pickup_address:document.getElementById('pickupText').innerText,drop_address:'Muradpur',vehicle_type:selV,fare:fare,status:'searching',passenger_phone:phone,payment_method:'Cash',payment_status:'cash'}]).select();localStorage.setItem('lastRideId',data[0].id);goPage('P5');}
-async function loadLive(){let b=document.getElementById('D1B');b.innerHTML='Loading...';let {data}=await supabaseClient.from('rides').select('*').eq('status','searching').order('created_at',{ascending:false}).limit(10);if(!data||data.length==0){b.innerHTML='<div class="card cardBlock" style="text-align:center">😔 LIVE রাইড নেই</div><button class="btn2" onclick="loadLive()">Refresh</button>';return;}let h=`<div class="card cardBlock" style="background:#fffbe6;text-align:center">🔴 ${data.length} টা LIVE</div>`;data.forEach(r=>{h+=`<div class="card cardBlock"><div><b>${r.pickup_address} → ${r.drop_address}</b><br>${r.vehicle_type} ${r.fare}৳ ${r.payment_method.includes('bKash')?'💳 bKash':''} ${r.passenger_phone}</div><button class="btn btnB" style="width:auto;padding:8px 16px" onclick="acceptR('${r.id}')">Accept</button></div>`;});b.innerHTML=h;}
-async function acceptR(id){await supabaseClient.from('rides').update({status:'accepted'}).eq('id',id);alert('✅ Accept');goPage('D2');}
-async function checkMyRide(){let rid=localStorage.getItem('lastRideId');let {data}=await supabaseClient.from('rides').select('*').eq('id',rid).single();if(data&&data.status==='accepted'){document.getElementById('drv').innerHTML=`চালক Accept করেছে! ${data.fare}৳ - ${data.payment_method}`;goPage('P6');}else alert('এখনো Accept হয়নি');}
-async function loadDash(){let {count:c,data:d}=await supabaseClient.from('rides').select('*',{count:'exact'});let inc=0,bk=0;if(d)d.forEach(x=>{inc+=(x.fare||0);if(x.payment_method==='bKash Hidden')bk+=(x.fare||0);});document.getElementById('lr').innerText=c||0;document.getElementById('li').innerText=inc+'৳';document.getElementById('bi').innerText=bk+'৳';}
-async function loadPending(){let {data}=await supabaseClient.from('rides').select('*').eq('payment_status','pending').limit(20);let b=document.getElementById('bpBox');if(!data||data.length==0){b.innerHTML='<div class="card cardBlock">✅ Pending bKash নেই</div>';return;}let h=`<div class="card cardBlock" style="background:#ffe6f0"><b>💳 ${data.length} টা Pending - ${MY_BKASH_HIDDEN} এ চেক করুন</b></div>`;data.forEach(r=>{h+=`<div class="card cardBlock"><div>💳 ${r.fare}৳ Trx: ${r.payment_trx}<br>যাত্রী: ${r.passenger_phone}</div><button class="btn" style="background:#e2136e;width:auto;padding:8px 16px" onclick="verifyB('${r.id}')">Verify</button></div>`;});b.innerHTML=h;}
-async function verifyB(id){if(confirm('টাকা এসেছে?')){await supabaseClient.from('rides').update({payment_status:'verified'}).eq('id',id);alert('✅ Verified');loadPending();loadDash();}}
-</script></body></html>
+const T={
+ bn:{home:"হোম",reg:"রেজিস্ট্রেশন",pay:"পেমেন্ট",h5:"H5",homeTitle:"📍 কোথায় যাবেন?",from:"📍 আপনার লোকেশন",to:"🏁 গন্তব্য",book:"🚀 এখনই বুক করুন",regTitle:"📝 রেজিস্ট্রেশন করুন",name:"👤 আপনার নাম",phone:"📞 মোবাইল নাম্বার",pass:"🔑 পাসওয়ার্ড",regBtn:"✅ রেজিস্ট্রেশন করুন",payTitle:"💳 পেমেন্ট করুন",freeTop:"🎉 প্রথম 100 রাইড",freeMain:"✅ FREE - ফ্রি সার্ভিস",freeBtn:"ফ্রি তে বুক করুন",orText:"--- অথবা পেইড অপশন ---",cash:"💵 ক্যাশ অন ডেলিভারি (গাড়িতে)",soon:"শীঘ্রই আসছে",confirm:"✅ কনফার্ম করুন",note:"* এখন ফ্রি সার্ভিস চলছে, পরে bKash চালু হবে",h5Title:"📱 H5 পেজ",h5Desc:"🌐 ভাষা নির্বাচন করুন",h5Footer:"✅ Ride Go BD H5 লোড হয়েছে।",cars:["🚗 সাদা সেডান - ফ্রি","🚙 SUV - ফ্রি","🏍️ বাইক - ফ্রি"]},
+ en:{home:"Home",reg:"Register",pay:"Payment",h5:"H5",homeTitle:"📍 Where to go?",from:"📍 Your Location",to:"🏁 Destination",book:"🚀 Book Now",regTitle:"📝 Registration",name:"👤 Your Name",phone:"📞 Mobile",pass:"🔑 Password",regBtn:"✅ Register",payTitle:"💳 Payment",freeTop:"🎉 First 100 Rides",freeMain:"✅ FREE Service",freeBtn:"Book for Free",orText:"--- or Paid Options ---",cash:"💵 Cash on Delivery",soon:"Coming Soon",confirm:"✅ Confirm",note:"* Free service now, bKash later",h5Title:"📱 H5 Page",h5Desc:"🌐 Select Language",h5Footer:"✅ Ride Go H5 Loaded.",cars:["🚗 Sedan - Free","🚙 SUV - Free","🏍️ Bike - Free"]},
+ hi:{home:"होम",reg:"पंजीकरण",pay:"भुगतान",h5:"H5",homeTitle:"📍 कहाँ जाना है?",from:"📍 आपका स्थान",to:"🏁 गंतव्य",book:"🚀 बुक करें",regTitle:"📝 पंजीकरण",name:"👤 नाम",phone:"📞 मोबाइल",pass:"🔑 पासवर्ड",regBtn:"✅ पंजीकरण",payTitle:"💳 भुगतान",freeTop:"🎉 पहले 100 राइड",freeMain:"✅ FREE सेवा",freeBtn:"फ्री में बुक करें",orText:"--- या पेड विकल्प ---",cash:"💵 कैश",soon:"जल्द आ रहा है",confirm:"✅ पुष्टि करें",note:"* अभी फ्री सेवा",h5Title:"📱 H5 पेज",h5Desc:"🌐 भाषा चुनें",h5Footer:"✅ लोड हो गया।",cars:["🚗 सेडान - फ्री","🚙 SUV - फ्री","🏍️ बाइक - फ्री"]},
+ ur:{home:"ہوم",reg:"رجسٹریشن",pay:"ادائیگی",h5:"H5",homeTitle:"📍 کہاں جانا ہے؟",from:"📍 مقام",to:"🏁 منزل",book:"🚀 بک کریں",regTitle:"📝 رجسٹریشن",name:"👤 نام",phone:"📞 موبائل",pass:"🔑 پاس ورڈ",regBtn:"✅ رجسٹر",payTitle:"💳 ادائیگی",freeTop:"🎉 پہلے 100 رائیڈ",freeMain:"✅ مفت سروس",freeBtn:"مفت بک کریں",orText:"--- یا ادا شدہ ---",cash:"💵 کیش",soon:"جلد آ رہا ہے",confirm:"✅ تصدیق",note:"* ابھی مفت",h5Title:"📱 H5",h5Desc:"🌐 زبان منتخب کریں",h5Footer:"✅ لوڈ ہو گیا۔",cars:["🚗 مفت","🚙 مفت","🏍️ مفت"]},
+ ar:{home:"الرئيسية",reg:"التسجيل",pay:"الدفع",h5:"H5",homeTitle:"📍 أين تذهب؟",from:"📍 موقعك",to:"🏁 الوجهة",book:"🚀 احجز",regTitle:"📝 التسجيل",name:"👤 اسمك",phone:"📞 جوال",pass:"🔑 كلمة المرور",regBtn:"✅ سجل",payTitle:"💳 الدفع",freeTop:"🎉 أول 100 رحلة",freeMain:"✅ مجاني",freeBtn:"احجز مجانا",orText:"--- أو مدفوع ---",cash:"💵 نقدا",soon:"قريبا",confirm:"✅ تأكيد",note:"* مجاني الآن",h5Title:"📱 H5",h5Desc:"🌐 اختر اللغة",h5Footer:"✅ تم التحميل",cars:["🚗 مجاني","🚙 مجاني","🏍️ مجاني"]},
+ zh:{home:"首页",reg:"注册",pay:"支付",h5:"H5",homeTitle:"📍 去哪里？",from:"📍 位置",to:"🏁 目的地",book:"🚀 预订",regTitle:"📝 注册",name:"👤 姓名",phone:"📞 手机",pass:"🔑 密码",regBtn:"✅ 注册",payTitle:"💳 支付",freeTop:"🎉 前100次",freeMain:"✅ 免费服务",freeBtn:"免费预订",orText:"--- 或付费 ---",cash:"💵 现金",soon:"即将推出",confirm:"✅ 确认",note:"* 现在免费",h5Title:"📱 H5",h5Desc:"🌐 选择语言",h5Footer:"✅ 已加载",cars:["🚗 免费","🚙 免费","🏍️ 免费"]},
+ es:{home:"Inicio",reg:"Registro",pay:"Pago",h5:"H5",homeTitle:"📍 ¿A dónde?",from:"📍 Ubicación",to:"🏁 Destino",book:"🚀 Reservar",regTitle:"📝 Registro",name:"👤 Nombre",phone:"📞 Móvil",pass:"🔑 Contraseña",regBtn:"✅ Registrarse",payTitle:"💳 Pago",freeTop:"🎉 Primeros 100",freeMain:"✅ GRATIS",freeBtn:"Reservar Gratis",orText:"--- o de Pago ---",cash:"💵 Efectivo",soon:"Pronto",confirm:"✅ Confirmar",note:"* Gratis ahora",h5Title:"📱 H5",h5Desc:"🌐 Idioma",h5Footer:"✅ Cargado",cars:["🚗 Gratis","🚙 Gratis","🏍️ Gratis"]},
+ fr:{home:"Accueil",reg:"Inscription",pay:"Paiement",h5:"H5",homeTitle:"📍 Où aller?",from:"📍 Emplacement",to:"🏁 Destination",book:"🚀 Réserver",regTitle:"📝 Inscription",name:"👤 Nom",phone:"📞 Mobile",pass:"🔑 Mot de passe",regBtn:"✅ S'inscrire",payTitle:"💳 Paiement",freeTop:"🎉 100 premiers",freeMain:"✅ GRATUIT",freeBtn:"Gratuit",orText:"--- ou Payant ---",cash:"💵 Espèces",soon:"Bientôt",confirm:"✅ Confirmer",note:"* Gratuit maintenant",h5Title:"📱 H5",h5Desc:"🌐 Langue",h5Footer:"✅ Chargé",cars:["🚗 Gratuit","🚙 Gratuit","🏍️ Gratuit"]}
+};
+function setLang(l){
+ const t=T[l]||T.bn;
+ document.getElementById('langSelect').value=l;
+ document.getElementById('tabHome').innerText=t.home;
+ document.getElementById('tabReg').innerText=t.reg;
+ document.getElementById('tabPay').innerText=t.pay;
+ document.getElementById('tabH5').innerText=t.h5;
+ document.getElementById('homeTitle').innerText=t.homeTitle;
+ document.getElementById('fromInput').placeholder=t.from;
+ document.getElementById('toInput').placeholder=t.to;
+ document.getElementById('bookBtn').innerText=t.book;
+ document.getElementById('regTitle').innerText=t.regTitle;
+ document.getElementById('nameInput').placeholder=t.name;
+ document.getElementById('phoneInput').placeholder=t.phone;
+ document.getElementById('passInput').placeholder=t.pass;
+ document.getElementById('regBtn').innerText=t.regBtn;
+ document.getElementById('payTitle').innerText=t.payTitle;
+ document.getElementById('freeTop').innerText=t.freeTop;
+ document.getElementById('freeMain').innerText=t.freeMain;
+ document.getElementById('freeBtn').innerText=t.freeBtn;
+ document.getElementById('orText').innerText=t.orText;
+ document.getElementById('cashText').innerText=t.cash;
+ document.getElementById('soon1').innerText=t.soon;
+ document.getElementById('soon2').innerText=t.soon;
+ document.getElementById('confirmBtn').innerText=t.confirm;
+ document.getElementById('noteText').innerText=t.note;
+ document.getElementById('h5Title').innerText=t.h5Title;
+ document.getElementById('h5Desc').innerText=t.h5Desc;
+ document.getElementById('h5Footer').innerText=t.h5Footer;
+ document.getElementById('carSelect').innerHTML=t.cars.map(c=>`<option>${c}</option>`).join('');
+ localStorage.setItem('rg_lang',l);
+}
+function showPage(p,el){
+ document.querySelectorAll('.page').forEach(x=>x.classList.remove('active'));
+ document.getElementById(p).classList.add('active');
+ document.querySelectorAll('.tab').forEach(x=>x.classList.remove('active'));
+ el.classList.add('active');
+}
+setLang(localStorage.getItem('rg_lang')||'bn');
+</script>
+</body>
+</html>
