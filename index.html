@@ -1,107 +1,36 @@
 <!DOCTYPE html>
 <html lang="bn">
 <head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Ride Go BD Green V6.0 FINAL - All H Pages</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>RG V7.2 FINAL - Sponsor + Driver List</title>
 <style>
-*{box-sizing:border-box;margin:0;padding:0;font-family:sans-serif}
-body{background:#f2f2f2}
-.hdr{background:#0a7a2e;color:#fff;padding:14px;display:flex;gap:10px;align-items:center;font-weight:900;position:sticky;top:0;z-index:99}
-.logo{background:#fff;color:#0a7a2e;width:40px;height:40px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-weight:900;cursor:pointer}
-.page{display:none!important;min-height:100vh;background:#fff;max-width:480px;margin:auto;box-shadow:0 0 20px #0001}
-.page.active{display:block!important}
-.box{padding:20px}
-.btn{background:#0a7a2e;color:#fff;border:0;padding:18px;border-radius:14px;width:100%;font-weight:800;margin-top:12px;cursor:pointer;font-size:16px}
-.btn2{background:#eef7ee;color:#0a7a2e;border:1px solid #cfe9cf;padding:15px;border-radius:14px;width:100%;font-weight:700;margin-top:10px;cursor:pointer}
-.card{background:#f8fff8;border:1px solid #d9f0d9;padding:14px;border-radius:14px;margin:10px 0;display:flex;justify-content:space-between;align-items:center}
-input,select{width:100%;padding:14px;border-radius:12px;border:1px solid #ccc;margin:8px 0;font-size:16px}
-.badge{background:#0a7a2e;color:#fff;padding:4px 10px;border-radius:20px;font-size:11px}
-.hdrBlack{background:#111!important}
-.btnBlack{background:#111!important}
-.stat{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.statBox{background:#f8fff8;border:1px solid #d9f0d9;padding:12px;border-radius:14px;text-align:center}
-.progressBar{height:10px;background:#e0e0e0;border-radius:10px;overflow:hidden}
-.progressFill{height:100%;background:#0a7a2e;width:0%;transition:0.5s}
-.hiddenChittagong{display:none}
+*{margin:0;padding:0;box-sizing:border-box;font-family:Hind Siliguri,sans-serif}
+body{background:#f0f2f5}
+.page{display:none;min-height:100vh}
+.page.active{display:block}
+.hdr{background:#0a7a2e;color:#fff;padding:12px 16px;display:flex;align-items:center;gap:10px;font-weight:700;position:sticky;top:0;z-index:9}
+.logo{background:#fff;color:#0a7a2e;width:36px;height:36px;border-radius:50%;display:grid;place-items:center;font-weight:900}
+.box{padding:14px;max-width:480px;margin:0 auto}
+.card{background:#fff;border-radius:12px;padding:12px;margin:10px 0;box-shadow:0 2px 8px rgba(0,0,0,.08);cursor:pointer}
+.btn{background:#0a7a2e;color:#fff;border:0;width:100%;padding:14px;border-radius:12px;font-size:15px;font-weight:700;margin-top:10px;cursor:pointer}
+.btn2{background:#fff;color:#0a7a2e;border:2px solid #0a7a2e;width:100%;padding:12px;border-radius:12px;font-size:14px;font-weight:700;margin-top:10px;cursor:pointer}
+input,select{width:100%;padding:12px;border-radius:10px;border:1px solid #ccc;margin:8px 0;font-size:15px}
+.badge{float:right;background:#0a7a2e;color:#fff;padding:2px 8px;border-radius:20px;font-size:12px}
+.hidden-district{display:none}
+.sponsor-box{background:#e8f5e9;border:2px dashed #0a7a2e;padding:10px;border-radius:10px;margin:10px 0}
 </style>
 </head>
 <body>
 
-<!-- H1 Welcome -->
-<div id="H1" class="page active"><div class="hdr"><div class="logo">RG</div><div style="flex:1">Ride Go BD Green</div></div><div class="box" style="text-align:center"><div style="width:90px;height:90px;background:#0a7a2e;color:#fff;border-radius:24px;display:flex;align-items:center;justify-content:center;font-size:42px;font-weight:900;margin:30px auto">RG</div><h2 style="color:#0a7a2e">Ride Go BD Green V6.0</h2><p>Local National - Safe Ride</p><p class="hiddenChittagong">চট্টগ্রাম Default - মানুষ দেখবে না</p><button class="btn" onclick="goPage('H2')">শুরু করুন → H2</button><button class="btn2" onclick="goPage('AZ')">📖 A-Z বর্ণনা</button><p style="margin-top:15px;font-size:12px;color:#666">Uninstall পর্যন্ত লগইন থাকবে</p></div></div>
+<!-- H1 -->
+<div id="H1" class="page active"><div class="hdr"><div class="logo">RG</div>H1 Welcome</div><div class="box">
+<div class="card" style="text-align:center;padding:30px"><h2>RG Ride</h2><p>চট্টগ্রাম হাইড - Local National</p><p style="margin-top:20px">🇧🇩 বাংলাদেশ - 64 জেলা</p>
+<button class="btn" onclick="goPage('H2')">শুরু করুন</button></div></div></div>
 
-<!-- H2 Registration - আগের মতোই -->
-<div id="H2" class="page"><div class="hdr"><div class="logo">RG</div>H2 নিবন্ধন</div><div class="box"><p style="font-size:12px;color:#0a7a2e;background:#eef7ee;padding:8px;border-radius:8px;margin-bottom:8px">✓ একবার করলে Uninstall না করা পর্যন্ত H2 আর আসবে না</p><input id="reg-name" placeholder="নাম *বাধ্যতামূলক"><input id="reg-phone" placeholder="মোবাইল 01XXXXXXXXX *বাধ্যতামূলক"><input id="sponsor-no" placeholder="স্পন্সর কোড (ঐচ্ছিক)"><button class="btn" onclick="doReg()">রেজিস্ট্রেশন → H5</button><button class="btn2" onclick="goPage('H1')">Back H1</button></div></div>
-
-<!-- H5 Branch - Owner Secret -->
-<div id="H5" class="page"><div class="hdr"><div class="logo" onclick="tapLogo()">RG</div><div style="flex:1">H5 শাখা - <span id="userShow"></span></div></div><div class="box"><div style="text-align:center;font-weight:900">ভূমিকা বেছে নিন</div><div style="background:#0a7a2e;color:#fff;border-radius:18px;padding:18px;margin-top:12px;cursor:pointer" onclick="goPage('P1')">🧍 যাত্রী P1-P8 → ৮ টা পেজ - নতুন 8.5 ধাপ</div><div style="background:#fff;border:2px solid #0a7a2e;border-radius:18px;padding:18px;margin-top:12px;cursor:pointer" onclick="goPage('DP')">🏍️ চালক DP → D1-D4</div><div id="ownerSecret" style="display:none;background:#111;color:#fff;border-radius:18px;padding:18px;margin-top:12px;cursor:pointer;border:2px solid gold" onclick="goPage('W1')">🏢 Owner W1-W12 Master → শুধু আপনি</div><button class="btn2" onclick="doLogout()">🚪 লগআউট</button><div style="background:#fffbe6;padding:10px;border-radius:10px;margin-top:12px;font-size:11px">Logo 3x Tap = Owner Unlock | <span id="tapCount">Tap: 0/3</span> | Owner পাসওয়ার্ড প্রটেক্টেড</div></div></div>
-
-<!-- DP Driver Profile - আগের মতোই ঐচ্ছিক -->
-<div id="DP" class="page"><div class="hdr"><div class="logo">RG</div>চালক প্রোফাইল - ঐচ্ছিক</div><div class="box">
-<div style="background:#f8fff8;border:1px solid #d9f0d9;padding:12px;border-radius:12px"><div style="display:flex;justify-content:space-between;font-size:12px"><b id="progText">প্রোফাইল 0% — ঐচ্ছিক</b><span id="progPer">0%</span></div><div class="progressBar" style="margin-top:6px"><div id="progFill" class="progressFill"></div></div></div>
-<input id="d-name" placeholder="নাম (ঐচ্ছিক)" oninput="updateProg()"><input id="d-vehicle" placeholder="গাড়ি নাম্বার (ঐচ্ছিক)" oninput="updateProg()"><input id="d-fitness" placeholder="ফিটনেস (ঐচ্ছিক)" oninput="updateProg()"><select id="d-type" onchange="updateProg()"><option value="">গাড়ির ধরন (ঐচ্ছিক)</option><option>Bike</option><option>CNG</option><option>Car</option><option>Auto</option><option>Micro</option><option>Rickshaw</option><option>14 টা গাড়ি</option></select><input id="d-license" placeholder="লাইসেন্স (ঐচ্ছিক)" oninput="updateProg()"><button class="btn" onclick="saveDP()">সেভ → D1</button><button class="btn2" onclick="goPage('D1')">Skip → D1</button><button class="btn2" onclick="goPage('H5')">Back H5</button></div></div>
-
-<!-- P1 Vehicle - 14 cars + 3KM -->
-<div id="P1" class="page"><div class="hdr"><div class="logo">RG</div>P1 গাড়ি বেছে নিন - 3KM</div><div class="box"><div class="card" onclick="goPage('P2')">🚕 CNG - কাছের - 0.5KM <span class="badge">→</span></div><div class="card" onclick="goPage('P2')">🏍️ Bike - 0.8KM <span class="badge">→</span></div><div class="card" onclick="goPage('P2')">🚗 Car - 1.2KM <span class="badge">→</span></div><div class="card" onclick="goPage('P2')">🚲 Rickshaw - 14 টা গাড়ি <span class="badge">→</span></div><button class="btn" style="background:#f97316" onclick="goPage('P2')">📢 সবাইকে নক - খ. টিইইই রিং</button><button class="btn2" onclick="goPage('H5')">Back H5</button></div></div>
-
-<div id="P2" class="page"><div class="hdr"><div class="logo">RG</div>P2 Map - 3KM</div><div class="box"><div style="height:250px;background:#e6ffe9;border-radius:14px;display:flex;align-items:center;justify-content:center;border:2px dashed #0a7a2e">🗺️ Map - 3KM এর ভিতর<br>কাছের জন আগে - Live</div><button class="btn" onclick="goPage('P3')">Next P3 লোকেশন →</button><button class="btn2" onclick="goPage('P1')">Back P1</button></div></div>
-
-<div id="P3" class="page"><div class="hdr"><div class="logo">RG</div>P3 লোকেশন - From/To</div><div class="box"><input placeholder="Pickup - From"><input placeholder="Drop - To"><button class="btn" onclick="goPage('P4')">Next P4 ভাড়া - সংখ্যা →</button><button class="btn2" onclick="goPage('P2')">Back P2</button></div></div>
-
-<!-- P4 Fare - 6 নং - শুধু সংখ্যা + কনফার্ম - NEW -->
-<div id="P4" class="page"><div class="hdr"><div class="logo">RG</div>P4 ভাড়া - শুধু সংখ্যা</div><div class="box" style="text-align:center"><p>আপনি কত দেবেন? - 6 নং</p><input type="number" id="fareInput" placeholder="150" style="font-size:28px;text-align:center;font-weight:bold"><p>টাকা - শুধু সংখ্যা লিখুন</p><div class="card"><b>Distance</b><b>12 KM - 3KM</b></div><button class="btn" onclick="sendFare()">Confirm P5 → সংখ্যা কনফার্ম</button><div id="driverFareBox" style="display:none;background:#fef3c7;padding:12px;border-radius:12px;margin-top:10px"><p>🧑‍✈️ ড্রাইভার বলছে: <b id="driverFareNum">180</b> টাকা</p><div style="display:flex;gap:8px"><button class="btn" style="background:#22c55e" onclick="goPage('P5')">✅ ওকে</button><button class="btn" style="background:#f97316" onclick="document.getElementById('driverFareBox').style.display='none'">🔢 অন্য</button></div></div><button class="btn2" onclick="goPage('P3')">Back P3</button></div></div>
-
-<!-- P5 Searching - NEW Ring Type -->
-<div id="P5" class="page"><div class="hdr"><div class="logo">RG</div>P5 Searching - ক/খ রিং</div><div class="box"><p style="text-align:center;padding:20px;font-size:18px">🔍 ড্রাইভার খুঁজছি...<br><br><span style="font-size:40px">🏍️</span><br><br><span style="font-size:12px;background:#fef3c7;padding:6px;border-radius:8px">🔔 ক. টিং - একজনকে | খ. টিইইই - সবাইকে - 3KM</span></p><button class="btn" onclick="goPage('P6')">Found! P6 ড্রাইভার পাওয়া গেছে →</button><button class="btn2" onclick="goPage('P4')">Cancel</button></div></div>
-
-<!-- P6 Driver Found - NEW Number + Call + Location -->
-<div id="P6" class="page"><div class="hdr"><div class="logo">RG</div>P6 ড্রাইভার - নাম্বার+কল+লোকেশন</div><div class="box"><div class="card" style="display:block;background:#f0f9ff;border:1px solid #0a7a2e"><b>👨‍✈️ Rahim Uddin - CNG</b><br>⭐ 4.9 | 1200 Rides<br>📞 <b style="color:#0a7a2e;font-size:18px">01712-345678</b><br><span style="color:green">1 min away - 0.5KM</span><br><br><button class="btn" style="background:#22c55e;padding:10px" onclick="window.location.href='tel:01712345678'">📞 এক চাপে কল</button><button class="btn" style="background:#0a7a2e;padding:10px" onclick="document.getElementById('mapBoxP6').style.display='block'">📍 লোকেশন দেখুন</button><div id="mapBoxP6" style="display:none;margin-top:10px"><iframe src="https://maps.google.com/maps?q=Bangladesh&t=&z=6&output=embed" style="width:100%;height:120px;border:0;border-radius:10px"></iframe></div></div><button class="btn" onclick="goPage('P7')">Call & Ride P7 → Payment</button><button class="btn2" onclick="goPage('P5')">Back P5</button></div></div>
-
-<!-- P7 Payment + Riding Start - 7 + 8 নং -->
-<div id="P7" class="page"><div class="hdr"><div class="logo">RG</div>P7 Riding + Payment</div><div class="box" style="text-align:center"><div style="background:#f0fdf4;padding:12px;border-radius:10px;border:2px dashed #22c55e"><h3 style="color:#16a34a">🎉 ফ্রি রাইড - 7 নং</h3><button class="btn" style="background:#22c55e" onclick="document.getElementById('rideStartBox').style.display='block'">✅ ফ্রি কনফার্ম → রাইডিং শুরু</button></div><div id="rideStartBox" style="display:none;background:#f0f9ff;padding:12px;border-radius:10px;margin-top:10px"><p>🚕 Riding... 8 নং</p><h2 id="rideTimerP7">00:00</h2><button class="btn" style="background:#22c55e" onclick="startRideP7()" id="startBtnP7">▶️ রাইডিং শুরু</button><button class="btn" style="background:#ef4444;display:none" onclick="endRideP7()" id="endBtnP7">⏹️ রাইডিং শেষ</button></div><button class="btn" style="margin-top:10px" onclick="goPage('P8')">Complete P8 →</button></div></div>
-
-<div id="P8" class="page"><div class="hdr"><div class="logo">RG</div>P8 রেটিং - রাইড শেষ</div><div class="box" style="text-align:center"><p style="font-size:40px">⭐⭐⭐⭐⭐</p><h3>ধন্যবাদ! যাত্রা সম্পূর্ণ - Timer শেষ</h3><p id="finalTime"></p><button class="btn" onclick="goPage('H5')">Home H5 →</button></div></div>
-
-<!-- D1-D4 Driver - আগের মতোই + Upgrade -->
-<div id="D1" class="page"><div class="hdr"><div class="logo">RG</div>D1 নতুন রাইড - 3KM</div><div class="box"><div class="card" style="display:block;font-size:12px;background:#fffbe6">🚗 গাড়ি: <b id="vShow">ঐচ্ছিক</b> | ফিটনেস: <b id="fShow">ঐচ্ছিক</b><br>🔔 ক/খ রিং সিস্টেম</div><div class="card">📍 From → To<br>💰 500৳ <b style="margin-left:auto;color:#0a7a2e">→ Accept - ক. টিং</b></div><button class="btn" onclick="goPage('D2')">Accept D2 →</button><button class="btn2" onclick="goPage('DP')">✏️ প্রোফাইল</button><button class="btn2" onclick="goPage('H5')">Back H5</button></div></div>
-<div id="D2" class="page"><div class="hdr"><div class="logo">RG</div>D2 Map</div><div class="box"><div style="height:250px;background:#e6ffe9;border-radius:14px;display:flex;align-items:center;justify-content:center;border:2px dashed #0a7a2e">🗺️ Go to Passenger - 3KM</div><button class="btn" onclick="goPage('D3')">Start Ride D3 →</button><button class="btn2" onclick="goPage('D1')">Back D1</button></div></div>
-<div id="D3" class="page"><div class="hdr"><div class="logo">RG</div>D3 Riding - 8 নং</div><div class="box" style="text-align:center"><p>🏍️ যাত্রী নিয়ে যাচ্ছি...<br>💰 <span id="fareShowD3">150</span>৳</p><h2 id="rideTimerD3">00:00</h2><button class="btn" onclick="startRideD3()" id="startBtnD3">▶️ রাইডিং শুরু</button><button class="btn" style="background:#ef4444;display:none" onclick="goPage('D4')" id="endBtnD3">⏹️ রাইডিং শেষ → D4</button></div></div>
-<div id="D4" class="page"><div class="hdr"><div class="logo">RG</div>D4 ইনকাম</div><div class="box"><div class="stat"><div class="statBox"><b>আজ</b><br>1200৳</div><div class="statBox"><b>মাসে</b><br>25000৳</div></div><button class="btn" onclick="goPage('H5')">Home H5 →</button></div></div>
-
-<!-- W1-W12 Owner - শুধু আপনি - পাসওয়ার্ড -->
-<div id="W1" class="page"><div class="hdr hdrBlack"><div class="logo">RG</div>W1 Owner Login - Only You</div><div class="box"><h3 style="text-align:center">🏢 Owner Login W1-W12 - Private</h3><input id="masterPass" type="password" placeholder="Master Password: 12345678"><input id="ownerIdInput" placeholder="Owner ID: RG-OWNER-9294-BD"><button class="btn btnBlack" onclick="ownerLogin()">Login → W2 - শুধু আপনি</button><button class="btn2" onclick="goPage('H5')">Back H5</button><p style="font-size:11px;color:red;text-align:center;margin-top:8px">🔒 এই পেজ শুধু আপনি দেখবেন - পাসওয়ার্ড প্রটেক্টেড!</p></div></div>
-<div id="W2" class="page"><div class="hdr hdrBlack"><div class="logo">RG</div>W2 OTP</div><div class="box"><div style="text-align:center;padding:20px;background:#f8fff8;border-radius:14px">OTP: <b>123456</b> (Demo)</div><input placeholder="OTP দিন"><button class="btn btnBlack" onclick="goPage('W3')">Verify → W3</button><button class="btn2" onclick="goPage('W1')">Back W1</button></div></div>
-<div id="W3" class="page"><div class="hdr hdrBlack"><div class="logo">RG</div>W3 Dashboard - Private</div><div class="box"><h3 style="text-align:center">📊 Owner Dashboard - Only You</h3><div class="stat"><div class="statBox">Total User<br><b>1250</b></div><div class="statBox">Total Driver<br><b>320</b></div><div class="statBox">Today Ride<br><b>85</b></div><div class="statBox">Income<br><b>15000৳</b></div></div><div style="background:#fffbe6;padding:10px;border-radius:10px;margin-top:10px;font-size:11px">🔴 চট্টগ্রাম হাইড - Default চট্টগ্রাম | 🔔 ক/খ রিং হিস্ট্রি | 💰 ভাড়া সংখ্যা | 📞 কল+লোকেশন | ⏱️ Timer | 3KM | 14 গাড়ি</div><button class="btn btnBlack" onclick="goPage('W4')">Next W4 →</button><button class="btn2" onclick="goPage('H5')">Back H5</button></div></div>
-<div id="W4" class="page"><div class="hdr hdrBlack"><div class="logo">RG</div>W4 Users</div><div class="box"><div class="card">User List W4<button class="btn2" style="width:auto" onclick="goPage('W5')">W5 →</button></div></div></div>
-<div id="W5" class="page"><div class="hdr hdrBlack"><div class="logo">RG</div>W5 Drivers</div><div class="box"><div class="card">Driver List W5<button class="btn2" style="width:auto" onclick="goPage('W6')">W6 →</button></div></div></div>
-<div id="W6" class="page"><div class="hdr hdrBlack"><div class="logo">RG</div>W6 Rides - Live</div><div class="box"><div class="card">Ride History W6 - Live - ক/খ রিং + ভাড়া + কল + Timer<button class="btn2" style="width:auto" onclick="goPage('W7')">W7 →</button></div></div></div>
-<div id="W7" class="page"><div class="hdr hdrBlack"><div class="logo">RG</div>W7 Finance</div><div class="box"><div class="card">Finance W7 - ফ্রি<button class="btn2" style="width:auto" onclick="goPage('W8')">W8 →</button></div></div></div>
-<div id="W8" class="page"><div class="hdr hdrBlack"><div class="logo">RG</div>W8 Settings</div><div class="box"><div class="card">Settings W8<button class="btn2" style="width:auto" onclick="goPage('W9')">W9 →</button></div></div></div>
-<div id="W9" class="page"><div class="hdr hdrBlack"><div class="logo">RG</div>W9 Reports</div><div class="box"><div class="card">Reports W9<button class="btn2" style="width:auto" onclick="goPage('W10')">W10 →</button></div></div></div>
-<div id="W10" class="page"><div class="hdr hdrBlack"><div class="logo">RG</div>W10 Support</div><div class="box"><div class="card">Support W10<button class="btn2" style="width:auto" onclick="goPage('W11')">W11 →</button></div></div></div>
-<div id="W11" class="page"><div class="hdr hdrBlack"><div class="logo">RG</div>W11 Admin</div><div class="box"><div class="card">Admin W11<button class="btn2" style="width:auto" onclick="goPage('W12')">W12 →</button></div></div></div>
-<div id="W12" class="page"><div class="hdr hdrBlack"><div class="logo">RG</div>W12 Final</div><div class="box"><h3 style="text-align:center">W12 Final Owner - Only You</h3><p style="text-align:center;font-size:12px">সব কন্ট্রোল - চট্টগ্রাম হাইড - 10,000/দিন - Supabase<br>🔒 Owner Only - Password Protected</p><button class="btn btnBlack" onclick="goPage('H5')">Back H5 - Logout</button></div></div>
-
-<div id="AZ" class="page"><div class="hdr"><div class="logo">RG</div>AZ A-Z</div><div class="box"><h3 style="text-align:center;color:#0a7a2e">V6.0 FINAL - 29 Page + New 8.5 Steps</h3><p style="margin-top:10px;font-size:14px;line-height:22px">✅ H1,H2,H5: আগের মতো + চট্টগ্রাম হাইড<br>✅ P1-P8: Upgrade - 3KM + 14 গাড়ি + ভাড়া সংখ্যা + ক/খ রিং + নাম্বার+কল+লোকেশন + Timer<br>✅ D1-D4: Upgrade<br>✅ W1-W12: Owner Only - Password<br>✅ AZ</p><button class="btn" onclick="checkLogin()">Home</button></div></div>
-
-<script>
-var tap=0;
-function goPage(id){document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));var el=document.getElementById(id);if(el)el.classList.add('active');if(id==='DP'){loadDP();updateProg();}if(id==='D1'){showD();}if(id==='H5'){let ph=localStorage.getItem('userPhone')||'';document.getElementById('userShow').innerText=ph;}window.scrollTo(0,0);}
-function tapLogo(){tap++;let c=document.getElementById('tapCount');if(c)c.innerText='Tap: '+tap+'/3';if(tap>=3){let o=document.getElementById('ownerSecret');if(o){o.style.display='block';}alert('🔓 Owner Unlocked! W1-W12 খুলেছে - Only You');tap=0;}setTimeout(()=>{tap=0;let cc=document.getElementById('tapCount');if(cc)cc.innerText='Tap: 0/3';},3000);}
-function doReg(){let name=document.getElementById('reg-name').value.trim();let ph=document.getElementById('reg-phone').value.trim();let sp=document.getElementById('sponsor-no').value.trim()||'N/A';if(!name){alert('নাম দিন');return;}if(ph.length<11){alert('১১ ডিজিট মোবাইল');return;}localStorage.setItem('userName',name);localStorage.setItem('userPhone',ph);localStorage.setItem('sponsorNo',sp);localStorage.setItem('isRegistered','true');alert('রেজিস্ট্রেশন সফল! Uninstall পর্যন্ত লগইন থাকবে।');goPage('H5');}
-function checkLogin(){if(localStorage.getItem('isRegistered')&&localStorage.getItem('userPhone')){goPage('H5');}else{goPage('H1');}}
-function doLogout(){if(confirm('লগআউট করলে আবার H2 আসবে। নিশ্চিত?')){localStorage.removeItem('isRegistered');localStorage.removeItem('userPhone');goPage('H1');}}
-function saveDP(){let d={name:document.getElementById('d-name').value,vehicle:document.getElementById('d-vehicle').value,fitness:document.getElementById('d-fitness').value,type:document.getElementById('d-type').value,license:document.getElementById('d-license').value};localStorage.setItem('driverProfile',JSON.stringify(d));alert('প্রোফাইল সেভ!');goPage('D1');}
-function loadDP(){let d=JSON.parse(localStorage.getItem('driverProfile')||'{}');if(d.name)document.getElementById('d-name').value=d.name;if(d.vehicle)document.getElementById('d-vehicle').value=d.vehicle;if(d.fitness)document.getElementById('d-fitness').value=d.fitness;if(d.type)document.getElementById('d-type').value=d.type;if(d.license)document.getElementById('d-license').value=d.license;}
-function updateProg(){let count=0;if(document.getElementById('d-name').value)count++;if(document.getElementById('d-vehicle').value)count++;if(document.getElementById('d-fitness').value)count++;if(document.getElementById('d-type').value)count++;if(document.getElementById('d-license').value)count++;let per=Math.round(count/5*100);document.getElementById('progFill').style.width=per+'%';document.getElementById('progPer').innerText=per+'%';document.getElementById('progText').innerText='প্রোফাইল '+per+'% — ঐচ্ছিক';}
-function showD(){let d=JSON.parse(localStorage.getItem('driverProfile')||'{}');document.getElementById('vShow').innerText=d.vehicle||'ঐচ্ছিক';document.getElementById('fShow').innerText=d.fitness||'ঐচ্ছিক';}
-function ownerLogin(){let mp=document.getElementById('masterPass').value;let oid=document.getElementById('ownerIdInput').value;if(mp==='12345678'&&oid==='RG-OWNER-9294-BD'){goPage('W2');}else{alert('ভুল! Password 12345678, ID RG-OWNER-9294-BD - Only You');}}
-function sendFare(){let f=document.getElementById('fareInput').value;if(!f)return alert('সংখ্যা লিখুন - 150');document.getElementById('driverFareBox').style.display='block';document.getElementById('driverFareNum').innerText=parseInt(f)+30;}
-let secP7=0,ivP7,secD3=0,ivD3;
-function startRideP7(){document.getElementById('startBtnP7').style.display='none';document.getElementById('endBtnP7').style.display='block';ivP7=setInterval(()=>{secP7++;let m=Math.floor(secP7/60).toString().padStart(2,'0');let s=(secP7%60).toString().padStart(2,'0');document.getElementById('rideTimerP7').innerText=m+":"+s;},1000);}
-function endRideP7(){clearInterval(ivP7);document.getElementById('finalTime').innerText='সময়: '+document.getElementById('rideTimerP7').innerText;goPage('P8');}
-function startRideD3(){document.getElementById('startBtnD3').style.display='none';document.getElementById('endBtnD3').style.display='block';ivD3=setInterval(()=>{secD3++;let m=Math.floor(secD3/60).toString().padStart(2,'0');let s=(secD3%60).toString().padStart(2,'0');document.getElementById('rideTimerD3').innerText=m+":"+s;},1000);}
-window.onload=checkLogin;
-</script>
-</body>
-</html>
+<!-- H2 -->
+<div id="H2" class="page"><div class="hdr"><div class="logo">RG</div>H2 নিবন্ধন</div><div class="box">
+<div class="card">
+<h3>নিবন্ধন করুন</h3>
+<input id="user-name" placeholder="আপনার নাম">
+<input id="user-mobile" placeholder="01XXXXXXXXX - 11 সং
