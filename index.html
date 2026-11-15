@@ -1,167 +1,97 @@
 <!DOCTYPE html>
 <html lang="bn">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<title>Ride Go BD - RG Free Service</title>
-<link rel="icon" href="icon.png">
-<link rel="apple-touch-icon" href="icon.png">
-<meta name="theme-color" content="#0ea5e9">
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ride Go - Chattogram - FINAL Single File</title>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:Hind Siliguri,sans-serif}
-body{background:#f0f9ff}
-.header{background:linear-gradient(135deg,#0ea5e9,#0284c7);color:white;padding:12px 15px;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:99}
-.logo{font-size:22px;font-weight:900}
-.logo span{background:black;border:2px solid white;padding:0 7px;border-radius:7px}
-#langSelect{padding:7px 10px;border-radius:20px;border:none;font-weight:bold;color:#0284c7}
-.card{background:white;margin:12px;padding:16px;border-radius:14px;box-shadow:0 3px 10px rgba(0,0,0,.07)}
-.input{width:100%;padding:13px;border:2px solid #e0f2fe;border-radius:10px;margin:7px 0;font-size:15px}
-.btn{width:100%;padding:14px;background:#0ea5e9;color:white;border:none;border-radius:11px;font-size:16px;font-weight:bold;cursor:pointer}
-.btn:active{opacity:0.9}
-.tabs{display:flex;background:white;margin:12px 12px 0;border-radius:10px;overflow:hidden;flex-wrap:wrap}
-.tab{flex:1;padding:10px;text-align:center;cursor:pointer;font-weight:bold;font-size:13px;min-width:60px}
-.tab.active{background:#0ea5e9;color:white}
+body{font-family:system-ui;background:#f8fafc;margin:0;padding-bottom:70px}
+.card{background:#fff;padding:14px;border-radius:14px;margin:10px;box-shadow:0 2px 8px #0001}
+.btn{width:100%;padding:12px;border:0;border-radius:10px;background:#0ea5e9;color:#fff;font-weight:bold;margin-top:8px}
+.input{width:100%;padding:12px;border:1px solid #e5e7eb;border-radius:10px;margin:6px 0;box-sizing:border-box}
 .page{display:none}.page.active{display:block}
-.free-box{background:#f0fdf4;border:2px dashed #22c55e;padding:10px;border-radius:10px;margin:10px 0;text-align:center}
-.pay-opt{border:1px solid #e5e7eb;padding:12px;border-radius:10px;margin:6px 0}
-.pay-opt.disabled{opacity:0.5}
-.small-badge{font-size:10px;background:#fef08a;padding:2px 6px;border-radius:10px}
+.nav{position:fixed;bottom:0;left:0;right:0;background:#fff;display:flex;border-top:1px solid #e5e7eb}
+.nav div{flex:1;text-align:center;padding:10px 0;font-size:12px}
 </style>
 </head>
 <body>
 
-<div class="header">
-  <div class="logo"><span>RG</span> Ride Go</div>
-  <select id="langSelect" onchange="setLang(this.value)">
-    <option value="bn">🇧🇩 বাংলা</option>
-    <option value="en">🇺🇸 English</option>
-    <option value="hi">🇮🇳 हिंदी</option>
-    <option value="ur">🇵🇰 اردو</option>
-    <option value="ar">🇸🇦 العربية</option>
-    <option value="zh">🇨🇳 中文</option>
-    <option value="es">🇪🇸 Español</option>
-    <option value="fr">🇫🇷 Français</option>
-  </select>
-</div>
-
-<div class="tabs">
-  <div class="tab active" onclick="showPage('home',this)" id="tabHome">হোম</div>
-  <div class="tab" onclick="showPage('reg',this)" id="tabReg">রেজিস্ট্রেশন</div>
-  <div class="tab" onclick="showPage('payment',this)" id="tabPay">পেমেন্ট</div>
-  <div class="tab" onclick="showPage('h5',this)" id="tabH5">H5</div>
-</div>
-
-<!-- HOME -->
 <div id="home" class="page active">
-  <div class="card">
-    <h3 id="homeTitle">📍 কোথায় যাবেন?</h3>
-    <input class="input" id="fromInput" placeholder="📍 আপনার লোকেশন">
-    <input class="input" id="toInput" placeholder="🏁 গন্তব্য">
-    <select class="input" id="carSelect"></select>
-    <button class="btn" id="bookBtn" onclick="showPage('payment',document.getElementById('tabPay'))">🚀 এখনই বুক করুন</button>
-    <img src="icon.png" style="width:100%;border-radius:12px;margin-top:10px">
-  </div>
+<div class="card"><h3>🇧🇩 Ride Go - চট্টগ্রাম - একটাই কোড</h3>
+<select class="input"><option selected>📍 চট্টগ্রাম</option><option>ঢাকা</option><option>জামালপুর</option><option>64 জেলা</option></select>
+<input id="from" class="input" placeholder="কোথা থেকে? আগ্রাবাদ">
+<input id="to" class="input" placeholder="কোথায়? জিইসি">
+<select class="input"><option>🚗 গাড়ি - 14 টা</option><option>🚲 রিক্সা</option><option>🛺 CNG</option><option>🏍️ বাইক</option><option>🚗 কার</option><option>🚚 ট্রাক</option></select>
+<button class="btn" onclick="showPage('driverList')">🔍 খুঁজুন - 3KM</button>
+</div>
 </div>
 
-<!-- REGISTRATION -->
-<div id="reg" class="page">
-  <div class="card">
-    <h3 id="regTitle">📝 রেজিস্ট্রেশন করুন</h3>
-    <input class="input" id="nameInput" placeholder="👤 আপনার নাম">
-    <input class="input" id="phoneInput" placeholder="📞 মোবাইল নাম্বার">
-    <input class="input" id="passInput" type="password" placeholder="🔑 পাসওয়ার্ড">
-    <button class="btn" id="regBtn">✅ রেজিস্ট্রেশন করুন</button>
-  </div>
+<div id="driverList" class="page">
+<div class="card"><h3>📍 কাছের ড্রাইভার</h3>
+<div style="border:1px solid #e5e7eb;padding:10px;border-radius:10px;margin:6px 0;display:flex;justify-content:space-between"><div><b>করিম - CNG</b><br><small>0.5KM - চট্টগ্রাম</small></div><button class="btn" style="width:auto;padding:6px 12px" onclick="knock('single')">🔔 ক</button></div>
+<div style="border:1px solid #e5e7eb;padding:10px;border-radius:10px;margin:6px 0;display:flex;justify-content:space-between"><div><b>রহিম - বাইক</b><br><small>0.8KM</small></div><button class="btn" style="width:auto;padding:6px 12px" onclick="knock('single')">🔔 ক</button></div>
+<button class="btn" style="background:#f97316" onclick="knock('all')">📢 সবাইকে - খ. ভিন্ন রিং</button>
+</div>
 </div>
 
-<!-- PAYMENT - FREE SMALL -->
+<div id="farePage" class="page">
+<div class="card" style="text-align:center"><h3>💰 ভাড়া - 6 নং - শুধু সংখ্যা</h3>
+<input type="number" id="fareInput" class="input" placeholder="150" style="font-size:28px;text-align:center;font-weight:bold"><p>টাকা</p>
+<button class="btn" onclick="sendFare()">✅ কনফার্ম</button>
+<div id="driverFareBox" style="display:none;background:#fef3c7;padding:12px;border-radius:12px;margin-top:10px"><h2 id="driverFareNum">180</h2><p>টাকা - ড্রাইভার বলছে</p><div style="display:flex;gap:8px"><button class="btn" style="background:#22c55e" onclick="showPage('payment')">✅ ওকে</button><button class="btn" style="background:#f97316" onclick="document.getElementById('driverFareBox').style.display='none'">🔢 অন্য</button></div></div>
+</div>
+</div>
+
 <div id="payment" class="page">
-  <div class="card">
-    <h3 id="payTitle">💳 পেমেন্ট করুন</h3>
-    
-    <!-- FREE OPTION SMALL -->
-    <div class="free-box">
-      <p style="font-size:11px;color:#16a34a;margin:0" id="freeTop">🎉 প্রথম 100 রাইড</p>
-      <p style="font-weight:bold;color:#16a34a;font-size:15px;margin:3px 0" id="freeMain">✅ FREE - ফ্রি সার্ভিস</p>
-      <button class="btn" style="background:#22c55e;padding:8px 18px;font-size:13px;width:auto" id="freeBtn" onclick="alert('✅ ফ্রি রাইড বুক হয়েছে!')">ফ্রি তে বুক করুন</button>
-    </div>
-
-    <p style="text-align:center;font-size:11px;color:gray;margin:8px 0" id="orText">--- অথবা পেইড অপশন ---</p>
-
-    <div class="pay-opt"><label><input type="radio" name="pay" checked> <span id="cashText">💵 ক্যাশ অন ডেলিভারি (গাড়িতে)</span></label></div>
-    <div class="pay-opt disabled"><label><input type="radio" disabled> 📱 bKash <span class="small-badge" id="soon1">শীঘ্রই আসছে</span></label></div>
-    <div class="pay-opt disabled"><label><input type="radio" disabled> 📱 নগদ <span class="small-badge" id="soon2">শীঘ্রই আসছে</span></label></div>
-
-    <button class="btn" style="margin-top:12px" id="confirmBtn" onclick="alert('✅ ক্যাশ সিলেক্ট - রাইড বুক!')">✅ কনফার্ম করুন</button>
-    <p style="font-size:10px;color:gray;text-align:center;margin-top:8px" id="noteText">* এখন ফ্রি সার্ভিস চলছে, পরে bKash চালু হবে</p>
-  </div>
+<div class="card" style="text-align:center"><h3>💳 পেমেন্ট - 7 নং</h3><div style="background:#f0fdf4;padding:12px;border-radius:10px;border:2px dashed #22c55e"><h3 style="color:#16a34a">🎉 ফ্রি - 100% FREE</h3><button class="btn" style="background:#22c55e" onclick="showPage('contactPage')">✅ ফ্রি কনফার্ম</button></div></div>
 </div>
 
-<!-- H5 -->
-<div id="h5" class="page">
-  <div class="card">
-    <h3 id="h5Title">📱 H5 পেজ</h3>
-    <p id="h5Desc">🌐 ভাষা নির্বাচন করুন</p>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px">
-      <button class="btn" onclick="setLang('bn')">🇧🇩 বাংলা</button>
-      <button class="btn" onclick="setLang('en')">🇺🇸 English</button>
-      <button class="btn" onclick="setLang('hi')">🇮🇳 हिंदी</button>
-      <button class="btn" onclick="setLang('ar')">🇸🇦 العربية</button>
-    </div>
-    <p id="h5Footer" style="margin-top:12px;background:#e0f2fe;padding:10px;border-radius:8px">✅ Ride Go BD H5 লোড হয়েছে।</p>
-  </div>
+<div id="contactPage" class="page">
+<div class="card" style="text-align:center"><h3 style="color:#16a34a">✅ Done - নাম্বার + কল + লোকেশন</h3>
+<div style="background:#f0f9ff;padding:12px;border-radius:12px;border:1px solid #0ea5e9"><h3>🧑‍✈️ করিম - CNG</h3><h2 style="color:#0ea5e9">📞 01712-345678</h2>
+<button class="btn" style="background:#22c55e" onclick="window.location.href='tel:01712345678'">📞 এক চাপে কল</button>
+<button class="btn" style="background:#0ea5e9" onclick="document.getElementById('mapBox').style.display='block'">📍 লোকেশন দেখুন</button>
+</div>
+<div id="mapBox" style="display:none;margin-top:10px"><iframe src="https://maps.google.com/maps?q=Chittagong&t=&z=13&output=embed" style="width:100%;height:160px;border:0;border-radius:10px"></iframe></div>
+<div style="background:#fef3c7;padding:8px;border-radius:10px;margin-top:8px;font-size:11px">🔔 ক. টিং (একজন) | খ. টিইইই (সবাই)</div>
+<button class="btn" onclick="showPage('ridePage')">▶️ রাইডিং শুরু - 8 নং</button>
+</div>
+</div>
+
+<div id="ridePage" class="page">
+<div class="card" style="text-align:center"><h3>🚗 রাইডিং - 8 নং</h3><p id="rideStatus">✅ ড্রাইভার রওনা দিয়েছে</p><h2 id="rideTimer">00:00</h2>
+<button class="btn" style="background:#22c55e" onclick="startRide()" id="startBtn">▶️ রাইডিং শুরু</button>
+<button class="btn" style="background:#ef4444;display:none" onclick="endRide()" id="endBtn">⏹️ রাইডিং শেষ</button>
+<div id="rideEndBox" style="display:none;background:#f0fdf4;padding:12px;border-radius:10px;margin-top:10px"><h3>✅ রাইড শেষ!</h3><div>⭐⭐⭐⭐⭐</div><button class="btn" onclick="showPage('home')">🏠 হোম</button></div>
+</div>
+</div>
+
+<div id="driverPanel" class="page">
+<div class="card" style="text-align:center"><h3>🧑‍✈️ ড্রাইভার - চট্টগ্রাম</h3>
+<button class="btn" id="onlineBtn" style="background:#22c55e" onclick="toggleOnline()">🟢 Online</button>
+<div id="driverNoti" style="display:none;background:#fef3c7;padding:12px;border-radius:10px;margin-top:10px"><p>🔔 যাত্রী ডাকছে! <span id="ringType"></span></p><p>আগ্রাবাদ → জিইসি | 150 TK</p><div style="display:flex;gap:8px"><button class="btn" style="background:#22c55e" onclick="showPage('farePage')">✅ রিসিভ</button><button class="btn" style="background:#ef4444" onclick="document.getElementById('driverNoti').style.display='none'">❌ ক্যানসেল</button></div></div>
+</div>
+</div>
+
+<div id="owner" class="page">
+<div class="card"><h3>👑 Owner - চট্টগ্রাম</h3><div style="font-size:12px;line-height:1.8">
+<p>🔴 LIVE: আগ্রাবাদ → জিইসি | 150 TK</p><p>🔔 ক. টিং (একজন) 12 বার | খ. টিইইই (সবাই) 8 বার</p><p>💰 ভাড়া: 150 → 180 → Final 170 - সংখ্যা + কনফার্ম</p><p>📞 নাম্বার + এক চাপে কল + লোকেশন: OK</p><p>⏱️ রাইডিং শুরু/শেষ + Timer + ⭐</p><p>📊 Supabase: 10,000/দিন ফ্রি - Firebase লাগবে না!</p>
+</div></div>
+</div>
+
+<div class="nav">
+<div onclick="showPage('home')">🏠<br>হোম</div>
+<div onclick="showPage('driverPanel')">🧑‍✈️<br>ড্রাইভার</div>
+<div onclick="showPage('owner')">👑<br>Owner</div>
 </div>
 
 <script>
-const T={
- bn:{home:"হোম",reg:"রেজিস্ট্রেশন",pay:"পেমেন্ট",h5:"H5",homeTitle:"📍 কোথায় যাবেন?",from:"📍 আপনার লোকেশন",to:"🏁 গন্তব্য",book:"🚀 এখনই বুক করুন",regTitle:"📝 রেজিস্ট্রেশন করুন",name:"👤 আপনার নাম",phone:"📞 মোবাইল নাম্বার",pass:"🔑 পাসওয়ার্ড",regBtn:"✅ রেজিস্ট্রেশন করুন",payTitle:"💳 পেমেন্ট করুন",freeTop:"🎉 প্রথম 100 রাইড",freeMain:"✅ FREE - ফ্রি সার্ভিস",freeBtn:"ফ্রি তে বুক করুন",orText:"--- অথবা পেইড অপশন ---",cash:"💵 ক্যাশ অন ডেলিভারি (গাড়িতে)",soon:"শীঘ্রই আসছে",confirm:"✅ কনফার্ম করুন",note:"* এখন ফ্রি সার্ভিস চলছে, পরে bKash চালু হবে",h5Title:"📱 H5 পেজ",h5Desc:"🌐 ভাষা নির্বাচন করুন",h5Footer:"✅ Ride Go BD H5 লোড হয়েছে।",cars:["🚗 সাদা সেডান - ফ্রি","🚙 SUV - ফ্রি","🏍️ বাইক - ফ্রি"]},
- en:{home:"Home",reg:"Register",pay:"Payment",h5:"H5",homeTitle:"📍 Where to go?",from:"📍 Your Location",to:"🏁 Destination",book:"🚀 Book Now",regTitle:"📝 Registration",name:"👤 Your Name",phone:"📞 Mobile",pass:"🔑 Password",regBtn:"✅ Register",payTitle:"💳 Payment",freeTop:"🎉 First 100 Rides",freeMain:"✅ FREE Service",freeBtn:"Book for Free",orText:"--- or Paid Options ---",cash:"💵 Cash on Delivery",soon:"Coming Soon",confirm:"✅ Confirm",note:"* Free service now, bKash later",h5Title:"📱 H5 Page",h5Desc:"🌐 Select Language",h5Footer:"✅ Ride Go H5 Loaded.",cars:["🚗 Sedan - Free","🚙 SUV - Free","🏍️ Bike - Free"]},
- hi:{home:"होम",reg:"पंजीकरण",pay:"भुगतान",h5:"H5",homeTitle:"📍 कहाँ जाना है?",from:"📍 आपका स्थान",to:"🏁 गंतव्य",book:"🚀 बुक करें",regTitle:"📝 पंजीकरण",name:"👤 नाम",phone:"📞 मोबाइल",pass:"🔑 पासवर्ड",regBtn:"✅ पंजीकरण",payTitle:"💳 भुगतान",freeTop:"🎉 पहले 100 राइड",freeMain:"✅ FREE सेवा",freeBtn:"फ्री में बुक करें",orText:"--- या पेड विकल्प ---",cash:"💵 कैश",soon:"जल्द आ रहा है",confirm:"✅ पुष्टि करें",note:"* अभी फ्री सेवा",h5Title:"📱 H5 पेज",h5Desc:"🌐 भाषा चुनें",h5Footer:"✅ लोड हो गया।",cars:["🚗 सेडान - फ्री","🚙 SUV - फ्री","🏍️ बाइक - फ्री"]},
- ur:{home:"ہوم",reg:"رجسٹریشن",pay:"ادائیگی",h5:"H5",homeTitle:"📍 کہاں جانا ہے؟",from:"📍 مقام",to:"🏁 منزل",book:"🚀 بک کریں",regTitle:"📝 رجسٹریشن",name:"👤 نام",phone:"📞 موبائل",pass:"🔑 پاس ورڈ",regBtn:"✅ رجسٹر",payTitle:"💳 ادائیگی",freeTop:"🎉 پہلے 100 رائیڈ",freeMain:"✅ مفت سروس",freeBtn:"مفت بک کریں",orText:"--- یا ادا شدہ ---",cash:"💵 کیش",soon:"جلد آ رہا ہے",confirm:"✅ تصدیق",note:"* ابھی مفت",h5Title:"📱 H5",h5Desc:"🌐 زبان منتخب کریں",h5Footer:"✅ لوڈ ہو گیا۔",cars:["🚗 مفت","🚙 مفت","🏍️ مفت"]},
- ar:{home:"الرئيسية",reg:"التسجيل",pay:"الدفع",h5:"H5",homeTitle:"📍 أين تذهب؟",from:"📍 موقعك",to:"🏁 الوجهة",book:"🚀 احجز",regTitle:"📝 التسجيل",name:"👤 اسمك",phone:"📞 جوال",pass:"🔑 كلمة المرور",regBtn:"✅ سجل",payTitle:"💳 الدفع",freeTop:"🎉 أول 100 رحلة",freeMain:"✅ مجاني",freeBtn:"احجز مجانا",orText:"--- أو مدفوع ---",cash:"💵 نقدا",soon:"قريبا",confirm:"✅ تأكيد",note:"* مجاني الآن",h5Title:"📱 H5",h5Desc:"🌐 اختر اللغة",h5Footer:"✅ تم التحميل",cars:["🚗 مجاني","🚙 مجاني","🏍️ مجاني"]},
- zh:{home:"首页",reg:"注册",pay:"支付",h5:"H5",homeTitle:"📍 去哪里？",from:"📍 位置",to:"🏁 目的地",book:"🚀 预订",regTitle:"📝 注册",name:"👤 姓名",phone:"📞 手机",pass:"🔑 密码",regBtn:"✅ 注册",payTitle:"💳 支付",freeTop:"🎉 前100次",freeMain:"✅ 免费服务",freeBtn:"免费预订",orText:"--- 或付费 ---",cash:"💵 现金",soon:"即将推出",confirm:"✅ 确认",note:"* 现在免费",h5Title:"📱 H5",h5Desc:"🌐 选择语言",h5Footer:"✅ 已加载",cars:["🚗 免费","🚙 免费","🏍️ 免费"]},
- es:{home:"Inicio",reg:"Registro",pay:"Pago",h5:"H5",homeTitle:"📍 ¿A dónde?",from:"📍 Ubicación",to:"🏁 Destino",book:"🚀 Reservar",regTitle:"📝 Registro",name:"👤 Nombre",phone:"📞 Móvil",pass:"🔑 Contraseña",regBtn:"✅ Registrarse",payTitle:"💳 Pago",freeTop:"🎉 Primeros 100",freeMain:"✅ GRATIS",freeBtn:"Reservar Gratis",orText:"--- o de Pago ---",cash:"💵 Efectivo",soon:"Pronto",confirm:"✅ Confirmar",note:"* Gratis ahora",h5Title:"📱 H5",h5Desc:"🌐 Idioma",h5Footer:"✅ Cargado",cars:["🚗 Gratis","🚙 Gratis","🏍️ Gratis"]},
- fr:{home:"Accueil",reg:"Inscription",pay:"Paiement",h5:"H5",homeTitle:"📍 Où aller?",from:"📍 Emplacement",to:"🏁 Destination",book:"🚀 Réserver",regTitle:"📝 Inscription",name:"👤 Nom",phone:"📞 Mobile",pass:"🔑 Mot de passe",regBtn:"✅ S'inscrire",payTitle:"💳 Paiement",freeTop:"🎉 100 premiers",freeMain:"✅ GRATUIT",freeBtn:"Gratuit",orText:"--- ou Payant ---",cash:"💵 Espèces",soon:"Bientôt",confirm:"✅ Confirmer",note:"* Gratuit maintenant",h5Title:"📱 H5",h5Desc:"🌐 Langue",h5Footer:"✅ Chargé",cars:["🚗 Gratuit","🚙 Gratuit","🏍️ Gratuit"]}
-};
-function setLang(l){
- const t=T[l]||T.bn;
- document.getElementById('langSelect').value=l;
- document.getElementById('tabHome').innerText=t.home;
- document.getElementById('tabReg').innerText=t.reg;
- document.getElementById('tabPay').innerText=t.pay;
- document.getElementById('tabH5').innerText=t.h5;
- document.getElementById('homeTitle').innerText=t.homeTitle;
- document.getElementById('fromInput').placeholder=t.from;
- document.getElementById('toInput').placeholder=t.to;
- document.getElementById('bookBtn').innerText=t.book;
- document.getElementById('regTitle').innerText=t.regTitle;
- document.getElementById('nameInput').placeholder=t.name;
- document.getElementById('phoneInput').placeholder=t.phone;
- document.getElementById('passInput').placeholder=t.pass;
- document.getElementById('regBtn').innerText=t.regBtn;
- document.getElementById('payTitle').innerText=t.payTitle;
- document.getElementById('freeTop').innerText=t.freeTop;
- document.getElementById('freeMain').innerText=t.freeMain;
- document.getElementById('freeBtn').innerText=t.freeBtn;
- document.getElementById('orText').innerText=t.orText;
- document.getElementById('cashText').innerText=t.cash;
- document.getElementById('soon1').innerText=t.soon;
- document.getElementById('soon2').innerText=t.soon;
- document.getElementById('confirmBtn').innerText=t.confirm;
- document.getElementById('noteText').innerText=t.note;
- document.getElementById('h5Title').innerText=t.h5Title;
- document.getElementById('h5Desc').innerText=t.h5Desc;
- document.getElementById('h5Footer').innerText=t.h5Footer;
- document.getElementById('carSelect').innerHTML=t.cars.map(c=>`<option>${c}</option>`).join('');
- localStorage.setItem('rg_lang',l);
-}
-function showPage(p,el){
- document.querySelectorAll('.page').forEach(x=>x.classList.remove('active'));
- document.getElementById(p).classList.add('active');
- document.querySelectorAll('.tab').forEach(x=>x.classList.remove('active'));
- el.classList.add('active');
-}
-setLang(localStorage.getItem('rg_lang')||'bn');
+function showPage(id){document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));document.getElementById(id).classList.add('active');}
+function knock(t){document.getElementById('ringType').innerText=t=='single'?"ক. টিং - একজনকে":"খ. টিইইই - সবাইকে";document.getElementById('driverNoti').style.display="block";alert(t=='single'?"🔔 ক. টিং - একজনকে নক":"📢 খ. টিইইই - সবাইকে নক");showPage('farePage');}
+function sendFare(){let f=document.getElementById('fareInput').value;if(!f)return alert("সংখ্যা লিখুন - 150");document.getElementById('driverFareBox').style.display="block";document.getElementById('driverFareNum').innerText=parseInt(f)+30;}
+let sec=0,iv;function startRide(){document.getElementById('startBtn').style.display="none";document.getElementById('endBtn').style.display="block";iv=setInterval(()=>{sec++;let m=Math.floor(sec/60).toString().padStart(2,'0');let s=(sec%60).toString().padStart(2,'0');document.getElementById('rideTimer').innerText=m+":"+s;},1000);}
+function endRide(){clearInterval(iv);document.getElementById('endBtn').style.display="none";document.getElementById('rideEndBox').style.display="block";}
+function toggleOnline(){let b=document.getElementById('onlineBtn');b.innerText=b.innerText.includes('Online')?'🔴 Offline':'🟢 Online';b.style.background=b.innerText.includes('Online')?'#22c55e':'#ef4444';}
 </script>
 </body>
 </html>
