@@ -1,111 +1,54 @@
 <!DOCTYPE html>
 <html lang="bn">
 <head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Ride Go V5.5 Full যুক্ত</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ride Go V5.5 Live Fix</title>
 <style>
 *{box-sizing:border-box;margin:0;padding:0;font-family:sans-serif}
 body{background:#f2f2f2}
-.hdr{background:#0a7a2e;color:#fff;padding:14px;display:flex;gap:10px;align-items:center;font-weight:900;position:sticky;top:0;z-index:99}
-.logo{background:#fff;color:#0a7a2e;width:40px;height:40px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-weight:900;cursor:pointer}
+.hdr{background:#0a7a2e;color:#fff;padding:14px;font-weight:900}
 .page{display:none;min-height:100vh;background:#fff;max-width:480px;margin:auto}
 .page.active{display:block}
 .box{padding:20px}
-.btn{background:#0a7a2e;color:#fff;border:0;padding:18px;border-radius:14px;width:100%;font-weight:800;margin-top:12px;cursor:pointer}
-.btn2{background:#eef7ee;color:#0a7a2e;border:1px solid #cfe9cf;padding:14px;border-radius:12px;width:100%;font-weight:700;margin-top:8px;cursor:pointer}
-.card{background:#f8fff8;border:1px solid #d9f0d9;padding:12px;border-radius:12px;margin:8px 0}
-.driverCard{background:#fff;border:2px solid #0a7a2e;padding:12px;border-radius:12px;margin:8px 0}
-.badge{background:#0a7a2e;color:#fff;padding:3px 8px;border-radius:10px;font-size:11px}
-.hdrBlack{background:#111!important}
-.btnBlack{background:#111!important}
-.stat{display:grid;grid-template-columns:1fr 1fr;gap:8px}
-.statBox{background:#f8fff8;border:1px solid #d9f0d9;padding:10px;border-radius:12px;text-align:center}
-.toggle{width:50px;height:28px;background:#ccc;border-radius:20px;position:relative;cursor:pointer;display:inline-block}
-.toggle.on{background:#0a7a2e}
-.toggleDot{width:22px;height:22px;background:#fff;border-radius:50%;position:absolute;top:3px;left:3px;transition:0.3s}
-.toggle.on .toggleDot{left:25px}
+.btn{background:#0a7a2e;color:#fff;border:0;padding:16px;border-radius:12px;width:100%;margin-top:10px;font-weight:800}
+.btn2{background:#eef7ee;color:#0a7a2e;border:1px solid #cfe9cf;padding:14px;border-radius:12px;width:100%;margin-top:8px}
+.card{background:#f8fff8;border:1px solid #d9f0d9;padding:12px;border-radius:10px;margin:8px 0}
 </style>
 </head>
 <body>
 
-<div id="H1" class="page active"><div class="hdr"><div class="logo">RG</div>Ride Go V5.5 Full</div><div class="box" style="text-align:center"><div style="width:80px;height:80px;background:#0a7a2e;color:#fff;border-radius:20px;display:flex;align-items:center;justify-content:center;font-size:36px;margin:20px auto">RG</div><h2 style="color:#0a7a2e">V5.5 ক,খ যুক্ত</h2><button class="btn" onclick="goPage('H2')">শুরু করুন → H2</button></div></div>
+<div id="H1" class="page active"><div class="hdr">Ride Go V5.5 Live Fix</div><div class="box" style="text-align:center"><h2 style="color:#0a7a2e">Live Test OK</h2><p>যদি এইটা Live হয় - তাহলে Full বসবে</p><button class="btn" onclick="goPage('H2')">H2 →</button><button class="btn2" onclick="goPage('P1')">P1 যাত্রী →</button><button class="btn2" onclick="goPage('P3')">P3 চালক লিস্ট ক,খ →</button></div></div>
 
-<div id="H2" class="page"><div class="hdr"><div class="logo">RG</div>H2 নিবন্ধন</div><div class="box"><input id="reg-name" placeholder="নাম *"><input id="reg-phone" placeholder="মোবাইল 01XXXXXXXXX *"><button class="btn" onclick="doReg()">→ H5</button></div></div>
+<div id="H2" class="page"><div class="hdr">H2 নিবন্ধন</div><div class="box"><input id="reg-name" placeholder="নাম"><input id="reg-phone" placeholder="মোবাইল"><button class="btn" onclick="goPage('H5')">H5 →</button></div></div>
 
-<div id="H5" class="page"><div class="hdr"><div class="logo" onclick="tapLogo()">RG</div><div style="flex:1">H5 শাখা <span id="userShow"></span></div></div><div class="box"><div style="background:#0a7a2e;color:#fff;padding:16px;border-radius:14px;margin:10px 0;cursor:pointer" onclick="goPage('P1')">🧍 যাত্রী নতুন 8 পেজ ক,খ →</div><div style="background:#fff;border:2px solid #0a7a2e;padding:16px;border-radius:14px;margin:10px 0;cursor:pointer" onclick="goPage('DP')">🏍️ চালক →</div><div id="ownerSecret" style="display:none;background:#111;color:#fff;padding:16px;border-radius:14px;border:2px solid gold;margin:10px 0;cursor:pointer" onclick="goPage('W1')">🏢 Owner W1-W13 →</div><button class="btn2" onclick="doLogout()">লগআউট</button><div style="font-size:11px;margin-top:10px">Logo 3x Tap = Owner | <span id="tapCount">0/3</span></div></div></div>
+<div id="H5" class="page"><div class="hdr">H5 শাখা</div><div class="box"><button class="btn" onclick="goPage('P1')">যাত্রী P1-P8 নতুন ক,খ →</button><button class="btn2" onclick="goPage('H1')">Back H1</button></div></div>
 
-<div id="DP" class="page"><div class="hdr"><div class="logo">RG</div>DP প্রোফাইল</div><div class="box"><input id="d-name" placeholder="নাম"><input id="d-vehicle" placeholder="গাড়ি নাম্বার"><select id="d-type"><option>Bike</option><option>CNG</option><option>Car</option></select><button class="btn" onclick="saveDP()">Save → D1</button></div></div>
+<div id="P1" class="page"><div class="hdr">P1 লোকেশন - যুক্ত</div><div class="box"><input placeholder="Pickup - Nazirhat"><input placeholder="Drop - Muradpur"><button class="btn" onclick="goPage('P2')">P2 গাড়ি →</button></div></div>
 
-<div id="P1" class="page"><div class="hdr"><div class="logo">RG</div>P1 লোকেশন যুক্ত</div><div class="box"><input id="pickup" placeholder="Pickup - Nazirhat"><input id="drop" placeholder="Drop - Muradpur"><button class="btn" onclick="goPage('P2')">Next P2 →</button></div></div>
+<div id="P2" class="page"><div class="hdr">P2 গাড়ি - যুক্ত</div><div class="box"><div class="card" onclick="goPage('P3')">🚕 CNG →</div><div class="card" onclick="goPage('P3')">🏍️ Bike →</div><button class="btn2" onclick="goPage('P1')">Back</button></div></div>
 
-<div id="P2" class="page"><div class="hdr"><div class="logo">RG</div>P2 গাড়ি যুক্ত</div><div class="box"><div class="card" onclick="selectVehicle('CNG')">🚕 CNG →</div><div class="card" onclick="selectVehicle('Bike')">🏍️ Bike →</div><div class="card" onclick="selectVehicle('Car')">🚗 Car →</div><button class="btn2" onclick="goPage('P1')">Back</button></div></div>
+<div id="P3" class="page"><div class="hdr">P3 চালক লিস্ট P15 - ক,খ যুক্ত</div><div class="box"><p style="font-size:12px;background:#eef7ee;padding:8px;border-radius:6px">3KM - কাছে আগে - যুক্ত</p><div class="card"><b>Rahim - 0.5KM</b><br><button class="btn2" onclick="goPage('P4')">ক. একক নক - টিং - যুক্ত</button></div><div class="card"><b>Karim - 1.2KM</b><br><button class="btn2" onclick="goPage('P4')">ক. একক নক - যুক্ত</button></div><button class="btn" style="background:#ff6b00" onclick="goPage('P4')">খ. সবাইকে নক 3KM - টিইইই - যুক্ত</button></div></div>
 
-<div id="P3" class="page"><div class="hdr"><div class="logo">RG</div>P3 চালক লিস্ট যুক্ত P15</div><div class="box"><p style="font-size:12px;background:#eef7ee;padding:6px;border-radius:6px">3KM ভিতরে - <span id="vTypeShow">CNG</span> - কাছে আগে</p><div id="driverList"></div><button class="btn" style="background:#ff6b00" onclick="knockAll()">খ. সবাইকে নক - 3KM সবাই - Ring টিইইইই যুক্ত</button><button class="btn2" onclick="goPage('P2')">Back</button></div></div>
+<div id="P4" class="page"><div class="hdr">P4 Ring যুক্ত</div><div class="box" style="text-align:center"><p style="background:#fffbe6;padding:12px">ক = টিং টিং ছোট<br>খ = টিইইই জোরে - যুক্ত</p><button class="btn" onclick="goPage('P5')">P5 ভাড়া →</button></div></div>
 
-<div id="P4" class="page"><div class="hdr"><div class="logo">RG</div>P4 Ring যুক্ত</div><div class="box" style="text-align:center"><p id="knockInfo" style="background:#fffbe6;padding:12px;border-radius:10px">Ring বাজছে...</p><div style="font-size:40px;margin:15px">🔔</div><p style="font-size:12px">ক = টিং টিং ছোট - যুক্ত<br>খ = টিইইইই জোরে - যুক্ত</p><button class="btn" onclick="playKa()">🔊 Test ক Ring</button><button class="btn" style="background:#ff6b00" onclick="playKha()">🔊 Test খ Ring</button><button class="btn" style="background:#111;margin-top:20px" onclick="goPage('P5')">Accept → P5 ভাড়া যুক্ত</button></div></div>
+<div id="P5" class="page"><div class="hdr">P5 ভাড়া আলোচনা যুক্ত</div><div class="box"><input type="number" placeholder="500 - শুধু সংখ্যা যুক্ত"><button class="btn" onclick="goPage('P6')">Confirm → P6</button></div></div>
 
-<div id="P5" class="page"><div class="hdr"><div class="logo">RG</div>P5 ভাড়া আলোচনা যুক্ত 6 নং</div><div class="box"><p style="text-align:center">শুধু সংখ্যা - যুক্ত</p><input id="fareInput" type="number" placeholder="500"><button class="btn2" onclick="addFare('যাত্রী')">যাত্রী: <span id="fareShow1">500</span> - Add</button><div class="card">চালক: <span id="fareShow2">450</span> - Counter যুক্ত</div><button class="btn" onclick="confirmFare()">Confirm যুক্ত → P6</button></div></div>
+<div id="P6" class="page"><div class="hdr">P6 Free যুক্ত</div><div class="box" style="text-align:center"><h3>Free 0৳ যুক্ত</h3><button class="btn" onclick="goPage('P7')">P7 নাম্বার →</button></div></div>
 
-<div id="P6" class="page"><div class="hdr"><div class="logo">RG</div>P6 Free পেমেন্ট যুক্ত 7 নং</div><div class="box" style="text-align:center"><h3>Free - 0৳ যুক্ত</h3><p style="font-size:11px">এখন Free - পরে bKash যুক্ত হবে</p><div class="card" style="background:#eef7ee">✅ Free Select - যুক্ত</div><button class="btn" onclick="goPage('P7')">Free Confirm → P7 যুক্ত</button></div></div>
+<div id="P7" class="page"><div class="hdr">P7 নাম্বার Call যুক্ত</div><div class="box"><div class="card"><a href="tel:01700000000">📞 Call চালক - যুক্ত</a></div><button class="btn" onclick="goPage('P8')">P8 Riding →</button></div></div>
 
-<div id="P7" class="page"><div class="hdr"><div class="logo">RG</div>P7 নাম্বার কল যুক্ত</div><div class="box"><div class="card" style="display:block"><b>চালক Rahim 0.5KM</b><br><a href="tel:01700000000" style="color:#0a7a2e;font-weight:900">📞 01700-000000 Call যুক্ত</a></div><div class="card">📍 Live Location 500m - যুক্ত</div><button class="btn" onclick="goPage('P8')">→ P8 Riding যুক্ত</button></div></div>
-
-<div id="P8" class="page"><div class="hdr"><div class="logo">RG</div>P8 Riding যুক্ত</div><div class="box" style="text-align:center"><p id="rideStatus">🚕 Riding... Nazirhat → Muradpur<br>💰 <span id="finalFare">500</span>৳ - যুক্ত</p><button class="btn" id="startBtn" onclick="startRide()">Riding শুরু যুক্ত</button><button class="btn" id="endBtn" style="display:none;background:#111" onclick="endRide()">Riding শেষ যুক্ত → রেটিং</button><div id="ratingBox" style="display:none"><p style="font-size:28px">⭐⭐⭐⭐⭐ যুক্ত</p><button class="btn" onclick="goPage('H5')">Home H5</button></div></div></div>
-
-<div id="D1" class="page"><div class="hdr"><div class="logo">RG</div>D1 Online যুক্ত</div><div class="box"><div class="card" style="display:flex;justify-content:space-between">Location ON - P3 তে আসবেন <div class="toggle" id="onlineToggle" onclick="toggleOnline()"><div class="toggleDot"></div></div></div><div class="card">📍 Nazirhat 500৳ - Ring টিং যুক্ত <b style="color:green">Accept</b></div><div class="card">📍 3KM খ নক - Ring টিইইই যুক্ত <b style="color:#ff6b00">Accept</b></div><button class="btn" onclick="goPage('D2')">Accept D2</button></div></div>
-<div id="D2" class="page"><div class="hdr"><div class="logo">RG</div>D2 Map</div><div class="box"><div style="height:180px;background:#e6ffe9;border-radius:12px;display:flex;align-items:center;justify-content:center">500m away - যুক্ত</div><button class="btn" onclick="goPage('D3')">D3 →</button></div></div>
-<div id="D3" class="page"><div class="hdr"><div class="logo">RG</div>D3 Riding</div><div class="box"><p style="text-align:center">যাত্রী নিয়ে যাচ্ছি... যুক্ত</p><button class="btn" onclick="goPage('D4')">D4 →</button></div></div>
-<div id="D4" class="page"><div class="hdr"><div class="logo">RG</div>D4 Income</div><div class="box"><div class="stat"><div class="statBox">আজ 1200৳</div><div class="statBox">মাসে 25000৳</div></div><button class="btn" onclick="goPage('H5')">Home</button></div></div>
-
-<div id="W1" class="page"><div class="hdr hdrBlack"><div class="logo">RG</div>W1 Owner</div><div class="box"><input id="masterPass" type="password" placeholder="12345678"><input id="ownerIdInput" placeholder="RG-OWNER-9294-BD"><button class="btn btnBlack" onclick="ownerLogin()">→ W2</button></div></div>
-<div id="W3" class="page"><div class="hdr hdrBlack"><div class="logo">RG</div>W3 Dashboard যুক্ত</div><div class="box"><div class="stat"><div class="statBox">User 1250</div><div class="statBox">Driver 320</div><div class="statBox">Today 85</div><div class="statBox">Free 25 - যুক্ত</div></div><button class="btn btnBlack" onclick="goPage('W4')">W4 ক,খ Log যুক্ত →</button></div></div>
-<div id="W4" class="page"><div class="hdr hdrBlack"><div class="logo">RG</div>W4 ক,খ Log যুক্ত</div><div class="box"><div class="card">ক নক - Rahim 0.5KM - Ring টিং - যুক্ত</div><div class="card">খ নক - 5 জন - Ring টিইই - যুক্ত</div><button class="btn2" onclick="goPage('W5')">W5 3KM যুক্ত →</button></div></div>
-<div id="W5" class="page"><div class="hdr hdrBlack"><div class="logo">RG</div>W5 3KM Live যুক্ত</div><div class="box"><div class="card">Rahim 0.5KM Online - যুক্ত</div><div class="card">Karim 1.2KM - যুক্ত</div><button class="btn2" onclick="goPage('W6')">W6 ভাড়া History যুক্ত →</button></div></div>
-<div id="W6" class="page"><div class="hdr hdrBlack"><div class="logo">RG</div>W6 ভাড়া History যুক্ত</div><div class="box"><div class="card">500 → 450 → 470 Final - যুক্ত</div><div class="card">Free Ride 25 - যুক্ত</div><button class="btn2" onclick="goPage('W8')">W8 Ring Setting যুক্ত →</button></div></div>
-<div id="W8" class="page"><div class="hdr hdrBlack"><div class="logo">RG</div>W8 Ring Setting যুক্ত</div><div class="box"><div class="card">ক Ring - টিং টিং - Volume যুক্ত</div><div class="card">খ Ring - টিইইই - Volume যুক্ত</div><div class="card">3KM Distance - 2KM/5KM Change যুক্ত</div><button class="btn2" onclick="goPage('W13')">W13 Notification Log যুক্ত →</button></div></div>
-<div id="W13" class="page"><div class="hdr hdrBlack"><div class="logo">RG</div>W13 Log যুক্ত - নতুন</div><div class="box"><div class="card">10:14 যাত্রী 018xx - Rahim কে ক নক - যুক্ত</div><div class="card">10:15 যাত্রী 018xx - 3KM খ নক 5 জন - যুক্ত</div><div class="card">10:16 Accept - Rahim - যুক্ত</div><button class="btn btnBlack" onclick="goPage('H5')">Home</button></div></div>
-
-<div id="AZ" class="page"><div class="hdr"><div class="logo">RG</div>AZ V5.5 যুক্ত</div><div class="box"><p style="font-size:12px">✅ সব যুক্ত - ক,খ, Ring, 3KM, Free, Call, Riding, W13</p><button class="btn" onclick="goPage('H5')">Home</button></div></div>
+<div id="P8" class="page"><div class="hdr">P8 Riding যুক্ত</div><div class="box" style="text-align:center"><p>🚕 Riding Nazirhat → Muradpur - যুক্ত</p><button class="btn" onclick="goPage('H1')">Home - Live OK</button></div></div>
 
 <script>
-var tap=0; var finalFareVal=500; var isOnline=false;
 function goPage(id){
  var pages=document.getElementsByClassName('page');
  for(var i=0;i<pages.length;i++){ pages[i].style.display='none'; pages[i].classList.remove('active'); }
- var el=document.getElementById(id); if(el){ el.style.display='block'; el.classList.add('active'); }
- if(id==='H5'){ var us=document.getElementById('userShow'); if(us) us.innerText=localStorage.getItem('userPhone')||''; }
+ var el=document.getElementById(id);
+ if(el){ el.style.display='block'; el.classList.add('active'); }
  window.scrollTo(0,0);
 }
-function selectVehicle(v){ var s=document.getElementById('vTypeShow'); if(s) s.innerText=v; loadDrivers(v); goPage('P3'); }
-function loadDrivers(v){
- var list=document.getElementById('driverList'); var html='';
- var drivers=[{n:'Rahim',km:'0.5KM',r:'4.9'},{n:'Karim',km:'1.2KM',r:'4.8'},{n:'Josim',km:'2.1KM',r:'4.7'}];
- for(var i=0;i<drivers.length;i++){
-   var d=drivers[i];
-   html+='<div class="driverCard"><b>👨‍✈️ '+d.n+' - '+d.km+' - ⭐'+d.r+'</b><br>'+v+'<br><button class="btn2" onclick="knockSingle(\''+d.n+'\')">ক. একক নক যুক্ত - টিং</button></div>';
- }
- list.innerHTML=html;
-}
-function playKa(){
- try{ var ctx=new (window.AudioContext||window.webkitAudioContext)(); var o=ctx.createOscillator(); o.frequency.value=800; o.connect(ctx.destination); o.start(); setTimeout(function(){o.stop();},200); }catch(e){ alert('ক Ring টিং টিং - যুক্ত'); }
-}
-function playKha(){
- try{ var ctx=new (window.AudioContext||window.webkitAudioContext)(); var o=ctx.createOscillator(); o.frequency.value=300; o.connect(ctx.destination); o.start(); setTimeout(function(){o.stop();},1000); }catch(e){ alert('খ Ring টিইইই - যুক্ত'); }
-}
-function knockSingle(name){ var ki=document.getElementById('knockInfo'); if(ki) ki.innerText='ক. '+name+' কে নক - টিং টিং Ring যুক্ত - 0.5KM'; playKa(); goPage('P4'); }
-function knockAll(){ var ki=document.getElementById('knockInfo'); if(ki) ki.innerText='খ. 3KM সবাইকে - টিইইই Ring যুক্ত - 4 জন'; playKha(); goPage('P4'); }
-function addFare(who){ var f=document.getElementById('fareInput').value||'500'; if(who==='যাত্রী'){ var s1=document.getElementById('fareShow1'); if(s1) s1.innerText=f; } }
-function confirmFare(){ var f=document.getElementById('fareInput').value; if(f) finalFareVal=f; var ff=document.getElementById('finalFare'); if(ff) ff.innerText=finalFareVal; goPage('P6'); }
-function startRide(){ var rs=document.getElementById('rideStatus'); if(rs) rs.innerText='Riding Started যুক্ত...'; document.getElementById('startBtn').style.display='none'; document.getElementById('endBtn').style.display='block'; }
-function endRide(){ document.getElementById('rideStatus').style.display='none'; document.getElementById('endBtn').style.display='none'; document.getElementById('ratingBox').style.display='block'; }
-function toggleOnline(){ isOnline=!isOnline; var t=document.getElementById('onlineToggle'); if(isOnline) t.classList.add('on'); else t.classList.remove('on'); localStorage.setItem('driverOnline',isOnline); }
-function tapLogo(){ tap++; var c=document.getElementById('tapCount'); if(c) c.innerText=tap+'/3'; if(tap>=3){ var o=document.getElementById('ownerSecret'); if(o) o.style.display='block'; alert('Owner Unlocked যুক্ত'); tap=0; } setTimeout(function(){ tap=0; var cc=document.getElementById('tapCount'); if(cc) cc.innerText='0/3'; },3000); }
-function doReg(){ var n=document.getElementById('reg-name').value.trim(); var ph=document.getElementById('reg-phone').value.trim(); if(!n||ph.length<11){ alert('নাম ও মোবাইল দিন'); return; } localStorage.setItem('userName',n); localStorage.setItem('userPhone',ph); localStorage.setItem('isRegistered','true'); goPage('H5'); }
-function checkLogin(){ if(localStorage.getItem('isRegistered')) goPage('H5'); else goPage('H1'); }
-function doLogout(){ if(confirm('Logout?')){ localStorage.removeItem('isRegistered'); goPage('H1'); } }
-function saveDP(){ var d={name:document.getElementById('d-name').value,vehicle:document.getElementById('d-vehicle').value,type:document.getElementById('d-type').value}; localStorage.setItem('driverProfile',JSON.stringify(d)); goPage('D1'); }
-function ownerLogin(){ var mp=document.getElementById('masterPass').value; var oid=document.getElementById('ownerIdInput').value; if(mp==='12345678'&&oid==='RG-OWNER-9294-BD') goPage('W3'); else alert('ভুল'); }
-window.onload=checkLogin;
+window.onload=function(){ goPage('H1'); }
 </script>
 </body>
 </html>
