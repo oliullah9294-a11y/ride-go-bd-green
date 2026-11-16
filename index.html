@@ -1,66 +1,16 @@
-<!DOCTYPE html>
-<html lang="bn">
-<head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>RG V7.8 FIXED - H2 Found</title>
-<style>
-body{margin:0;font-family:sans-serif;background:#f2f2f2}
-.page{display:none;min-height:100vh;max-width:480px;margin:0 auto;background:#fff}
-.page.active{display:block}
-.hdr{background:#0a7a2e;color:#fff;padding:14px;font-weight:900;position:sticky;top:0}
-.box{padding:20px}
-.btn{background:#0a7a2e;color:#fff;border:0;padding:18px;border-radius:14px;width:100%;font-weight:800;font-size:18px;margin-top:12px}
-.btn2{background:#eef7ee;color:#0a7a2e;border:1px solid #cfe9cf;padding:14px;border-radius:14px;width:100%;font-weight:700;margin-top:10px}
-.card{background:#f8fff8;border:1px solid #d9f0d9;padding:14px;border-radius:14px;margin:10px 0}
-</style>
-</head>
-<body>
+// OLD - Fail
+function goPage(id){document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));...}
 
-<!-- H1 -->
-<div id="H1" class="page active"><div class="hdr">RG Ride Go BD Green - H1</div><div class="box" style="text-align:center"><h1 style="background:#0a7a2e;color:#fff;width:80px;height:80px;border-radius:20px;display:flex;align-items:center;justify-content:center;margin:20px auto">RG</h1><h2 style="color:#0a7a2e">V7.8 FIXED - H2 Found</h2><button class="btn" onclick="goH2()">শুরু করুন → H2 - 100% যাবে</button><p style="font-size:11px;margin-top:10px">H2 ID Check: OK</p></div></div>
-
-<!-- H2 - 100% আছে - এই ID টাই আগে পাওয়া যায়নি -->
-<div id="H2" class="page"><div class="hdr">H2 নিবন্ধন - FOUND</div><div class="box"><input id="reg-name" placeholder="নাম *"><input id="reg-phone" placeholder="মোবাইল 01XXXXXXXXX *"><input id="sponsor-no" placeholder="স্পন্সর কোড"><button class="btn" onclick="goPage('H5')">Confirm → H5</button><button class="btn2" onclick="goPage('H1')">Back H1</button></div></div>
-
-<!-- H5 - 3 দিকে -->
-<div id="H5" class="page"><div class="hdr">H5 শাখা - Main Gate - 3 দিকে</div><div class="box"><div class="card" onclick="goPage('P1')">🧍 যাত্রী - P1→P15→P8 - CNG→ড্রাইভার নাম+ক,খ</div><div class="card" onclick="goPage('DP')">🏍️ চালক - DP→D4</div><div class="card" onclick="goPage('W1')">👑 Owner - W1→W12</div><button class="btn2" onclick="goPage('H1')">Home H1</button></div></div>
-
-<div id="P1" class="page"><div class="hdr">P1 গাড়ি - CNG টাচ → ড্রাইভার নাম</div><div class="box"><div class="card" onclick="goPage('P15')">🚕 CNG - 500৳ → ড্রাইভার নাম</div><div class="card" onclick="goPage('P15')">🏍️ Bike - 300৳ →</div><button class="btn2" onclick="goPage('H5')">Back H5</button></div></div>
-
-<div id="P15" class="page"><div class="hdr">P15 ড্রাইভার লিস্ট - 3KM</div><div class="box"><div class="card" style="display:block;border:2px solid #0a7a2e"><b>👨 করিম - CNG - 0.5KM - 01712-111111</b><br><button class="btn" onclick="goPage('P2')">🔔 ক. টিং - 1 জন</button></div><div class="card" style="display:block"><b>👨 রহিম - 0.8KM</b><br><button class="btn" onclick="goPage('P2')">🔔 ক. টিং</button></div><button class="btn" style="background:#f97316" onclick="goPage('P2')">📢 খ. টিইইই - সবাইকে - 3KM</button><button class="btn2" onclick="goPage('P1')">Back P1</button></div></div>
-
-<div id="P2" class="page"><div class="hdr">P2 Map</div><div class="box"><button class="btn" onclick="goPage('P3')">P3 →</button></div></div>
-<div id="P3" class="page"><div class="hdr">P3</div><div class="box"><button class="btn" onclick="goPage('H5')">Home H5</button></div></div>
-<div id="DP" class="page"><div class="hdr">DP</div><div class="box"><button class="btn" onclick="goPage('H5')">Back H5</button></div></div>
-<div id="W1" class="page"><div class="hdr" style="background:#111;color:#fff">W1 Owner</div><div class="box"><button class="btn" style="background:#111" onclick="goPage('H5')">Back H5</button></div></div>
-
-<script>
+// NEW - 100% কাজ করবে - Step by Step
 function goPage(id){
-  // Alert বাদ - Force show
   var pages=document.querySelectorAll('.page');
-  for(var i=0;i<pages.length;i++){ pages[i].classList.remove('active'); pages[i].style.display='none'; }
+  for(var i=0;i<pages.length;i++){ // for loop - পুরানো ফোনেও চলবে
+    pages[i].classList.remove('active');
+    pages[i].style.display='none'; // !important বাদ
+  }
   var el=document.getElementById(id);
   if(el){
     el.classList.add('active');
-    el.style.display='block';
-    window.scrollTo(0,0);
-  }else{
-    // H2 না পেলে H2 কে Force বানাও
-    console.log('Page '+id+' not found, forcing');
-    var h2=document.getElementById('H2');
-    if(h2){ h2.classList.add('active'); h2.style.display='block'; }
+    el.style.display='block'; // Force Show
   }
 }
-function goH2(){
-  // Double guarantee - সরাসরি H2 দেখাও
-  var h1=document.getElementById('H1');
-  var h2=document.getElementById('H2');
-  if(h1){ h1.classList.remove('active'); h1.style.display='none'; }
-  if(h2){ h2.classList.add('active'); h2.style.display='block'; }
-  else{
-    document.body.innerHTML='<div style="padding:20px;text-align:center"><h2>H2 পাওয়া যায়নি - Vercel Cache Clear করুন</h2><p>Chrome → 3 dot → Settings → Site Settings → Storage → d-green.vercel.app → Clear & Reset</p><button onclick="location.reload(true)" style="padding:14px;background:#0a7a2e;color:#fff;border:0;border-radius:10px;width:100%">Reload</button></div>';
-  }
-}
-</script>
-</body>
-</html>
