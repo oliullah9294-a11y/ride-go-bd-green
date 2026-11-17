@@ -2,67 +2,90 @@
 <html lang="bn">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Ride Go V5.5 Live Design Premium</title>
+<title>Ride Go BD - Red Design</title>
 <style>
 *{box-sizing:border-box;margin:0;padding:0;font-family:sans-serif}
-body{background:#eef6ee}
-.hdr{background:linear-gradient(135deg,#0a7a2e,#14a843);color:#fff;padding:16px 20px;display:flex;gap:12px;align-items:center;font-weight:900;position:sticky;top:0;z-index:99;box-shadow:0 4px 20px #0a7a2e33}
-.logo{background:#fff;color:#0a7a2e;width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-weight:900;cursor:pointer;box-shadow:0 2px 10px #0002}
-.page{display:none;min-height:100vh;background:#fff;max-width:480px;margin:auto;box-shadow:0 0 40px #0001}
-.page.active{display:block;animation:fadeIn 0.3s}
-@keyframes fadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
-.box{padding:22px}
-.btn{background:linear-gradient(135deg,#0a7a2e,#14a843);color:#fff;border:0;padding:18px;border-radius:16px;width:100%;font-weight:800;margin-top:14px;cursor:pointer;font-size:16px;box-shadow:0 6px 18px #0a7a2e30;transition:0.2s}
-.btn:active{transform:scale(0.97)}
-.btn2{background:#eef7ee;color:#0a7a2e;border:1.5px solid #cfe9cf;padding:15px;border-radius:16px;width:100%;font-weight:700;margin-top:10px;cursor:pointer;transition:0.2s}
-.card{background:#f8fff8;border:1px solid #d9f0d9;padding:16px;border-radius:16px;margin:12px 0;box-shadow:0 2px 8px #00006;transition:0.2s}
-.driverCard{background:#fff;border:2px solid #0a7a2e;padding:14px;border-radius:16px;margin:10px 0;box-shadow:0 4px 12px #0a7a2e15}
-.driverCard:hover{transform:translateY(-2px)}
-.stat{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.statBox{background:linear-gradient(135deg,#f8fff8,#eef7ee);border:1px solid #d9f0d9;padding:14px;border-radius:16px;text-align:center;box-shadow:0 2px 6px #00005}
-.toggle{width:52px;height:30px;background:#ddd;border-radius:20px;position:relative;cursor:pointer;display:inline-block;transition:0.3s}
+body{background:#c00}
+.page{display:none;min-height:100vh;max-width:480px;margin:auto;background:radial-gradient(circle at 50% 35%,#fff 40%,#ffe6e6 70%,#ffb3b3 100%);position:relative;overflow:hidden}
+.page:before{content:'';position:absolute;top:0;left:-20%;width:140%;height:55%;background:#fff;border-radius:0 0 60% 60%;z-index:0}
+.page:after{content:'';position:absolute;bottom:-10%;left:-20%;width:140%;height:50%;background:#fff;border-radius:60% 60% 0 0;z-index:0}
+.page.active{display:block}
+.hdr{position:relative;z-index:2;display:flex;align-items:center;gap:8px;padding:14px 18px;font-weight:900;color:#0a7a2e;background:transparent}
+.logoTop{display:flex;align-items:center;gap:6px}
+.carIcon{width:60px;height:30px;background:url('data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22><text y=%2220%22 font-size=%2220%22>🚗</text></svg>')}
+.box{position:relative;z-index:2;padding:20px;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:85vh}
+.heroImg{width:100%;height:340px;background:linear-gradient(#87ceeb,#fff);border-radius:20px;display:flex;align-items:center;justify-content:center;font-size:80px;box-shadow:0 10px 30px #0002;overflow:hidden;position:relative}
+.heroImg:before{content:'🏙️';position:absolute;top:10px;left:0;right:0;text-align:center;font-size:100px;opacity:0.3}
+.btnRed{background:linear-gradient(135deg,#0a7a2e,#14b848);color:#fff;border:0;padding:18px 24px;border-radius:24px;width:100%;max-width:340px;font-weight:800;font-size:18px;margin-top:14px;cursor:pointer;box-shadow:0 6px 16px #0a7a2e50;display:flex;align-items:center;justify-content:center;gap:10px}
+.btnWhite{background:#fff;color:#000;border:2px solid #0a7a2e;padding:14px 24px;border-radius:24px;width:100%;max-width:340px;font-weight:700;font-size:16px;margin-top:12px;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:10px;box-shadow:0 4px 12px #0001}
+.inputBox{background:#fff;border-radius:24px;padding:14px 18px;width:100%;max-width:340px;margin:8px 0;display:flex;align-items:center;gap:12px;box-shadow:0 4px 12px #0001;border:1px solid #e0e0e0}
+.inputBox input{border:0;outline:none;width:100%;font-size:16px}
+.iconRed{width:80px;height:80px;background:#d00;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:40px;color:#fff;box-shadow:0 6px 18px #d003; margin-bottom:20px}
+.toggle{width:52px;height:30px;background:#ddd;border-radius:20px;position:relative;cursor:pointer;display:inline-block}
 .toggle.on{background:#0a7a2e}
-.toggleDot{width:24px;height:24px;background:#fff;border-radius:50%;position:absolute;top:3px;left:3px;transition:0.3s;box-shadow:0 2px 4px #0002}
+.toggleDot{width:24px;height:24px;background:#fff;border-radius:50%;position:absolute;top:3px;left:3px;transition:0.3s}
 .toggle.on .toggleDot{left:25px}
-input,select{width:100%;padding:16px;border-radius:14px;border:1.5px solid #d0d0d0;margin:10px 0;font-size:16px;transition:0.2s}
-input:focus,select:focus{border-color:#0a7a2e;outline:none;box-shadow:0 0 0 3px #0a7a2e20}
-.pulse{animation:pulse 1.5s infinite}
-@keyframes pulse{0%{transform:scale(1)}50%{transform:scale(1.15)}100%{transform:scale(1)}}
-.badge{background:#0a7a2e;color:#fff;padding:6px 12px;border-radius:20px;font-size:11px;font-weight:800}
 </style>
 </head>
 <body>
 
-<div id="H1" class="page active"><div class="hdr"><div class="logo">RG</div>Ride Go BD Green Premium Design</div><div class="box" style="text-align:center"><div style="width:90px;height:90px;background:linear-gradient(135deg,#0a7a2e,#14a843);color:#fff;border-radius:24px;display:flex;align-items:center;justify-content:center;font-size:42px;font-weight:900;margin:30px auto;box-shadow:0 8px 24px #0a7a2e40">RG</div><h2 style="color:#0a7a2e">Live Fix 2 - Design যুক্ত</h2><p style="font-size:13px;color:#666;margin-top:6px">Safe Ride • Premium Design • যুক্ত</p><button class="btn" onclick="goPage('H2')">H2 নিবন্ধন →</button><button class="btn2" onclick="goPage('P1')">P1 যাত্রী - Premium →</button></div></div>
+<div id="H1" class="page active">
+<div class="hdr"><span style="font-size:22px">🚗💨</span><span style="color:#0a7a2e">Ride Go</span><span style="color:#d00">BD</span><span style="margin-left:auto;background:#fff;border-radius:20px;padding:4px 10px;font-size:12px;border:1px solid #ddd">🌐 বাংলা</span></div>
+<div class="box">
+<div class="heroImg">🚙<div style="position:absolute;bottom:0;left:0;right:0;height:100px;background:linear-gradient(transparent,#0002)"></div></div>
+<button class="btnRed" onclick="goPage('H2')">👤+ নতুন? নিবন্ধন করুন</button>
+<button class="btnWhite" onclick="goPage('H3')">↗️ অ্যাকাউন্ট আছে? লগইন করুন</button>
+</div>
+</div>
 
-<div id="H2" class="page"><div class="hdr"><div class="logo">RG</div>H2 নিবন্ধন</div><div class="box"><input id="reg-name" placeholder="নাম *"><input id="reg-phone" placeholder="মোবাইল *"><button class="btn" onclick="doReg()">→ H5</button></div></div>
+<div id="H2" class="page">
+<div class="hdr"><span>🚗💨</span><span style="color:#0a7a2e">Ride Go</span><span style="color:#d00">BD</span></div>
+<div class="box">
+<div class="iconRed">👤+</div>
+<div class="inputBox"><span style="color:#0a7a2e;font-size:20px">👤</span><input id="reg-name" placeholder="আপনার নাম"></div>
+<div class="inputBox"><span style="color:#0a7a2e;font-size:20px">📞</span><input id="reg-phone" placeholder="ফোন নাম্বার"></div>
+<div class="inputBox"><span style="color:#0a7a2e;font-size:20px">👥</span><input id="reg-sponsor" placeholder="স্পন্সর নাম্বার"></div>
+<button class="btnRed" onclick="doReg()">✓ নিবন্ধন করুন</button>
+<button class="btnWhite" onclick="goPage('H1')">← পিছনে</button>
+</div>
+</div>
 
-<div id="H5" class="page"><div class="hdr"><div class="logo" onclick="tapLogo()">RG</div>H5 শাখা - <span id="userShow"></span></div><div class="box"><div style="background:linear-gradient(135deg,#0a7a2e,#14a843);color:#fff;border-radius:16px;padding:18px;margin-top:12px;cursor:pointer;box-shadow:0 6px 18px #0a7a2e30" onclick="goPage('P1')">🧍 যাত্রী P1-P8 ক,খ - Design যুক্ত →</div><div style="background:#fff;border:2px solid #0a7a2e;border-radius:16px;padding:18px;margin-top:12px;cursor:pointer" onclick="goPage('DP')">🏍️ চালক - Design যুক্ত →</div><div id="ownerSecret" style="display:none;background:#111;color:#fff;border-radius:16px;padding:18px;margin-top:12px;cursor:pointer;border:2px solid gold" onclick="goPage('W1')">🏢 Owner W1-W13 - Design যুক্ত →</div><button class="btn2" onclick="doLogout()">লগআউট</button><div style="font-size:11px;margin-top:10px;background:#fffbe6;padding:10px;border-radius:10px">Logo 3x Tap = Owner | <span id="tapCount">0/3</span></div></div></div>
+<div id="H3" class="page">
+<div class="hdr"><span>🚗💨</span><span style="color:#0a7a2e">Ride Go</span><span style="color:#d00">BD</span></div>
+<div class="box">
+<div class="iconRed">🔒</div>
+<div class="inputBox"><span style="color:#0a7a2e;font-size:20px">📱</span><input id="login-phone" placeholder="ফোন নাম্বার"></div>
+<button class="btnRed" onclick="goPage('H5')">↗️ লগইন করুন</button>
+<button class="btnWhite" onclick="goPage('H1')">← পিছনে</button>
+</div>
+</div>
 
-<div id="DP" class="page"><div class="hdr"><div class="logo">RG</div>DP প্রোফাইল</div><div class="box"><input id="d-name" placeholder="নাম"><input id="d-vehicle" placeholder="গাড়ি"><select id="d-type"><option>Bike</option><option>CNG</option><option>Car</option></select><button class="btn" onclick="saveDP()">Save → D1</button></div></div>
+<div id="H5" class="page">
+<div class="hdr"><span>🚗💨</span><span style="color:#0a7a2e">Ride Go</span><span style="color:#d00">BD</span></div>
+<div class="box">
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;width:100%;max-width:340px">
+<div style="background:linear-gradient(135deg,#0a7a2e,#14b848);color:#fff;border-radius:20px;padding:20px;text-align:center;cursor:pointer;box-shadow:0 6px 16px #0a7a2e40" onclick="goPage('P1')"><div style="font-size:40px">👤</div><b>যাত্রী</b></div>
+<div style="background:#fff;border:2px solid #0a7a2e;border-radius:20px;padding:20px;text-align:center;cursor:pointer" onclick="goPage('D1')"><div style="font-size:40px;color:#0a7a2e">🚗</div><b>গাড়ি</b></div>
+</div>
+<div style="margin-top:20px;display:flex;flex-direction:column;gap:10px;width:100%;max-width:340px">
+<button class="btnWhite" onclick="tapLogo()" style="justify-content:center"><span id="tapCount">0/3</span> Owner</button>
+<div id="ownerSecret" style="display:none" class="btnRed" onclick="goPage('W3')">🏢 Owner W1-W13</div>
+<button class="btnWhite" onclick="doLogout()">↗️ Logout</button>
+</div>
+</div>
+</div>
 
-<div id="P1" class="page"><div class="hdr"><div class="logo">RG</div>P1 লোকেশন যুক্ত</div><div class="box"><input id="pickup" placeholder="Pickup - Nazirhat"><input id="drop" placeholder="Drop - Muradpur"><button class="btn" onclick="goPage('P2')">P2 গাড়ি →</button></div></div>
-
-<div id="P2" class="page"><div class="hdr"><div class="logo">RG</div>P2 গাড়ি যুক্ত</div><div class="box"><div class="card" onclick="selectVehicle('CNG')">🚕 CNG <span class="badge">→</span></div><div class="card" onclick="selectVehicle('Bike')">🏍️ Bike <span class="badge">→</span></div><div class="card" onclick="selectVehicle('Car')">🚗 Car <span class="badge">→</span></div><button class="btn2" onclick="goPage('P1')">Back</button></div></div>
-
-<div id="P3" class="page"><div class="hdr"><div class="logo">RG</div>P3 চালক লিস্ট 3KM P15 যুক্ত</div><div class="box"><p style="font-size:12px;background:#eef7ee;padding:8px;border-radius:10px">3KM - কাছে আগে - <span id="vTypeShow">CNG</span> - Design যুক্ত</p><div id="driverList"></div><button class="btn" style="background:linear-gradient(135deg,#ff6b00,#ff8c32)" onclick="knockAll()">খ. সবাইকে নক - টিইইই যুক্ত</button></div></div>
-
-<div id="P4" class="page"><div class="hdr"><div class="logo">RG</div>P4 Ring যুক্ত - Design</div><div class="box" style="text-align:center"><p id="knockInfo" style="background:#fffbe6;padding:14px;border-radius:14px;box-shadow:0 2px 8px #00006">Ring বাজছে... - যুক্ত</p><div class="pulse" style="font-size:60px;margin:20px">🔔</div><button class="btn" onclick="playKa()">🔊 ক Ring টিং যুক্ত</button><button class="btn" style="background:linear-gradient(135deg,#ff6b00,#ff8c32)" onclick="playKha()">🔊 খ Ring টিইইই যুক্ত</button><button class="btn" style="background:#111;margin-top:20px" onclick="goPage('P5')">→ P5 ভাড়া</button></div></div>
-
-<div id="P5" class="page"><div class="hdr"><div class="logo">RG</div>P5 ভাড়া যুক্ত</div><div class="box"><input id="fareInput" type="number" placeholder="500"><div class="card"><b>ভাড়া:</b><span id="fareShow">500৳</span> - যুক্ত</div><button class="btn2" onclick="addFare()">Add যুক্ত</button><button class="btn" onclick="confirmFare()">Confirm → P6</button></div></div>
-
-<div id="P6" class="page"><div class="hdr"><div class="logo">RG</div>P6 Free যুক্ত</div><div class="box" style="text-align:center"><h3>Free 0৳ যুক্ত</h3><div class="card" style="background:#eef7ee;justify-content:center">✅ Free - Design যুক্ত</div><button class="btn" onclick="goPage('P7')">→ P7 Call</button></div></div>
-
-<div id="P7" class="page"><div class="hdr"><div class="logo">RG</div>P7 Call যুক্ত</div><div class="box"><div class="card" style="display:block"><b>Rahim 0.5KM - Design যুক্ত</b><br><a href="tel:01700000000" style="color:#0a7a2e;font-weight:900">📞 Call যুক্ত</a></div><button class="btn" onclick="goPage('P8')">→ P8</button></div></div>
-
-<div id="P8" class="page"><div class="hdr"><div class="logo">RG</div>P8 Riding যুক্ত</div><div class="box" style="text-align:center"><p id="rideStatus" style="padding:24px;background:#f8fff8;border-radius:16px">🚕 Nazirhat → Muradpur - <span id="finalFare">500</span>৳ - যুক্ত</p><button class="btn" id="startBtn" onclick="startRide()">Riding শুরু যুক্ত</button><button class="btn" id="endBtn" style="display:none;background:#111" onclick="endRide()">Riding শেষ যুক্ত</button><div id="ratingBox" style="display:none"><p style="font-size:32px">⭐⭐⭐⭐⭐ যুক্ত</p><button class="btn" onclick="goPage('H5')">Home</button></div></div></div>
-
-<div id="D1" class="page"><div class="hdr"><div class="logo">RG</div>D1 Toggle যুক্ত</div><div class="box"><div class="card" style="display:flex;justify-content:space-between;align-items:center">Location ON - P3 তে আসবেন - যুক্ত <div class="toggle" id="onlineToggle" onclick="toggleOnline()"><div class="toggleDot"></div></div></div><button class="btn" onclick="goPage('D2')">D2 →</button></div></div>
-<div id="D2" class="page"><div class="hdr"><div class="logo">RG</div>D2</div><div class="box"><div style="height:200px;background:#e6ffe9;border-radius:16px;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 12px #00008">500m - যুক্ত - Map Design</div><button class="btn" onclick="goPage('D3')">D3 →</button></div></div>
-<div id="D3" class="page"><div class="hdr"><div class="logo">RG</div>D3</div><div class="box"><button class="btn" onclick="goPage('D4')">D4 →</button></div></div>
-<div id="D4" class="page"><div class="hdr"><div class="logo">RG</div>D4</div><div class="box"><div class="stat"><div class="statBox">আজ<br><b>1200৳</b></div><div class="statBox">মাসে<br><b>25000৳</b></div></div><button class="btn" onclick="goPage('H5')">Home</button></div></div>
-
-<div id="W1" class="page"><div class="hdr" style="background:#111"><div class="logo">RG</div>W1 Owner</div><div class="box"><input id="masterPass" type="password" placeholder="12345678"><input id="ownerIdInput" placeholder="RG-OWNER-9294-BD"><button class="btn" style="background:#111" onclick="ownerLogin()">→ W3</button></div></div>
-<div id="W3" class="page"><div class="hdr" style="background:#111"><div class="logo">RG</div>W3 Dashboard যুক্ত - Design</div><div class="box"><div class="stat"><div class="statBox">User 1250</div><div class="statBox">Driver 320</div><div class="statBox">Today 85</div><div class="statBox">Free 25 যুক্ত</div></div><button class="btn" style="background:#111" onclick="goPage('W4')">W4 ক,খ Log →</button></div></div>
-<div id="W4" class="page"><div class="hdr" style="background:#111"><div class="logo">RG</div>W4 ক,খ Log যুক্ত</div><div class="box"><div class="card">ক নক - Rahim 0.5KM - টিং যুক্ত</div><div class="card">খ নক - 5 জন - টিইই যুক্ত</div><button class="btn2" onclick="goPage('W5')">W5 3KM →</button></div></div>
-<div id="W5" class="page"><div class="hdr" style="background:#111"><div class
+<script>
+var tap=0;
+function goPage(id){
+ var pages=document.getElementsByClassName('page');
+ for(var i=0;i<pages.length;i++){ pages[i].style.display='none'; }
+ document.getElementById(id).style.display='block';
+ if(id==='H5'){ var us=document.getElementById('userShow'); if(us) us.innerText=localStorage.getItem('userPhone')||''; }
+}
+function doReg(){ var n=document.getElementById('reg-name').value; var ph=document.getElementById('reg-phone').value; if(ph.length<11){ alert('ফোন দিন'); return; } localStorage.setItem('userPhone',ph); localStorage.setItem('isRegistered','true'); goPage('H5'); }
+function doLogout(){ localStorage.removeItem('isRegistered'); goPage('H1'); }
+function tapLogo(){ tap++; var c=document.getElementById('tapCount'); if(c) c.innerText=tap+'/3'; if(tap>=3){ document.getElementById('ownerSecret').style.display='flex'; tap=0; } setTimeout(function(){ tap=0; var cc=document.getElementById('tapCount'); if(cc) cc.innerText='0/3'; },3000); }
+</script>
+</body>
+</html>
