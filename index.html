@@ -2,29 +2,19 @@
 <html lang="bn">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Ride Go BD V18 - Toggle = Profile</title>
+<title>Ride Go BD V18.1 - Profile Visible + Integrated</title>
 <style>
-*{box-sizing:border-box;margin:0;padding:0;font-family: -apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif}
+*{box-sizing:border-box;margin:0;padding:0;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif}
 body{background:#f5f5f5}
 .page{display:none;min-height:100vh;max-width:480px;margin:auto;background:#fff;position:relative}
 .page.active{display:block}
-.hdr{display:flex;align-items:center;gap:8px;padding:12px 16px;font-weight:900;color:#0a7a2e;background:#fff;border-bottom:1px solid #eee;position:sticky;top:0;z-index:99}
+.hdr{padding:12px 16px;font-weight:900;color:#0a7a2e;background:#fff;border-bottom:1px solid #eee;position:sticky;top:0;z-index:99;display:flex;justify-content:space-between;align-items:center}
 .logo{width:38px;height:38px;background:#fff;color:#0a7a2e;border-radius:10px;display:flex;align-items:center;justify-content:center;font-weight:900;border:2px solid #0a7a2e;cursor:pointer;font-size:13px}
 .box{padding:16px}
-.btn{background:linear-gradient(135deg,#0a7a2e,#14b848);color:#fff;border:0;padding:16px;border-radius:24px;width:100%;font-weight:800;margin-top:12px;cursor:pointer;font-size:15px}
+.btn{background:linear-gradient(135deg,#0a7a2e,#14b848);color:#fff;border:0;padding:16px;border-radius:24px;width:100%;font-weight:800;margin-top:12px;cursor:pointer}
 .btnDark{background:#111;color:#fff;border:0;padding:16px;border-radius:24px;width:100%;font-weight:800;margin-top:12px;cursor:pointer}
 .btn2{background:#fff;color:#111;border:1.5px solid #ddd;padding:14px;border-radius:24px;width:100%;font-weight:700;margin-top:10px;cursor:pointer}
-.btnClose{background:#d00;color:#fff;border:0;padding:18px;border-radius:30px;width:100%;font-weight:900;margin-top:18px;cursor:pointer;font-size:17px;box-shadow:0 8px 20px #d003}
-
-/* H5 মানানসই Toggle */
-.roleSwitchWrap{background:#f2f2f2;border-radius:36px;padding:8px;display:flex;position:relative;max-width:380px;margin:0 auto 20px;border:1.5px solid #e5e5e5;box-shadow:inset 0 2px 8px #0001}
-.roleOption{flex:1;padding:22px 8px;text-align:center;border-radius:28px;font-weight:900;cursor:pointer;z-index:2;font-size:14px;display:flex;flex-direction:column;align-items:center;gap:6px;transition:0.35s;user-select:none}
-.roleOption.active{color:#fff}
-.roleOption.inactive{color:#777}
-.roleSlider{position:absolute;top:8px;left:8px;width:calc(50% - 8px);height:calc(100% - 16px);background:linear-gradient(135deg,#0a7a2e,#14b848);border-radius:28px;transition:0.45s cubic-bezier(.34,1.56,.64,1);box-shadow:0 8px 20px #0a7a2e50;z-index:1}
-.roleSlider.driver{left:calc(50% + 0px) !important;background:linear-gradient(135deg,#111,#333) !important}
-.profileHint{font-size:10px;background:#fff8;border-radius:20px;padding:3px 8px;margin-top:4px;font-weight:700;border:1px solid #ddd}
-
+.btnClose{background:#d00;color:#fff;border:0;padding:18px;border-radius:30px;width:100%;font-weight:900;margin-top:18px;cursor:pointer;font-size:17px}
 .inputBox{background:#fff;border-radius:20px;padding:14px 16px;width:100%;margin:8px 0;display:flex;align-items:center;gap:10px;box-shadow:0 2px 10px #0001;border:1.5px solid #eee}
 .inputBox input{border:0;outline:none;width:100%;font-size:15px}
 .card{background:#f8fff8;border:1.5px solid #cfe9cf;padding:12px;border-radius:14px;margin:8px 0}
@@ -33,173 +23,41 @@ body{background:#f5f5f5}
 .pin.passenger{background:#0a7a2e;color:#fff}
 .pin.driver{background:#111;color:#fff}
 .routeLine{position:absolute;height:4px;background:repeating-linear-gradient(90deg,#0a7a2e 0 12px,transparent 12px 18px);top:50%;left:10%;right:10%;transform:translateY(-50%)}
+.roleSwitchWrap{background:#f2f2f2;border-radius:36px;padding:8px;display:flex;position:relative;max-width:380px;margin:0 auto 20px;border:1.5px solid #e5e5e5}
+.roleOption{flex:1;padding:22px 8px;text-align:center;border-radius:28px;font-weight:900;cursor:pointer;z-index:2;display:flex;flex-direction:column;align-items:center;gap:6px;transition:0.35s}
+.roleOption.active{color:#fff}
+.roleOption.inactive{color:#777}
+.roleSlider{position:absolute;top:8px;left:8px;width:calc(50% - 8px);height:calc(100% - 16px);background:linear-gradient(135deg,#0a7a2e,#14b848);border-radius:28px;transition:0.45s;z-index:1}
 .profileAvatar{width:90px;height:90px;border-radius:50%;background:linear-gradient(135deg,#e8ffe8,#c8f5c8);border:3px solid #0a7a2e;display:flex;align-items:center;justify-content:center;font-size:40px;margin:0 auto 10px;position:relative}
 .profileAvatar.driver{background:linear-gradient(135deg,#eee,#ccc);border-color:#111}
 </style>
 </head>
 <body>
 
-<div id="H1" class="page active"><div class="hdr"><div class="logo">RG</div>Ride Go BD V18</div><div class="box" style="text-align:center"><div style="height:180px;background:linear-gradient(#87ceeb,#e0f6ff);border-radius:20px;display:flex;align-items:center;justify-content:center;font-size:60px">🚗</div><button class="btn" onclick="goPage('H2')">নিবন্ধন</button><button class="btn2" onclick="goPage('H3')">লগইন</button></div></div>
+<div id="H1" class="page active"><div class="hdr"><div style="display:flex;align-items:center;gap:8px"><div class="logo">RG</div>Ride Go BD V18.1</div></div><div class="box" style="text-align:center"><div style="height:180px;background:linear-gradient(#87ceeb,#e0f6ff);border-radius:20px;display:flex;align-items:center;justify-content:center;font-size:60px">🚗</div><button class="btn" onclick="goPage('H2')">নিবন্ধন</button><button class="btn2" onclick="goPage('H3')">লগইন</button></div></div>
 <div id="H2" class="page"><div class="hdr"><div class="logo">RG</div>H2</div><div class="box"><div class="inputBox">👤<input id="reg-name" placeholder="নাম"></div><div class="inputBox">📞<input id="reg-phone" placeholder="ফোন"></div><button class="btn" onclick="doReg()">নিবন্ধন</button><button class="btn2" onclick="goPage('H1')">Back</button></div></div>
 <div id="H3" class="page"><div class="hdr"><div class="logo">RG</div>Login</div><div class="box"><div class="inputBox">📱<input id="login-phone" placeholder="ফোন"></div><button class="btn" onclick="doLogin()">লগইন</button><button class="btn2" onclick="goPage('H1')">Back</button></div></div>
 
-<!-- H5 CLEAN + TOGGLE = PROFILE V18 -->
+<!-- H5 V18.1 INTEGRATED + VISIBLE PROFILE ICON -->
 <div id="H5" class="page">
-<div class="hdr"><div class="logo" onclick="tapLogo()">RG</div>H5 শাখা - <span id="userShow" style="font-size:12px"></span> - <span id="roleShowTop" style="background:#0a7a2e;color:#fff;padding:4px 10px;border-radius:20px;font-size:10px">যাত্রী</span></div>
+<div class="hdr">
+<div style="display:flex;align-items:center;gap:8px"><div class="logo" onclick="tapLogo()">RG</div><div><div style="font-size:13px;font-weight:900">H5 শাখা</div><div style="font-size:11px;color:#666" id="userShow">01823...</div></div></div>
+<div style="display:flex;align-items:center;gap:8px">
+<span id="roleShowTop" style="background:#0a7a2e;color:#fff;padding:5px 10px;border-radius:20px;font-size:10px;font-weight:800">যাত্রী</span>
+<!-- VISIBLE PROFILE ICON - MAIN CODE INTEGRATED -->
+<div id="profileIconBtn" onclick="goProfile()" style="width:46px;height:46px;background:#fff;border:2.5px solid #0a7a2e;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:24px;cursor:pointer;box-shadow:0 4px 12px #0002;position:relative">
+<span id="profileIconEmoji">👤</span>
+<div style="position:absolute;top:-3px;right:-3px;width:14px;height:14px;background:#0a7a2e;border:2px solid #fff;border-radius:50%"></div>
+</div>
+</div>
+</div>
 <div class="box" style="max-width:400px;margin:auto;padding:20px 18px">
-<div style="text-align:center;margin-bottom:16px"><b style="font-size:18px">আপনি কোন হিসাবে ব্যবহার করবেন?</b><br><span style="font-size:11px;color:#888">টগল = মোড + প্রোফাইল - Isolated</span></div>
-
-<div class="roleSwitchWrap">
-<div class="roleSlider" id="roleSlider"></div>
-<div class="roleOption active" id="optPassenger" onclick="handleRoleCard('passenger')">
-<div style="font-size:36px">👤</div><b>যাত্রী</b><span style="font-size:11px">P1-P8</span>
-<span class="profileHint" id="hintPassenger">👆 মোড + প্রোফাইল</span>
-</div>
-<div class="roleOption inactive" id="optDriver" onclick="handleRoleCard('driver')">
-<div style="width:48px;height:48px;background:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:28px;border:2px solid #111">🚕</div><b>চালক</b><span style="font-size:11px">D1-D7</span>
-<span class="profileHint" id="hintDriver">👆 মোড + প্রোফাইল</span>
-</div>
-</div>
-
-<div style="background:#fffbe6;border:1.5px dashed #ffb800;padding:10px;border-radius:12px;font-size:11px;text-align:center;margin-bottom:14px">💡 <b>নিয়ম:</b> ১ম Tap = মোড Change | ২য় Tap (Active থাকলে) = প্রোফাইলে প্রবেশ</div>
-
-<button class="btn" id="mainActionBtn" onclick="goWithRole()" style="font-size:16px;padding:18px;border-radius:28px">👤 যাত্রী হিসাবে শুরু করুন → P1</button>
-
-<div style="text-align:center;margin-top:14px"><span id="d1Badge" style="font-size:11px;background:#111;color:#fff;padding:6px 14px;border-radius:20px;font-weight:800">● OFFLINE - D1-D7</span></div>
-
-<div style="display:flex;justify-content:flex-end;margin-top:24px;align-items:center;gap:6px;opacity:0.35"><span style="font-size:10px;color:#aaa">v18 Toggle=Profile</span><div onclick="tapLogo()" style="width:14px;height:14px;background:#eee;border:1px solid #ddd;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:8px">•</div><span id="tapCount" style="font-size:10px;color:#bbb">0/3</span></div>
+<div style="text-align:center;margin-bottom:14px"><b style="font-size:17px">আপনি কোন হিসাবে ব্যবহার করবেন?</b><br><span style="font-size:11px;color:#888">Toggle = Mode, Profile Icon = Profile - Isolated</span></div>
+<div class="roleSwitchWrap"><div class="roleSlider" id="roleSlider"></div><div class="roleOption active" id="optPassenger" onclick="handleRoleCard('passenger')"><div style="font-size:34px">👤</div><b>যাত্রী</b><span style="font-size:11px">P1-P8</span></div><div class="roleOption inactive" id="optDriver" onclick="handleRoleCard('driver')"><div style="width:46px;height:46px;background:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:26px;border:2px solid #111">🚕</div><b>চালক</b><span style="font-size:11px">D1-D7</span></div></div>
+<div style="background:#e8ffe8;border:1.5px solid #0a7a2e;padding:10px;border-radius:12px;text-align:center;margin-bottom:12px"><div style="font-size:12px;font-weight:800">👆 উপরে ডানে <span style="background:#fff;border:2px solid #0a7a2e;padding:2px 8px;border-radius:20px">👤</span> Profile Icon Touch করুন</div><div style="font-size:10px;color:#666;margin-top:3px" id="profileHintText">যাত্রী মোডে → যাত্রী প্রোফাইল, চালক মোডে → চালক প্রোফাইল</div></div>
+<button class="btn" id="mainActionBtn" onclick="goWithRole()">👤 যাত্রী হিসাবে শুরু করুন → P1</button>
+<div style="display:flex;gap:8px;margin-top:10px"><button class="btn2" onclick="goProfile()" style="flex:1;border:2px solid #0a7a2e;color:#0a7a2e;font-weight:800">👤 প্রোফাইল - <span id="profileBtnRole">যাত্রী</span></button><button class="btn2" onclick="goWithRole()" style="flex:1">🚀 শুরু</button></div>
+<div style="text-align:center;margin-top:12px"><span id="d1Badge" style="font-size:11px;background:#111;color:#fff;padding:6px 14px;border-radius:20px;font-weight:800">● OFFLINE - D1-D7</span></div>
+<div style="display:flex;justify-content:flex-end;margin-top:18px;align-items:center;gap:6px;opacity:0.35"><span style="font-size:10px">v18.1 Profile Visible</span><div onclick="tapLogo()" style="width:14px;height:14px;background:#eee;border:1px solid #ddd;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:8px">•</div><span id="tapCount" style="font-size:10px">0/3</span></div>
 <div id="ownerSecret" style="display:none;background:#111;color:#fff;padding:14px;border-radius:16px;margin:10px 0;text-align:center;cursor:pointer;border:2px solid gold" onclick="goPage('W1')">🏢 Owner W1-W13 →</div>
-<button class="btn2" onclick="doLogout()" style="margin-top:10px;padding:12px;font-size:13px;opacity:0.7">Logout</button>
-</div>
-</div>
-
-<!-- P-Profile যাত্রী -->
-<div id="PProfile" class="page">
-<div class="hdr"><div class="logo">RG</div>👤 যাত্রী প্রোফাইল - Isolated</div>
-<div class="box" style="max-width:400px;margin:auto">
-<div style="text-align:center;padding:16px"><div class="profileAvatar">👤<div style="position:absolute;bottom:0;right:0;background:#0a7a2e;color:#fff;width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px;border:2px solid #fff">📷</div></div><b>যাত্রী প্রোফাইল - P1-P8 - যাত্রী Only</b><br><span style="font-size:11px;color:#666">যাত্রী মোডে যাত্রীই দেখবে - Isolated</span></div>
-<div class="inputBox">👤<input id="pName" placeholder="যাত্রীর নাম"></div>
-<div class="inputBox">📱<input id="pPhone" placeholder="ফোন - H5 থেকে"></div>
-<div class="inputBox">🏠<input id="pAddress" placeholder="বাসা - Nazirhat"></div>
-<div class="inputBox">🚨<input id="pEmergency" placeholder="ইমার্জেন্সি ফোন"></div>
-<div class="inputBox">⭐<input id="pFavRoute" placeholder="প্রিয় রুট - Nazirhat → Muradpur"></div>
-<div class="card" style="text-align:center;background:#e8ffe8"><span style="font-size:11px">✅ যাত্রী Verified - P1-P8 - যাত্রী Only - Isolated</span></div>
-<button class="btn" onclick="savePProfile()">💾 Save - যাত্রী প্রোফাইল সেভ</button>
-<button class="btn2" onclick="goPage('H5')">← H5 ফিরুন - যাত্রী</button>
-</div>
-</div>
-
-<!-- D-Profile চালক -->
-<div id="DProfile" class="page">
-<div class="hdr" style="background:#111;color:#fff"><div class="logo" style="border-color:#fff;color:#111">RG</div>🚕 চালক প্রোফাইল - Isolated</div>
-<div class="box" style="max-width:400px;margin:auto">
-<div style="text-align:center;padding:16px"><div class="profileAvatar driver">🚕<div style="position:absolute;bottom:0;right:0;background:#111;color:#fff;width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px;border:2px solid #fff">📷</div></div><b>চালক প্রোফাইল - D1-D7 - চালক Only</b><br><span style="font-size:11px;color:#666">চালক মোডে চালকই দেখবে - Isolated - প্রয়োজনীয় তথ্য</span></div>
-<div class="inputBox">👤<input id="dName" placeholder="চালকের নাম"></div>
-<div class="inputBox">📱<input id="dPhone" placeholder="ফোন - H5 থেকে"></div>
-<div class="inputBox">🪪<input id="dNid" placeholder="NID / লাইসেন্স - DL-..."></div>
-<div class="inputBox">🚕<input id="dVehicleType" placeholder="গাড়ির ধরন - CNG / Bike / Car"></div>
-<div class="inputBox">🔢<input id="dVehicleNo" placeholder="গাড়ি নং - Chatt Metro 11-1234"></div>
-<div class="inputBox">⭐<input id="dExp" placeholder="অভিজ্ঞতা - 5 বছর - Hathazari"></div>
-<div class="card" style="text-align:center;background:#111;color:#fff"><span style="font-size:11px" id="dStatusProfile">● OFFLINE - D1 Toggle থেকে - চালক Only</span></div>
-<button class="btnDark" onclick="saveDProfile()">💾 Save - চালক প্রোফাইল সেভ - D1-D7</button>
-<button class="btn2" onclick="goPage('H5')">← H5 ফিরুন - চালক</button>
-</div>
-</div>
-
-<!-- P1-P8 যাত্রী -->
-<div id="P1" class="page"><div class="hdr"><div class="logo">RG</div>P1 যাত্রী</div><div class="box"><div class="inputBox"><input id="pickup" value="Nazirhat"></div><div class="inputBox"><input id="drop" value="Muradpur"></div><button class="btn" onclick="goPage('P2')">P2 →</button><button class="btn2" onclick="goPage('H5')">Back H5</button></div></div>
-<div id="P2" class="page"><div class="hdr"><div class="logo">RG</div>P2 যাত্রী</div><div class="box"><div class="card" onclick="selectVehicle('CNG')">🚕 CNG</div><div class="card" onclick="selectVehicle('Bike')">🏍️ Bike</div><button class="btn2" onclick="goPage('P1')">Back</button></div></div>
-<div id="P3" class="page"><div class="hdr"><div class="logo">RG</div>P3 যাত্রী</div><div class="box"><div id="driverList"></div><button class="btn2" onclick="goPage('P2')">Back</button></div></div>
-<div id="P4" class="page"><div class="hdr"><div class="logo">RG</div>P4 যাত্রী</div><div class="box" style="text-align:center"><p id="knockInfo">Ring...</p><button class="btn" onclick="goPage('P5')">→ P5</button></div></div>
-<div id="P5" class="page"><div class="hdr"><div class="logo">RG</div>P5 যাত্রী - P5->P6</div><div class="box"><div id="p5chat" style="height:200px;overflow:auto;background:#fff;border:1px solid #ddd;border-radius:12px;padding:8px"></div><div class="inputBox"><input id="fareInput" placeholder="500"></div><button class="btn" onclick="sendPassengerFare()">পাঠান</button><div id="p5ConfirmBox" style="display:none;background:#0a7a2e;color:#fff;padding:12px;border-radius:12px;text-align:center;margin-top:10px"><b id="p5ConfirmedFare">500</b>৳<br><button class="btn" style="background:#fff;color:#0a7a2e" onclick="goToPaymentFromP5()">→ P6</button></div></div></div>
-<div id="P6" class="page"><div class="hdr"><div class="logo">RG</div>P6 যাত্রী</div><div class="box" style="text-align:center"><h3 id="finalFareShow">500</h3><button class="btn" onclick="goPage('P7')">→ P7</button></div></div>
-<div id="P7" class="page"><div class="hdr"><div class="logo">RG</div>P7 যাত্রী</div><div class="box"><button class="btn" onclick="goPage('P8')">→ P8 Riding - যাত্রী Final</button></div></div>
-<div id="P8" class="page"><div class="hdr"><div class="logo">RG</div>P8 Riding - যাত্রী Isolated</div><div class="box"><div style="background:#0a7a2e;color:#fff;padding:10px;border-radius:12px;text-align:center">🚕 <span id="finalFare">500</span>৳ - যাত্রী P8 Independent</div><div class="liveMap"><div class="routeLine"></div><div class="pin passenger" id="pinPassengerP8" style="left:15%;top:40%">👤</div><div class="pin driver" id="pinDriverP8" style="left:65%;top:45%">🚕</div><div style="position:absolute;bottom:8px;left:10px;right:10px;background:#fff9;padding:6px;border-radius:8px;font-size:11px;display:flex;justify-content:space-between"><span id="distP8">1.2KM</span><span>Live - যাত্রী</span></div></div><button class="btn" id="startBtn" onclick="startRideP()">শুরু P8</button><button class="btn" id="endBtn" style="display:none" onclick="showRatingP()">শেষ প্রস্তুত</button><button class="btnClose" id="closeBtnP8" style="display:none" onclick="closeRideP()">❌ Close - যাত্রী নিজে - Independent</button><div id="ratingBox" style="display:none;text-align:center;margin-top:12px;background:#f8fff8;padding:14px;border-radius:14px;border:2px solid #0a7a2e"><b>যাত্রী P8 Complete - Independent</b><br><button class="btn" onclick="goPage('H5')">Home H5</button></div></div></div>
-
-<!-- D1-D7 চালক -->
-<div id="D1" class="page"><div class="hdr"><div class="logo">RG</div>D1 চালক</div><div class="box"><button class="btnDark" onclick="toggleOnline()">Toggle Online D1</button><button class="btn" onclick="goPage('D2')">D2 →</button><button class="btn2" onclick="goPage('H5')">H5</button></div></div>
-<div id="D2" class="page"><div class="hdr"><div class="logo">RG</div>D2 চালক</div><div class="box"><button class="btnDark" onclick="goPage('D3')">D3 →</button></div></div>
-<div id="D3" class="page"><div class="hdr"><div class="logo">RG</div>D3 চালক</div><div class="box"><div id="notificationList"></div><button class="btnDark" onclick="goPage('D4')">D4 →</button></div></div>
-<div id="D4" class="page"><div class="hdr"><div class="logo">RG</div>D4 চালক</div><div class="box"><div id="fareChatBox" style="height:200px;overflow:auto;background:#fff;border:1px solid #ddd;border-radius:12px;padding:8px"></div><div class="inputBox"><input id="driverFareInput" placeholder="500"></div><button class="btnDark" onclick="sendDriverFare()">পাঠান</button><div id="finalConfirmBox" style="display:none;background:#111;color:#fff;padding:12px;border-radius:12px;text-align:center;margin-top:10px"><b id="confirmedFare">500</b>৳<br><button class="btnDark" style="background:#fff;color:#111" onclick="goToD5()">→ D5</button></div></div></div>
-<div id="D5" class="page"><div class="hdr"><div class="logo">RG</div>D5 চালক</div><div class="box"><h3 id="finalFareShowD5">500</h3><button class="btnDark" onclick="goPage('D6')">→ D6</button></div></div>
-<div id="D6" class="page"><div class="hdr"><div class="logo">RG</div>D6 চালক</div><div class="box"><button class="btnDark" onclick="goPage('D7')">→ D7 Riding</button></div></div>
-<div id="D7" class="page"><div class="hdr"><div class="logo">RG</div>D7 Riding - চালক Isolated</div><div class="box"><div style="background:#111;color:#fff;padding:10px;border-radius:12px;text-align:center">🚕 <span id="finalFareD7">500</span>৳ - চালক D7 Independent</div><div class="liveMap"><div class="routeLine"></div><div class="pin passenger" id="pinPassengerD7" style="left:15%;top:40%">👤</div><div class="pin driver" id="pinDriverD7" style="left:65%;top:45%">🚕</div><div style="position:absolute;bottom:8px;left:10px;right:10px;background:#fff9;padding:6px;border-radius:8px;font-size:11px;display:flex;justify-content:space-between"><span id="distD7">1.2KM</span><span>Live - চালক</span></div></div><button class="btnDark" id="startBtnD7" onclick="startRideD()">শুরু D7</button><button class="btn" id="endBtnD7" style="display:none" onclick="showRatingD()">শেষ প্রস্তুত</button><button class="btnClose" id="closeBtnD7" style="display:none" onclick="closeRideD()">❌ Close - চালক নিজে - Independent</button><div id="ratingBoxD7" style="display:none;text-align:center;margin-top:12px;background:#f0f0f0;padding:14px;border-radius:14px;border:2px solid #111"><b>চালক D7 Complete - Independent</b><br><button class="btnDark" onclick="goPage('H5')">Home H5</button></div></div></div>
-
-<div id="W1" class="page"><div class="hdr" style="background:#111;color:#fff"><div class="logo">RG</div>W1 Owner</div><div class="box"><div class="inputBox"><input id="masterPass" type="password" placeholder="12345678"></div><div class="inputBox"><input id="ownerIdInput" placeholder="RG-OWNER-9294-BD"></div><button class="btnDark" onclick="ownerLogin()">→ W3</button></div></div>
-<div id="W3" class="page"><div class="hdr" style="background:#111;color:#fff"><div class="logo">RG</div>W3 - Log</div><div class="box"><div class="card" id="logPProfile">P-Profile Log: <span id="logPProfileText">Not Saved</span></div><div class="card" id="logDProfile">D-Profile Log: <span id="logDProfileText">Not Saved</span></div><div class="card" id="logP8">P8 Close: <span id="logP8Text">Not Closed</span></div><div class="card" id="logD7">D7 Close: <span id="logD7Text">Not Closed</span></div><button class="btnDark" onclick="goPage('H5')">Home H5</button></div></div>
-
-<script>
-var tap=0; var finalFareVal=500; var liveIntervalP=null; var liveIntervalD=null;
-var currentRole=localStorage.getItem('userRole')||'passenger';
-var notifications=JSON.parse(localStorage.getItem('rideNotifications')||'[]');
-var fareChat=JSON.parse(localStorage.getItem('fareChat')||'[]');
-
-function goPage(id){
- var role=localStorage.getItem('userRole')||'passenger';
- if(role==='passenger' && id.startsWith('D') && !id.startsWith('DProfile')){ if(!['DProfile'].includes(id)){ alert('⛔ যাত্রী মোড - D1-D7 দেখতে পারবেন না - H5 থেকে চালক হন - Isolated'); return; }}
- if(role==='driver' && id.startsWith('P') && !id.startsWith('PProfile')){ if(!['PProfile'].includes(id)){ alert('⛔ চালক মোড - P1-P8 দেখতে পারবেন না - H5 থেকে যাত্রী হন - Isolated'); return; }}
- var pages=document.getElementsByClassName('page');
- for(var i=0;i<pages.length;i++){ pages[i].style.display='none'; pages[i].classList.remove('active'); }
- var el=document.getElementById(id); if(el){ el.style.display='block'; el.classList.add('active'); }
- if(id==='H5'){ var us=document.getElementById('userShow'); if(us) us.innerText=localStorage.getItem('userPhone')||''; setRole(role); checkD1Status(); }
- if(id==='PProfile'){ loadPProfile(); }
- if(id==='DProfile'){ loadDProfile(); }
- if(id==='D1' || id==='P8' || id==='D7'){ /* update */ }
- window.scrollTo(0,0);
-}
-function setRole(role){
- currentRole=role; localStorage.setItem('userRole',role);
- var slider=document.getElementById('roleSlider'); var optP=document.getElementById('optPassenger'); var optD=document.getElementById('optDriver'); var mainBtn=document.getElementById('mainActionBtn'); var topRole=document.getElementById('roleShowTop'); var hintP=document.getElementById('hintPassenger'); var hintD=document.getElementById('hintDriver');
- if(!slider) return;
- if(role==='passenger'){
-   slider.className='roleSlider'; slider.style.left='8px'; optP.className='roleOption active'; optD.className='roleOption inactive';
-   if(mainBtn){ mainBtn.innerHTML='👤 যাত্রী হিসাবে শুরু করুন → P1 - Isolated'; mainBtn.style.background='linear-gradient(135deg,#0a7a2e,#14b848)'; }
-   if(topRole){ topRole.innerText='যাত্রী P1-P8'; topRole.style.background='#0a7a2e'; }
-   if(hintP) hintP.innerText='👆 ২য় Tap = প্রোফাইল'; if(hintD) hintD.innerText='👆 মোড + প্রোফাইল';
- }else{
-   slider.className='roleSlider driver'; slider.style.left='calc(50% + 0px)'; optD.className='roleOption active'; optP.className='roleOption inactive';
-   if(mainBtn){ mainBtn.innerHTML='🚕 চালক D1-D7 শুরু → D1 - Isolated'; mainBtn.style.background='#111'; }
-   if(topRole){ topRole.innerText='চালক D1-D7'; topRole.style.background='#111'; }
-   if(hintD) hintD.innerText='👆 ২য় Tap = প্রোফাইল'; if(hintP) hintP.innerText='👆 মোড + প্রোফাইল';
- }
-}
-function handleRoleCard(role){
- var current=localStorage.getItem('userRole')||'passenger';
- if(current!==role){
-   setRole(role); // 1st Tap = Mode Change
- }else{
-   // 2nd Tap = Profile Entry - আপনার কথা মতো
-   if(role==='passenger'){ goPage('PProfile'); }else{ goPage('DProfile'); }
- }
-}
-function goWithRole(){ if(currentRole==='passenger') goPage('P1'); else goPage('D1'); }
-function checkD1Status(){ var online=localStorage.getItem('driverOnline')==='true'; var b=document.getElementById('d1Badge'); if(b){ b.innerText=online?'● ONLINE - D1-D7':'● OFFLINE - D1-D7'; b.style.background=online?'#0a7a2e':'#111'; } }
-
-function loadPProfile(){ var phone=localStorage.getItem('userPhone')||''; document.getElementById('pPhone').value=phone; var saved=JSON.parse(localStorage.getItem('pProfile')||'{}'); if(saved.name) document.getElementById('pName').value=saved.name; if(saved.address) document.getElementById('pAddress').value=saved.address; if(saved.emergency) document.getElementById('pEmergency').value=saved.emergency; if(saved.favRoute) document.getElementById('pFavRoute').value=saved.favRoute; }
-function savePProfile(){ var data={name:document.getElementById('pName').value, phone:document.getElementById('pPhone').value, address:document.getElementById('pAddress').value, emergency:document.getElementById('pEmergency').value, favRoute:document.getElementById('pFavRoute').value}; localStorage.setItem('pProfile',JSON.stringify(data)); localStorage.setItem('userPhone',data.phone); document.getElementById('logPProfileText').innerText='Saved by যাত্রী - '+data.name+' - '+new Date().toLocaleTimeString()+' - Isolated'; alert('✅ যাত্রী প্রোফাইল সেভ - P1-P8 - Isolated - যাত্রী Only'); goPage('H5'); }
-function loadDProfile(){ var phone=localStorage.getItem('userPhone')||''; document.getElementById('dPhone').value=phone; var saved=JSON.parse(localStorage.getItem('dProfile')||'{}'); if(saved.name) document.getElementById('dName').value=saved.name; if(saved.nid) document.getElementById('dNid').value=saved.nid; if(saved.vehicleType) document.getElementById('dVehicleType').value=saved.vehicleType; if(saved.vehicleNo) document.getElementById('dVehicleNo').value=saved.vehicleNo; if(saved.exp) document.getElementById('dExp').value=saved.exp; var online=localStorage.getItem('driverOnline')==='true'; document.getElementById('dStatusProfile').innerText=online?'● ONLINE - D1 Toggle থেকে - চালক Only':'● OFFLINE - D1 Toggle থেকে - চালক Only'; }
-function saveDProfile(){ var data={name:document.getElementById('dName').value, phone:document.getElementById('dPhone').value, nid:document.getElementById('dNid').value, vehicleType:document.getElementById('dVehicleType').value, vehicleNo:document.getElementById('dVehicleNo').value, exp:document.getElementById('dExp').value}; localStorage.setItem('dProfile',JSON.stringify(data)); localStorage.setItem('userPhone',data.phone); document.getElementById('logDProfileText').innerText='Saved by চালক - '+data.name+' - '+data.vehicleNo+' - '+new Date().toLocaleTimeString()+' - Isolated'; alert('✅ চালক প্রোফাইল সেভ - D1-D7 - Isolated - চালক Only - প্রয়োজনীয় তথ্য'); goPage('H5'); }
-
-function selectVehicle(v){ goPage('P3'); }
-function startRideP(){ document.getElementById('startBtn').style.display='none'; document.getElementById('endBtn').style.display='block'; document.getElementById('closeBtnP8').style.display='block'; var pos=65; liveIntervalP=setInterval(function(){ pos-=2; if(pos<20) pos=65; var pin=document.getElementById('pinDriverP8'); if(pin) pin.style.left=pos+'%'; },1500); }
-function showRatingP(){ clearInterval(liveIntervalP); document.getElementById('endBtn').style.display='none'; }
-function closeRideP(){ if(!confirm('যাত্রী P8 Close? চালকের D7 Auto হবে না - Independent')) return; clearInterval(liveIntervalP); localStorage.setItem('passengerRideClosed','true'); document.getElementById('closeBtnP8').style.display='none'; document.getElementById('ratingBox').style.display='block'; document.getElementById('logP8Text').innerText='Closed by যাত্রী - '+new Date().toLocaleTimeString()+' - Independent'; }
-function startRideD(){ document.getElementById('startBtnD7').style.display='none'; document.getElementById('endBtnD7').style.display='block'; document.getElementById('closeBtnD7').style.display='block'; var pos=65; liveIntervalD=setInterval(function(){ pos-=2; if(pos<20) pos=65; var pin=document.getElementById('pinDriverD7'); if(pin) pin.style.left=pos+'%'; },1500); }
-function showRatingD(){ clearInterval(liveIntervalD); document.getElementById('endBtnD7').style.display='none'; }
-function closeRideD(){ if(!confirm('চালক D7 Close? যাত্রীর P8 Auto হবে না - Independent')) return; clearInterval(liveIntervalD); localStorage.setItem('driverRideClosed','true'); document.getElementById('closeBtnD7').style.display='none'; document.getElementById('ratingBoxD7').style.display='block'; document.getElementById('logD7Text').innerText='Closed by চালক - '+new Date().toLocaleTimeString()+' - Independent'; }
-
-function sendPassengerFare(){ var input=document.getElementById('fareInput'); var amt=input.value.trim(); if(!amt) return; fareChat.push({from:'passenger',amount:parseInt(amt),time:new Date().toLocaleTimeString()}); localStorage.setItem('fareChat',JSON.stringify(fareChat)); input.value=''; document.getElementById('p5ConfirmedFare').innerText=amt; document.getElementById('p5ConfirmBox').style.display='block'; finalFareVal=parseInt(amt); }
-function sendDriverFare(){ var input=document.getElementById('driverFareInput'); var amt=input.value.trim(); if(!amt) return; fareChat.push({from:'driver',amount:parseInt(amt),time:new Date().toLocaleTimeString()}); localStorage.setItem('fareChat',JSON.stringify(fareChat)); input.value=''; document.getElementById('confirmedFare').innerText=amt; document.getElementById('finalConfirmBox').style.display='block'; finalFareVal=parseInt(amt); }
-function goToPaymentFromP5(){ document.getElementById('finalFare').innerText=finalFareVal; document.getElementById('finalFareShow').innerText=finalFareVal; goPage('P6'); }
-function goToD5(){ document.getElementById('finalFareShowD5').innerText=finalFareVal; document.getElementById('finalFareD7').innerText=finalFareVal; goPage('D5'); }
-function toggleOnline(){ var on=localStorage.getItem('driverOnline')==='true'; localStorage.setItem('driverOnline',on?'false':'true'); checkD1Status(); alert(on?'OFFLINE D1':'ONLINE D1 - চালক'); }
-function tapLogo(){ tap++; var c=document.getElementById('tapCount'); if(c) c.innerText=tap+'/3'; if(tap>=3){ var o=document.getElementById('ownerSecret'); if(o) o.style.display='block'; tap=0; } setTimeout(function(){ tap=0; var cc=document.getElementById('tapCount'); if(cc) cc.innerText='0/3'; },4000); }
-function doReg(){ var ph=document.getElementById('reg-phone').value.trim(); if(ph.length<11){ alert('ফোন দিন'); return; } localStorage.setItem('userPhone',ph); localStorage.setItem('isRegistered','true'); goPage('H5'); }
-function doLogin(){ var ph=document.getElementById('login-phone').value.trim(); if(ph.length<11){ alert('ফোন দিন'); return; } localStorage.setItem('userPhone',ph); localStorage.setItem('isRegistered','true'); goPage('H5'); }
-function checkLogin(){ if(localStorage.getItem('isRegistered')) goPage('H5'); else goPage('H1'); setRole(currentRole); }
-function doLogout(){ localStorage.removeItem('isRegistered'); goPage('H1'); }
-function ownerLogin(){ var mp=document.getElementById('masterPass').value; var oid=document.getElementById('ownerIdInput').value; if(mp==='12345678'&&oid==='RG-OWNER-9294-BD') goPage('W3'); else alert('ভুল'); }
-window.onload=checkLogin;
-</script>
-</body>
-</html>
+<button class="btn2" onclick="doLogout()" style="margin-top:10px;padding:12px;font-size:13px;opacity:0.7">Logout</button
